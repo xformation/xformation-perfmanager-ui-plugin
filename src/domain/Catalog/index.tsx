@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { config } from '../../config';
 import { Breadcrumbs } from '../Breadcrumbs';
+import { Collapse } from 'reactstrap';
+// import {Collapse} from 'react-bootstrap';
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
@@ -9,6 +11,7 @@ export class Catalog extends React.Component<any, any> {
         super(props);
         this.state = {
             searchKey: '',
+            open: true,
             catalogs: [
                 {
                     catalogName: 'Aws config',
@@ -177,6 +180,7 @@ export class Catalog extends React.Component<any, any> {
                     <div className="row">
                         <div className="col-lg-4 col-md-4 col-sm-12">
                             <div className="category-image confit-image">
+                                <img src="/images/Image2.png" />
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-8 col-sm-12">
@@ -277,14 +281,97 @@ export class Catalog extends React.Component<any, any> {
                     </div>
                     <div className="common-container border-bottom-0">
                         <div className="row">
-                            <div className="col-lg-9 col-md-9 col-sm-12">
+                            <div className="col-lg-8 col-md-8 col-sm-12">
                                 <div className="categories-boxes">
                                     {this._displayCatalogBox()}
                                 </div>
                             </div>
-                            <div className="col-lg-3 col-md-3 col-sm-12">
-                                <div className="salect-services-text">
-                                    Select the services from Catalog to view information here
+                            <div className="col-lg-4 col-md-4 col-sm-12">
+                                <div className="right-config-box">
+                                    <div className="row">
+                                        <div className="col-lg-6 col-md-6 col-sm-12">
+                                            <h5>AWS config</h5>
+                                        </div>
+                                        <div className="col-lg-6 col-md-6 col-sm-12">
+                                            <div className="category-add-link">
+                                                <a href="#">Add To library</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the
+                                 visual form of a document or a typeface without relying on meaningful content</p>
+                                    <div className='row '>
+                                        <div className='col-lg-1 col-md-1 col-sm-6'>
+                                            <img src="/images/Image2.png" />
+                                        </div>
+                                        <div className='col-lg-9 col-md-9 col-sm-12'>
+                                            <p>AWS config OverView-Interactive</p>
+                                        </div>
+                                    </div>
+                                    <Collapse in={this.state.open}>
+                                        <div>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        </div>
+                                    </Collapse>
+                                    <div className='row'>
+                                        <div className='col-lg-1 col-md-1 col-sm-6'>
+                                            <img src="/images/Image2.png" />
+                                        </div>
+                                        <div className='col-lg-10 col-md-10 col-sm-12'>
+                                            <p>AWS config OverView-Interactive</p>
+                                        </div>
+                                    </div>
+
+                                    <div className='row '>
+                                        <div className='col-lg-1 col-md-1 col-sm-6'>
+                                            <img src="/images/Image2.png" />
+                                        </div>
+                                        <div className='col-lg-10 col-md-10 col-sm-12'>
+                                            <p>AWS config OverView-Interactive</p>
+                                        </div>
+                                    </div>
+                                    <div className='row'>
+                                        <div className='col-lg-1 col-md-1 col-sm-6'>
+                                            <img src="/images/Image2.png" />
+                                        </div>
+                                        <div className='col-lg-10 col-md-10 col-sm-12'>
+                                            <p>AWS config OverView-Interactive</p>
+                                        </div>
+                                    </div>
+                                    <div className='row '>
+                                        <div className='col-lg-1 col-md-1 col-sm-6'>
+                                            <img src="/images/Image2.png" />
+                                        </div>
+                                        <div className='col-lg-10 col-md-10 col-sm-12'>
+                                            <p>AWS config OverView-Interactive</p>
+                                        </div>
+                                    </div>
+                                    <div className='row'>
+                                        <div className='col-lg-1 col-md-1 col-sm-6'>
+                                            <img src="/images/Image2.png" />
+                                        </div>
+                                        <div className='col-lg-10 col-md-10 col-sm-12'>
+                                            <p>AWS config OverView-Interactive</p>
+                                        </div>
+                                    </div>
+                                    <div className='row '>
+                                        <div className='col-lg-1 col-md-1 col-sm-6'>
+                                            <img src="/images/Image2.png" />
+                                        </div>
+                                        <div className='col-lg-10 col-md-10 col-sm-12'>
+                                            <p>AWS config OverView-Interactive</p>
+                                        </div>
+                                    </div>
+                                    <div className='row'>
+                                        <div className='col-lg-1 col-md-1 col-sm-6'>
+                                            <img src="/images/Image2.png" />
+                                        </div>
+                                        <div className='col-lg-10 col-md-10 col-sm-12'>
+                                            <p>AWS config OverView-Interactive</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
