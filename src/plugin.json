@@ -30,6 +30,13 @@
       "addToNav": false,
       "defaultNav": false,
       "component": "ManageDashboard"
+    },
+    {
+      "type": "page",
+      "name": "Catalog",
+      "addToNav": false,
+      "defaultNav": false,
+      "component": "Catalog"
     }
   ],
   "dependencies": {
