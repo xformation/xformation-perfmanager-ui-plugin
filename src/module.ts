@@ -1,6 +1,4 @@
-import {
-  Dashboard
-} from "./ui";
+import { Dashboard, ManageDashboard } from "./ui";
 import { ConfigCtrl } from "./ConfigCtrl";
 
 // import { loadPluginCss } from '@grafana/runtime';
@@ -8,15 +6,12 @@ import { ConfigCtrl } from "./ConfigCtrl";
 declare const window: any;
 export function loadPluginCss() {
   if (window.grafanaBootData.user.lightTheme) {
-    require('./css/perfmanager.light.css');
+    require("./css/perfmanager.light.css");
   } else {
-    require('./css/perfmanager.dark.css');
+    require("./css/perfmanager.dark.css");
   }
 }
 
 loadPluginCss();
 
-export {
-  ConfigCtrl,
-  Dashboard
-};
+export { ConfigCtrl, Dashboard, ManageDashboard };

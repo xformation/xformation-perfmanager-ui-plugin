@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { config } from '../../config';
 import { Breadcrumbs } from '../Breadcrumbs';
+import { config } from '../../config';
 
-export class Dashboard extends React.Component<any, any> {
+
+export class ManageDashboard extends React.Component<any, any> {
     breadCrumbs: any;
     constructor(props: any) {
         super(props);
@@ -53,7 +54,7 @@ export class Dashboard extends React.Component<any, any> {
                         </a>
                     </div>
                     <div className="dashboard-metrics">
-                        <p>Metrics dashboard to be done.</p>
+                        <p>Manage Dashboard.</p>
                     </div>
                 </div>
             </div>
