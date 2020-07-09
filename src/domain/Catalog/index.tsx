@@ -7,7 +7,157 @@ export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
     constructor(props: any) {
         super(props);
-        this.state = {};
+        this.state = {
+            searchKey: '',
+            catalogs: [
+                {
+                    catalogName: 'Aws config',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'pink',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Elastic Load Balancer - Application',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'orange',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Security Hub',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'Amazon Dynamo DB',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'blue',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Elasticache Redis ULM',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'purple',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Security Hub',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'blue',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'Amazon CloudTrail',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'pink',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'Amazon SES',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'blue',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Inspector',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Inspector',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Inspector',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Inspector',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                }
+            ],
+            displayCatalogData: [
+                {
+                    catalogName: 'Aws config',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'pink',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Elastic Load Balancer - Application',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'orange',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Security Hub',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'Amazon Dynamo DB',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'blue',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Elasticache Redis ULM',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'purple',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Security Hub',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'blue',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'Amazon CloudTrail',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'pink',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'Amazon SES',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'blue',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Inspector',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Inspector',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Inspector',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                },
+                {
+                    catalogName: 'AWS Inspector',
+                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogBackColor: 'red',
+                    catalogImage: '',
+                }
+            ],
+        };
         this.breadCrumbs = [
             {
                 label: "Home",
@@ -20,6 +170,45 @@ export class Catalog extends React.Component<any, any> {
         ];
     }
 
+    _displayCatalogBox() {
+        const catalogBox = this.state.displayCatalogData.map((val: any, key: any) => {
+            return (
+                <div className="category-box">
+                    <div className="row">
+                        <div className="col-lg-4 col-md-4 col-sm-12">
+                            <div className="category-image confit-image">
+                            </div>
+                        </div>
+                        <div className="col-lg-8 col-md-8 col-sm-12">
+                            <div className="category-name">{val.catalogName} </div>
+                            <div className="category-add-link">
+                                <a href="#">{val.catalogDescription}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        });
+        return catalogBox;
+    }
+
+    keyPress = (e: any) => {
+        const { value } = e.target;
+        this.setState({
+            searchKey: value
+        });
+        const { catalogs } = this.state;
+        var searchResult = [];
+        for (let i = 0; i < catalogs.length; i++) {
+            if (catalogs[i].catalogName.indexOf(value) !== -1 || value === '') {
+                searchResult.push(catalogs[i]);
+            }
+        }
+        this.setState({
+            displayCatalogData: searchResult,
+        })
+    }
+
     render() {
         const state = this.state;
         return (
@@ -29,7 +218,7 @@ export class Catalog extends React.Component<any, any> {
                     <div className="common-container">
                         <div className="row">
                             <div className="col-lg-10 col-md-10 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboards`}className="alert-blue-button">
+                                <Link to={`${config.basePath}/managedashboards`} className="alert-blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Manage Dashboards
                                 </Link>
@@ -78,7 +267,7 @@ export class Catalog extends React.Component<any, any> {
                             </div>
                             <div className="form-group category-control-group">
                                 <form>
-                                    <input type="text" className="input-group-text" />
+                                    <input type="text" onChange={this.keyPress} className="input-group-text" value={this.state.searchKey} placeholder="Search" />
                                     <button>
                                         <i className="fa fa-search"></i>
                                     </button>
@@ -90,240 +279,7 @@ export class Catalog extends React.Component<any, any> {
                         <div className="row">
                             <div className="col-lg-9 col-md-9 col-sm-12">
                                 <div className="categories-boxes">
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="category-box">
-                                        <div className="row">
-                                            <div className="col-lg-4 col-md-4 col-sm-12">
-                                                <div className="category-image confit-image"></div>
-                                            </div>
-                                            <div className="col-lg-8 col-md-8 col-sm-12">
-                                                <div className="category-name">Aws config</div>
-                                                <div className="category-add-link">
-                                                    <a href="#">Add To library Preview Dashboard</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {this._displayCatalogBox()}
                                 </div>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-12">
