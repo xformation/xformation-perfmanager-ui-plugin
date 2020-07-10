@@ -6,10 +6,12 @@ import { Collapse } from 'reactstrap';
 // import {Collapse} from 'react-bootstrap';
 import categoryImage from '../../img/category-image1.png';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
+import { AddLibraryPopup } from './addLibraryPopup';
 
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
+    addlibraryRef: any;
     constructor(props: any) {
         super(props);
         this.state = {
@@ -253,6 +255,7 @@ export class Catalog extends React.Component<any, any> {
                 isCurrentPage: true
             }
         ];
+        this.addlibraryRef = React.createRef();
     }
 
     _displayCatalogBox() {
@@ -351,6 +354,10 @@ export class Catalog extends React.Component<any, any> {
         })
     }
 
+    onClickAddLibrary = (e: any) => {
+        this.addlibraryRef.current.toggle();
+    };
+
     render() {
         const state = this.state;
         return (
@@ -430,7 +437,7 @@ export class Catalog extends React.Component<any, any> {
                                         <div className="config-heading">
                                             <h5>AWS config</h5>
                                             <div className="category-add-link float-right">
-                                                <a href="#">Add To library</a>
+                                                <a onClick={this.onClickAddLibrary}>Add To library</a>
                                             </div>
                                         </div>
                                         <div className="publishing-text">
@@ -445,6 +452,7 @@ export class Catalog extends React.Component<any, any> {
                         </div>
                     </div>
                 </div>
+                <AddLibraryPopup ref={this.addlibraryRef} />
             </div>
         );
     }
