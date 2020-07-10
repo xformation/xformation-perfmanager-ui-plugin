@@ -14,77 +14,118 @@ export class Catalog extends React.Component<any, any> {
         super(props);
         this.state = {
             searchKey: '',
+            currentOpenIndex: '',
+            currentCatalogDisplayData: [],
             catalogs: [
                 {
                     catalogName: 'Aws config',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'pink',
                     catalogImage: '',
+                    catalogDetail: [
+                        {
+                            title: 'AWS config',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS config OverView-Interactive',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        }
+                    ]
                 },
                 {
                     catalogName: 'AWS Elastic Load Balancer - Application',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'orange',
                     catalogImage: '',
+                    catalogDetail: [
+                        {
+                            title: 'AWS Elastic Load Balancer - Application',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS Elastic Load Balancer - Application',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS config OverView-Interactive',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                    ]
                 },
                 {
                     catalogName: 'AWS Security Hub',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
+                    catalogDetail: [
+                        {
+                            title: 'AWS Security Hub',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS config OverView-Interactive',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS Security Hub',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS Security Hub',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                    ]
                 },
                 {
                     catalogName: 'Amazon Dynamo DB',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'blue',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Elasticache Redis ULM',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'purple',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Security Hub',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'blue',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'Amazon CloudTrail',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'pink',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'Amazon SES',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'blue',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Inspector',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Inspector',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Inspector',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Inspector',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
                 }
             ],
@@ -92,120 +133,115 @@ export class Catalog extends React.Component<any, any> {
                 {
                     catalogName: 'Aws config',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'pink',
-                    catalogImage: '',
+                    catalogImage: '../../img/category-image1.png',
+                    catalogDetail: [
+                        {
+                            title: 'AWS config',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS config OverView-Interactive',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        }
+                    ]
                 },
                 {
                     catalogName: 'AWS Elastic Load Balancer - Application',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'orange',
-                    catalogImage: '',
+                    catalogImage: '../../img/category-image2.png',
+                    catalogDetail: [
+                        {
+                            title: 'AWS Elastic Load Balancer - Application',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS Elastic Load Balancer - Application',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS config OverView-Interactive',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                    ]
                 },
                 {
                     catalogName: 'AWS Security Hub',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
+                    catalogDetail: [
+                        {
+                            title: 'AWS Security Hub',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS config OverView-Interactive',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS Security Hub',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                        {
+                            title: 'AWS Security Hub',
+                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                            open: false
+                        },
+                    ]
                 },
                 {
                     catalogName: 'Amazon Dynamo DB',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'blue',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Elasticache Redis ULM',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'purple',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Security Hub',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'blue',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'Amazon CloudTrail',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'pink',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'Amazon SES',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'blue',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Inspector',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Inspector',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Inspector',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
                 },
                 {
                     catalogName: 'AWS Inspector',
                     catalogDescription: 'Add To library Preview Dashboard',
-                    catalogBackColor: 'red',
                     catalogImage: '',
                 }
             ],
-
-            catalogDetail: [
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-            ]
         };
         this.breadCrumbs = [
             {
@@ -222,7 +258,7 @@ export class Catalog extends React.Component<any, any> {
     _displayCatalogBox() {
         const catalogBox = this.state.displayCatalogData.map((val: any, key: any) => {
             return (
-                <div className="category-box">
+                <div className="category-box" onClick={() => this.openCatalogDetail(key, val)}>
                     <div className="row">
                         <div className="col-lg-4 col-md-4 col-sm-12 p-r-0">
                             <div className="category-image confit-image">
@@ -242,15 +278,37 @@ export class Catalog extends React.Component<any, any> {
         return catalogBox;
     }
 
+    openCatalogDetail(i: any, arryData: any) {
+        console.log(arryData);
+        let displaycataloddescriptionData = [];
+        if (arryData.catalogDetail != '' && arryData.catalogDetail) {
+            for (let i = 0; i < arryData.catalogDetail.length; i++) {
+                if (arryData.catalogDetail[i].open == true) {
+                    arryData.catalogDetail[i].open = false;
+                }
+                displaycataloddescriptionData.push(arryData.catalogDetail[i]);
+            }
+            this.setState({
+                currentOpenIndex: i,
+                currentCatalogDisplayData: displaycataloddescriptionData
+            })
+        } else {
+            this.setState({
+                currentOpenIndex: '',
+                currentCatalogDisplayData: ''
+            })
+        }
+    }
+
     openCatalogDescription(index: any) {
         let opencatalog = [];
-        for (let i = 0; i < this.state.catalogDetail.length; i++) {
+        for (let i = 0; i < this.state.currentCatalogDisplayData.length; i++) {
             if (i === index) {
-                this.state.catalogDetail[i].open = true;
+                this.state.currentCatalogDisplayData[i].open = !this.state.currentCatalogDisplayData[i].open;
             } else {
-                this.state.catalogDetail[i].open = false;
+                this.state.currentCatalogDisplayData[i].open = false;
             }
-            opencatalog.push(this.state.catalogDetail[i]);
+            opencatalog.push(this.state.currentCatalogDisplayData[i]);
         }
         this.setState({
             catalogDetail: opencatalog
@@ -258,12 +316,14 @@ export class Catalog extends React.Component<any, any> {
     };
 
     catalogdetail() {
-        const catalog = this.state.catalogDetail.map((val: any, key: any) => {
+        let displayData = this.state.currentCatalogDisplayData;
+        console.log(displayData);
+        const catalog = displayData.map((val: any, key: any) => {
             return (
                 <div className="config-collapse" key={key}>
                     <div className='collapse-toggle ' onClick={() => this.openCatalogDescription(key)}>
                         <span><img src={collapseToggleIcon} alt="" /></span>
-                        <p>{val.title}</p>                        
+                        <p>{val.title}</p>
                     </div>
                     <Collapse isOpen={val.open}>
                         <p>{val.description}</p>
@@ -365,20 +425,22 @@ export class Catalog extends React.Component<any, any> {
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12">
-                                <div className="right-config-box">
-                                    <div className="config-heading">
-                                        <h5>AWS config</h5>
-                                        <div className="category-add-link float-right">
-                                            <a href="#">Add To library</a>
+                                {this.state.currentOpenIndex !== '' &&
+                                    <div className="right-config-box">
+                                        <div className="config-heading">
+                                            <h5>AWS config</h5>
+                                            <div className="category-add-link float-right">
+                                                <a href="#">Add To library</a>
+                                            </div>
+                                        </div>
+                                        <div className="publishing-text">
+                                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
+                                        </div>
+                                        <div className="catalog-collapse">
+                                            {this.catalogdetail()}
                                         </div>
                                     </div>
-                                    <div className="publishing-text">
-                                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
-                                    </div>
-                                    <div className="catalog-collapse">
-                                        {this.catalogdetail()}
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     </div>
