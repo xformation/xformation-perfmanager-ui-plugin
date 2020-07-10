@@ -11,7 +11,6 @@ export class Catalog extends React.Component<any, any> {
         super(props);
         this.state = {
             searchKey: '',
-            open: true,
             catalogs: [
                 {
                     catalogName: 'Aws config',
@@ -160,6 +159,50 @@ export class Catalog extends React.Component<any, any> {
                     catalogImage: '',
                 }
             ],
+
+            catalogDetail: [
+                {
+                    title: 'AWS config OverView-Interactive',
+                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    open: false
+                },
+                {
+                    title: 'AWS config OverView-Interactive',
+                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    open: false
+                },
+                {
+                    title: 'AWS config OverView-Interactive',
+                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    open: false
+                },
+                {
+                    title: 'AWS config OverView-Interactive',
+                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    open: false
+                },
+                {
+                    title: 'AWS config OverView-Interactive',
+                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    open: false
+                },
+
+                {
+                    title: 'AWS config OverView-Interactive',
+                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    open: false
+                },
+                {
+                    title: 'AWS config OverView-Interactive',
+                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    open: false
+                },
+                {
+                    title: 'AWS config OverView-Interactive',
+                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    open: false
+                },
+            ]
         };
         this.breadCrumbs = [
             {
@@ -194,6 +237,44 @@ export class Catalog extends React.Component<any, any> {
             );
         });
         return catalogBox;
+    }
+
+    openCatalogDescription(index: any) {
+        let opencatalog = [];
+        for (let i = 0; i < this.state.catalogDetail.length; i++) {
+            if (i === index) {
+                this.state.catalogDetail[i].open = true;
+            } else {
+                this.state.catalogDetail[i].open = false;
+            }
+            opencatalog.push(this.state.catalogDetail[i]);
+        }
+        this.setState({
+            catalogDetail: opencatalog
+        })
+    };
+
+    catalogdetail() {
+        const catalog = this.state.catalogDetail.map((val: any, key: any) => {
+            return (
+                <div key={key}>
+                    <div className='row ' onClick={() => this.openCatalogDescription(key)}>
+                        <div className='col-lg-1 col-md-1 col-sm-6'>
+                            <img src="/images/Image2.png" />
+                        </div>
+                        <div className='col-lg-9 col-md-9 col-sm-12'>
+                            <p>{val.title}</p>
+                        </div>
+                    </div>
+                    <Collapse isOpen={val.open}>
+                        <div>
+                            <p>{val.description}</p>
+                        </div>
+                    </Collapse>
+                </div>
+            );
+        });
+        return catalog;
     }
 
     keyPress = (e: any) => {
@@ -300,77 +381,8 @@ export class Catalog extends React.Component<any, any> {
                                     </div>
                                     <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the
                                  visual form of a document or a typeface without relying on meaningful content</p>
-                                    <div className='row '>
-                                        <div className='col-lg-1 col-md-1 col-sm-6'>
-                                            <img src="/images/Image2.png" />
-                                        </div>
-                                        <div className='col-lg-9 col-md-9 col-sm-12'>
-                                            <p>AWS config OverView-Interactive</p>
-                                        </div>
-                                    </div>
-                                    <Collapse in={this.state.open}>
-                                        <div>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                        </div>
-                                    </Collapse>
-                                    <div className='row'>
-                                        <div className='col-lg-1 col-md-1 col-sm-6'>
-                                            <img src="/images/Image2.png" />
-                                        </div>
-                                        <div className='col-lg-10 col-md-10 col-sm-12'>
-                                            <p>AWS config OverView-Interactive</p>
-                                        </div>
-                                    </div>
-
-                                    <div className='row '>
-                                        <div className='col-lg-1 col-md-1 col-sm-6'>
-                                            <img src="/images/Image2.png" />
-                                        </div>
-                                        <div className='col-lg-10 col-md-10 col-sm-12'>
-                                            <p>AWS config OverView-Interactive</p>
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className='col-lg-1 col-md-1 col-sm-6'>
-                                            <img src="/images/Image2.png" />
-                                        </div>
-                                        <div className='col-lg-10 col-md-10 col-sm-12'>
-                                            <p>AWS config OverView-Interactive</p>
-                                        </div>
-                                    </div>
-                                    <div className='row '>
-                                        <div className='col-lg-1 col-md-1 col-sm-6'>
-                                            <img src="/images/Image2.png" />
-                                        </div>
-                                        <div className='col-lg-10 col-md-10 col-sm-12'>
-                                            <p>AWS config OverView-Interactive</p>
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className='col-lg-1 col-md-1 col-sm-6'>
-                                            <img src="/images/Image2.png" />
-                                        </div>
-                                        <div className='col-lg-10 col-md-10 col-sm-12'>
-                                            <p>AWS config OverView-Interactive</p>
-                                        </div>
-                                    </div>
-                                    <div className='row '>
-                                        <div className='col-lg-1 col-md-1 col-sm-6'>
-                                            <img src="/images/Image2.png" />
-                                        </div>
-                                        <div className='col-lg-10 col-md-10 col-sm-12'>
-                                            <p>AWS config OverView-Interactive</p>
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className='col-lg-1 col-md-1 col-sm-6'>
-                                            <img src="/images/Image2.png" />
-                                        </div>
-                                        <div className='col-lg-10 col-md-10 col-sm-12'>
-                                            <p>AWS config OverView-Interactive</p>
-                                        </div>
+                                    <div>
+                                        {this.catalogdetail()}
                                     </div>
                                 </div>
                             </div>
