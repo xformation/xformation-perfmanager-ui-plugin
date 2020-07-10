@@ -67,7 +67,7 @@
         margin-bottom: 5px;
         background-color: #ffffff;
         box-shadow: 0rem 0rem 0.35rem rgba(0, 0, 0, 0.2);
-        min-height: 110px;
+        min-height: 130px;
         display: inline-block;
         padding: 15px 10px;
         .category-image{
@@ -76,8 +76,8 @@
             background-color: #cc2264;
             background-position: center center;
             background-repeat: no-repeat;
-            &.confit-image{
-                background-image: url('../img/confit-image.jpg');
+            &.confit-image{ 
+                background-image: url();
             }
         }
         .category-name{
@@ -86,7 +86,7 @@
             line-height: 18px;
             color: #3b4859;
             padding-bottom: 15px;
-            min-height: 50px;
+            min-height: 70px;
         }
         .category-add-link{
             a{
@@ -139,4 +139,11 @@
         margin-top: 50px;
         margin-bottom: 50px;
     }
+}
+
+.right-config-box{
+    overflow-y: auto;
+    height: 370px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
