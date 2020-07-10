@@ -4,6 +4,9 @@ import { config } from '../../config';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { Collapse } from 'reactstrap';
 // import {Collapse} from 'react-bootstrap';
+import categoryImage from '../../img/category-image1.png';
+import collapseToggleIcon from '../../img/config-collapse-icon1.png';
+
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
@@ -221,9 +224,9 @@ export class Catalog extends React.Component<any, any> {
             return (
                 <div className="category-box">
                     <div className="row">
-                        <div className="col-lg-4 col-md-4 col-sm-12">
+                        <div className="col-lg-4 col-md-4 col-sm-12 p-r-0">
                             <div className="category-image confit-image">
-                                <img src="/images/Image2.png" />
+                                <img src={categoryImage} alt="" />
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-8 col-sm-12">
@@ -257,19 +260,13 @@ export class Catalog extends React.Component<any, any> {
     catalogdetail() {
         const catalog = this.state.catalogDetail.map((val: any, key: any) => {
             return (
-                <div key={key}>
-                    <div className='row ' onClick={() => this.openCatalogDescription(key)}>
-                        <div className='col-lg-1 col-md-1 col-sm-6'>
-                            <img src="/images/Image2.png" />
-                        </div>
-                        <div className='col-lg-9 col-md-9 col-sm-12'>
-                            <p>{val.title}</p>
-                        </div>
+                <div className="config-collapse" key={key}>
+                    <div className='collapse-toggle ' onClick={() => this.openCatalogDescription(key)}>
+                        <span><img src={collapseToggleIcon} alt="" /></span>
+                        <p>{val.title}</p>                        
                     </div>
                     <Collapse isOpen={val.open}>
-                        <div>
-                            <p>{val.description}</p>
-                        </div>
+                        <p>{val.description}</p>
                     </Collapse>
                 </div>
             );
@@ -369,19 +366,16 @@ export class Catalog extends React.Component<any, any> {
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12">
                                 <div className="right-config-box">
-                                    <div className="row">
-                                        <div className="col-lg-6 col-md-6 col-sm-12">
-                                            <h5>AWS config</h5>
-                                        </div>
-                                        <div className="col-lg-6 col-md-6 col-sm-12">
-                                            <div className="category-add-link">
-                                                <a href="#">Add To library</a>
-                                            </div>
+                                    <div className="config-heading">
+                                        <h5>AWS config</h5>
+                                        <div className="category-add-link float-right">
+                                            <a href="#">Add To library</a>
                                         </div>
                                     </div>
-                                    <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the
-                                 visual form of a document or a typeface without relying on meaningful content</p>
-                                    <div>
+                                    <div className="publishing-text">
+                                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
+                                    </div>
+                                    <div className="catalog-collapse">
                                         {this.catalogdetail()}
                                     </div>
                                 </div>
