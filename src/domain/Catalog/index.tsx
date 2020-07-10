@@ -372,10 +372,10 @@ export class Catalog extends React.Component<any, any> {
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Library
                                 </a>
-                                <a className="alert-blue-button">
+                                <Link to={`${config.basePath}/collection`} className="alert-blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
-                                </a>
+                                </Link>
                                 <a className="alert-blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule

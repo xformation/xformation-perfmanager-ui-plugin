@@ -2,14 +2,17 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
-import dashboardIcon from '../../img/dashboard-icon.png';
+import awsLogo from '../../img/aws.png';
+import microsoftAzureLogo from '../../img/microsoftazure.png';
+import gcpLogo from '../../img/google-cloud.png';
+import KubernetesLogo from '../../img/kubernetes.png';
 import folderIcon from '../../img/folder.png';
 import listIcon from '../../img/list.png';
 import sortIcon from '../../img/sort.png';
 import tagIcon from '../../img/tag.png';
 import openFolderIcon from '../../img/open-folder.png';
 
-export class ManageDashboard extends React.Component<any, any> {
+export class Collection extends React.Component<any, any> {
     breadCrumbs: any;
     constructor(props: any) {
         super(props);
@@ -64,12 +67,33 @@ export class ManageDashboard extends React.Component<any, any> {
                         </div>
                     </div>
                     <div className="common-container border-bottom-0">
-                        <div className="manage-dashboard-heading">
-                            <div className="heading-icon"><img src={dashboardIcon} alt="" /></div>
-                            <div className="heading-right">
-                                <h3>Dashboards</h3>
-                                <p>Manage dashboards & folders</p>
-                            </div>
+                        <div className="collection-logos">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <span><img src={awsLogo} alt="" /></span>
+                                        <p>AWS</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span><img src={microsoftAzureLogo} alt="" /></span>
+                                        <p>Azure</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span><img src={gcpLogo} alt="" /></span>
+                                        <p>GCP</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span><img src={KubernetesLogo} alt="" /></span>
+                                        <p>Kubernetes</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                         <div className="manage-dashboard-radio-btns">
                             <ul>
@@ -87,32 +111,10 @@ export class ManageDashboard extends React.Component<any, any> {
                                 </li>
                             </ul>
                         </div>
-                        <div className="manage-dashboard-tabs">
-                            <ul>
-                                <li className="active-tab">
-                                    <a href="#">Manage</a>
-                                </li>
-                                <li>
-                                    <a href="#">Playlists</a>
-                                </li>
-                                <li>
-                                    <a href="#">Snapshots</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                         <div className="manage-dashboard-search">
-                            <div className="row">
-                                <div className="col-lg-4 col-md-12 col-sm-12">
-                                    <div className="form-group search-control-group">
-                                        <form>
-                                            <input type="text" className="input-group-text" placeholder="Search dashboards by name" />
-                                            <button>
-                                                <i className="fa fa-search"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>  
-                                <div className="col-lg-8 col-md-12 col-sm-12">
+                            <div className="row"> 
+                                <div className="col-lg-12 col-md-12 col-sm-12">
                                     <div className="search-buttons float-right">
                                         <a className="alert-blue-button">New Dashboard</a>
                                         <a className="alert-blue-button">New Folder</a>

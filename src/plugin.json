@@ -37,6 +37,13 @@
       "addToNav": false,
       "defaultNav": false,
       "component": "Catalog"
+    },
+    {
+      "type": "page",
+      "name": "Collection",
+      "addToNav": false,
+      "defaultNav": false,
+      "component": "Collection"
     }
   ],
   "dependencies": {
