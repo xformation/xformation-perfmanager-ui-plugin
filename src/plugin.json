@@ -51,6 +51,13 @@
       "addToNav": false,
       "defaultNav": false,
       "component": "Rules"
+    },
+    {
+      "type": "page",
+      "name": "Library",
+      "addToNav": false,
+      "defaultNav": false,
+      "component": "Library"
     }
   ],
   "dependencies": {

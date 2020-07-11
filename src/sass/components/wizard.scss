@@ -1,7 +1,7 @@
 /*************************** Wizard ********************/
 
 .wizard-container {
-    margin-right: 20px;
+    margin-right: 0px;
   }
   
   .wizard-step-line-container {
@@ -22,7 +22,8 @@
       font-weight: 500;
       cursor: pointer;
       position: relative;
-  
+      box-shadow: 0px 1px 8px #142E6E1A;
+        
       &:last-child {
         border-right: 1px solid #707070b5;
       }
@@ -100,7 +101,7 @@
   }
   
   .wizard-step-component {
-    padding: 20px 10px;
+    padding: 20px 0px;
     display: block;
   
     &.d-none {
