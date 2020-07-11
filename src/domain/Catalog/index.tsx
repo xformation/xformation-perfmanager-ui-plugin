@@ -6,10 +6,12 @@ import { Collapse } from 'reactstrap';
 // import {Collapse} from 'react-bootstrap';
 import categoryImage from '../../img/category-image1.png';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
+import { AddLibraryPopup } from './addLibraryPopup';
 
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
+    addlibraryRef: any;
     constructor(props: any) {
         super(props);
         this.state = {
@@ -253,6 +255,7 @@ export class Catalog extends React.Component<any, any> {
                 isCurrentPage: true
             }
         ];
+        this.addlibraryRef = React.createRef();
     }
 
     _displayCatalogBox() {
@@ -351,6 +354,10 @@ export class Catalog extends React.Component<any, any> {
         })
     }
 
+    onClickAddLibrary = (e: any) => {
+        this.addlibraryRef.current.toggle();
+    };
+
     render() {
         const state = this.state;
         return (
@@ -360,34 +367,34 @@ export class Catalog extends React.Component<any, any> {
                     <div className="common-container">
                         <div className="row">
                             <div className="col-lg-10 col-md-10 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboards`} className="alert-blue-button">
+                                <Link to={`${config.basePath}/managedashboards`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Manage Dashboards
                                 </Link>
-                                <Link to={`${config.basePath}/catalog`} className="alert-blue-button">
+                                <Link to={`${config.basePath}/catalog`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Catalog
                                 </Link>
-                                <a className="alert-blue-button">
+                                <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Library
                                 </a>
-                                <Link to={`${config.basePath}/collection`} className="alert-blue-button">
+                                <Link to={`${config.basePath}/collection`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
-                                <a className="alert-blue-button">
+                                <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
                                 </a>
-                                <a className="alert-blue-button">
+                                <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Preferences
                                 </a>
                             </div>
                             <div className="col-lg-2 col-md-2 col-sm-12">
                                 <div className="float-right common-right-btn">
-                                    <Link to={`#`} className="alert-white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
+                                    <Link to={`#`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
                                 </div>
                             </div>
                         </div>
@@ -430,7 +437,7 @@ export class Catalog extends React.Component<any, any> {
                                         <div className="config-heading">
                                             <h5>AWS config</h5>
                                             <div className="category-add-link float-right">
-                                                <a href="#">Add To library</a>
+                                                <a onClick={this.onClickAddLibrary}>Add To library</a>
                                             </div>
                                         </div>
                                         <div className="publishing-text">
@@ -445,6 +452,7 @@ export class Catalog extends React.Component<any, any> {
                         </div>
                     </div>
                 </div>
+                <AddLibraryPopup ref={this.addlibraryRef} />
             </div>
         );
     }

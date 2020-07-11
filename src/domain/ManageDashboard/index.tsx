@@ -35,27 +35,27 @@ export class ManageDashboard extends React.Component<any, any> {
                     <div className="common-container">
                         <div className="row">
                             <div className="col-lg-12 col-md-12 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboards`}className="alert-blue-button">
+                                <Link to={`${config.basePath}/managedashboards`}className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Manage Dashboards
                                 </Link>
-                                <Link to={`${config.basePath}/catalog`} className="alert-blue-button">
+                                <Link to={`${config.basePath}/catalog`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Catalog
                                 </Link>
-                                <a className="alert-blue-button">
+                                <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Library
                                 </a>
-                                <Link to={`${config.basePath}/collection`} className="alert-blue-button">
+                                <Link to={`${config.basePath}/collection`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
-                                <a className="alert-blue-button">
+                                <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
                                 </a>
-                                <a className="alert-blue-button">
+                                <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Preferences
                                 </a>
@@ -114,9 +114,9 @@ export class ManageDashboard extends React.Component<any, any> {
                                 </div>  
                                 <div className="col-lg-8 col-md-12 col-sm-12">
                                     <div className="search-buttons float-right">
-                                        <a className="alert-blue-button">New Dashboard</a>
-                                        <a className="alert-blue-button">New Folder</a>
-                                        <a className="alert-blue-button m-r-0">Import</a>
+                                        <a className="blue-button">New Dashboard</a>
+                                        <a className="blue-button">New Folder</a>
+                                        <a className="blue-button m-r-0">Import</a>
                                     </div>
                                 </div>                          
                             </div>

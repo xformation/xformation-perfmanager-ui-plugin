@@ -29,34 +29,34 @@ export class Dashboard extends React.Component<any, any> {
                     <div className="common-container">
                         <div className="row">
                             <div className="col-lg-10 col-md-10 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboard`}className="alert-blue-button">
+                                <Link to={`${config.basePath}/managedashboard`}className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Manage Dashboards
                                 </Link>
-                                <Link to={`${config.basePath}/catalog`} className="alert-blue-button">
+                                <Link to={`${config.basePath}/catalog`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Catalog
                                 </Link>
-                                <a className="alert-blue-button">
+                                <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Library
                                 </a>
-                                <Link to={`${config.basePath}/collection`} className="alert-blue-button">
+                                <Link to={`${config.basePath}/collection`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
-                                <a className="alert-blue-button">
+                                <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
                                 </a>
-                                <a className="alert-blue-button">
+                                <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Preferences
                                 </a>
                             </div>
                             <div className="col-lg-2 col-md-2 col-sm-12">
                                 <div className="float-right common-right-btn">
-                                    <Link to={`#`} className="alert-white-button min-width-inherit"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
+                                    <Link to={`#`} className="white-button min-width-inherit"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
                                 </div>
                             </div>
                         </div>
