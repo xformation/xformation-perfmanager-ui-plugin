@@ -4,6 +4,8 @@ import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
 import { Wizard } from './Wizard';
 import { LibraryDetails } from './LibraryDetails';
+import { Personal } from './Personal';
+import { AwsConfig } from './AwsConfig';
 
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
@@ -26,6 +28,14 @@ export class Library extends React.Component<any, any> {
         this.steps = [{
             name: "Library",
             component: <LibraryDetails />
+        },
+        {
+            name: "Personal",
+            component: <Personal />
+        },
+        {
+            name: "AWS Config",
+            component: <AwsConfig />
         }];
     }
     
