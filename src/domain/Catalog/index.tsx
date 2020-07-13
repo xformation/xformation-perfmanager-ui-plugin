@@ -329,7 +329,9 @@ export class Catalog extends React.Component<any, any> {
                         <p>{val.title}</p>
                     </div>
                     <Collapse isOpen={val.open}>
-                        <p>{val.description}</p>
+                        <div className="collapse-card-body">
+                            <p>{val.description}</p>
+                        </div>
                     </Collapse>
                 </div>
             );
