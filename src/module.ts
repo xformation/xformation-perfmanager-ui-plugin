@@ -3,6 +3,7 @@ import {
   ManageDashboard,
   Catalog,
   Collection,
+  CollectionView,
   Rules,
   Library
 } from "./ui";
@@ -27,6 +28,7 @@ export {
   ManageDashboard,
   Catalog,
   Collection,
+  CollectionView,
   Rules,
   Library
 };

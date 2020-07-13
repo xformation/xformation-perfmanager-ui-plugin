@@ -58,6 +58,13 @@
       "addToNav": false,
       "defaultNav": false,
       "component": "Library"
+    },
+    {
+      "type": "page",
+      "name": "CollectionView",
+      "addToNav": false,
+      "defaultNav": false,
+      "component": "CollectionView"
     }
   ],
   "dependencies": {
