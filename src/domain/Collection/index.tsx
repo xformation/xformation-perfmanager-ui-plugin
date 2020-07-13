@@ -95,7 +95,7 @@ export class Collection extends React.Component<any, any> {
                                 </li>
                             </ul>
                         </div>
-                        <div className="manage-dashboard-radio-btns">
+                        <div className="collection-dashboard-radio-btns">
                             <ul>
                                 <li>
                                     <input type="radio" id="f-kpi" name="selector" />
@@ -112,7 +112,7 @@ export class Collection extends React.Component<any, any> {
                             </ul>
                         </div>
                         
-                        <div className="manage-dashboard-search">
+                        <div className="collection-dashboard-search">
                             <div className="row"> 
                                 <div className="col-lg-12 col-md-12 col-sm-12">
                                     <div className="search-buttons float-right">
@@ -123,7 +123,7 @@ export class Collection extends React.Component<any, any> {
                                 </div>                          
                             </div>
                         </div>
-                        <div className="manage-dashboard-fliter-sort">
+                        <div className="collection-dashboard-fliter-sort">
                             <div className="row">
                                 <div className="col-lg-6 col-md-12 col-sm-12">
                                     <div className="sort-checkbox">
@@ -172,7 +172,7 @@ export class Collection extends React.Component<any, any> {
                                 </div>
                             </div>
                         </div>
-                        <div className="manage-dashboard-general">
+                        <div className="collection-dashboard-general">
                             <div className="general-heading">
                                 <input type="checkbox" className="checkbox" />
                                 <span><img src={openFolderIcon} alt="" /></span>

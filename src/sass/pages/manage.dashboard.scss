@@ -87,6 +87,7 @@
                 }
             }
             &:last-child{
+                border-right: none;
                 a{
                     border-radius: 0px 8px 8px 0px;
                 }
@@ -199,6 +200,7 @@
             margin-top: 5px;
             width: 210px;
             cursor: pointer;
+            color: #464c54;
         }
     }
 }
@@ -206,6 +208,8 @@
 .manage-dashboard-general{
     border: 1px solid #8392a7;
     padding: 15px;
+    background-color: #ffffff;
+    color: #3b4859;
     .general-heading{
         input{
             display: inline-block;
@@ -222,7 +226,7 @@
             font-size: 15px;
             font-weight: 500;
             line-height: 22px;
-            color: $manage-dashboard-text-color;
+            color: #3b4859;
             margin-bottom: 0;
             padding-left: 10px;
             padding-top: 2px;
@@ -239,7 +243,7 @@
             font-weight: 400;
             line-height: 18px;
             font-weight: 500;
-            color: $manage-dashboard-text-color; 
+            color: #3b4859; 
             background-color: #ffffff;
             width: 100%;
             tr{

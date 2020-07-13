@@ -40,7 +40,7 @@
     }
 }
 
-.manage-dashboard-radio-btns{
+.collection-dashboard-radio-btns{
     display: block;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -58,7 +58,7 @@
             label{
                 padding-left: 7px;
                 vertical-align: top;
-                color: $manage-dashboard-text-color;
+                color: $collection-dashboard-text-color;
                 font-size: 16px;
                 line-height: 20px;
                 font-weight: 500;
@@ -67,7 +67,7 @@
     }
 }
 
-.manage-dashboard-fliter-sort{
+.collection-dashboard-fliter-sort{
     padding-bottom: 20px;
     .sort-checkbox{
         display: inline-block;
@@ -76,7 +76,7 @@
         padding-top: 10px;
         span{
             padding-left: 10px;
-            color: $manage-dashboard-text-color;
+            color: $collection-dashboard-text-color;
             font-size: 14px;
             line-height: 20px;
             font-weight: 500;
@@ -138,13 +138,15 @@
             margin-top: 5px;
             width: 210px;
             cursor: pointer;
+            color: #464c54;
         }
     }
 }
 
-.manage-dashboard-general{
+.collection-dashboard-general{
     border: 1px solid #8392a7;
     padding: 15px;
+    background-color: #ffffff;
     .general-heading{
         input{
             display: inline-block;
@@ -161,7 +163,7 @@
             font-size: 15px;
             font-weight: 500;
             line-height: 22px;
-            color: $manage-dashboard-text-color;
+            color: #3b4859;
             margin-bottom: 0;
             padding-left: 10px;
             padding-top: 2px;
@@ -178,7 +180,7 @@
             font-weight: 400;
             line-height: 18px;
             font-weight: 500;
-            color: $manage-dashboard-text-color; 
+            color: #3b4859; 
             background-color: #ffffff;
             width: 100%;
             tr{
@@ -243,7 +245,7 @@
             padding-top: 15px;
         }
     }
-    .manage-dashboard-search{
+    .collection-dashboard-search{
         .search-control-group{
             width: 100%;
             margin-bottom: 15px;
@@ -254,7 +256,7 @@
             }
         }
     }
-    .manage-dashboard-general{
+    .collection-dashboard-general{
         display: grid;
         .general-logs{
             overflow-x: auto;
