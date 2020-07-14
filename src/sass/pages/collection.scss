@@ -67,6 +67,10 @@
     }
 }
 
+.collection-dashboard-search{
+    margin-bottom: 10px;
+}
+
 .collection-dashboard-fliter-sort{
     padding-bottom: 20px;
     .sort-checkbox{
@@ -187,7 +191,8 @@
                 td{
                     padding: 10px 10px;
                     input{
-                        margin-top: 3px;
+                        margin-top: 0px;
+                        margin-right: 15px;
                     }
                 }
                 &:nth-child(odd){

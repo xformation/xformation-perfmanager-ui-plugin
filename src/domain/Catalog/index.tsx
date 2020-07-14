@@ -369,7 +369,7 @@ export class Catalog extends React.Component<any, any> {
                     <div className="common-container">
                         <div className="row">
                             <div className="col-lg-10 col-md-10 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboards`} className="blue-button">
+                                <Link to={`${config.basePath}/managedashboard`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Manage Dashboards
                                 </Link>
@@ -377,18 +377,18 @@ export class Catalog extends React.Component<any, any> {
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Catalog
                                 </Link>
-                                <a className="blue-button">
+                                <Link to={`${config.basePath}/library`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Library
-                                </a>
+                                </Link>
                                 <Link to={`${config.basePath}/collection`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
-                                <a className="blue-button">
+                                <Link to={`${config.basePath}/rules`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
-                                </a>
+                                </Link>
                                 <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Preferences
@@ -428,12 +428,12 @@ export class Catalog extends React.Component<any, any> {
                     </div>
                     <div className="common-container border-bottom-0">
                         <div className="row">
-                            <div className="col-lg-8 col-md-8 col-sm-12">
+                            <div className="col-lg-9 col-md-12 col-sm-12">
                                 <div className="categories-boxes">
                                     {this._displayCatalogBox()}
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-md-4 col-sm-12">
+                            <div className="col-lg-3 col-md-12 col-sm-12 p-l-0">
                                 {this.state.currentOpenIndex !== '' &&
                                     <div className="right-config-box">
                                         <div className="config-heading">

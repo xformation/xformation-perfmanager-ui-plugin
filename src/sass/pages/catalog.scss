@@ -79,12 +79,12 @@
             }
         }
         .category-name{
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            line-height: 18px;
+            line-height: 16px;
             color: #3b4859;
             padding-bottom: 15px;
-            min-height: 70px;
+            min-height: 40px;
         }
         .category-add-link{
             a{
@@ -155,20 +155,24 @@
                 span{
                     display: inline-block;
                     margin-right: 10px;
-                    width: 30px;
-                    height: 30px;
+                    width: 20px;
+                    height: 20px;
                     vertical-align: top;
+                    img{
+                        max-width: 100%;
+                        height: auto;
+                    }
                 }
                 p{
                     display: inline-block;
-                    font-size: 14px;
+                    font-size: 13px;
                     font-weight: 400;
                     line-height: 18px;
-                    padding: 6px 0;
+                    padding: 1px 0;
                     color: $catalog-text-color;
                     margin-bottom: 0;  
                     vertical-align: top;
-                    width: 85%;
+                    width: 80%;
                 }
             }
             .collapse-card-body{

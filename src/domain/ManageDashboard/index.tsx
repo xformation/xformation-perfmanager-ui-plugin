@@ -240,8 +240,6 @@ export class ManageDashboard extends React.Component<any, any> {
                     <tr>
                         <td>
                             <input type="checkbox" className="checkbox" />
-                        </td>
-                        <td>
                             <span>{subFolder.tableTitle}</span>
                         </td>
                         <td>
@@ -283,7 +281,7 @@ export class ManageDashboard extends React.Component<any, any> {
                     <div className="common-container">
                         <div className="row">
                             <div className="col-lg-12 col-md-12 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboards`} className="blue-button">
+                                <Link to={`${config.basePath}/managedashboard`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Manage Dashboards
                                 </Link>
@@ -291,24 +289,23 @@ export class ManageDashboard extends React.Component<any, any> {
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Catalog
                                 </Link>
-                                <a className="blue-button">
+                                <Link to={`${config.basePath}/library`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Library
-                                </a>
+                                </Link>
                                 <Link to={`${config.basePath}/collection`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
-                                <a className="blue-button">
+                                <Link to={`${config.basePath}/rules`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
-                                </a>
+                                </Link>
                                 <a className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Preferences
                                 </a>
                             </div>
-
                         </div>
                     </div>
                     <div className="common-container border-bottom-0">
