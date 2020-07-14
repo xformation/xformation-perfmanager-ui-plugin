@@ -312,9 +312,11 @@ export class ManageDashboard extends React.Component<any, any> {
                     </div>
                     <Collapse isOpen={folder.openSubFolder}>
                         <div className="general-logs">
-                            <table className="data-table">
-                                {subFolderJSX}
-                            </table>
+                            <div className="general-logs-inner">
+                                <table className="data-table">
+                                    {subFolderJSX}
+                                </table>
+                            </div>
                         </div>
                     </Collapse>
                 </div>
@@ -348,7 +350,7 @@ export class ManageDashboard extends React.Component<any, any> {
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
-                                <Link to={`${config.basePath}/rules`} className="blue-button">
+                                <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
                                 </Link>
