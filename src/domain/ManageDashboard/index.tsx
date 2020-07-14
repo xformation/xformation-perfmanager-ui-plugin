@@ -22,6 +22,7 @@ export class ManageDashboard extends React.Component<any, any> {
                     subData: [
                         {
                             tableTitle: 'Amazon CloudWatch Logs',
+                            checkValue: false,
                             attribute: [
                                 {
                                     attributeName: 'AWS',
@@ -43,6 +44,7 @@ export class ManageDashboard extends React.Component<any, any> {
                         },
                         {
                             tableTitle: 'Amazon RDS',
+                            checkValue: false,
                             attribute: [
                                 {
                                     attributeName: 'Cloud Watch',
@@ -56,6 +58,7 @@ export class ManageDashboard extends React.Component<any, any> {
                         },
                         {
                             tableTitle: 'AWS VPN',
+                            checkValue: false,
                             attribute: [
                                 {
                                     attributeName: 'Cloud Watch',
@@ -69,12 +72,15 @@ export class ManageDashboard extends React.Component<any, any> {
                         },
                         {
                             tableTitle: 'AWS VPN Dashboard',
+                            checkValue: false,
                         },
                         {
                             tableTitle: 'Cloud Trial',
+                            checkValue: false,
                         },
                         {
                             tableTitle: 'Cloud Watch',
+                            checkValue: false,
 
                         },
                     ]
@@ -85,6 +91,7 @@ export class ManageDashboard extends React.Component<any, any> {
                     subData: [
                         {
                             tableTitle: 'Amazon CloudWatch Logs',
+                            checkValue: false,
                             attribute: [
                                 {
                                     attributeName: 'AWS',
@@ -106,6 +113,7 @@ export class ManageDashboard extends React.Component<any, any> {
                         },
                         {
                             tableTitle: 'Amazon RDS',
+                            checkValue: false,
                             attribute: [
                                 {
                                     attributeName: 'Cloud Watch',
@@ -119,6 +127,7 @@ export class ManageDashboard extends React.Component<any, any> {
                         },
                         {
                             tableTitle: 'AWS VPN',
+                            checkValue: false,
                             attribute: [
                                 {
                                     attributeName: 'Cloud Watch',
@@ -132,12 +141,15 @@ export class ManageDashboard extends React.Component<any, any> {
                         },
                         {
                             tableTitle: 'AWS VPN Dashboard',
+                            checkValue: false,
                         },
                         {
                             tableTitle: 'Cloud Trial',
+                            checkValue: false,
                         },
                         {
                             tableTitle: 'Cloud Watch',
+                            checkValue: false,
                         },
                     ]
                 },
@@ -147,9 +159,11 @@ export class ManageDashboard extends React.Component<any, any> {
                     subData: [
                         {
                             tableTitle: 'Amazon CloudWatch Logs',
+                            checkValue: false,
                         },
                         {
                             tableTitle: 'Amazon RDS',
+                            checkValue: false,
                             attribute: [
                                 {
                                     attributeName: 'Cloud Watch',
@@ -163,6 +177,7 @@ export class ManageDashboard extends React.Component<any, any> {
                         },
                         {
                             tableTitle: 'AWS VPN',
+                            checkValue: false,
                             attribute: [
                                 {
                                     attributeName: 'Cloud Watch',
@@ -176,12 +191,15 @@ export class ManageDashboard extends React.Component<any, any> {
                         },
                         {
                             tableTitle: 'AWS VPN Dashboard',
+                            checkValue: false,
                         },
                         {
                             tableTitle: 'Cloud Trial',
+                            checkValue: false,
                         },
                         {
                             tableTitle: 'Cloud Watch',
+                            checkValue: false,
                         },
                     ]
                 }
@@ -201,11 +219,8 @@ export class ManageDashboard extends React.Component<any, any> {
     }
 
     onClickOpenSubFolder(index: any) {
-        console.log(index);
-        const { openSubFolder, folderArray } = this.state;
+        const { folderArray } = this.state;
         for (let i = 0; i < folderArray.length; i++) {
-            console.log(folderArray[i])
-            console.log(folderArray[i].openSubFolder);
             if (i == index) {
                 folderArray[i].openSubFolder = !folderArray[i].openSubFolder;
             }
@@ -213,7 +228,43 @@ export class ManageDashboard extends React.Component<any, any> {
         this.setState({
             folderArray: folderArray,
         })
+    }
 
+    onClickChangeCheckBoxValue(parentIndex: any, childIndex: any) {
+        let updateArrayFolder = [];
+        for (let i = 0; i < this.state.folderArray.length; i++) {
+            if (i == parentIndex) {
+                for (let j = 0; j < this.state.folderArray[i].subData.length; j++) {
+                    if (j == childIndex) {
+                        console.log(this.state.folderArray[i].subData);
+                        this.state.folderArray[i].subData[j].checkValue = !this.state.folderArray[i].subData[j].checkValue;
+                    }
+                }
+            }
+            updateArrayFolder.push(this.state.folderArray[i]);
+        }
+        this.setState({
+            folderArray: updateArrayFolder
+        })
+    }
+
+    allSelectFolderData = (e: any, index: any) => {
+        let updateArraycheckbox = [];
+        for (let i = 0; i < this.state.folderArray.length; i++) {
+            if (i == index) {
+                for (let j = 0; j < this.state.folderArray[i].subData.length; j++) {
+                    if( e.target.checked==true){
+                    this.state.folderArray[i].subData[j].checkValue = true;
+                    }else{
+                        this.state.folderArray[i].subData[j].checkValue = false;
+                    }
+                }
+            }
+            updateArraycheckbox.push(this.state.folderArray[i]);
+        }
+        this.setState({
+            folderArray: updateArraycheckbox,
+        })
     }
 
     openCloseManageDashboardFolder() {
@@ -239,7 +290,7 @@ export class ManageDashboard extends React.Component<any, any> {
                 subFolderJSX.push(
                     <tr>
                         <td>
-                            <input type="checkbox" className="checkbox" />
+                            <input type="checkbox" className="checkbox" value={subFolder.checkValue} onClick={() => this.onClickChangeCheckBoxValue(i, j)} />
                             <span>{subFolder.tableTitle}</span>
                         </td>
                         <td>
@@ -254,8 +305,8 @@ export class ManageDashboard extends React.Component<any, any> {
             retData.push(
                 <div>
                     <div className="general-heading">
-                        <input type="checkbox" className="checkbox" />
-                        <span  onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
+                        <input type="checkbox" onChange={(e) => { this.allSelectFolderData(e, i) }} className="checkbox" />
+                        <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
                         <h4>{folder.title}</h4>
                         <i className="fa fa-angle-down float-right"></i>
                     </div>
