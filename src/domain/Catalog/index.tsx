@@ -7,11 +7,13 @@ import { Collapse } from 'reactstrap';
 import categoryImage from '../../img/category-image1.png';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import { AddLibraryPopup } from './addLibraryPopup';
+import {PreviewDashboard } from './PreviewDashboard';
 
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
     addlibraryRef: any;
+    previewdashboardRef: any;
     constructor(props: any) {
         super(props);
         this.state = {
@@ -256,6 +258,7 @@ export class Catalog extends React.Component<any, any> {
             }
         ];
         this.addlibraryRef = React.createRef();
+        this.previewdashboardRef = React.createRef();
     }
 
     _displayCatalogBox() {
@@ -271,7 +274,8 @@ export class Catalog extends React.Component<any, any> {
                         <div className="col-lg-8 col-md-8 col-sm-12">
                             <div className="category-name">{val.catalogName} </div>
                             <div className="category-add-link">
-                                <a href="#">{val.catalogDescription}</a>
+                                <a onClick={this.onClickAddLibrary}>Add To library</a>
+                                <a onClick={this.onClickPreviewDashboard}>Preview Dashboard</a>
                             </div>
                         </div>
                     </div>
@@ -358,6 +362,10 @@ export class Catalog extends React.Component<any, any> {
 
     onClickAddLibrary = (e: any) => {
         this.addlibraryRef.current.toggle();
+    };
+
+    onClickPreviewDashboard = (e: any) =>{
+        this.previewdashboardRef.current.toggle();
     };
 
     render() {
@@ -455,6 +463,7 @@ export class Catalog extends React.Component<any, any> {
                     </div>
                 </div>
                 <AddLibraryPopup ref={this.addlibraryRef} />
+                <PreviewDashboard ref={this.previewdashboardRef} />
             </div>
         );
     }
