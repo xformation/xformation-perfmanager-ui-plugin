@@ -45,7 +45,7 @@ export class Dashboard extends React.Component<any, any> {
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
-                                <Link to={`${config.basePath}/rules`} className="blue-button">
+                                <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
                                 </Link>

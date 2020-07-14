@@ -4,7 +4,6 @@ import {
   Catalog,
   Collection,
   CollectionView,
-  Rules,
   Library
 } from "./ui";
 import { ConfigCtrl } from "./ConfigCtrl";
@@ -29,6 +28,5 @@ export {
   Catalog,
   Collection,
   CollectionView,
-  Rules,
   Library
 };

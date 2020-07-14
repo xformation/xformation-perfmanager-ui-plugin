@@ -393,7 +393,7 @@ export class Catalog extends React.Component<any, any> {
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
-                                <Link to={`${config.basePath}/rules`} className="blue-button">
+                                <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
                                 </Link>
@@ -404,7 +404,7 @@ export class Catalog extends React.Component<any, any> {
                             </div>
                             <div className="col-lg-2 col-md-2 col-sm-12">
                                 <div className="float-right common-right-btn">
-                                    <Link to={`#`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
+                                    <Link to={`${config.basePath}/dashboard`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
                                 </div>
                             </div>
                         </div>

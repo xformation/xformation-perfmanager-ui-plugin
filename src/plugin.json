@@ -47,13 +47,6 @@
     },
     {
       "type": "page",
-      "name": "Rules",
-      "addToNav": false,
-      "defaultNav": false,
-      "component": "Rules"
-    },
-    {
-      "type": "page",
       "name": "Library",
       "addToNav": false,
       "defaultNav": false,
