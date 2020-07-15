@@ -19,6 +19,7 @@ export class ManageDashboard extends React.Component<any, any> {
                 {
                     title: 'General',
                     openSubFolder: true,
+                    checkValueStatus: false,
                     subData: [
                         {
                             tableTitle: 'Amazon CloudWatch Logs',
@@ -88,6 +89,7 @@ export class ManageDashboard extends React.Component<any, any> {
                 {
                     title: 'Main',
                     openSubFolder: false,
+                    checkValueStatus: false,
                     subData: [
                         {
                             tableTitle: 'Amazon CloudWatch Logs',
@@ -156,6 +158,7 @@ export class ManageDashboard extends React.Component<any, any> {
                 {
                     title: 'Open',
                     openSubFolder: false,
+                    checkValueStatus: false,
                     subData: [
                         {
                             tableTitle: 'Amazon CloudWatch Logs',
@@ -232,13 +235,23 @@ export class ManageDashboard extends React.Component<any, any> {
 
     onClickChangeCheckBoxValue(parentIndex: any, childIndex: any) {
         let updateArrayFolder = [];
+        let counttruecheckBox = 0;
         for (let i = 0; i < this.state.folderArray.length; i++) {
             if (i == parentIndex) {
                 for (let j = 0; j < this.state.folderArray[i].subData.length; j++) {
                     if (j == childIndex) {
-                        console.log(this.state.folderArray[i].subData);
                         this.state.folderArray[i].subData[j].checkValue = !this.state.folderArray[i].subData[j].checkValue;
                     }
+                    if (this.state.folderArray[i].subData[j].checkValue == true) {
+                        counttruecheckBox++;
+                    } else {
+                        counttruecheckBox--;
+                    }
+                }
+                if (counttruecheckBox == this.state.folderArray[i].subData.length) {
+                    this.state.folderArray[i].checkValueStatus = true;
+                } else {
+                    this.state.folderArray[i].checkValueStatus = false;
                 }
             }
             updateArrayFolder.push(this.state.folderArray[i]);
@@ -253,15 +266,13 @@ export class ManageDashboard extends React.Component<any, any> {
         for (let i = 0; i < this.state.folderArray.length; i++) {
             if (i == index) {
                 for (let j = 0; j < this.state.folderArray[i].subData.length; j++) {
-                    if( e.target.checked==true){
-                    this.state.folderArray[i].subData[j].checkValue = true;
-                    }else{
-                        this.state.folderArray[i].subData[j].checkValue = false;
-                    }
+                    this.state.folderArray[i].subData[j].checkValue = e.target.checked;
+                    this.state.folderArray[i].checkValueStatus = e.target.checked;
                 }
             }
             updateArraycheckbox.push(this.state.folderArray[i]);
         }
+        console.log(updateArraycheckbox);
         this.setState({
             folderArray: updateArraycheckbox,
         })
@@ -290,7 +301,7 @@ export class ManageDashboard extends React.Component<any, any> {
                 subFolderJSX.push(
                     <tr>
                         <td>
-                            <input type="checkbox" className="checkbox" value={subFolder.checkValue} onClick={() => this.onClickChangeCheckBoxValue(i, j)} />
+                            <input type="checkbox" className="checkbox" checked={subFolder.checkValue} onClick={() => this.onClickChangeCheckBoxValue(i, j)} />
                             <span>{subFolder.tableTitle}</span>
                         </td>
                         <td>
@@ -305,7 +316,7 @@ export class ManageDashboard extends React.Component<any, any> {
             retData.push(
                 <div>
                     <div className="general-heading">
-                        <input type="checkbox" onChange={(e) => { this.allSelectFolderData(e, i) }} className="checkbox" />
+                        <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.allSelectFolderData(e, i) }} className="checkbox" />
                         <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
                         <h4>{folder.title}</h4>
                         <i className="fa fa-angle-down float-right"></i>
