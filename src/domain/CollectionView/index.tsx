@@ -82,21 +82,19 @@ export class CollectionView extends React.Component<any, any> {
             for (let j = 0; j < subCollections.length; j++) {
                 const collectionsubData = subCollections[j];
                 subCollectionJSX.push(
-                    <tr className="">
-                        <td className="">
+                    <div className="tbody">
+                        <div className="tbody-td first">
                             {collectionsubData.subCollectionName}
-                        </td>
-                        <td>{collectionsubData.subCollectionType}</td>
-                        <td>
+                        </div>
+                        <div className="tbody-td">{collectionsubData.subCollectionType}</div>
+                        <div className="tbody-td">
                             <div className="status-icon"></div>
-                        </td>
-                        <td></td>
-                        <td>{collectionsubData.subCollectionCategory}</td>
-                        <td>
+                        </div>
+                        <div className="tbody-td">{collectionsubData.subCollectionCategory}</div>
+                        <div className="tbody-td">{collectionsubData.subCollectionMessages}</div>
+                        <div className="tbody-td">
                             <div className="d-flex">
-                                <button className="btn btn-link">
-                                    <i className="fa fa-plus"></i>
-                                </button>
+                                <div className="enabled"></div>
                                 <button className="btn btn-link">
                                     <i className="fa fa-edit"></i>
                                 </button>
@@ -107,46 +105,43 @@ export class CollectionView extends React.Component<any, any> {
                                     <i className="fa fa-ellipsis-h"></i>
                                 </button>
                             </div>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 );
             }
             retData.push(
-                <div>
-                    <tr className="">
-                        <td className="">
+                <div className="tbody">
+                    <div className="tbody-inner">
+                        <div className="tbody-td">
                             {collection.openCollectionStatus == false && <div onClick={() => this.opensubCollection(i)} className="caret-right"></div>}
-                            {collection.openCollectionStatus == true && <div onClick={() => this.opensubCollection(i)} className="caret-right"></div>}
-                            {collection.name} <b>({subCollections.length})</b>
-                        </td>
-                        <td>{collection.type}</td>
-                        <td>
-                            <div className="status-icon"></div>
-                            {collection.openCollectionStatus == true && <div className="status-icon"></div>}
-                        </td>
-                        <td></td>
-                        <td>{collection.messages}</td>
-                        <td>
-                            <div className="d-flex">
-                                <button className="btn btn-link">
-                                    <i className="fa fa-plus"></i>
-                                </button>
-                                <button className="btn btn-link">
-                                    <i className="fa fa-edit"></i>
-                                </button>
-                                <button className="btn btn-link">
-                                    <i className="fa fa-trash"></i>
-                                </button>
-                                <button className="btn btn-link" id="PopoverFocus">
-                                    <i className="fa fa-ellipsis-h"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+                            {collection.openCollectionStatus == true && <div onClick={() => this.opensubCollection(i)} className="caret-down"></div>}
+                            {collection.name} <b>({subCollections.length})</b>    
+                        </div> 
+                        <div className="tbody-td">{collection.type}</div>
+                        <div className="tbody-td"><div className="status-icon"></div></div>
+                        <div className="tbody-td">{collection.category}</div>
+                        <div className="tbody-td">{collection.messages}</div>
+                        <div className="tbody-td">
+                        <div className="d-flex">
+                            <button className="btn btn-link">
+                                <i className="fa fa-plus"></i>
+                            </button>
+                            <button className="btn btn-link">
+                                <i className="fa fa-edit"></i>
+                            </button>
+                            <button className="btn btn-link">
+                                <i className="fa fa-trash"></i>
+                            </button>
+                            <button className="btn btn-link" id="PopoverFocus">
+                                <i className="fa fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>                 
+                    </div>
                     <Collapse isOpen={collection.openCollectionStatus}>
                         {subCollectionJSX}
                     </Collapse>
-                </div>
+                </div>                
             );
         }
         return retData;
@@ -172,7 +167,7 @@ export class CollectionView extends React.Component<any, any> {
                 <div className="perfmanager-page-container">
                     <div className="common-container">
                         <div className="row">
-                            <div className="col-lg-10 col-md-10 col-sm-12">
+                            <div className="col-lg-10 col-md-12 col-sm-12">
                                 <Link to={`${config.basePath}/managedashboard`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Manage Dashboards
@@ -198,7 +193,7 @@ export class CollectionView extends React.Component<any, any> {
                                     Preferences
                                 </a>
                             </div>
-                            <div className="col-lg-2 col-md-2 col-sm-12">
+                            <div className="col-lg-2 col-md-12 col-sm-12">
                                 <div className="float-right common-right-btn">
                                     <Link to={`${config.basePath}/dashboard`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
                                 </div>
@@ -207,10 +202,10 @@ export class CollectionView extends React.Component<any, any> {
                     </div>
                     <div className="common-container collection-search">
                         <div className="row">
-                            <div className="col-lg-3 col-md-3 col-sm-12">
+                            <div className="col-lg-3 col-md-12 col-sm-12">
                                 <div className="collection-heading">Collection</div>
                             </div>
-                            <div className="col-lg-9 col-md-9 col-sm-12">
+                            <div className="col-lg-9 col-md-12 col-sm-12">
                                 <div className="float-right">
                                     <div className="category-select">
                                         <select className="form-control">
@@ -234,22 +229,20 @@ export class CollectionView extends React.Component<any, any> {
                     <div className="common-container border-bottom-0">
                         <div className="collection-details">
                             <div className="container-inner">
-                                <table className="collection-data-table">
-                                    <tbody>
-                                        <tr className="collection-data-table-header">
-                                            <th>
-                                                <div className="caret-right"></div>
-                                                Name
-                                            </th>
-                                            <th>Type</th>
-                                            <th>Status</th>
-                                            <th>Category</th>
-                                            <th>Messages</th>
-                                            <th></th>
-                                        </tr>
-                                        {this.createCollectionTable()}
-                                    </tbody>
-                                </table>
+                                <div className="collection-data-table">
+                                    <div className="thead">
+                                        <div className="thead-th">
+                                            <div className="caret-right"></div>
+                                            Name
+                                        </div>
+                                        <div className="thead-th">Type</div>
+                                        <div className="thead-th">Status</div>
+                                        <div className="thead-th">Category</div>
+                                        <div className="thead-th">Messages</div>
+                                        <div className="thead-th"></div>
+                                    </div>
+                                    {this.createCollectionTable()}
+                                </div>
                             </div>
                         </div>
                     </div>

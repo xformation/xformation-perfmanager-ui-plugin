@@ -376,7 +376,7 @@ export class Catalog extends React.Component<any, any> {
                 <div className="perfmanager-page-container">
                     <div className="common-container">
                         <div className="row">
-                            <div className="col-lg-10 col-md-10 col-sm-12">
+                            <div className="col-lg-10 col-md-12 col-sm-12">
                                 <Link to={`${config.basePath}/managedashboard`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Manage Dashboards
@@ -402,7 +402,7 @@ export class Catalog extends React.Component<any, any> {
                                     Preferences
                                 </a>
                             </div>
-                            <div className="col-lg-2 col-md-2 col-sm-12">
+                            <div className="col-lg-2 col-md-12 col-sm-12">
                                 <div className="float-right common-right-btn">
                                     <Link to={`${config.basePath}/dashboard`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
                                 </div>

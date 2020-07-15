@@ -91,3 +91,13 @@
     }  
   }
 }
+
+@media (max-width: 980px) {
+  .library-search{
+    .float-right{
+      float: left;
+      width: 100%;
+    }
+    
+  }
+}
