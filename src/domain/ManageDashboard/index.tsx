@@ -11,205 +11,14 @@ import openFolderIcon from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
 import { Wizard } from './Wizard';
 import { Playlists } from './Playlists';
-
+import { ManageTab } from './ManageTab';
 export class ManageDashboard extends React.Component<any, any> {
     breadCrumbs: any;
     steps: any;
     constructor(props: any) {
         super(props);
         this.state = {
-            folderArray: [
-                {
-                    title: 'General',
-                    openSubFolder: true,
-                    checkValueStatus: false,
-                    subData: [
-                        {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'AWS',
-                                    backColorClass: 'aws-bg'
-                                },
-                                {
-                                    attributeName: 'Amazon',
-                                    backColorClass: 'amazon-bg'
-                                },
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Logs',
-                                    backColorClass: 'logs-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-
-                        },
-                    ]
-                },
-                {
-                    title: 'Main',
-                    openSubFolder: false,
-                    checkValueStatus: false,
-                    subData: [
-                        {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'AWS',
-                                    backColorClass: 'aws-bg'
-                                },
-                                {
-                                    attributeName: 'Amazon',
-                                    backColorClass: 'amazon-bg'
-                                },
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Logs',
-                                    backColorClass: 'logs-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-                        },
-                    ]
-                },
-                {
-                    title: 'Open',
-                    openSubFolder: false,
-                    checkValueStatus: false,
-                    subData: [
-                        {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-                        },
-                    ]
-                }
-            ]
+           
         };
         this.breadCrumbs = [
             {
@@ -223,7 +32,7 @@ export class ManageDashboard extends React.Component<any, any> {
         ];
         this.steps = [{
             name: "Manage",
-            component: ""
+            component: <ManageTab/>
         },
         {
             name: "Playlists",
@@ -234,125 +43,7 @@ export class ManageDashboard extends React.Component<any, any> {
             component: ""
         }];
 
-        this.onClickOpenSubFolder = this.onClickOpenSubFolder.bind(this)
     }
-
-    onClickOpenSubFolder(index: any) {
-        const { folderArray } = this.state;
-        for (let i = 0; i < folderArray.length; i++) {
-            if (i == index) {
-                folderArray[i].openSubFolder = !folderArray[i].openSubFolder;
-            }
-        }
-        this.setState({
-            folderArray: folderArray,
-        })
-    }
-
-    onClickChangeCheckBoxValue(parentIndex: any, childIndex: any) {
-        let updateArrayFolder = [];
-        let counttruecheckBox = 0;
-        for (let i = 0; i < this.state.folderArray.length; i++) {
-            if (i == parentIndex) {
-                for (let j = 0; j < this.state.folderArray[i].subData.length; j++) {
-                    if (j == childIndex) {
-                        this.state.folderArray[i].subData[j].checkValue = !this.state.folderArray[i].subData[j].checkValue;
-                    }
-                    if (this.state.folderArray[i].subData[j].checkValue == true) {
-                        counttruecheckBox++;
-                    } else {
-                        counttruecheckBox--;
-                    }
-                }
-                if (counttruecheckBox == this.state.folderArray[i].subData.length) {
-                    this.state.folderArray[i].checkValueStatus = true;
-                } else {
-                    this.state.folderArray[i].checkValueStatus = false;
-                }
-            }
-            updateArrayFolder.push(this.state.folderArray[i]);
-        }
-        this.setState({
-            folderArray: updateArrayFolder
-        })
-    }
-
-    allSelectFolderData = (e: any, index: any) => {
-        let updateArraycheckbox = [];
-        for (let i = 0; i < this.state.folderArray.length; i++) {
-            if (i == index) {
-                for (let j = 0; j < this.state.folderArray[i].subData.length; j++) {
-                    this.state.folderArray[i].subData[j].checkValue = e.target.checked;
-                    this.state.folderArray[i].checkValueStatus = e.target.checked;
-                }
-            }
-            updateArraycheckbox.push(this.state.folderArray[i]);
-        }
-        console.log(updateArraycheckbox);
-        this.setState({
-            folderArray: updateArraycheckbox,
-        })
-    }
-
-    openCloseManageDashboardFolder() {
-        const retData = [];
-        const { folderArray } = this.state;
-        const length = folderArray.length;
-        for (let i = 0; i < length; i++) {
-            const folder = folderArray[i];
-            const subFolders = folder.subData;
-            const subFolderJSX = [];
-            for (let j = 0; j < subFolders.length; j++) {
-                const attribute = subFolders[j].attribute;
-                const subAttributeFolder = [];
-                if (subFolders[j].attribute) {
-                    for (let k = 0; k < attribute.length; k++) {
-                        const subAtt = attribute[k];
-                        subAttributeFolder.push(
-                            <div className={subAtt.backColorClass}>{subAtt.attributeName}</div>
-                        );
-                    }
-                }
-                const subFolder = subFolders[j];
-                subFolderJSX.push(
-                    <tr>
-                        <td>
-                            <input type="checkbox" className="checkbox" checked={subFolder.checkValue} onClick={() => this.onClickChangeCheckBoxValue(i, j)} />
-                            <span>{subFolder.tableTitle}</span>
-                        </td>
-                        <td>
-                            <div className="float-right">
-                                {subAttributeFolder}
-                            </div>
-                        </td>
-                    </tr>
-                );
-
-            }
-            retData.push(
-                <div>
-                    <div className="general-heading">
-                        <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.allSelectFolderData(e, i) }} className="checkbox" />
-                        <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
-                        <h4>{folder.title}</h4>
-                        <i className="fa fa-angle-down float-right"></i>
-                    </div>
-                    <Collapse isOpen={folder.openSubFolder}>
-                        <div className="general-logs">
-                            <div className="general-logs-inner">
-                                <table className="data-table">
-                                    {subFolderJSX}
-                                </table>
-                            </div>
-                        </div>
-                    </Collapse>
-                </div>
-            );
-        }
-        return retData;
-    }
-
-
     render() {
         const state = this.state;
         return (
@@ -413,7 +104,7 @@ export class ManageDashboard extends React.Component<any, any> {
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <Wizard steps={this.steps} />
 
                         <div className="manage-dashboard-search">
@@ -485,9 +176,6 @@ export class ManageDashboard extends React.Component<any, any> {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="manage-dashboard-general">
-                            {this.openCloseManageDashboardFolder()}
                         </div>
                     </div>
                 </div>
