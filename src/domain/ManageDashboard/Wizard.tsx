@@ -44,7 +44,7 @@ export class Wizard extends React.Component<any, any>{
 
     render() {
         return (
-            <div className="wizard-library-container">
+            <div className="wizard-manage-container">
                 <div className="wizard-step-line-container">
                     {this.createStepLine()}
                 </div>

@@ -9,9 +9,12 @@ import sortIcon from '../../img/sort.png';
 import tagIcon from '../../img/tag.png';
 import openFolderIcon from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
+import { Wizard } from './Wizard';
+import { Playlists } from './Playlists';
 
 export class ManageDashboard extends React.Component<any, any> {
     breadCrumbs: any;
+    steps: any;
     constructor(props: any) {
         super(props);
         this.state = {
@@ -218,6 +221,19 @@ export class ManageDashboard extends React.Component<any, any> {
                 isCurrentPage: true
             }
         ];
+        this.steps = [{
+            name: "Manage",
+            component: ""
+        },
+        {
+            name: "Playlists",
+            component: <Playlists />
+        },
+        {
+            name: "Snapshots",
+            component: ""
+        }];
+
         this.onClickOpenSubFolder = this.onClickOpenSubFolder.bind(this)
     }
 
@@ -338,6 +354,7 @@ export class ManageDashboard extends React.Component<any, any> {
 
 
     render() {
+        const state = this.state;
         return (
             <div className="perfmanager-dashboard-container">
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="PREFORMANCE MANAGEMENT" />
@@ -396,19 +413,9 @@ export class ManageDashboard extends React.Component<any, any> {
                                 </li>
                             </ul>
                         </div>
-                        <div className="manage-dashboard-tabs">
-                            <ul>
-                                <li className="active-tab">
-                                    <a href="#">Manage</a>
-                                </li>
-                                <li>
-                                    <a href="#">Playlists</a>
-                                </li>
-                                <li>
-                                    <a href="#">Snapshots</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
+                        <Wizard steps={this.steps} />
+
                         <div className="manage-dashboard-search">
                             <div className="row">
                                 <div className="col-lg-4 col-md-12 col-sm-12">
