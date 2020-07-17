@@ -605,7 +605,8 @@
                             padding: 4px 10px;
                             font-weight: 400;
                             min-width: 120px;
-                            text-align: left;                        
+                            text-align: left;
+                            vertical-align: top;                     
                         }
                     }
                     &:nth-child(even){
@@ -617,11 +618,91 @@
     }
     .gray-button{
         border-radius: 8px;
+        vertical-align: top;
     }
     .blue-button{
         border-radius: 8px;
+        vertical-align: top;
     }
-
+    .save-playlist-container{
+        border: 1px solid #8392A7;
+        border-radius: 4px;
+        display: grid;
+        background-color: #F8F9FB;
+        overflow: hidden;
+        .save-playlist-inner{
+            overflow-x: auto;
+            padding-bottom: 0px;
+            .data-table{
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 18px;
+                font-weight: 500;
+                color: #3b4859;
+                background-color: #ffffff;
+                width: 975px;
+                tr{
+                    td{
+                        padding: 8px 10px;
+                        input{
+                            margin-top: 0px;
+                            margin-right: 15px;
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                        select{
+                            background-color: #F0F3F7;
+                            border: none;
+                            width: auto;
+                            height: 22px;
+                            font-size: 12px;
+                            padding: 0 10px 0 2px;
+                            box-shadow: 0px 1px 6px #00000029;
+                            border-radius: 2px;
+                        }
+                        .close-arrow{
+                            position: relative;
+                            padding: 0;
+                            display: inline-block;
+                            vertical-align: top;
+                            margin: 5px 5px 0 15px;
+                            width: 15px;
+                            height: 15px;
+                            padding: 0;
+                            background: none;
+                            &:before{
+                                content: "";
+                                width: 2px;
+                                height: 13px;
+                                position: absolute;
+                                top: 0;
+                                left: 6px;
+                                background: #2662F0;
+                                opacity: 1;
+                                transform: rotate(-45deg);
+                                z-index: 1;
+                            }
+                            &:after{
+                                content: "";
+                                width: 2px;
+                                height: 13px;
+                                position: absolute;
+                                top: 0;
+                                left: 6px;
+                                background: #2662F0;
+                                opacity: 1;
+                                transform: rotate(45deg);
+                                z-index: 1;
+                            }
+                        }
+                    }
+                    &:nth-child(odd){
+                        background-color: #f8f9fb;
+                    }
+                }
+            }
+        }
+    }
     
 }
 
