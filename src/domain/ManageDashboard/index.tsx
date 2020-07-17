@@ -104,79 +104,7 @@ export class ManageDashboard extends React.Component<any, any> {
                                 </li>
                             </ul>
                         </div>
-
                         <Wizard steps={this.steps} />
-
-                        <div className="manage-dashboard-search">
-                            <div className="row">
-                                <div className="col-lg-4 col-md-12 col-sm-12">
-                                    <div className="form-group search-control-group">
-                                        <form>
-                                            <input type="text" className="input-group-text" placeholder="Search dashboards by name" />
-                                            <button>
-                                                <i className="fa fa-search"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div className="col-lg-8 col-md-12 col-sm-12">
-                                    <div className="search-buttons float-right">
-                                        <a className="blue-button">New Dashboard</a>
-                                        <a className="blue-button">New Folder</a>
-                                        <a className="blue-button m-r-0">Import</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="manage-dashboard-fliter-sort">
-                            <div className="row">
-                                <div className="col-lg-6 col-md-12 col-sm-12">
-                                    <div className="sort-checkbox">
-                                        <input type="checkbox" className="checkbox" />
-                                    </div>
-                                    <div className="sort-view">
-                                        <ul>
-                                            <li className="active">
-                                                <a href="#"><img src={folderIcon} alt="" /></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><img src={listIcon} alt="" /></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="sort-select-menu">
-                                        <span>
-                                            <img src={sortIcon} alt="" />
-                                        </span>
-                                        <select>
-                                            <option>Sort (Default A-Z)</option>
-                                            <option>Sort (Default A-Z)</option>
-                                            <option>Sort (Default A-Z)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 col-md-12 col-sm-12">
-                                    <div className="filter-starred float-right">
-                                        <div className="sort-checkbox">
-                                            <input type="checkbox" className="checkbox" />
-                                            <span>
-                                                Filter by starred
-                                            </span>
-                                        </div>
-                                        <div className="sort-select-menu">
-                                            <span>
-                                                <img src={tagIcon} alt="" />
-                                            </span>
-                                            <select>
-                                                <option>Filter by tag</option>
-                                                <option>Filter by tag</option>
-                                                <option>Filter by tag</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
