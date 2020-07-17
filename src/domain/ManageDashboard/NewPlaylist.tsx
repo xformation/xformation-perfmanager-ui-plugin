@@ -23,7 +23,7 @@ export class NewPlaylists extends React.Component<any, any>{
                 </div>
                 <div className="playlist-name-input">
                     <label>Name</label>
-                    <input type="text" placeholder="" />
+                    <input type="text" placeholder="" className="input-group-text" />
                 </div>
                 <div className="playlist-interval-select">
                     <label>Interval</label>
@@ -36,8 +36,8 @@ export class NewPlaylists extends React.Component<any, any>{
                 </div>
                 <div className="add-dashboards-playlist">
                     <label>Dashboards</label>
-                    <div className="">
-                        Add Dashboards from below list to your playlist
+                    <div className="add-dashboard">
+                        <p>Add Dashboards from below list to your playlist</p>
                 </div>
                 </div>
                 <div className="row">
