@@ -1,9 +1,103 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import tagIcon from '../../img/tag.png';
+import { Button } from 'reactstrap';
 
 export class NewPlaylists extends React.Component<any, any>{
 
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            playListArrayData: [
+                { label: 'Amazon CloudWatch Logs' },
+                { label: 'Amazon RDS' },
+                { label: 'AWS VPN' },
+                { label: 'AWS VPN Dashboard' },
+                { label: 'Cloud Trial' },
+                { label: ' Cloud Watch' },
+            ],
+            newPlaylistArrayData: [],
+        };
+    }
+    displayTablePlaylist() {
+        const { playListArrayData } = this.state;
+        let retData = [];
+        for (let i = 0; i < playListArrayData.length; i++) {
+            retData.push(
+                <tr>
+                    <td>
+                        <input type="checkbox" className="checkbox" />
+                        {playListArrayData[i].label}
+                    </td>
+                    <td>
+                        <Button className="blue-button" onClick={() => this.addNewPlayList(i)}>
+                            <i className="fa fa-plus"></i>&nbsp;&nbsp; Add to List
+            </Button>
+                    </td>
+                </tr>
+            )
+        }
+        return retData;
+    }
+
+    displayNewPlayListData() {
+        const { newPlaylistArrayData } = this.state;
+        let newretData = [];
+        if (newPlaylistArrayData && newPlaylistArrayData.length > 0) {
+            for (let i = 0; i < newPlaylistArrayData.length; i++) {
+                newretData.push(
+                    <tr>
+                        <td>
+                            <input type="checkbox" className="checkbox" />
+                            {newPlaylistArrayData[i].label}
+                        </td>
+                        <td>
+                            <div className="float-right">
+                                <Button to={`#`} className="down-arrow"></Button>
+                                <Button onClick={() => this.removePlylistData(i)} className="close-arrow"></Button>
+                            </div>
+                        </td>
+                    </tr>
+                )
+            }
+        } else {
+            newretData.push(
+                <p>Add Dashboards from below list to your playlist</p>
+            );
+        }
+        return newretData;
+
+    }
+
+    addNewPlayList = (index: any) => {
+        const { newPlaylistArrayData, playListArrayData } = this.state;
+        let playlistData = newPlaylistArrayData;
+        for (let i = 0; i < playListArrayData.length; i++) {
+            if (i == index) {
+                playlistData.push(this.state.playListArrayData[i]);
+                playListArrayData.splice(index, 1);
+            }
+        }
+        this.setState({
+            playListArrayData: playListArrayData,
+            newPlaylistArrayData: playlistData,
+        })
+    }
+
+    removePlylistData = (index: any) => {
+        const { newPlaylistArrayData, playListArrayData } = this.state;
+        let listData = playListArrayData;
+        for (let i = 0; i < newPlaylistArrayData.length; i++) {
+            if (i == index) {
+                listData.push(this.state.newPlaylistArrayData[i]);
+                newPlaylistArrayData.splice(index, 1);
+            }
+        }
+        this.setState({
+            playListArrayData: listData,
+            newPlaylistArrayData: newPlaylistArrayData,
+        })
+    }
     render() {
         return (
             <div className="new-playlist-container">
@@ -40,30 +134,7 @@ export class NewPlaylists extends React.Component<any, any>{
                         {/* <p>Add Dashboards from below list to your playlist</p> */}
                         <div className="add-dashboard-playlist">
                             <table className="data-table">
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" className="checkbox" />
-                                        Amazon CloudWatch Logs
-                                    </td>
-                                    <td>
-                                        <div className="float-right">
-                                            <Link to={`#`} className="down-arrow"></Link>
-                                            <Link to={`#`} className="close-arrow"></Link>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <input type="checkbox" className="checkbox" />
-                                    Amazon RDS
-                                </td>
-                                <td>
-                                    <div className="float-right">
-                                        <Link to={`#`} className="arrow-up-arrow"></Link>
-                                        <Link to={`#`} className="close-arrow"></Link>
-                                    </div>
-                                </td>
-                            </tr>
+                                {this.displayNewPlayListData()}
                             </table>
                         </div>
                     </div>
@@ -94,72 +165,7 @@ export class NewPlaylists extends React.Component<any, any>{
                 <div className="add-dashboard">
                     <div className="add-dashboard-inner">
                         <table className="data-table">
-                            <tr>
-                                <td>
-                                    <input type="checkbox" className="checkbox" />
-                                    Amazon CloudWatch Logs
-                                </td>
-                                <td>
-                                    <Link to={`#`} className="blue-button">
-                                        <i className="fa fa-plus"></i>&nbsp;&nbsp; Add to List
-                                    </Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" className="checkbox" />
-                                    Amazon RDS
-                                </td>
-                                <td>
-                                    <Link to={`#`} className="blue-button">
-                                        <i className="fa fa-plus"></i>&nbsp;&nbsp; Add to List
-                                    </Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" className="checkbox" />
-                                    AWS VPN
-                                </td>
-                                <td>
-                                    <Link to={`#`} className="blue-button">
-                                        <i className="fa fa-plus"></i>&nbsp;&nbsp; Add to List
-                                    </Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" className="checkbox" />
-                                    AWS VPN Dashboard
-                                </td>
-                                <td>
-                                    <Link to={`#`} className="blue-button">
-                                        <i className="fa fa-plus"></i>&nbsp;&nbsp; Add to List
-                                    </Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" className="checkbox" />
-                                    Cloud Trial
-                                </td>
-                                <td>
-                                    <Link to={`#`} className="blue-button">
-                                        <i className="fa fa-plus"></i>&nbsp;&nbsp; Add to List
-                                    </Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" className="checkbox" />
-                                    Cloud Watch
-                                </td>
-                                <td>
-                                    <Link to={`#`} className="blue-button">
-                                        <i className="fa fa-plus"></i>&nbsp;&nbsp; Add to List
-                                    </Link>
-                                </td>
-                            </tr>
+                            {this.displayTablePlaylist()}
                         </table>
                     </div>
                 </div>
