@@ -19,7 +19,6 @@ export class Playlists extends React.Component<any, any>{
     }
     render() {
         const { openPlaylistComponent } = this.state;
-        console.log(openPlaylistComponent);
         return (
             <div className="playlists-container">
                 {openPlaylistComponent == false && <div className="playlist-inner">

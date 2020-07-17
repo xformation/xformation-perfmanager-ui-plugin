@@ -4,10 +4,11 @@ import tagIcon from '../../img/tag.png';
 import { Button } from 'reactstrap';
 
 export class NewPlaylists extends React.Component<any, any>{
-
     constructor(props: any) {
         super(props);
         this.state = {
+            saveFileName: '',
+            createListOpen: true,
             playListArrayData: [
                 { label: 'Amazon CloudWatch Logs' },
                 { label: 'Amazon RDS' },
@@ -70,106 +71,161 @@ export class NewPlaylists extends React.Component<any, any>{
     }
 
     addNewPlayList = (index: any) => {
-        const { newPlaylistArrayData, playListArrayData } = this.state;
+        const { newPlaylistArrayData, playListArrayData, saveFileName } = this.state;
         let playlistData = newPlaylistArrayData;
+        let saveFile = ''
         for (let i = 0; i < playListArrayData.length; i++) {
             if (i == index) {
                 playlistData.push(this.state.playListArrayData[i]);
                 playListArrayData.splice(index, 1);
             }
         }
+        if (playlistData.length > 0) {
+            saveFile = 'AWS Dashboards-Admin';
+        } else {
+            saveFile = '';
+        }
         this.setState({
             playListArrayData: playListArrayData,
             newPlaylistArrayData: playlistData,
+            saveFileName: saveFile,
         })
     }
 
     removePlylistData = (index: any) => {
-        const { newPlaylistArrayData, playListArrayData } = this.state;
+        const { newPlaylistArrayData, playListArrayData, saveFileName } = this.state;
         let listData = playListArrayData;
+        let saveFile = '';
         for (let i = 0; i < newPlaylistArrayData.length; i++) {
             if (i == index) {
                 listData.push(this.state.newPlaylistArrayData[i]);
                 newPlaylistArrayData.splice(index, 1);
             }
         }
+        if (newPlaylistArrayData.length > 0) {
+            saveFile = 'AWS Dashboards-Admin';
+        } else {
+            saveFile = '';
+        }
         this.setState({
             playListArrayData: listData,
             newPlaylistArrayData: newPlaylistArrayData,
+            saveFileName: saveFile,
         })
     }
     render() {
+        const { createListOpen } = this.state;
         return (
             <div className="new-playlist-container">
-                <div className="row">
-                    <div className="col-lg-5 col-md-12 col-sm-12">
-                        <div className="new-playlist-heading">New Playlist</div>
-                    </div>
-                    <div className="col-lg-7 col-md-12 col-sm-12">
-                        <div className="float-right playlist">
-                            <Link to={`#`} className="gray-button">Cancel</Link>
-                            <Link to={`#`} className="blue-button">Save</Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="playlist-text">
-                    <p>A playlist rotates through a pre-selected list of Dashboards. A Playlist can be a great way to build situational awareness, or just show off your metrics to your team or visitors.</p>
-                </div>
-                <div className="playlist-name-input">
-                    <label>Name</label>
-                    <input type="text" placeholder="" className="input-group-text" />
-                </div>
-                <div className="playlist-interval-select">
-                    <label>Interval</label>
-                    <select>
-                        <option>5 m</option>
-                        <option>10 m</option>
-                        <option>15 m</option>
-                        <option>20 m</option>
-                    </select>
-                </div>
-                <div className="add-dashboards-playlist">
-                    <label>Dashboards</label>
-                    <div className="add-dashboard">
-                        {/* <p>Add Dashboards from below list to your playlist</p> */}
-                        <div className="add-dashboard-playlist">
-                            <table className="data-table">
-                                {this.displayNewPlayListData()}
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-5 col-md-12 col-sm-12">
-                        <div className="add-dashboard-heading">
-                            Add Dashboards
-                        </div>
-                    </div>
-                    <div className="col-lg-7 col-md-12 col-sm-12">
-                        <div className="filter-starred float-right">
-                            <div className="sort-checkbox">
-                                <input type="checkbox" className="checkbox" />
-                                <span>Filter by starred</span>
+                {createListOpen == true &&
+                    <div>
+                        <div className="row">
+                            <div className="col-lg-5 col-md-12 col-sm-12">
+                                <div className="new-playlist-heading">New Playlist</div>
                             </div>
-                            <div className="sort-select-menu">
-                                <span><img src={tagIcon} alt="" /></span>
-                                <select>
-                                    <option>Filter by tag</option>
-                                    <option>Filter by tag</option>
-                                    <option>Filter by tag</option>
-                                </select>
+                            <div className="col-lg-7 col-md-12 col-sm-12">
+                                <div className="float-right playlist">
+                                    <Button className="gray-button">Cancel</Button>
+                                    <Button onClick={()=>this.setState({createListOpen: !createListOpen})} className="blue-button">Save</Button>
+                                </div>
                             </div>
                         </div>
+                        <div className="playlist-text">
+                            <p>A playlist rotates through a pre-selected list of Dashboards. A Playlist can be a great way to build situational awareness, or just show off your metrics to your team or visitors.</p>
+                        </div>
+                        <div className="playlist-name-input">
+                            <label>Name</label>
+                            <input type="text" placeholder="" value={this.state.saveFileName} className="input-group-text" />
+                        </div>
+                        <div className="playlist-interval-select">
+                            <label>Interval</label>
+                            <select>
+                                <option>5 m</option>
+                                <option>10 m</option>
+                                <option>15 m</option>
+                                <option>20 m</option>
+                            </select>
+                        </div>
+                        <div className="add-dashboards-playlist">
+                            <label>Dashboards</label>
+                            <div className="add-dashboard">
+                                {/* <p>Add Dashboards from below list to your playlist</p> */}
+                                <div className="add-dashboard-playlist">
+                                    <table className="data-table">
+                                        {this.displayNewPlayListData()}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-lg-5 col-md-12 col-sm-12">
+                                <div className="add-dashboard-heading">
+                                    Add Dashboards
+                        </div>
+                            </div>
+                            <div className="col-lg-7 col-md-12 col-sm-12">
+                                <div className="filter-starred float-right">
+                                    <div className="sort-checkbox">
+                                        <input type="checkbox" className="checkbox" />
+                                        <span>Filter by starred</span>
+                                    </div>
+                                    <div className="sort-select-menu">
+                                        <span><img src={tagIcon} alt="" /></span>
+                                        <select>
+                                            <option>Filter by tag</option>
+                                            <option>Filter by tag</option>
+                                            <option>Filter by tag</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="add-dashboard">
+                            <div className="add-dashboard-inner">
+                                <table className="data-table">
+                                    {this.displayTablePlaylist()}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                }
+                {createListOpen == false && <div>
+                    < div className="save-playlist" >
+                        <div className="row" >
+                            <div className="col-md-6 col-sm-12" >
+                                <div className="save-playlist-heading" > Playlist</div >
+                            </div >
+                            <div className="col-md-6 col-sm-12" >
+                                <div className="float-right playlist" >
+                                    <Link to={`#`} className="blue-button m-r-0">Create new playlist</Link>
+                                </div >
+                            </div >
+                        </div >
+                        <div className="save-playlist-container" >
+                            <div className="save-playlist-inner" >
+                                <table className="data-table" >
+                                    <tr>
+                                        <td>AWS Dashboards - Admin</td>
+                                        <td>
+                                            <div className="float-right">
+                                                <select>
+                                                    <option>Start Playlist</option>
+                                                    <option>Start Playlist</option>
+                                                    <option>Start Playlist</option>
+                                                </select>
+                                                <Button className="close-arrow"></Button>
+                                            </div>
+                                        </td >
+                                    </tr >
+                                </table >
+                            </div >
+                        </div >
                     </div>
                 </div>
-                <div className="add-dashboard">
-                    <div className="add-dashboard-inner">
-                        <table className="data-table">
-                            {this.displayTablePlaylist()}
-                        </table>
-                    </div>
-                </div>
+                }
             </div>
         );
+
     }
 }
+
