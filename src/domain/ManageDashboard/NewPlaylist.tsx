@@ -17,6 +17,14 @@ export class NewPlaylists extends React.Component<any, any>{
                 { label: 'Cloud Trial' },
                 { label: ' Cloud Watch' },
             ],
+            duplicatePlayListData: [
+                { label: 'Amazon CloudWatch Logs' },
+                { label: 'Amazon RDS' },
+                { label: 'AWS VPN' },
+                { label: 'AWS VPN Dashboard' },
+                { label: 'Cloud Trial' },
+                { label: ' Cloud Watch' },
+            ],
             newPlaylistArrayData: [],
         };
     }
@@ -71,7 +79,7 @@ export class NewPlaylists extends React.Component<any, any>{
     }
 
     addNewPlayList = (index: any) => {
-        const { newPlaylistArrayData, playListArrayData, saveFileName } = this.state;
+        const { newPlaylistArrayData, playListArrayData } = this.state;
         let playlistData = newPlaylistArrayData;
         let saveFile = ''
         for (let i = 0; i < playListArrayData.length; i++) {
@@ -93,7 +101,7 @@ export class NewPlaylists extends React.Component<any, any>{
     }
 
     removePlylistData = (index: any) => {
-        const { newPlaylistArrayData, playListArrayData, saveFileName } = this.state;
+        const { newPlaylistArrayData, playListArrayData } = this.state;
         let listData = playListArrayData;
         let saveFile = '';
         for (let i = 0; i < newPlaylistArrayData.length; i++) {
@@ -113,8 +121,19 @@ export class NewPlaylists extends React.Component<any, any>{
             saveFileName: saveFile,
         })
     }
+
+    backToPlayListPage = () => {
+        const { createListOpen, duplicatePlayListData } = this.state;
+        this.setState({
+            createListOpen: !createListOpen,
+            newPlaylistArrayData: [],
+            playListArrayData: duplicatePlayListData,
+            saveFileName: '',
+        })
+    }
     render() {
-        const { createListOpen } = this.state;
+        const { createListOpen, newPlaylistArrayData } = this.state;
+        const enabled = newPlaylistArrayData.length > 0;
         return (
             <div className="new-playlist-container">
                 {createListOpen == true &&
@@ -126,7 +145,7 @@ export class NewPlaylists extends React.Component<any, any>{
                             <div className="col-lg-7 col-md-12 col-sm-12">
                                 <div className="float-right playlist">
                                     <Button className="gray-button">Cancel</Button>
-                                    <Button onClick={()=>this.setState({createListOpen: !createListOpen})} className="blue-button">Save</Button>
+                                    <Button disabled={!enabled} onClick={() => this.setState({ createListOpen: !createListOpen })} className="blue-button">Save</Button>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +216,7 @@ export class NewPlaylists extends React.Component<any, any>{
                             </div >
                             <div className="col-md-6 col-sm-12" >
                                 <div className="float-right playlist" >
-                                    <Link to={`#`} className="blue-button m-r-0">Create new playlist</Link>
+                                    <Button onClick={() => this.backToPlayListPage()} className="blue-button m-r-0">Create new playlist</Button>
                                 </div >
                             </div >
                         </div >
@@ -213,7 +232,7 @@ export class NewPlaylists extends React.Component<any, any>{
                                                     <option>Start Playlist</option>
                                                     <option>Start Playlist</option>
                                                 </select>
-                                                <Button className="close-arrow"></Button>
+                                                <Button onClick={() => this.backToPlayListPage()} className="close-arrow"></Button>
                                             </div>
                                         </td >
                                     </tr >
