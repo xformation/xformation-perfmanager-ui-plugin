@@ -63,8 +63,8 @@ export class NewPlaylists extends React.Component<any, any>{
                         </td>
                         <td>
                             <div className="float-right">
-                                <Button className={i == 0 ? 'down-arrow' : 'up-arrow'}></Button>
-                                {/* <Button className={(i != 0 && i< newPlaylistArrayData.length) ? 'down-arrow' : ''}></Button> */}
+                                <Button onClick={()=> this.array_move(newPlaylistArrayData,i,i-1)} className={i == 0 ? 'down-arrow' : 'arrow-up-arrow'}></Button>
+                                <Button onClick={()=> this.array_move(newPlaylistArrayData,i,i+1)} className={(i != 0 && i< newPlaylistArrayData.length-1) ? 'down-arrow' : ''}></Button>
                                 <Button onClick={() => this.removePlylistData(i)} className="close-arrow"></Button>
                             </div>
                         </td>
@@ -139,6 +139,21 @@ export class NewPlaylists extends React.Component<any, any>{
             this.props.onClickCancel();
         }
     }
+
+    array_move(arr:any, old_index:any, new_index:any) {
+        if (new_index >= arr.length) {
+            var k = new_index - arr.length + 1;
+            while (k--) {
+                arr.push(undefined);
+            }
+        }
+        arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+        console.log(arr);
+        // return arr; // for testing
+        this.setState({
+            newPlaylistArrayData: arr,
+        })
+    };
     render() {
         const { createListOpen, newPlaylistArrayData } = this.state;
         const enabled = newPlaylistArrayData.length > 0;
