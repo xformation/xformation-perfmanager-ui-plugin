@@ -6,6 +6,7 @@ import dashboardIcon from '../../img/dashboard-icon.png';
 import { Wizard } from './Wizard';
 import { Playlists } from './Playlists';
 import { ManageTab } from './ManageTab';
+
 export class ManageDashboard extends React.Component<any, any> {
     breadCrumbs: any;
     steps: any;
@@ -24,18 +25,18 @@ export class ManageDashboard extends React.Component<any, any> {
                 isCurrentPage: true
             }
         ];
-        this.steps = [{
-            name: "Manage",
-            component: <ManageTab />
-        },
-        {
-            name: "Playlists",
-            component: <Playlists />
-        },
-        {
-            name: "Snapshots",
-            component: ""
-        }];
+        // this.steps = [{
+        //     name: "Manage",
+        //     component: <ManageTab />
+        // },
+        // {
+        //     name: "Playlists",
+        //     component: <Playlists />
+        // },
+        // {
+        //     name: "Snapshots",
+        //     component: ""
+        // }];
 
     }
 
@@ -105,15 +106,15 @@ export class ManageDashboard extends React.Component<any, any> {
                                 </li>
                             </ul>
                         </div>
-                        <Wizard steps={this.steps} />
-                        {/* <ul>
-                            <li onClick={e=>this.setActiveTab(0)}>
+                        {/* <Wizard steps={this.steps} /> */}
+                        <ul>
+                            <li className={activeTab === 0?"active-tab":''} onClick={e=>this.setActiveTab(0)}>
                                 Manage
                             </li>
-                            <li onClick={e=>this.setActiveTab(0)}>
+                            <li className={activeTab === 1?"active-tab":''} onClick={e=>this.setActiveTab(1)}>
                                 Playlist
                             </li>
-                            <li>
+                            <li className={activeTab === 2?"active-tab":''} onClick={e=>this.setActiveTab(2)}>
                                 Snapshots
                             </li>
                         </ul>
@@ -124,7 +125,10 @@ export class ManageDashboard extends React.Component<any, any> {
                             {
                                 activeTab === 1 && <Playlists />
                             }
-                        </div> */}
+                             {
+                                activeTab === 2 && <div></div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
