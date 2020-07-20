@@ -17,6 +17,14 @@ export class Playlists extends React.Component<any, any>{
             openPlaylistComponent: playlistDisplayData,
         })
     }
+    onClickChangeScreen() {
+        console.log('bfbhdff');
+        let playlistDisplayData = this.state.openPlaylistComponent;
+        playlistDisplayData = !playlistDisplayData;
+        this.setState({
+            openPlaylistComponent: playlistDisplayData,
+        })
+    }
     render() {
         const { openPlaylistComponent } = this.state;
         return (
@@ -31,7 +39,7 @@ export class Playlists extends React.Component<any, any>{
                     </div>
                 </div>
                 }
-                {openPlaylistComponent == true && <div><NewPlaylists /></div>}
+                {openPlaylistComponent == true && <div><NewPlaylists parentMethod={this.onClickChangeScreen} /></div>}
             </div>
 
         );

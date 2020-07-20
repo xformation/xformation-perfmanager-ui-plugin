@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import tagIcon from '../../img/tag.png';
 import { Button } from 'reactstrap';
 
+
 export class NewPlaylists extends React.Component<any, any>{
     constructor(props: any) {
         super(props);
@@ -62,7 +63,8 @@ export class NewPlaylists extends React.Component<any, any>{
                         </td>
                         <td>
                             <div className="float-right">
-                                <Button to={`#`} className="down-arrow"></Button>
+                                <Button className={i == 0 ? 'down-arrow' : 'up-arrow'}></Button>
+                                {/* <Button className={(i != 0 && i< newPlaylistArrayData.length) ? 'down-arrow' : ''}></Button> */}
                                 <Button onClick={() => this.removePlylistData(i)} className="close-arrow"></Button>
                             </div>
                         </td>
@@ -131,6 +133,11 @@ export class NewPlaylists extends React.Component<any, any>{
             saveFileName: '',
         })
     }
+
+    closeOpenScreen = () => {
+        console.log("child")
+        this.props.parentMethod();
+    }
     render() {
         const { createListOpen, newPlaylistArrayData } = this.state;
         const enabled = newPlaylistArrayData.length > 0;
@@ -144,7 +151,7 @@ export class NewPlaylists extends React.Component<any, any>{
                             </div>
                             <div className="col-lg-7 col-md-12 col-sm-12">
                                 <div className="float-right playlist">
-                                    <Button className="gray-button">Cancel</Button>
+                                    <Button onClick={() => this.closeOpenScreen()} className="gray-button">Cancel</Button>
                                     <Button disabled={!enabled} onClick={() => this.setState({ createListOpen: !createListOpen })} className="blue-button">Save</Button>
                                 </div>
                             </div>
