@@ -60,19 +60,19 @@ a:hover {
 }
 
 .float-right {
-  float: right !important;
+  float: right;
 }
 
 .text-right {
-  text-align: right !important;
+  text-align: right;
 }
 
 .text-left {
-  text-align: left !important;
+  text-align: left;
 }
 
 .d-flex {
-  display: flex !important;
+  display: flex;
 }
 
 .p-l-0 {
@@ -1345,6 +1345,19 @@ a:hover {
   background-color: #ffffff;
   overflow: hidden;
 }
+.new-playlist-container
+  .add-dashboards-playlist
+  .add-dashboard
+  .add-aashboards-text {
+  background: none !important;
+}
+.new-playlist-container
+  .add-dashboards-playlist
+  .add-dashboard
+  .add-aashboards-text
+  td {
+  padding: 0 !important;
+}
 .new-playlist-container .add-dashboards-playlist .add-dashboard p {
   color: #3b4859;
   font-size: 12px;
@@ -1412,6 +1425,7 @@ a:hover {
   margin-top: -5px;
   background: none;
   padding: 0;
+  cursor: pointer;
 }
 .new-playlist-container
   .add-dashboards-playlist
@@ -1466,6 +1480,7 @@ a:hover {
   margin-top: -5px;
   padding: 0;
   background: none;
+  cursor: pointer;
 }
 .new-playlist-container
   .add-dashboards-playlist
@@ -1502,7 +1517,7 @@ a:hover {
   width: 2px;
   display: inline-block;
   margin-left: 2px;
-  margin-top: -8px;
+  margin-top: -6px;
   vertical-align: top;
 }
 .new-playlist-container
@@ -1574,6 +1589,9 @@ a:hover {
   font-size: 16px;
   font-weight: 600;
   color: #414d55;
+}
+.new-playlist-container .addalltolist {
+  display: inline-block;
 }
 .new-playlist-container .sort-checkbox {
   display: inline-block;
@@ -1829,6 +1847,9 @@ a:hover {
   .new-playlist-container .sort-checkbox {
     padding-bottom: 10px;
   }
+  .new-playlist-container .addalltolist {
+    display: block;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1871,6 +1892,10 @@ a:hover {
 }
 
 @media only screen and (max-width: 1280px) and (min-width: 980px) {
+  .filter-starred.float-right {
+    float: left;
+    padding-top: 15px;
+  }
   .new-playlist-container .sort-checkbox span {
     font-size: 12px;
   }

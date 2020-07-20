@@ -390,6 +390,12 @@
             display: grid;
             background-color: #ffffff;
             overflow: hidden;
+            .add-aashboards-text{
+                background: none!important;
+                td{
+                    padding: 0!important;
+                }
+            }
             p{
                 color: #3B4859;
                 font-size: 12px;
@@ -428,6 +434,7 @@
                                 margin-top: -5px;
                                 background: none;
                                 padding: 0;
+                                cursor: pointer;
                                 &:before{
                                     content: "";
                                     background-color: #2662F0;
@@ -461,6 +468,7 @@
                                 margin-top: -5px;
                                 padding: 0;
                                 background: none; 
+                                cursor: pointer;
                                 &:before{
                                     border: solid transparent;
                                     content: " ";
@@ -482,7 +490,7 @@
                                     width: 2px;
                                     display: inline-block;
                                     margin-left: 2px;
-                                    margin-top: -8px;
+                                    margin-top: -6px;
                                     vertical-align: top;
                                 } 
                             }
@@ -535,6 +543,9 @@
         font-size: 16px;
         font-weight: 600;
         color: #414D55;
+    }
+    .addalltolist{
+        display: inline-block;
     }
     .sort-checkbox{
         display: inline-block;
@@ -748,6 +759,9 @@
         .sort-checkbox{
             padding-bottom: 10px;
         }
+        .addalltolist{
+            display: block;
+        }
     } 
     
 }
@@ -793,6 +807,12 @@
 }
 
 @media only screen and (max-width: 1280px) and (min-width: 980px) {
+    .filter-starred{
+        &.float-right{
+            float: left;
+            padding-top: 15px;
+        }
+    }
     .new-playlist-container{
         .sort-checkbox{
             span{
