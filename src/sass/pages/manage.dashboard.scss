@@ -55,6 +55,49 @@
     }
 }
 
+.manage-dashboard-tabs{
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 30px;
+    ul{
+        list-style: none;
+        li{
+            display: inline-block;
+            a{
+                border-right: 1px solid #ffffff;
+                display: block;
+                background-color: #F0F3F7;
+                color: #2662F0;
+                font-size: 14px;
+                line-height: 40px;
+                font-weight: 500;
+                padding: 0 20px;
+                &:hover{
+                    background-color: #ffffff;
+                    box-shadow: 0px 1px 8px #142E6E1A;
+                }
+            }
+            &.active-tab{
+                a{
+                    background-color: #ffffff;
+                    box-shadow: 0px 1px 8px #142E6E1A;
+                }
+            }
+            &:first-child{
+                a{
+                    border-radius: 8px 0px 0px 8px;
+                }
+            }
+            &:last-child{
+                a{
+                    border-right: none;
+                    border-radius: 0px 8px 8px 0px;
+                }
+            }
+        }
+    }
+}
+
 .manage-dashboard-search{
     padding-bottom: 30px;
     .search-control-group{
