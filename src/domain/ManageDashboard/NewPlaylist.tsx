@@ -42,7 +42,7 @@ export class NewPlaylists extends React.Component<any, any>{
                     <td>
                         <Button className="blue-button" onClick={() => this.addNewPlayList(i)}>
                             <i className="fa fa-plus"></i>&nbsp;&nbsp; Add to List
-            </Button>
+                        </Button>
                     </td>
                 </tr>
             )
@@ -134,9 +134,10 @@ export class NewPlaylists extends React.Component<any, any>{
         })
     }
 
-    closeOpenScreen = () => {
-        console.log("child")
-        this.props.parentMethod();
+    onClickCancel = () => {
+        if(this.props.onClickCancel){
+            this.props.onClickCancel();
+        }
     }
     render() {
         const { createListOpen, newPlaylistArrayData } = this.state;
@@ -151,7 +152,7 @@ export class NewPlaylists extends React.Component<any, any>{
                             </div>
                             <div className="col-lg-7 col-md-12 col-sm-12">
                                 <div className="float-right playlist">
-                                    <Button onClick={() => this.closeOpenScreen()} className="gray-button">Cancel</Button>
+                                    <Button onClick={this.onClickCancel} className="gray-button">Cancel</Button>
                                     <Button disabled={!enabled} onClick={() => this.setState({ createListOpen: !createListOpen })} className="blue-button">Save</Button>
                                 </div>
                             </div>

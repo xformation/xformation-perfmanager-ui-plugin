@@ -3,12 +3,6 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
 import dashboardIcon from '../../img/dashboard-icon.png';
-import folderIcon from '../../img/folder.png';
-import listIcon from '../../img/list.png';
-import sortIcon from '../../img/sort.png';
-import tagIcon from '../../img/tag.png';
-import openFolderIcon from '../../img/open-folder.png';
-import { Collapse } from 'reactstrap';
 import { Wizard } from './Wizard';
 import { Playlists } from './Playlists';
 import { ManageTab } from './ManageTab';
@@ -18,7 +12,7 @@ export class ManageDashboard extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-           
+            activeTab: 0
         };
         this.breadCrumbs = [
             {
@@ -32,7 +26,7 @@ export class ManageDashboard extends React.Component<any, any> {
         ];
         this.steps = [{
             name: "Manage",
-            component: <ManageTab/>
+            component: <ManageTab />
         },
         {
             name: "Playlists",
@@ -44,8 +38,15 @@ export class ManageDashboard extends React.Component<any, any> {
         }];
 
     }
+
+    setActiveTab = (activeTab: any) => {
+        this.setState({
+            activeTab
+        });
+    };
+
     render() {
-        const state = this.state;
+        const { activeTab } = this.state;
         return (
             <div className="perfmanager-dashboard-container">
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="PREFORMANCE MANAGEMENT" />
@@ -105,6 +106,25 @@ export class ManageDashboard extends React.Component<any, any> {
                             </ul>
                         </div>
                         <Wizard steps={this.steps} />
+                        {/* <ul>
+                            <li onClick={e=>this.setActiveTab(0)}>
+                                Manage
+                            </li>
+                            <li onClick={e=>this.setActiveTab(0)}>
+                                Playlist
+                            </li>
+                            <li>
+                                Snapshots
+                            </li>
+                        </ul>
+                        <div className="tab-container">
+                            {
+                                activeTab === 0 && <ManageTab />
+                            }
+                            {
+                                activeTab === 1 && <Playlists />
+                            }
+                        </div> */}
                     </div>
                 </div>
             </div>
