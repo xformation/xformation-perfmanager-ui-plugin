@@ -704,7 +704,7 @@
 }
 
 
-@media (max-width: 980px) {
+@media (max-width: 990px) {
     .filter-starred{
         &.float-right{
             float: left;
@@ -802,6 +802,24 @@
             width: 205px;
             select{
                 width: 150px;
+            }
+        }
+    }
+    .manage-dashboard-fliter-sort{
+        .sort-checkbox{
+            span{
+                font-size: 12px;
+            }
+        }
+        .sort-select-menu{
+            width: 165px;
+            span{
+                padding-left: 10px;
+                padding-right: 5px;
+            }
+            select{
+                width: 130px;
+                font-size: 12px;
             }
         }
     }
