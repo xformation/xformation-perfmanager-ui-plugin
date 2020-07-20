@@ -4,7 +4,6 @@ import openFolder from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
 import openFolderIcon from '../../img/open-folder.png';
 export class AddLibraryPopup extends React.Component<any, any> {
-
     constructor(props: any) {
         super(props);
         this.state = {
@@ -17,53 +16,15 @@ export class AddLibraryPopup extends React.Component<any, any> {
                     subData: [
                         {
                             tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'AWS',
-                                    backColorClass: 'aws-bg'
-                                },
-                                {
-                                    attributeName: 'Amazon',
-                                    backColorClass: 'amazon-bg'
-                                },
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Logs',
-                                    backColorClass: 'logs-bg'
-                                }
-                            ]
+                            checkValue: false
                         },
                         {
                             tableTitle: 'Amazon RDS',
                             checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
                         },
                         {
                             tableTitle: 'AWS VPN',
                             checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
                         },
                         {
                             tableTitle: 'AWS VPN Dashboard',
@@ -88,52 +49,14 @@ export class AddLibraryPopup extends React.Component<any, any> {
                         {
                             tableTitle: 'Amazon CloudWatch Logs',
                             checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'AWS',
-                                    backColorClass: 'aws-bg'
-                                },
-                                {
-                                    attributeName: 'Amazon',
-                                    backColorClass: 'amazon-bg'
-                                },
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Logs',
-                                    backColorClass: 'logs-bg'
-                                }
-                            ]
                         },
                         {
                             tableTitle: 'Amazon RDS',
                             checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
                         },
                         {
                             tableTitle: 'AWS VPN',
                             checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
                         },
                         {
                             tableTitle: 'AWS VPN Dashboard',
@@ -161,30 +84,10 @@ export class AddLibraryPopup extends React.Component<any, any> {
                         {
                             tableTitle: 'Amazon RDS',
                             checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
                         },
                         {
                             tableTitle: 'AWS VPN',
                             checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
                         },
                         {
                             tableTitle: 'AWS VPN Dashboard',
@@ -212,30 +115,10 @@ export class AddLibraryPopup extends React.Component<any, any> {
                         {
                             tableTitle: 'Amazon RDS',
                             checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
                         },
                         {
                             tableTitle: 'AWS VPN',
                             checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
                         },
                         {
                             tableTitle: 'AWS VPN Dashboard',
@@ -261,61 +144,49 @@ export class AddLibraryPopup extends React.Component<any, any> {
         });
     };
 
-    onClickChangeCheckBoxValue = (parentIndex: any, childIndex: any) => {
-        let updateArrayFolder = [];
-        let counttruecheckBox = 0;
-        for (let i = 0; i < this.state.folderArray.length; i++) {
-            if (i == parentIndex) {
-                for (let j = 0; j < this.state.folderArray[i].subData.length; j++) {
-                    if (j == childIndex) {
-                        this.state.folderArray[i].subData[j].checkValue = !this.state.folderArray[i].subData[j].checkValue;
-                    }
-                    if (this.state.folderArray[i].subData[j].checkValue == true) {
-                        counttruecheckBox++;
-                    } else {
-                        counttruecheckBox--;
-                    }
-                }
-                if (counttruecheckBox == this.state.folderArray[i].subData.length) {
-                    this.state.folderArray[i].checkValueStatus = true;
-                } else {
-                    this.state.folderArray[i].checkValueStatus = false;
-                }
+    onClickChildCheckbox = (parentIndex: any, childIndex: any) => {
+        let countCheckedCheckbox = 0;
+        const { folderArray } = this.state;
+        const parentCheckbox = folderArray[parentIndex];
+        parentCheckbox.subData[childIndex].checkValue = !parentCheckbox.subData[childIndex].checkValue;
+        for (let j = 0; j < parentCheckbox.subData.length; j++) {
+            if (parentCheckbox.subData[j].checkValue == true) {
+                countCheckedCheckbox++;
+            } else {
+                countCheckedCheckbox--;
             }
-            updateArrayFolder.push(this.state.folderArray[i]);
+        }
+        if (countCheckedCheckbox == parentCheckbox.subData.length) {
+            parentCheckbox.checkValueStatus = true;
+        } else {
+            parentCheckbox.checkValueStatus = false;
         }
         this.setState({
-            folderArray: updateArrayFolder
+            folderArray
         })
     }
+
     onClickOpenSubFolder = (index: any) => {
         const { folderArray } = this.state;
-        for (let i = 0; i < folderArray.length; i++) {
-            if (i == index) {
-                folderArray[i].openSubFolder = !folderArray[i].openSubFolder;
-            }
-        }
+        folderArray[index].openSubFolder = !folderArray[index].openSubFolder;
         this.setState({
             folderArray: folderArray,
         })
     }
 
-    allSelectFolderData = (e: any, index: any) => {
-        let updateArraycheckbox = [];
-        for (let i = 0; i < this.state.folderArray.length; i++) {
-            if (i == index) {
-                for (let j = 0; j < this.state.folderArray[i].subData.length; j++) {
-                    this.state.folderArray[i].subData[j].checkValue = e.target.checked;
-                    this.state.folderArray[i].checkValueStatus = e.target.checked;
-                }
-            }
-            updateArraycheckbox.push(this.state.folderArray[i]);
+    onChangeParentCheckbox = (e: any, index: any) => {
+        const { folderArray } = this.state;
+        const parentCheckbox = folderArray[index];
+        const checked = e.target.checked;
+        for (let j = 0; j < parentCheckbox.subData.length; j++) {
+            parentCheckbox.subData[j].checkValue = checked;
+            parentCheckbox.checkValueStatus = checked;
         }
-        console.log(updateArraycheckbox);
         this.setState({
-            folderArray: updateArraycheckbox,
+            folderArray
         })
     }
+
     openCloseManageDashboardFolder = () => {
         const retData = [];
         const { folderArray } = this.state;
@@ -325,27 +196,12 @@ export class AddLibraryPopup extends React.Component<any, any> {
             const subFolders = folder.subData;
             const subFolderJSX = [];
             for (let j = 0; j < subFolders.length; j++) {
-                const attribute = subFolders[j].attribute;
-                const subAttributeFolder = [];
-                if (subFolders[j].attribute) {
-                    for (let k = 0; k < attribute.length; k++) {
-                        const subAtt = attribute[k];
-                        subAttributeFolder.push(
-                            <div className={subAtt.backColorClass}>{subAtt.attributeName}</div>
-                        );
-                    }
-                }
                 const subFolder = subFolders[j];
                 subFolderJSX.push(
                     <tr>
                         <td>
-                            <input type="checkbox" className="checkbox" checked={subFolder.checkValue} onClick={() => this.onClickChangeCheckBoxValue(i, j)} />
+                            <input type="checkbox" className="checkbox" checked={subFolder.checkValue} onClick={() => this.onClickChildCheckbox(i, j)} />
                             <span>{subFolder.tableTitle}</span>
-                        </td>
-                        <td>
-                            <div className="float-right">
-                                {subAttributeFolder}
-                            </div>
                         </td>
                     </tr>
                 );
@@ -354,7 +210,7 @@ export class AddLibraryPopup extends React.Component<any, any> {
             retData.push(
                 <div>
                     <div className="general-heading">
-                        <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.allSelectFolderData(e, i) }} className="checkbox" />
+                        <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.onChangeParentCheckbox(e, i) }} className="checkbox" />
                         <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
                         <h4>{folder.title}</h4>
                     </div>
@@ -393,18 +249,17 @@ export class AddLibraryPopup extends React.Component<any, any> {
                                 <option>Synectiks</option>
                             </select>
                         </div>
-                        <div className="form-group">    
+                        <div className="form-group">
                             <label htmlFor="selectLocationInLibrary">Select location in Library</label>
                             {this.openCloseManageDashboardFolder()}
                         </div>
                         <div className="form-group text-right">
-                        <a className="gray-button">Cancel</a>
-                        <a className="blue-button">Add to Library</a>
-                    </div>
+                            <a className="gray-button">Cancel</a>
+                            <a className="blue-button">Add to Library</a>
+                        </div>
                     </div>
                 </ModalBody>
             </Modal>
         );
     }
-
 }
