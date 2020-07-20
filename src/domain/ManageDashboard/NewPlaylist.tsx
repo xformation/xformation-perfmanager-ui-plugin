@@ -63,8 +63,8 @@ export class NewPlaylists extends React.Component<any, any>{
                         </td>
                         <td>
                             <div className="float-right">
-                                <Button onClick={()=> this.array_move(newPlaylistArrayData,i,i-1)} className={i == 0 ? 'down-arrow' : 'arrow-up-arrow'}></Button>
-                                <Button onClick={()=> this.array_move(newPlaylistArrayData,i,i+1)} className={(i != 0 && i< newPlaylistArrayData.length-1) ? 'down-arrow' : ''}></Button>
+                                <span onClick={()=> this.array_move(newPlaylistArrayData,i,i-1)} className={i == 0 ? 'down-arrow' : 'arrow-up-arrow'}></span>
+                                <span onClick={()=> this.array_move(newPlaylistArrayData,i,i+1)} className={(i != 0 && i< newPlaylistArrayData.length-1) ? 'down-arrow' : ''}></span>
                                 <Button onClick={() => this.removePlylistData(i)} className="close-arrow"></Button>
                             </div>
                         </td>
@@ -73,7 +73,11 @@ export class NewPlaylists extends React.Component<any, any>{
             }
         } else {
             newretData.push(
-                <p>Add Dashboards from below list to your playlist</p>
+                <tr className="add-aashboards-text">
+                    <td>
+                        <p>Add Dashboards from below list to your playlist</p>
+                    </td>
+                </tr>
             );
         }
         return newretData;
@@ -200,13 +204,19 @@ export class NewPlaylists extends React.Component<any, any>{
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-lg-5 col-md-12 col-sm-12">
+                            <div className="col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                 <div className="add-dashboard-heading">
                                     Add Dashboards
                         </div>
                             </div>
-                            <div className="col-lg-7 col-md-12 col-sm-12">
+                            <div className="col-xl-8 col-lg-12 col-md-12 col-sm-12">
                                 <div className="filter-starred float-right">
+                                    <div className="addalltolist">
+                                        <Button type="button" className="blue-button">
+                                            <i className="fa fa-plus"></i>
+                                            &nbsp;&nbsp; Add all to List
+                                        </Button>
+                                    </div>
                                     <div className="sort-checkbox">
                                         <input type="checkbox" className="checkbox" />
                                         <span>Filter by starred</span>
