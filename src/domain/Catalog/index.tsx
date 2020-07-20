@@ -6,7 +6,7 @@ import { Collapse } from 'reactstrap';
 // import {Collapse} from 'react-bootstrap';
 import categoryImage from '../../img/category-image1.png';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
-import { AddLibraryPopup } from './addLibraryPopup';
+import { AddLibraryPopup } from './AddLibraryPopup';
 import {PreviewDashboard } from './PreviewDashboard';
 
 
