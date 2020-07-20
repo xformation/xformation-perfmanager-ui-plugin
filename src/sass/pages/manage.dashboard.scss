@@ -399,7 +399,6 @@
                 margin-bottom: 0;
             }
             .add-dashboard-playlist{
-                overflow-x: auto;
                 padding-bottom: 0px;
                 .data-table{
                     font-size: 12px;
@@ -408,7 +407,7 @@
                     font-weight: 500;
                     color: #3b4859;
                     background-color: #ffffff;
-                    width: 975px;
+                    width: 100%;
                     tr{
                         td{
                             padding: 8px 10px;
@@ -578,9 +577,7 @@
     .add-dashboard{
         margin-top: 15px;
         border: 0.5px solid #8392A7;
-        display: grid;
         .add-dashboard-inner{
-            overflow-x: auto;
             padding-bottom: 30px;
             .data-table{
                 font-size: 12px;
@@ -589,7 +586,7 @@
                 font-weight: 500;
                 color: #3b4859;
                 background-color: #ffffff;
-                width: 975px;
+                width: 100%;
                 tr{
                     td{
                         padding: 8px 10px;
@@ -768,5 +765,44 @@
                 width: 80%;
             }
         }
-    }    
+    }   
+    .new-playlist-container{
+        .add-dashboard{
+            display: grid;
+            .add-dashboard-inner{
+                overflow-x: auto;
+                .data-table{
+                    width: 450px;
+                }
+            }
+        }
+        .add-dashboards-playlist{
+            .add-dashboard{
+                display: grid;
+                .add-dashboard-playlist{
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    .data-table{
+                        width: 450px;
+                    }
+                }
+            }
+        }
+    } 
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 980px) {
+    .new-playlist-container{
+        .sort-checkbox{
+            span{
+                font-size: 12px;
+            }
+        }
+        .sort-select-menu{
+            width: 205px;
+            select{
+                width: 150px;
+            }
+        }
+    }
 }
