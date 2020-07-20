@@ -153,7 +153,7 @@ export class NewPlaylists extends React.Component<any, any>{
                             <div className="col-lg-7 col-md-12 col-sm-12">
                                 <div className="float-right playlist">
                                     <Button onClick={this.onClickCancel} className="gray-button">Cancel</Button>
-                                    <Button disabled={!enabled} onClick={() => this.setState({ createListOpen: !createListOpen })} className="blue-button">Save</Button>
+                                    <Button disabled={!enabled} onClick={() => this.setState({ createListOpen: !createListOpen })} className="blue-button m-r-0">Save</Button>
                                 </div>
                             </div>
                         </div>

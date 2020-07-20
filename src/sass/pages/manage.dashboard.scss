@@ -370,6 +370,7 @@
             color: #3B4859;
             font-size: 14px;
             padding: 0 10px;
+            background-color: #ffffff;
         }
     }
     .add-dashboards-playlist{
@@ -542,7 +543,7 @@
         padding-top: 10px;
         span{
             padding-left: 10px;
-            color: $manage-dashboard-text-color;
+            color: #3B4859;
             font-size: 14px;
             line-height: 20px;
             font-weight: 500;
@@ -614,12 +615,12 @@
         }
     }
     .gray-button{
-        border-radius: 8px;
-        vertical-align: top;
+        border-radius: 8px!important;
+        vertical-align: top!important;
     }
     .blue-button{
-        border-radius: 8px;
-        vertical-align: top;
+        border-radius: 8px!important;
+        vertical-align: top!important;
     }
     .save-playlist-container{
         border: 1px solid #8392A7;

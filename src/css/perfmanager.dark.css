@@ -1,38 +1,94 @@
+/*********************************** Buttons *********************************/
+.blue-button {
+  background: #3b7cff !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 7px 18px !important;
+  border-radius: 0px !important;
+  margin-right: 10px;
+  margin-bottom: 10px !important;
+  display: inline-block !important;
+  min-width: 100px;
+  text-align: center;
+}
+.blue-button:hover,
+.blue-button:focus {
+  background: #0f5efd !important;
+  color: #ffffff !important;
+}
+
+.gray-button {
+  background: #dde4e9 !important;
+  color: #8392a7 !important;
+  border: none !important;
+  padding: 7px 18px !important;
+  border-radius: 0px !important;
+  margin-right: 10px;
+  display: inline-block !important;
+  min-width: 100px;
+  text-align: center;
+}
+.gray-button:hover,
+.gray-button:focus {
+  background: #dbe0e4 !important;
+  color: #8392a7 !important;
+}
+
+.white-button {
+  background: white !important;
+  min-width: 100px;
+  color: #3b4859 !important;
+  border: none !important;
+  padding: 7px 18px !important;
+  border-radius: 0px !important;
+  margin-right: 10px;
+  display: inline-block !important;
+  text-align: center;
+}
+.white-button:hover,
+.white-button:focus {
+  background: #e6e6e6 !important;
+  color: #3b4859 !important;
+}
+.white-button i {
+  color: #57a4ff !important;
+}
+
 a:focus,
 a:hover {
   color: #000000;
 }
 
 .float-right {
-  float: right;
+  float: right !important;
 }
 
 .text-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 .text-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .d-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .p-l-0 {
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 
 .p-r-0 {
-  padding-right: 0;
+  padding-right: 0 !important;
 }
 
 .m-l-0 {
-  margin-left: 0;
+  margin-left: 0 !important;
 }
 
 .m-r-0 {
-  margin-right: 0;
+  margin-right: 0 !important;
 }
 
 .p-t-20 {
@@ -97,62 +153,6 @@ a:hover {
   padding-right: 15px;
   padding-bottom: 15px;
   border-bottom: 1px solid #202226;
-}
-
-/*********************************** Buttons *********************************/
-.blue-button {
-  background: #3b7cff;
-  color: #ffffff;
-  border: none;
-  padding: 7px 18px;
-  border-radius: 0px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  display: inline-block;
-  min-width: 100px;
-  text-align: center;
-}
-.blue-button:hover,
-.blue-button:focus {
-  background: #0f5efd !important;
-  color: #ffffff;
-}
-
-.gray-button {
-  background: #dde4e9;
-  color: #8392a7;
-  border: none;
-  padding: 7px 18px;
-  border-radius: 0px;
-  margin-right: 10px;
-  display: inline-block;
-  min-width: 100px;
-  text-align: center;
-}
-.gray-button:hover,
-.gray-button:focus {
-  background: #dbe0e4 !important;
-  color: #8392a7 !important;
-}
-
-.white-button {
-  background: white;
-  min-width: 100px;
-  color: #3b4859;
-  border: none;
-  padding: 7px 18px;
-  border-radius: 0px;
-  margin-right: 10px;
-  display: inline-block;
-  text-align: center;
-}
-.white-button:hover,
-.white-button:focus {
-  background: #e6e6e6;
-  color: #3b4859;
-}
-.white-button i {
-  color: #57a4ff !important;
 }
 
 .common-right-btn .alert-white-button {
@@ -1324,6 +1324,7 @@ a:hover {
   color: #3b4859;
   font-size: 14px;
   padding: 0 10px;
+  background-color: #ffffff;
 }
 .new-playlist-container .add-dashboards-playlist {
   display: block;
@@ -1582,7 +1583,7 @@ a:hover {
 }
 .new-playlist-container .sort-checkbox span {
   padding-left: 10px;
-  color: #ffffff;
+  color: #3b4859;
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
@@ -1667,12 +1668,12 @@ a:hover {
   background-color: #f8f9fb;
 }
 .new-playlist-container .gray-button {
-  border-radius: 8px;
-  vertical-align: top;
+  border-radius: 8px !important;
+  vertical-align: top !important;
 }
 .new-playlist-container .blue-button {
-  border-radius: 8px;
-  vertical-align: top;
+  border-radius: 8px !important;
+  vertical-align: top !important;
 }
 .new-playlist-container .save-playlist-container {
   border: 1px solid #8392a7;
