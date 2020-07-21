@@ -11,127 +11,85 @@ export class AddLibraryPopup extends React.Component<any, any> {
             folderArray: [
                 {
                     title: 'General',
-                    openSubFolder: true,
-                    checkValueStatus: false,
+                    isOpened: true,
+                    isChecked: false,
+                    isFolder: true,
                     subData: [
                         {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-
-                        },
+                            title: 'Amazon CloudWatch Logs',
+                            isChecked: false,
+                            isFolder: true,
+                            isOpened: false,
+                            subData: [{
+                                title: 'Amazon CloudWatch Logs',
+                                isChecked: false,
+                                isFolder: false,
+                            }, {
+                                title: 'Amazon CloudWatch Logs1',
+                                isChecked: false,
+                                isFolder: false,
+                            }]
+                        }, {
+                            title: 'Amazon CloudWatch Logs',
+                            isChecked: false,
+                            isFolder: true,
+                            isOpened: false,
+                            subData: [{
+                                title: 'Amazon CloudWatch Logs',
+                                isChecked: false,
+                                isFolder: false,
+                            }, {
+                                title: 'Amazon CloudWatch Logs1',
+                                isChecked: false,
+                                isFolder: false,
+                            }]
+                        }
                     ]
                 },
                 {
                     title: 'Personal',
-                    openSubFolder: false,
-                    checkValueStatus: false,
+                    isOpened: false,
+                    isChecked: false,
+                    isFolder: true,
                     subData: [
                         {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-                        },
+                            title: 'Amazon CloudWatch Logs',
+                            isChecked: false,
+                            isFolder: true,
+                            isOpened: false,
+                            subData: [{
+                                title: 'Amazon CloudWatch Logs',
+                                isChecked: false,
+                                isFolder: false,
+                            }, {
+                                title: 'Amazon CloudWatch Logs1',
+                                isChecked: false,
+                                isFolder: false,
+                            }]
+                        }
                     ]
                 },
                 {
                     title: 'Cloud',
-                    openSubFolder: false,
-                    checkValueStatus: false,
+                    isOpened: true,
+                    isChecked: false,
+                    isFolder: true,
                     subData: [
                         {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-                        },
-                    ]
-                },
-                {
-                    title: 'Networking',
-                    openSubFolder: false,
-                    checkValueStatus: false,
-                    subData: [
-                        {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-                        },
+                            title: 'Amazon CloudWatch Logs',
+                            isChecked: false,
+                            isFolder: true,
+                            isOpened: false,
+                            subData: [{
+                                title: 'Amazon CloudWatch Logs',
+                                isChecked: false,
+                                isFolder: false,
+                            }, {
+                                title: 'Amazon CloudWatch Logs1',
+                                isChecked: false,
+                                isFolder: false,
+                            }]
+                        }
                     ]
                 }
             ]
@@ -144,88 +102,138 @@ export class AddLibraryPopup extends React.Component<any, any> {
         });
     };
 
-    onClickChildCheckbox = (parentIndex: any, childIndex: any) => {
-        let countCheckedCheckbox = 0;
+    onClickOpenSubFolderArr = (indexArr: any) => {
         const { folderArray } = this.state;
-        const parentCheckbox = folderArray[parentIndex];
-        parentCheckbox.subData[childIndex].checkValue = !parentCheckbox.subData[childIndex].checkValue;
-        for (let j = 0; j < parentCheckbox.subData.length; j++) {
-            if (parentCheckbox.subData[j].checkValue == true) {
-                countCheckedCheckbox++;
-            } else {
-                countCheckedCheckbox--;
+        const folder = this.findChild(folderArray, [...indexArr]);
+        folder.isOpened = !folder.isOpened;
+        this.setState({
+            folderArray
+        });
+    }
+
+    findChild = (folderList: any, indexArr: any): any => {
+        const index = indexArr.splice(0, 1)[0];
+        if (indexArr.length === 0) {
+            return folderList[index];
+        } else {
+            return this.findChild(folderList[index].subData, indexArr);
+        }
+    };
+
+    checkUnCheckChild = (folderList: any, checked: any): any => {
+        const length = folderList.length;
+        for (let i = 0; i < length; i++) {
+            const folder = folderList[i];
+            folder.isChecked = checked;
+            if (folder.isFolder) {
+                this.checkUnCheckChild(folder.subData, checked);
             }
         }
-        if (countCheckedCheckbox == parentCheckbox.subData.length) {
-            parentCheckbox.checkValueStatus = true;
+    };
+
+    unCheckParent = (folderList: any, indexArr: any): any => {
+        if (indexArr.length > 0) {
+            let child = this.findChild(folderList, [...indexArr]);
+            child.isChecked = false;
+            indexArr.splice(indexArr.length - 1, 1);
+            this.unCheckParent(folderList, indexArr);
+        }
+    };
+
+    checkParent = (folderList: any, indexArr: any): any => {
+        if (indexArr.length > 0) {
+            let child = this.findChild(folderList, [...indexArr]);
+            if (child.isFolder) {
+                const length = child.subData.length;
+                let isChecked = true;
+                for (let i = 0; i < length; i++) {
+                    if (!child.subData[i].isChecked) {
+                        isChecked = false;
+                    }
+                }
+                if (isChecked) {
+                    child.isChecked = true;
+                }
+            }
+            indexArr.splice(indexArr.length - 1, 1);
+            this.checkParent(folderList, indexArr);
+        }
+    };
+
+    onClickCheckbox = (e: any, indexArr: any) => {
+        const { checked } = e.target;
+        let { folderArray } = this.state;
+        const folder = this.findChild(folderArray, [...indexArr]);
+        folder.isChecked = checked;
+        if (folder.isFolder) {
+            this.checkUnCheckChild(folder.subData, checked);
+        }
+        if (checked) {
+            this.checkParent(folderArray, [...indexArr]);
         } else {
-            parentCheckbox.checkValueStatus = false;
+            this.unCheckParent(folderArray, [...indexArr]);
         }
         this.setState({
             folderArray
-        })
-    }
+        });
+    };
 
-    onClickOpenSubFolder = (index: any) => {
-        const { folderArray } = this.state;
-        folderArray[index].openSubFolder = !folderArray[index].openSubFolder;
-        this.setState({
-            folderArray: folderArray,
-        })
-    }
-
-    onChangeParentCheckbox = (e: any, index: any) => {
-        const { folderArray } = this.state;
-        const parentCheckbox = folderArray[index];
-        const checked = e.target.checked;
-        for (let j = 0; j < parentCheckbox.subData.length; j++) {
-            parentCheckbox.subData[j].checkValue = checked;
-            parentCheckbox.checkValueStatus = checked;
-        }
-        this.setState({
-            folderArray
-        })
-    }
-
-    openCloseManageDashboardFolder = () => {
+    renderTree = () => {
         const retData = [];
         const { folderArray } = this.state;
         const length = folderArray.length;
         for (let i = 0; i < length; i++) {
             const folder = folderArray[i];
-            const subFolders = folder.subData;
-            const subFolderJSX = [];
-            for (let j = 0; j < subFolders.length; j++) {
-                const subFolder = subFolders[j];
-                subFolderJSX.push(
-                    <tr>
-                        <td>
-                            <input type="checkbox" className="checkbox" checked={subFolder.checkValue} onClick={() => this.onClickChildCheckbox(i, j)} />
-                            <span>{subFolder.tableTitle}</span>
-                        </td>
-                    </tr>
-                );
-
-            }
-            retData.push(
-                <div>
-                    <div className="general-heading">
-                        <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.onChangeParentCheckbox(e, i) }} className="checkbox" />
-                        <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
-                        <h4>{folder.title}</h4>
-                    </div>
-                    <Collapse isOpen={folder.openSubFolder}>
-                        <div className="general-logs">
-                            <div className="general-logs-inner">
-                                <table className="data-table">
-                                    {subFolderJSX}
-                                </table>
-                            </div>
-                        </div>
-                    </Collapse>
-                </div>
-            );
+            retData.push(this.renderFolder(folder, [i]));
         }
+        return retData;
+    }
+
+    renderFolder = (folder: any, indexArr: any): any => {
+        const retData = [];
+        const subFolders = folder.subData;
+        const subFolderJSX = [];
+        for (let j = 0; j < subFolders.length; j++) {
+            const subFolder = subFolders[j];
+            let subIndexArr: any = [];
+            subIndexArr = [...indexArr, j];
+            subFolderJSX.push(
+                <tr>
+                    <td>
+                        {
+                            !subFolder.isFolder &&
+                            <React.Fragment>
+                                <input type="checkbox" className="checkbox" checked={subFolder.isChecked} onClick={(e) => this.onClickCheckbox(e, [...subIndexArr])} />
+                                <span>{subFolder.title}</span>
+                            </React.Fragment>
+                        }
+                        {
+                            subFolder.isFolder &&
+                            this.renderFolder(subFolder, subIndexArr)
+                        }
+                    </td>
+                </tr>
+            );
+
+        }
+        retData.push(
+            <div>
+                <div className="general-heading">
+                    <input type="checkbox" checked={folder.isChecked} className="checkbox" onClick={(e) => this.onClickCheckbox(e, [...indexArr])} />
+                    <span onClick={() => this.onClickOpenSubFolderArr([...indexArr])}><img src={openFolderIcon} alt="" /></span>
+                    <h4>{folder.title}</h4>
+                </div>
+                <Collapse isOpen={folder.isOpened}>
+                    <div className="general-logs">
+                        <div className="general-logs-inner">
+                            <table className="data-table">
+                                {subFolderJSX}
+                            </table>
+                        </div>
+                    </div>
+                </Collapse>
+            </div>
+        );
         return retData;
     }
 
@@ -251,7 +259,7 @@ export class AddLibraryPopup extends React.Component<any, any> {
                         </div>
                         <div className="form-group">
                             <label htmlFor="selectLocationInLibrary">Select location in Library</label>
-                            {this.openCloseManageDashboardFolder()}
+                            {this.renderTree()}
                         </div>
                         <div className="form-group text-right">
                             <a className="gray-button">Cancel</a>
