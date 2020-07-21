@@ -436,12 +436,12 @@ export class Catalog extends React.Component<any, any> {
                     </div>
                     <div className="common-container border-bottom-0">
                         <div className="row">
-                            <div className="col-lg-9 col-md-12 col-sm-12">
+                            <div className="col-xl-9 col-lg-12 col-md-12 col-sm-12">
                                 <div className="categories-boxes">
                                     {this._displayCatalogBox()}
                                 </div>
                             </div>
-                            <div className="col-lg-3 col-md-12 col-sm-12 p-l-0">
+                            <div className="col-xl-3 col-lg-12 col-md-12 col-sm-12 p-l-0">
                                 {this.state.currentOpenIndex !== '' &&
                                     <div className="right-config-box">
                                         <div className="config-heading">
