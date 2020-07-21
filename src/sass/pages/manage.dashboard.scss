@@ -804,12 +804,11 @@
         .new-playlist-heading{
             padding-bottom: 10px;
         }
-        .float-right.playlist{
-            float: left;
-            padding-bottom: 15px;
-        }
-        .filter-starred.float-right{
-            padding-top: 0;
+        .float-right{
+            &.playlist{
+                float: left;
+                padding-bottom: 15px;
+            }
         }
         .sort-checkbox{
             padding-bottom: 10px;
@@ -861,13 +860,8 @@
     } 
 }
 
-@media only screen and (max-width: 1280px) and (min-width: 980px) {
-    .filter-starred{
-        &.float-right{
-            float: left;
-            padding-top: 15px;
-        }
-    }
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+    
     .new-playlist-container{
         .sort-checkbox{
             span{
@@ -878,6 +872,12 @@
             width: 205px;
             select{
                 width: 150px;
+            }
+        }
+        .filter-starred{
+            &.float-right{
+                float: left;
+                padding-top: 15px;
             }
         }
     }

@@ -667,8 +667,8 @@ a:hover {
   padding: 15px 10px;
 }
 .categories-boxes .category-box .category-image {
-  width: 70px;
-  height: 70px;
+  width: 100%;
+  height: auto;
 }
 .categories-boxes .category-box .category-image img {
   max-width: 100%;
@@ -1846,9 +1846,6 @@ a:hover {
     float: left;
     padding-bottom: 15px;
   }
-  .new-playlist-container .filter-starred.float-right {
-    padding-top: 0;
-  }
   .new-playlist-container .sort-checkbox {
     padding-bottom: 10px;
   }
@@ -1896,11 +1893,7 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 1280px) and (min-width: 980px) {
-  .filter-starred.float-right {
-    float: left;
-    padding-top: 15px;
-  }
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
   .new-playlist-container .sort-checkbox span {
     font-size: 12px;
   }
@@ -1909,6 +1902,10 @@ a:hover {
   }
   .new-playlist-container .sort-select-menu select {
     width: 150px;
+  }
+  .new-playlist-container .filter-starred.float-right {
+    float: left;
+    padding-top: 15px;
   }
   .manage-dashboard-fliter-sort .sort-checkbox span {
     font-size: 12px;
@@ -2186,6 +2183,19 @@ a:hover {
   }
   .manage-dashboard-fliter-sort .sort-select-menu select {
     width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+  .filter-starred.float-right {
+    float: left;
+    padding-top: 15px;
+  }
+  .collection-logos ul li {
+    padding-right: 15px;
+  }
+  .collection-logos ul li a {
+    width: 100%;
   }
 }
 
