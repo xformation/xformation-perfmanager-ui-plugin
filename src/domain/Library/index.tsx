@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
-import { Wizard } from './Wizard';
+// import { Wizard } from './Wizard';
 import { LibraryDetails } from './LibraryDetails';
 import { Personal } from './Personal';
 import { AwsConfig } from './AwsConfig';
@@ -101,7 +101,7 @@ export class Library extends React.Component<any, any> {
                         </div>
                     </div>
                     <div className="common-container border-bottom-0 wizard-container">
-                        <Wizard steps={this.steps} />
+                        {/* <Wizard steps={this.steps} /> */}
                     </div>
                 </div>
             </div>

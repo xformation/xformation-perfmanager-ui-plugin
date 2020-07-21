@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
 import dashboardIcon from '../../img/dashboard-icon.png';
-import { Wizard } from './Wizard';
 import { Playlists } from './Playlists';
 import { ManageTab } from './ManageTab';
 
@@ -25,19 +24,6 @@ export class ManageDashboard extends React.Component<any, any> {
                 isCurrentPage: true
             }
         ];
-        // this.steps = [{
-        //     name: "Manage",
-        //     component: <ManageTab />
-        // },
-        // {
-        //     name: "Playlists",
-        //     component: <Playlists />
-        // },
-        // {
-        //     name: "Snapshots",
-        //     component: ""
-        // }];
-
     }
 
     setActiveTab = (activeTab: any) => {
@@ -106,7 +92,6 @@ export class ManageDashboard extends React.Component<any, any> {
                                 </li>
                             </ul>
                         </div>
-                        {/* <Wizard steps={this.steps} /> */}
                         <div className="manage-dashboard-tabs">
                             <ul>
                                 <li className={activeTab === 0?"active-tab":''} onClick={e=>this.setActiveTab(0)}>
