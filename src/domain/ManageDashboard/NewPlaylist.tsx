@@ -11,21 +11,22 @@ export class NewPlaylists extends React.Component<any, any>{
             saveFileName: '',
             createListOpen: true,
             playListArrayData: [
-                { label: 'Amazon CloudWatch Logs' },
-                { label: 'Amazon RDS' },
-                { label: 'AWS VPN' },
-                { label: 'AWS VPN Dashboard' },
-                { label: 'Cloud Trial' },
-                { label: ' Cloud Watch' },
+                { label: 'Amazon CloudWatch Logs', id: 0, isChecked: false },
+                { label: 'Amazon RDS', id: 1, isChecked: false },
+                { label: 'AWS VPN', id: 2, isChecked: false },
+                { label: 'AWS VPN Dashboard', id: 3, isChecked: false },
+                { label: 'Cloud Trial', id: 4, isChecked: false },
+                { label: ' Cloud Watch', id: 5, isChecked: false },
             ],
             duplicatePlayListData: [
-                { label: 'Amazon CloudWatch Logs' },
-                { label: 'Amazon RDS' },
-                { label: 'AWS VPN' },
-                { label: 'AWS VPN Dashboard' },
-                { label: 'Cloud Trial' },
-                { label: ' Cloud Watch' },
+                { label: 'Amazon CloudWatch Logs', id: 0, isChecked: false },
+                { label: 'Amazon RDS', id: 1, isChecked: false },
+                { label: 'AWS VPN', id: 2, isChecked: false },
+                { label: 'AWS VPN Dashboard', id: 3, isChecked: false },
+                { label: 'Cloud Trial', id: 4, isChecked: false },
+                { label: ' Cloud Watch', id: 5, isChecked: false },
             ],
+            multipleSelectData: [],
             newPlaylistArrayData: [],
         };
     }
@@ -36,7 +37,7 @@ export class NewPlaylists extends React.Component<any, any>{
             retData.push(
                 <tr>
                     <td>
-                        <input type="checkbox" className="checkbox" />
+                        <input type="checkbox" onClick={(e) => { this.onPlayListChecked(e, i) }} className="checkbox" checked={playListArrayData[i].isChecked} />
                         {playListArrayData[i].label}
                     </td>
                     <td>
@@ -49,6 +50,14 @@ export class NewPlaylists extends React.Component<any, any>{
         }
         return retData;
     }
+
+    onPlayListChecked = (e: any, index: any) => {
+        const { playListArrayData } = this.state;
+        playListArrayData[index].isChecked = e.target.checked;
+        this.setState({
+            playListArrayData
+        });
+    };
 
     displayNewPlayListData() {
         const { newPlaylistArrayData } = this.state;
@@ -63,8 +72,8 @@ export class NewPlaylists extends React.Component<any, any>{
                         </td>
                         <td>
                             <div className="float-right">
-                                <span onClick={()=> this.array_move(newPlaylistArrayData,i,i-1)} className={i == 0 ? 'down-arrow' : 'arrow-up-arrow'}></span>
-                                <span onClick={()=> this.array_move(newPlaylistArrayData,i,i+1)} className={(i != 0 && i< newPlaylistArrayData.length-1) ? 'down-arrow' : ''}></span>
+                                <span onClick={() => this.array_move(newPlaylistArrayData, i, i - 1)} className={i == 0 ? 'down-arrow' : 'arrow-up-arrow'}></span>
+                                <span onClick={() => this.array_move(newPlaylistArrayData, i, i + 1)} className={(i != 0 && i < newPlaylistArrayData.length - 1) ? 'down-arrow' : ''}></span>
                                 <Button onClick={() => this.removePlylistData(i)} className="close-arrow"></Button>
                             </div>
                         </td>
@@ -106,6 +115,26 @@ export class NewPlaylists extends React.Component<any, any>{
         })
     }
 
+    addMultipleDataToNewPlayList = () => {
+        const { newPlaylistArrayData, playListArrayData } = this.state;
+        let result = newPlaylistArrayData;
+        let playListData = [];
+        for (let j = 0; j < playListArrayData.length; j++) {
+            if (playListArrayData[j].isChecked) {
+                result.push({
+                    ...playListArrayData[j],
+                    isChecked: false
+                });
+            } else {
+                playListData.push(playListArrayData[j]);
+            }
+        }
+        this.setState({
+            playListArrayData: playListData,
+            newPlaylistArrayData: result,
+        })
+    }
+
     removePlylistData = (index: any) => {
         const { newPlaylistArrayData, playListArrayData } = this.state;
         let listData = playListArrayData;
@@ -139,12 +168,12 @@ export class NewPlaylists extends React.Component<any, any>{
     }
 
     onClickCancel = () => {
-        if(this.props.onClickCancel){
+        if (this.props.onClickCancel) {
             this.props.onClickCancel();
         }
     }
 
-    array_move(arr:any, old_index:any, new_index:any) {
+    array_move(arr: any, old_index: any, new_index: any) {
         if (new_index >= arr.length) {
             var k = new_index - arr.length + 1;
             while (k--) {
@@ -152,15 +181,25 @@ export class NewPlaylists extends React.Component<any, any>{
             }
         }
         arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-        console.log(arr);
-        // return arr; // for testing
         this.setState({
             newPlaylistArrayData: arr,
         })
-    };
+    }
+
+    checkActiveButtonStatus() {
+        let buttonStatus = false;
+        for(let i=0;i<this.state.playListArrayData.length;i++){
+            if(this.state.playListArrayData[i].isChecked){
+                buttonStatus= true;
+            }
+        }
+        return buttonStatus;
+    }
+
     render() {
-        const { createListOpen, newPlaylistArrayData } = this.state;
+        const { createListOpen, newPlaylistArrayData, multipleSelectData } = this.state;
         const enabled = newPlaylistArrayData.length > 0;
+        const allenabledButton = this.checkActiveButtonStatus();
         return (
             <div className="new-playlist-container">
                 {createListOpen == true &&
@@ -212,7 +251,7 @@ export class NewPlaylists extends React.Component<any, any>{
                             <div className="col-xl-8 col-lg-12 col-md-12 col-sm-12">
                                 <div className="filter-starred float-right">
                                     <div className="addalltolist">
-                                        <Button type="button" className="blue-button">
+                                        <Button disabled={!allenabledButton} onClick={() => this.addMultipleDataToNewPlayList()} type="button" className="blue-button">
                                             <i className="fa fa-plus"></i>
                                             &nbsp;&nbsp; Add all to List
                                         </Button>
