@@ -125,7 +125,7 @@ export class Collection extends React.Component<any, any> {
                         </div>
                         <div className="collection-dashboard-fliter-sort">
                             <div className="row">
-                                <div className="col-lg-6 col-md-12 col-sm-12">
+                                <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                     <div className="sort-checkbox">
                                         <input type="checkbox" className="checkbox" />
                                     </div>
@@ -150,7 +150,7 @@ export class Collection extends React.Component<any, any> {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="col-lg-6 col-md-12 col-sm-12">
+                                <div className="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                                     <div className="filter-starred float-right">
                                         <div className="sort-checkbox">
                                             <input type="checkbox" className="checkbox" />

@@ -107,17 +107,19 @@ export class ManageDashboard extends React.Component<any, any> {
                             </ul>
                         </div>
                         {/* <Wizard steps={this.steps} /> */}
-                        <ul>
-                            <li className={activeTab === 0?"active-tab":''} onClick={e=>this.setActiveTab(0)}>
-                                Manage
-                            </li>
-                            <li className={activeTab === 1?"active-tab":''} onClick={e=>this.setActiveTab(1)}>
-                                Playlist
-                            </li>
-                            <li className={activeTab === 2?"active-tab":''} onClick={e=>this.setActiveTab(2)}>
-                                Snapshots
-                            </li>
-                        </ul>
+                        <div className="manage-dashboard-tabs">
+                            <ul>
+                                <li className={activeTab === 0?"active-tab":''} onClick={e=>this.setActiveTab(0)}>
+                                    <a href="#">Manage</a>
+                                </li>
+                                <li className={activeTab === 1?"active-tab":''} onClick={e=>this.setActiveTab(1)}>
+                                    <a href="#">Playlist</a>
+                                </li>
+                                <li className={activeTab === 2?"active-tab":''} onClick={e=>this.setActiveTab(2)}>
+                                    <a href="#">Snapshots</a>
+                                </li>
+                            </ul>
+                        </div>
                         <div className="tab-container">
                             {
                                 activeTab === 0 && <ManageTab />

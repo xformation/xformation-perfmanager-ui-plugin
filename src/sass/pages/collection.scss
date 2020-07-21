@@ -288,3 +288,22 @@
         }
     }
 }
+
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+    .filter-starred{
+        &.float-right{
+            float: left;
+            padding-top: 15px;
+        }
+    }
+    .collection-logos{
+        ul{
+            li{
+                padding-right: 15px;
+                a{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

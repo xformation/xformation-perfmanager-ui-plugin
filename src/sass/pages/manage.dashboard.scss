@@ -55,6 +55,49 @@
     }
 }
 
+.manage-dashboard-tabs{
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 30px;
+    ul{
+        list-style: none;
+        li{
+            display: inline-block;
+            a{
+                border-right: 1px solid #ffffff;
+                display: block;
+                background-color: #F0F3F7;
+                color: #2662F0;
+                font-size: 14px;
+                line-height: 40px;
+                font-weight: 500;
+                padding: 0 20px;
+                &:hover{
+                    background-color: #ffffff;
+                    box-shadow: 0px 1px 8px #142E6E1A;
+                }
+            }
+            &.active-tab{
+                a{
+                    background-color: #ffffff;
+                    box-shadow: 0px 1px 8px #142E6E1A;
+                }
+            }
+            &:first-child{
+                a{
+                    border-radius: 8px 0px 0px 8px;
+                }
+            }
+            &:last-child{
+                a{
+                    border-right: none;
+                    border-radius: 0px 8px 8px 0px;
+                }
+            }
+        }
+    }
+}
+
 .manage-dashboard-search{
     padding-bottom: 30px;
     .search-control-group{
@@ -402,7 +445,7 @@
                 font-style: italic;
                 display: block;
                 font-weight: 500;
-                padding: 5px 0 10px 10px;
+                padding: 10px 0 10px 10px;
                 margin-bottom: 0;
             }
             .add-dashboard-playlist{
@@ -425,13 +468,13 @@
                                 vertical-align: middle;
                             }
                             .down-arrow{
-                                height: 22px;
-                                width: 16px;
+                                height: 32px;
+                                width: 20px;
                                 display: inline-block;
                                 position: relative;
                                 text-align: center;
                                 vertical-align: top;
-                                margin-top: -5px;
+                                margin: 0;
                                 background: none;
                                 padding: 0;
                                 cursor: pointer;
@@ -441,7 +484,10 @@
                                     height: 8px;
                                     width: 2px;
                                     display: inline-block;
-                                    margin-left: 2px;
+                                    margin-left: 0px;
+                                    position: absolute;
+                                    left: 7.5px;
+                                    top: 8px;
                                 }
                                 &:after{
                                     border: solid transparent;
@@ -453,19 +499,22 @@
                                     border-top-color: #2662F0;
                                     border-width: 6px;
                                     display: inline-block;
-                                    margin-top: -6px;
+                                    margin-top: 0px;
                                     vertical-align: top;
-                                    margin-left: 2px;
+                                    margin-left: 0px;
+                                    position: absolute;
+                                    left: 3px;
+                                    top: 16px;
                                 }             
                             }
                             .arrow-up-arrow{
-                                height: 22px;
-                                width: 16px;
+                                height: 32px;
+                                width: 20px;
                                 display: inline-block;
                                 position: relative;
                                 text-align: center;
                                 vertical-align: top;
-                                margin-top: -5px;
+                                margin: 0;
                                 padding: 0;
                                 background: none; 
                                 cursor: pointer;
@@ -479,9 +528,12 @@
 	                                border-bottom-color: #2662F0;
                                     border-width: 6px;
                                     display: inline-block;
-                                    margin-top: 1px;
+                                    margin-top: 0px;
                                     vertical-align: top;
-                                    margin-left: 2px;
+                                    margin-left: 0px;
+                                    position: absolute;
+                                    left: 3px;
+                                    top: 2px;
                                 }
                                 &:after{
                                     content: "";
@@ -489,9 +541,12 @@
                                     height: 8px;
                                     width: 2px;
                                     display: inline-block;
-                                    margin-left: 2px;
-                                    margin-top: -6px;
+                                    margin-left: 0px;
+                                    margin-top: 0;
                                     vertical-align: top;
+                                    position: absolute;
+                                    left: 8px;
+                                    top: 13px;
                                 } 
                             }
                             .close-arrow{
@@ -499,9 +554,9 @@
                                 padding: 0;
                                 display: inline-block;
                                 vertical-align: top;
-                                margin: 2px 5px 0 15px;
+                                margin: 0px 5px;
                                 width: 15px;
-                                height: 15px;
+                                height: 32px;
                                 padding: 0;
                                 background: none;
                                 &:before{
@@ -509,7 +564,7 @@
                                     width: 2px;
                                     height: 13px;
                                     position: absolute;
-                                    top: 0;
+                                    top: 10px;
                                     left: 6px;
                                     background: #2662F0;
                                     opacity: 1;
@@ -521,7 +576,7 @@
                                     width: 2px;
                                     height: 13px;
                                     position: absolute;
-                                    top: 0;
+                                    top: 10px;
                                     left: 6px;
                                     background: #2662F0;
                                     opacity: 1;
@@ -749,12 +804,11 @@
         .new-playlist-heading{
             padding-bottom: 10px;
         }
-        .float-right.playlist{
-            float: left;
-            padding-bottom: 15px;
-        }
-        .filter-starred.float-right{
-            padding-top: 0;
+        .float-right{
+            &.playlist{
+                float: left;
+                padding-bottom: 15px;
+            }
         }
         .sort-checkbox{
             padding-bottom: 10px;
@@ -806,13 +860,8 @@
     } 
 }
 
-@media only screen and (max-width: 1280px) and (min-width: 980px) {
-    .filter-starred{
-        &.float-right{
-            float: left;
-            padding-top: 15px;
-        }
-    }
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+    
     .new-playlist-container{
         .sort-checkbox{
             span{
@@ -823,6 +872,12 @@
             width: 205px;
             select{
                 width: 150px;
+            }
+        }
+        .filter-starred{
+            &.float-right{
+                float: left;
+                padding-top: 15px;
             }
         }
     }
