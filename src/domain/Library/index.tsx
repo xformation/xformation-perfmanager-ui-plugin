@@ -13,6 +13,7 @@ export class Library extends React.Component<any, any> {
         super(props);
         this.state = {
             activeTab: 0,
+            checkactiveTabTableData: [],
             tabData: [
                 { tabtitle: 'Library' },
             ],
@@ -92,14 +93,46 @@ export class Library extends React.Component<any, any> {
                         name: 'Amazon ECS',
                         description: 'Amazon EC2 Container Service (Amazon ECS)...',
                         createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin'
+                        lastModified: '16/06/2020 by System Admin',
+                        activeTab: 1,
                     },
                     {
                         name: 'AWS Cloud Trail',
-                        description: 'monitor your AWS deployments, with predefi...',
+                        description: 'Amazon Web Services (AWS) Config provides...',
                         createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin'
-                    }
+                        lastModified: '16/06/2020 by System Admin',
+                        activeTab: 1,
+                        libraryChildFolder: [
+                            {
+                                name: 'AWS Config Overview - Interactive',
+                                description: 'AWS Config Overview - Interactive',
+                                createdBy: 'System Admin',
+                                lastModified: '16/06/2020 by System Admin',
+                                activeTab: 2,
+                            },
+                            {
+                                name: 'AWS Config Overview - Live',
+                                description: 'AWS Config Overview - Live',
+                                createdBy: 'System Admin',
+                                lastModified: '16/06/2020 by System Admin',
+                                activeTab: 2,
+                            },
+                            {
+                                name: 'Resource Modification Details - Interactive',
+                                description: 'Resource Modification Details - Interactive',
+                                createdBy: 'System Admin',
+                                lastModified: '16/06/2020 by System Admin',
+                                activeTab: 2,
+                            },
+                            {
+                                name: 'Configuration Trend',
+                                description: 'Configuration Trend',
+                                createdBy: 'System Admin',
+                                lastModified: '16/06/2020 by System Admin',
+                                activeTab: 2,
+                            },
+                        ]
+                    },
                 ]
             }],
             duplicateLibraryData: [{
@@ -108,7 +141,6 @@ export class Library extends React.Component<any, any> {
                 description: 'My saved search and Dashboards',
                 createdBy: 'System Admin',
                 lastModified: '16/06/2020 by System Admin',
-                tabtitle: 'Library',
                 libraryChildFolder: [
                     {
                         name: 'AWS Config',
@@ -179,16 +211,48 @@ export class Library extends React.Component<any, any> {
                         name: 'Amazon ECS',
                         description: 'Amazon EC2 Container Service (Amazon ECS)...',
                         createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin'
+                        lastModified: '16/06/2020 by System Admin',
+                        activeTab: 1,
                     },
                     {
                         name: 'AWS Cloud Trail',
-                        description: 'monitor your AWS deployments, with predefi...',
+                        description: 'Amazon Web Services (AWS) Config provides...',
                         createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin'
-                    }
-                ]
-            }]
+                        lastModified: '16/06/2020 by System Admin',
+                        activeTab: 1,
+                        libraryChildFolder: [
+                            {
+                                name: 'AWS Config Overview - Interactive',
+                                description: 'AWS Config Overview - Interactive',
+                                createdBy: 'System Admin',
+                                lastModified: '16/06/2020 by System Admin',
+                                activeTab: 2,
+                            },
+                            {
+                                name: 'AWS Config Overview - Live',
+                                description: 'AWS Config Overview - Live',
+                                createdBy: 'System Admin',
+                                lastModified: '16/06/2020 by System Admin',
+                                activeTab: 2,
+                            },
+                            {
+                                name: 'Resource Modification Details - Interactive',
+                                description: 'Resource Modification Details - Interactive',
+                                createdBy: 'System Admin',
+                                lastModified: '16/06/2020 by System Admin',
+                                activeTab: 2,
+                            },
+                            {
+                                name: 'Configuration Trend',
+                                description: 'Configuration Trend',
+                                createdBy: 'System Admin',
+                                lastModified: '16/06/2020 by System Admin',
+                                activeTab: 2,
+                            },
+                        ]
+                    },
+                ],
+            }],
         };
         this.breadCrumbs = [
             {
@@ -201,29 +265,36 @@ export class Library extends React.Component<any, any> {
             }
         ];
     }
+    componentDidMount() {
+        this.setState({
+            checkactiveTabTableData: this.state.duplicateLibraryData,
+        })
+    }
     setActiveTabAndTableData = (activeTab: any) => {
-        const { duplicateLibraryData } = this.state;
-        let tabsData = [ {'tabtitle':'Library'}];
-        for (let i = 0; i < duplicateLibraryData.length; i++) {
-            if (activeTab == duplicateLibraryData[i].activeTab) {
-                this.setState({
-                    libraryData: duplicateLibraryData,
-                    tabData: tabsData,
-                    activeTab
-                });
-            } else {
-                for (let j = 0; j < duplicateLibraryData[i].libraryChildFolder.length; j++) {
-                    if (activeTab == duplicateLibraryData[i].libraryChildFolder[j].activeTab) {
-                        tabsData.push({ 'tabtitle': duplicateLibraryData[i].name })
-                        this.setState({
-                            libraryData: duplicateLibraryData[i].libraryChildFolder,
-                            tabData: tabsData,
-                            activeTab
-                        });
-                    }
-                }
+        const { duplicateLibraryData, tabData, checkactiveTabTableData } = this.state;
+        let tabsData = tabData;
+        let resultData = checkactiveTabTableData;
+        for (let i = 0; i < tabsData.length; i++) {
+            if (activeTab == i) {
+                tabsData.splice(activeTab + 1, tabsData.length);
             }
         }
+        for (let j = 0; j < resultData.length; j++) {
+            if (activeTab == resultData[j].activeTab) {
+                this.setState({
+                    libraryData: resultData[j],
+                })
+                break;
+            } else {
+                this.setState({
+                    checkactiveTabTableData: resultData[j].libraryChildFolder,
+                })
+            }
+        }
+        this.setState({
+            tabData: tabsData,
+            activeTab
+        });
     };
 
     createLibararyTable = () => {
@@ -279,7 +350,8 @@ export class Library extends React.Component<any, any> {
         for (let i = 0; i < tabData.length; i++) {
             tabsData.push(
                 <li>
-                    <li className={activeTab === i - 1 ? "active-tab" : ''} onClick={e => this.setActiveTabAndTableData(i)}>
+                    {/* onClick={e => this.setActiveTabAndTableData(i)} */}
+                    <li className={activeTab === i - 1 ? "active-tab" : ''}>
                         <a>{tabData[i].tabtitle}</a>
                     </li>
                 </li>
