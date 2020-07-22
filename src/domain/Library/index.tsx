@@ -349,11 +349,8 @@ export class Library extends React.Component<any, any> {
         let tabsData = [];
         for (let i = 0; i < tabData.length; i++) {
             tabsData.push(
-                <li>
-                    {/* onClick={e => this.setActiveTabAndTableData(i)} */}
-                    <li className={activeTab === i - 1 ? "active-tab" : ''}>
-                        <a>{tabData[i].tabtitle}</a>
-                    </li>
+                <li className={activeTab === i - 1 ? "active" : ''}>
+                    {tabData[i].tabtitle}
                 </li>
             );
         }
@@ -421,7 +418,7 @@ export class Library extends React.Component<any, any> {
                             </div>
                         </div>
                     </div>
-                    <div className="manage-dashboard-tabs">
+                    <div className="library-tabs">
                         <ul>
                             {this.displayTab()}
                         </ul>
