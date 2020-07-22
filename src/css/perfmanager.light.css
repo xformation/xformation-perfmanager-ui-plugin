@@ -797,6 +797,7 @@ a:hover {
   display: inline-block;
   vertical-align: top;
   margin-top: 5px;
+  cursor: pointer;
 }
 .catalog-form-group .general-heading span {
   display: inline-block;
@@ -818,13 +819,14 @@ a:hover {
 
 .catalog-form-group .general-logs {
   padding-left: 30px;
-  padding-top: 5px;
-  padding-bottom: 15px;
+  padding-top: 0px;
+  padding-bottom: 5px;
 }
 .catalog-form-group .general-logs input {
   display: inline-block;
   vertical-align: top;
   margin-top: 5px;
+  cursor: pointer;
 }
 .catalog-form-group .general-logs span {
   display: inline-block;
@@ -857,7 +859,16 @@ a:hover {
   width: 100%;
 }
 .catalog-form-group .general-logs .data-table tr td {
-  padding: 0px;
+  padding: 3px 0px;
+}
+.catalog-form-group .general-logs .data-table tr td input {
+  margin-top: 6px;
+}
+.catalog-form-group .general-logs .data-table .general-heading {
+  padding-bottom: 0;
+}
+.catalog-form-group .general-logs .data-table .general-logs {
+  padding-bottom: 0;
 }
 .catalog-form-group .general-logs .aws-bg {
   background-color: #3d71aa;
