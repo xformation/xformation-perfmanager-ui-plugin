@@ -11,12 +11,206 @@ import listIcon from '../../img/list.png';
 import sortIcon from '../../img/sort.png';
 import tagIcon from '../../img/tag.png';
 import openFolderIcon from '../../img/open-folder.png';
+import { Collapse } from 'reactstrap';
 
 export class Collection extends React.Component<any, any> {
     breadCrumbs: any;
     constructor(props: any) {
         super(props);
-        this.state = {};
+        this.state = {
+            folderArray: [
+                {
+                    title: 'General',
+                    openSubFolder: true,
+                    checkValueStatus: false,
+                    subData: [
+                        {
+                            tableTitle: 'Amazon CloudWatch Logs',
+                            checkValue: false,
+                            attribute: [
+                                {
+                                    attributeName: 'AWS',
+                                    backColorClass: 'aws-bg'
+                                },
+                                {
+                                    attributeName: 'Amazon',
+                                    backColorClass: 'amazon-bg'
+                                },
+                                {
+                                    attributeName: 'Cloud Watch',
+                                    backColorClass: 'cloudwatch-bg'
+                                },
+                                {
+                                    attributeName: 'Logs',
+                                    backColorClass: 'logs-bg'
+                                }
+                            ]
+                        },
+                        {
+                            tableTitle: 'Amazon RDS',
+                            checkValue: false,
+                            attribute: [
+                                {
+                                    attributeName: 'Cloud Watch',
+                                    backColorClass: 'cloudwatch-bg'
+                                },
+                                {
+                                    attributeName: 'Monitoringartist',
+                                    backColorClass: 'aws-bg'
+                                }
+                            ]
+                        },
+                        {
+                            tableTitle: 'AWS VPN',
+                            checkValue: false,
+                            attribute: [
+                                {
+                                    attributeName: 'Cloud Watch',
+                                    backColorClass: 'cloudwatch-bg'
+                                },
+                                {
+                                    attributeName: 'Monitoringartist',
+                                    backColorClass: 'aws-bg'
+                                }
+                            ]
+                        },
+                        {
+                            tableTitle: 'AWS VPN Dashboard',
+                            checkValue: false,
+                        },
+                        {
+                            tableTitle: 'Cloud Trial',
+                            checkValue: false,
+                        },
+                        {
+                            tableTitle: 'Cloud Watch',
+                            checkValue: false,
+
+                        },
+                    ]
+                },
+                {
+                    title: 'Main',
+                    openSubFolder: false,
+                    checkValueStatus: false,
+                    subData: [
+                        {
+                            tableTitle: 'Amazon CloudWatch Logs',
+                            checkValue: false,
+                            attribute: [
+                                {
+                                    attributeName: 'AWS',
+                                    backColorClass: 'aws-bg'
+                                },
+                                {
+                                    attributeName: 'Amazon',
+                                    backColorClass: 'amazon-bg'
+                                },
+                                {
+                                    attributeName: 'Cloud Watch',
+                                    backColorClass: 'cloudwatch-bg'
+                                },
+                                {
+                                    attributeName: 'Logs',
+                                    backColorClass: 'logs-bg'
+                                }
+                            ]
+                        },
+                        {
+                            tableTitle: 'Amazon RDS',
+                            checkValue: false,
+                            attribute: [
+                                {
+                                    attributeName: 'Cloud Watch',
+                                    backColorClass: 'cloudwatch-bg'
+                                },
+                                {
+                                    attributeName: 'Monitoringartist',
+                                    backColorClass: 'aws-bg'
+                                }
+                            ]
+                        },
+                        {
+                            tableTitle: 'AWS VPN',
+                            checkValue: false,
+                            attribute: [
+                                {
+                                    attributeName: 'Cloud Watch',
+                                    backColorClass: 'cloudwatch-bg'
+                                },
+                                {
+                                    attributeName: 'Monitoringartist',
+                                    backColorClass: 'aws-bg'
+                                }
+                            ]
+                        },
+                        {
+                            tableTitle: 'AWS VPN Dashboard',
+                            checkValue: false,
+                        },
+                        {
+                            tableTitle: 'Cloud Trial',
+                            checkValue: false,
+                        },
+                        {
+                            tableTitle: 'Cloud Watch',
+                            checkValue: false,
+                        },
+                    ]
+                },
+                {
+                    title: 'Open',
+                    openSubFolder: false,
+                    checkValueStatus: false,
+                    subData: [
+                        {
+                            tableTitle: 'Amazon CloudWatch Logs',
+                            checkValue: false,
+                        },
+                        {
+                            tableTitle: 'Amazon RDS',
+                            checkValue: false,
+                            attribute: [
+                                {
+                                    attributeName: 'Cloud Watch',
+                                    backColorClass: 'cloudwatch-bg'
+                                },
+                                {
+                                    attributeName: 'Monitoringartist',
+                                    backColorClass: 'aws-bg'
+                                }
+                            ]
+                        },
+                        {
+                            tableTitle: 'AWS VPN',
+                            checkValue: false,
+                            attribute: [
+                                {
+                                    attributeName: 'Cloud Watch',
+                                    backColorClass: 'cloudwatch-bg'
+                                },
+                                {
+                                    attributeName: 'Monitoringartist',
+                                    backColorClass: 'aws-bg'
+                                }
+                            ]
+                        },
+                        {
+                            tableTitle: 'AWS VPN Dashboard',
+                            checkValue: false,
+                        },
+                        {
+                            tableTitle: 'Cloud Trial',
+                            checkValue: false,
+                        },
+                        {
+                            tableTitle: 'Cloud Watch',
+                            checkValue: false,
+                        },
+                    ]
+                }
+            ]
+        };
         this.breadCrumbs = [
             {
                 label: "Home",
@@ -27,6 +221,107 @@ export class Collection extends React.Component<any, any> {
                 isCurrentPage: true
             }
         ];
+    }
+
+    openCloseManageDashboardFolder = () => {
+        const retData = [];
+        const { folderArray } = this.state;
+        const length = folderArray.length;
+        for (let i = 0; i < length; i++) {
+            const folder = folderArray[i];
+            const subFolders = folder.subData;
+            const subFolderJSX = [];
+            for (let j = 0; j < subFolders.length; j++) {
+                const attribute = subFolders[j].attribute;
+                const subAttributeFolder = [];
+                if (subFolders[j].attribute) {
+                    for (let k = 0; k < attribute.length; k++) {
+                        const subAtt = attribute[k];
+                        subAttributeFolder.push(
+                            <div className={subAtt.backColorClass}>{subAtt.attributeName}</div>
+                        );
+                    }
+                }
+                const subFolder = subFolders[j];
+                subFolderJSX.push(
+                    <tr>
+                        <td>
+                            <input type="checkbox" className="checkbox" checked={subFolder.checkValue} onClick={() => this.onClickChildCheckbox(i, j)} />
+                            <span>{subFolder.tableTitle}</span>
+                        </td>
+                        <td>
+                            <div className="float-right">
+                                {subAttributeFolder}
+                            </div>
+                        </td>
+                    </tr>
+                );
+
+            }
+            retData.push(
+                <div>
+                    <div className="general-heading">
+                        <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.onChangeParentCheckbox(e, i) }} className="checkbox" />
+                        <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
+                        <h4>{folder.title}</h4>
+                        <i className="fa fa-angle-down float-right"></i>
+                    </div>
+                    <Collapse isOpen={folder.openSubFolder}>
+                        <div className="general-logs">
+                            <div className="general-logs-inner">
+                                <table className="data-table">
+                                    {subFolderJSX}
+                                </table>
+                            </div>
+                        </div>
+                    </Collapse>
+                </div>
+            );
+        }
+        return retData;
+    }
+
+    onChangeParentCheckbox = (e: any, index: any) => {
+        const { folderArray } = this.state;
+        const parentCheckbox = folderArray[index];
+        const checked = e.target.checked;
+        for (let j = 0; j < parentCheckbox.subData.length; j++) {
+            parentCheckbox.subData[j].checkValue = checked;
+            parentCheckbox.checkValueStatus = checked;
+        }
+        this.setState({
+            folderArray
+        })
+    }
+
+    onClickChildCheckbox = (parentIndex: any, childIndex: any) => {
+        let countCheckedCheckbox = 0;
+        const { folderArray } = this.state;
+        const parentCheckbox = folderArray[parentIndex];
+        parentCheckbox.subData[childIndex].checkValue = !parentCheckbox.subData[childIndex].checkValue;
+        for (let j = 0; j < parentCheckbox.subData.length; j++) {
+            if (parentCheckbox.subData[j].checkValue == true) {
+                countCheckedCheckbox++;
+            } else {
+                countCheckedCheckbox--;
+            }
+        }
+        if (countCheckedCheckbox == parentCheckbox.subData.length) {
+            parentCheckbox.checkValueStatus = true;
+        } else {
+            parentCheckbox.checkValueStatus = false;
+        }
+        this.setState({
+            folderArray
+        })
+    }
+
+    onClickOpenSubFolder = (index: any) => {
+        const { folderArray } = this.state;
+        folderArray[index].openSubFolder = !folderArray[index].openSubFolder;
+        this.setState({
+            folderArray: folderArray,
+        })
     }
 
     render() {
@@ -63,7 +358,7 @@ export class Collection extends React.Component<any, any> {
                                     Preferences
                                 </a>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div className="common-container border-bottom-0">
@@ -111,16 +406,16 @@ export class Collection extends React.Component<any, any> {
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div className="collection-dashboard-search">
-                            <div className="row"> 
+                            <div className="row">
                                 <div className="col-lg-12 col-md-12 col-sm-12">
                                     <div className="search-buttons float-right">
                                         <a className="blue-button">New Dashboard</a>
                                         <a className="blue-button">New Folder</a>
                                         <a className="blue-button m-r-0">Import</a>
                                     </div>
-                                </div>                          
+                                </div>
                             </div>
                         </div>
                         <div className="collection-dashboard-fliter-sort">
@@ -173,81 +468,7 @@ export class Collection extends React.Component<any, any> {
                             </div>
                         </div>
                         <div className="collection-dashboard-general">
-                            <div className="general-heading">
-                                <input type="checkbox" className="checkbox" />
-                                <span><img src={openFolderIcon} alt="" /></span>
-                                <h4>General</h4>
-                                <i className="fa fa-angle-down float-right"></i>
-                            </div>
-                            <div className="general-logs">
-                                <table className="data-table">
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" className="checkbox" /> 
-                                            <span>Amazon CloudWatch Logs</span>
-                                        </td>
-                                        <td>
-                                            <div className="float-right">
-                                                <div className="aws-bg">AWS</div>
-                                                <div className="amazon-bg">Amazon</div>
-                                                <div className="cloudwatch-bg">CloudWatch</div>
-                                                <div className="logs-bg">Logs</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" className="checkbox" /> 
-                                            <span>Amazon RDS</span>
-                                        </td>
-                                        <td>
-                                            <div className="float-right">
-                                                <div className="cloudwatch-bg">CloudWatch</div>
-                                                <div className="monitorigartist-bg">monitorigartist</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" className="checkbox" /> 
-                                            <span>AWS VPN</span>
-                                        </td>
-                                        <td>
-                                            <div className="float-right">
-                                                <div className="cloudwatch-bg">CloudWatch</div>
-                                                <div className="monitorigartist-bg">monitorigartist</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" className="checkbox" /> 
-                                            <span>AWS VPN Dashboard</span>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" className="checkbox" /> 
-                                            <span>Cloud Trial</span>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="checkbox" className="checkbox" /> 
-                                            <span>Cloud Watch</span>
-                                        </td>
-                                        <td>
-                                            
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                            {this.openCloseManageDashboardFolder()}
                         </div>
                     </div>
                 </div>
