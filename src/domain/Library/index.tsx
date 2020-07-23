@@ -2,9 +2,6 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
-import { LibraryDetails } from './LibraryDetails';
-import { Personal } from './Personal';
-import { AwsConfig } from './AwsConfig';
 
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
@@ -12,247 +9,138 @@ export class Library extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            activeTab: 0,
-            checkactiveTabTableData: [],
-            tabData: [
-                { tabtitle: 'Library' },
-            ],
-            libraryData: [{
-                name: 'Personal',
-                activeTab: 0,
-                description: 'My saved search and Dashboards',
-                createdBy: 'System Admin',
-                lastModified: '16/06/2020 by System Admin',
-                libraryChildFolder: [
-                    {
-                        name: 'AWS Config',
-                        description: 'Amazon Web Services (AWS) Config provides...',
-                        createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin',
-                        activeTab: 1,
-                        libraryChildFolder: [
-                            {
-                                name: 'AWS Config Overview - Interactive',
-                                description: 'AWS Config Overview - Interactive',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'AWS Config Overview - Live',
-                                description: 'AWS Config Overview - Live',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Resource Modification Details - Interactive',
-                                description: 'Resource Modification Details - Interactive',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Configuration Trend',
-                                description: 'Configuration Trend',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Latest Resource Modifications',
-                                description: 'Latest Resource Modifications',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Most Frequently Modified Resource Types',
-                                description: 'Most Frequently Modified Resource Types',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Relationships',
-                                description: 'Relationships',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'ResourceNames Lookup Table Generator',
-                                description: 'ResourceNames Lookup Table Generator',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                        ]
-                    },
-                    {
-                        name: 'Amazon ECS',
-                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
-                        createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin',
-                        activeTab: 1,
-                    },
-                    {
-                        name: 'AWS Cloud Trail',
-                        description: 'Amazon Web Services (AWS) Config provides...',
-                        createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin',
-                        activeTab: 1,
-                        libraryChildFolder: [
-                            {
-                                name: 'AWS Config Overview - Interactive',
-                                description: 'AWS Config Overview - Interactive',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'AWS Config Overview - Live',
-                                description: 'AWS Config Overview - Live',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Resource Modification Details - Interactive',
-                                description: 'Resource Modification Details - Interactive',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Configuration Trend',
-                                description: 'Configuration Trend',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                        ]
-                    },
-                ]
+            libData: [{
+                name: "Library",
+                isFolder: true,
+                items: [{
+                    name: 'Personal',
+                    isFolder: true,
+                    description: 'My saved search and Dashboards',
+                    createdBy: 'System Admin',
+                    lastModified: '16/06/2020 by System Admin',
+                    items: [
+                        {
+                            name: 'AWS Config',
+                            description: 'Amazon Web Services (AWS) Config provides...',
+                            createdBy: 'System Admin',
+                            lastModified: '16/06/2020 by System Admin',
+                            isFolder: true,
+                            items: [
+                                {
+                                    name: 'AWS Config Overview - Interactive',
+                                    description: 'AWS Config Overview - Interactive',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                                {
+                                    name: 'AWS Config Overview - Live',
+                                    description: 'AWS Config Overview - Live',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                                {
+                                    name: 'Resource Modification Details - Interactive',
+                                    description: 'Resource Modification Details - Interactive',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                                {
+                                    name: 'Configuration Trend',
+                                    description: 'Configuration Trend',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                                {
+                                    name: 'Latest Resource Modifications',
+                                    description: 'Latest Resource Modifications',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                                {
+                                    name: 'Most Frequently Modified Resource Types',
+                                    description: 'Most Frequently Modified Resource Types',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                                {
+                                    name: 'Relationships',
+                                    description: 'Relationships',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                                {
+                                    name: 'ResourceNames Lookup Table Generator',
+                                    description: 'ResourceNames Lookup Table Generator',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                            ]
+                        },
+                        {
+                            name: 'Amazon ECS',
+                            description: 'Amazon EC2 Container Service (Amazon ECS)...',
+                            createdBy: 'System Admin',
+                            lastModified: '16/06/2020 by System Admin',
+                        },
+                        {
+                            name: 'AWS Cloud Trail',
+                            description: 'Amazon Web Services (AWS) Config provides...',
+                            createdBy: 'System Admin',
+                            lastModified: '16/06/2020 by System Admin',
+                            isFolder: true,
+                            items: [
+                                {
+                                    name: 'AWS Config Overview - Interactive',
+                                    description: 'AWS Config Overview - Interactive',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                    isFolder: true,
+                                    items: [{
+                                        name: 'Amazon ECS',
+                                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
+                                        createdBy: 'System Admin',
+                                        lastModified: '16/06/2020 by System Admin',
+                                    }, {
+                                        name: 'Amazon ECS',
+                                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
+                                        createdBy: 'System Admin',
+                                        lastModified: '16/06/2020 by System Admin',
+                                    }, {
+                                        name: 'Amazon ECS',
+                                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
+                                        createdBy: 'System Admin',
+                                        lastModified: '16/06/2020 by System Admin',
+                                    }, {
+                                        name: 'Amazon ECS',
+                                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
+                                        createdBy: 'System Admin',
+                                        lastModified: '16/06/2020 by System Admin',
+                                    },]
+                                },
+                                {
+                                    name: 'AWS Config Overview - Live',
+                                    description: 'AWS Config Overview - Live',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                                {
+                                    name: 'Resource Modification Details - Interactive',
+                                    description: 'Resource Modification Details - Interactive',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                                {
+                                    name: 'Configuration Trend',
+                                    description: 'Configuration Trend',
+                                    createdBy: 'System Admin',
+                                    lastModified: '16/06/2020 by System Admin',
+                                },
+                            ]
+                        },
+                    ],
+                }]
             }],
-            duplicateLibraryData: [{
-                name: 'Personal',
-                activeTab: 0,
-                description: 'My saved search and Dashboards',
-                createdBy: 'System Admin',
-                lastModified: '16/06/2020 by System Admin',
-                libraryChildFolder: [
-                    {
-                        name: 'AWS Config',
-                        description: 'Amazon Web Services (AWS) Config provides...',
-                        createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin',
-                        activeTab: 1,
-                        libraryChildFolder: [
-                            {
-                                name: 'AWS Config Overview - Interactive',
-                                description: 'AWS Config Overview - Interactive',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'AWS Config Overview - Live',
-                                description: 'AWS Config Overview - Live',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Resource Modification Details - Interactive',
-                                description: 'Resource Modification Details - Interactive',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Configuration Trend',
-                                description: 'Configuration Trend',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Latest Resource Modifications',
-                                description: 'Latest Resource Modifications',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Most Frequently Modified Resource Types',
-                                description: 'Most Frequently Modified Resource Types',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Relationships',
-                                description: 'Relationships',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'ResourceNames Lookup Table Generator',
-                                description: 'ResourceNames Lookup Table Generator',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                        ]
-                    },
-                    {
-                        name: 'Amazon ECS',
-                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
-                        createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin',
-                        activeTab: 1,
-                    },
-                    {
-                        name: 'AWS Cloud Trail',
-                        description: 'Amazon Web Services (AWS) Config provides...',
-                        createdBy: 'System Admin',
-                        lastModified: '16/06/2020 by System Admin',
-                        activeTab: 1,
-                        libraryChildFolder: [
-                            {
-                                name: 'AWS Config Overview - Interactive',
-                                description: 'AWS Config Overview - Interactive',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'AWS Config Overview - Live',
-                                description: 'AWS Config Overview - Live',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Resource Modification Details - Interactive',
-                                description: 'Resource Modification Details - Interactive',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                            {
-                                name: 'Configuration Trend',
-                                description: 'Configuration Trend',
-                                createdBy: 'System Admin',
-                                lastModified: '16/06/2020 by System Admin',
-                                activeTab: 2,
-                            },
-                        ]
-                    },
-                ],
-            }],
+            activeTabs: [0]
         };
         this.breadCrumbs = [
             {
@@ -265,100 +153,98 @@ export class Library extends React.Component<any, any> {
             }
         ];
     }
-    componentDidMount() {
-        this.setState({
-            checkactiveTabTableData: this.state.duplicateLibraryData,
-        })
-    }
-    setActiveTabAndTableData = (activeTab: any) => {
-        const { duplicateLibraryData, tabData, checkactiveTabTableData } = this.state;
-        let tabsData = tabData;
-        let resultData = checkactiveTabTableData;
-        for (let i = 0; i < tabsData.length; i++) {
-            if (activeTab == i) {
-                tabsData.splice(activeTab + 1, tabsData.length);
-            }
+
+    _displayTab = () => {
+        const { activeTabs, libData } = this.state;
+        const length = activeTabs.length;
+        const duplicateTabs = [...activeTabs];
+        const retData = [];
+        let folder = libData;
+        for (let i = 0; i < length; i++) {
+            let tab = duplicateTabs[i];
+            let lib = folder[tab];
+            folder = lib.items;
+            retData.push(
+                <li className={length - 1 === i ? "active" : ''} onClick={() => this._onClickTab(i)}>
+                    {lib.name}
+                </li>
+            );
         }
-        for (let j = 0; j < resultData.length; j++) {
-            if (activeTab == resultData[j].activeTab) {
-                this.setState({
-                    libraryData: resultData[j],
-                })
-                break;
-            } else {
-                this.setState({
-                    checkactiveTabTableData: resultData[j].libraryChildFolder,
-                })
-            }
-        }
-        this.setState({
-            tabData: tabsData,
-            activeTab
-        });
+        return retData;
     };
 
-    createLibararyTable = () => {
+    _findChild = (activeTabs: any, libData: any): any => {
+        if (activeTabs.length > 1 && libData.length > 0) {
+            let currentLib = libData[activeTabs[0]];
+            activeTabs.splice(0, 1);
+            return this._findChild(activeTabs, currentLib.items);
+        } else if (activeTabs.length === 1) {
+            let currentLib = libData[activeTabs[0]];
+            return currentLib;
+        }
+        return null;
+    };
+
+    _createLibararyTable = () => {
+        const { activeTabs, libData } = this.state;
         const retData = [];
-        const librarys = this.state.libraryData.length;
-        for (let i = 0; i < librarys; i++) {
-            const library = this.state.libraryData[i];
-            retData.push(
-                <tr className="">
-                    <td className="">
-                        <div onClick={() => this.setsubFolderData(library)} className="pointer-label">
-                            <input type="checkbox" className="checkbox" />
-                            {library.name}
-                        </div>
-                    </td>
-                    <td>{library.description}</td>
-                    <td>{library.createdBy}</td>
-                    <td>{library.lastModified}</td>
-                    <td>
-                        <div className="d-flex">
-                            <button className="btn btn-link">
-                                <i className="fa fa-edit"></i>
-                            </button>
-                            <button className="btn btn-link">
-                                <i className="fa fa-trash"></i>
-                            </button>
-                            <button className="btn btn-link" id="PopoverFocus">
-                                <i className="fa fa-ellipsis-h"></i>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            );
+        const currentItem = this._findChild([...activeTabs], libData);
+        if (currentItem) {
+            const items = currentItem.items;
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                retData.push(
+                    <tr className="">
+                        <td className="">
+                            <div onClick={() => this._onClickItem(i, item)} className="pointer-label">
+                                <input type="checkbox" className="checkbox" />
+                                {item.name}
+                            </div>
+                        </td>
+                        <td>{item.description}</td>
+                        <td>{item.createdBy}</td>
+                        <td>{item.lastModified}</td>
+                        <td>
+                            <div className="d-flex">
+                                <button className="btn btn-link">
+                                    <i className="fa fa-edit"></i>
+                                </button>
+                                <button className="btn btn-link">
+                                    <i className="fa fa-trash"></i>
+                                </button>
+                                <button className="btn btn-link" id="PopoverFocus">
+                                    <i className="fa fa-ellipsis-h"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                );
+            }
+        } else {
+            retData.push(<tr><td>There is some issue...</td></tr>)
         }
         return retData;
     }
 
-    setsubFolderData = (folderData: any) => {
-        const { tabData } = this.state;
-        if (folderData.libraryChildFolder && folderData.libraryChildFolder.length > 0) {
-            tabData.push({ 'tabtitle': folderData.name });
+    _onClickItem = (index: any, item: any) => {
+        const { activeTabs } = this.state;
+        if (item.isFolder) {
+            activeTabs.push(index);
             this.setState({
-                tabData,
-                libraryData: folderData.libraryChildFolder,
-                activeTab: folderData.activeTab
-            })
+                activeTabs
+            });
         }
-    }
+    };
 
-    displayTab() {
-        const { tabData, activeTab } = this.state;
-        let tabsData = [];
-        for (let i = 0; i < tabData.length; i++) {
-            tabsData.push(
-                <li className={activeTab === i - 1 ? "active" : ''}>
-                    {tabData[i].tabtitle}
-                </li>
-            );
-        }
-        return tabsData;
-    }
+    _onClickTab = (index: any) => {
+        const { activeTabs } = this.state;
+        activeTabs.splice(index + 1, activeTabs.length - 1);
+        this.setState({
+            activeTabs
+        });
+    };
 
     render() {
-        const { activeTab } = this.state;
         return (
             <div className="perfmanager-dashboard-container">
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="MONITOR | ALERTS" />
@@ -420,12 +306,10 @@ export class Library extends React.Component<any, any> {
                     </div>
                     <div className="library-tabs">
                         <ul>
-                            {this.displayTab()}
+                            {this._displayTab()}
                         </ul>
                     </div>
                     <div className="tab-container">
-                        {/* {
-                            activeTab === 0 && */}
                         <div className="library-details">
                             <div className="container-inner">
                                 <table className="alert-data-table">
@@ -442,7 +326,7 @@ export class Library extends React.Component<any, any> {
                                             <th>Last Modified</th>
                                             <th></th>
                                         </tr>
-                                        {this.createLibararyTable()}
+                                        {this._createLibararyTable()}
                                     </tbody>
                                 </table>
                             </div>
