@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
+import configIcon from '../../img/config-collapse-icon1.png';
 
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
@@ -198,7 +199,8 @@ export class Library extends React.Component<any, any> {
                         <td className="">
                             <div onClick={() => this._onClickItem(i, item)} className="pointer-label">
                                 <input type="checkbox" className="checkbox" />
-                                {item.name}
+                                <span className="config-icon"><img src={configIcon} alt="" /></span>
+                                <p>{item.name}</p>
                             </div>
                         </td>
                         <td>{item.description}</td>
@@ -304,12 +306,15 @@ export class Library extends React.Component<any, any> {
                             </div>
                         </div>
                     </div>
-                    <div className="library-tabs">
-                        <ul>
-                            {this._displayTab()}
-                        </ul>
+                    <div className="common-container p-b-0">
+                        <div className="library-tabs">
+                            <ul>
+                                {this._displayTab()}
+                            </ul>
+                        </div>
                     </div>
-                    <div className="tab-container">
+                    <div className="common-container border-bottom-0">
+                        <div className="tab-container">
                         <div className="library-details">
                             <div className="container-inner">
                                 <table className="alert-data-table">
@@ -331,6 +336,7 @@ export class Library extends React.Component<any, any> {
                                 </table>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

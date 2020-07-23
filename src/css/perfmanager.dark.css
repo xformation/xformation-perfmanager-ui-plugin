@@ -83,6 +83,14 @@ a:hover {
   padding-right: 0 !important;
 }
 
+.p-t-0 {
+  padding-top: 0 !important;
+}
+
+.p-b-0 {
+  padding-bottom: 0 !important;
+}
+
 .m-l-0 {
   margin-left: 0 !important;
 }
@@ -2768,9 +2776,8 @@ a:hover {
 }
 
 .library-tabs {
-  padding: 5px;
-  border-bottom: 1px solid #f5f6f5;
-  margin-bottom: 5px;
+  padding: 0 0 5px 0;
+  margin-bottom: 0px;
 }
 .library-tabs ul li {
   display: inline-block;
@@ -2785,6 +2792,7 @@ a:hover {
   color: #414d55;
   font-weight: 500;
   position: relative;
+  cursor: pointer;
 }
 .library-tabs ul li:last-child {
   border-right: 1px solid #707070b5;
@@ -2802,13 +2810,13 @@ a:hover {
 }
 .library-tabs ul li:after {
   position: absolute;
-  top: 1px;
-  right: -27px;
+  top: -1px;
+  right: -31px;
   content: "";
   border: solid transparent;
   border-color: rgba(221, 228, 233, 0);
   border-left-color: #dde4e9;
-  border-width: 14px;
+  border-width: 16px;
   margin-top: 0px;
   width: 0;
   height: 0;
@@ -2816,13 +2824,13 @@ a:hover {
 }
 .library-tabs ul li:before {
   position: absolute;
-  top: 1px;
-  right: -28px;
+  top: -1px;
+  right: -32px;
   content: "";
   border: solid transparent;
   border-color: rgba(159, 163, 165, 0);
   border-left-color: #9fa3a5;
-  border-width: 14px;
+  border-width: 16px;
   margin-top: 0px;
   width: 0;
   height: 0;
@@ -2840,14 +2848,6 @@ a:hover {
   border-color: rgba(255, 255, 255, 0);
   border-left-color: #efefef;
 }
-.library-tabs ul li.active:before {
-  border-color: rgba(255, 255, 255, 0);
-  border-left-color: #ffffff;
-}
-.library-tabs ul li:last-child:after,
-.library-tabs ul li:last-child:before {
-  display: none;
-}
 
 /*********************************** Library Table *********************************/
 .library-details {
@@ -2857,7 +2857,7 @@ a:hover {
   overflow-x: scroll;
 }
 .library-details .container-inner .alert-data-table {
-  width: 1040px;
+  width: 100%;
   background-color: #ffffff;
   font-size: 13px;
 }
@@ -2875,11 +2875,38 @@ a:hover {
 .library-details .container-inner .alert-data-table .pointer-label {
   position: relative;
   padding-left: 22px;
+  cursor: pointer;
+}
+.library-details .container-inner .alert-data-table .pointer-label p {
+  margin-bottom: 0;
+  display: inline-block;
+  vertical-align: top;
+  width: 77%;
+}
+.library-details
+  .container-inner
+  .alert-data-table
+  .pointer-label
+  .config-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  vertical-align: top;
+}
+.library-details
+  .container-inner
+  .alert-data-table
+  .pointer-label
+  .config-icon
+  img {
+  max-width: 100%;
+  height: auto;
 }
 .library-details .container-inner .alert-data-table .pointer-label .checkbox {
   position: absolute;
   left: 0;
-  top: 3px;
+  top: 4px;
 }
 .library-details .container-inner .alert-data-table .btn-link {
   color: #3b7cff !important;
@@ -2899,6 +2926,12 @@ a:hover {
   .library-search .float-right {
     float: left;
     width: 100%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .library-details .container-inner .alert-data-table {
+    width: 1040px;
   }
 }
 
