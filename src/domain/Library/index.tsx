@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
-import configIcon from '../../img/config-collapse-icon1.png';
+import folderIcon from '../../img/config-collapse-icon1.png';
+import fileIcon from '../../img/config-collapse-icon2.png';
 
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
@@ -199,7 +200,16 @@ export class Library extends React.Component<any, any> {
                         <td className="">
                             <div onClick={() => this._onClickItem(i, item)} className="pointer-label">
                                 <input type="checkbox" className="checkbox" />
-                                <span className="config-icon"><img src={configIcon} alt="" /></span>
+                                <span className="config-icon">
+                                    {
+                                        item.isFolder && 
+                                        <img src={folderIcon} alt="" />
+                                    }
+                                    {
+                                        !item.isFolder && 
+                                        <img src={fileIcon} alt="" />
+                                    }
+                                </span>
                                 <p>{item.name}</p>
                             </div>
                         </td>
