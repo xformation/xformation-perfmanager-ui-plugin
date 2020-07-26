@@ -3,104 +3,53 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import openFolder from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
 import openFolderIcon from '../../img/open-folder.png';
+import {RestService} from '../_service/RestService';
+import { config } from '../../config';
+
 export class AddLibraryPopup extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
+            catalogName: this.props.catalogName,
+            isApiCalled: false,
             modal: false,
-            folderArray: [
-                {
-                    title: 'General',
-                    isOpened: true,
-                    isChecked: false,
-                    isFolder: true,
-                    subData: [
-                        {
-                            title: 'Amazon CloudWatch Logs',
-                            isChecked: false,
-                            isFolder: true,
-                            isOpened: false,
-                            subData: [{
-                                title: 'Amazon CloudWatch Logs',
-                                isChecked: false,
-                                isFolder: false,
-                            }, {
-                                title: 'Amazon CloudWatch Logs1',
-                                isChecked: false,
-                                isFolder: false,
-                            }]
-                        }, {
-                            title: 'Amazon CloudWatch Logs',
-                            isChecked: false,
-                            isFolder: true,
-                            isOpened: false,
-                            subData: [{
-                                title: 'Amazon CloudWatch Logs',
-                                isChecked: false,
-                                isFolder: false,
-                            }, {
-                                title: 'Amazon CloudWatch Logs1',
-                                isChecked: false,
-                                isFolder: false,
-                            }]
-                        }
-                    ]
-                },
-                {
-                    title: 'Personal',
-                    isOpened: false,
-                    isChecked: false,
-                    isFolder: true,
-                    subData: [
-                        {
-                            title: 'Amazon CloudWatch Logs',
-                            isChecked: false,
-                            isFolder: true,
-                            isOpened: false,
-                            subData: [{
-                                title: 'Amazon CloudWatch Logs',
-                                isChecked: false,
-                                isFolder: false,
-                            }, {
-                                title: 'Amazon CloudWatch Logs1',
-                                isChecked: false,
-                                isFolder: false,
-                            }]
-                        }
-                    ]
-                },
-                {
-                    title: 'Cloud',
-                    isOpened: true,
-                    isChecked: false,
-                    isFolder: true,
-                    subData: [
-                        {
-                            title: 'Amazon CloudWatch Logs',
-                            isChecked: false,
-                            isFolder: true,
-                            isOpened: false,
-                            subData: [{
-                                title: 'Amazon CloudWatch Logs',
-                                isChecked: false,
-                                isFolder: false,
-                            }, {
-                                title: 'Amazon CloudWatch Logs1',
-                                isChecked: false,
-                                isFolder: false,
-                            }]
-                        }
-                    ]
-                }
-            ]
+            folderArray: []
         };
     }
 
-    toggle = () => {
+    async componentWillMount(){
+        this.setState({
+          isApiCalled: true
+        });
+        try{
+            await RestService.getData(config.GET_FOLDER_TREE, null, null).then(
+              (response: any) => {
+                  this.setState({
+                    folderArray: response,
+                  });
+              }
+            );
+        }catch (err) {
+            console.log("Loading folder tree failed. Error: ", err);
+        }
+        this.setState({
+            isApiCalled: false
+        }); 
+    }
+
+    toggle = (selectedCatalogName: any) => {
         this.setState({
             modal: !this.state.modal,
+            catalogName: selectedCatalogName
         });
     };
+
+    closeModel = () => {
+        this.setState({
+            catalogName: '',
+            modal: !this.state.modal,
+        });
+    }
 
     onClickOpenSubFolderArr = (indexArr: any) => {
         const { folderArray } = this.state;
@@ -240,13 +189,13 @@ export class AddLibraryPopup extends React.Component<any, any> {
     render() {
         const state = this.state;
         return (
-            <Modal isOpen={state.modal} toggle={this.toggle} className="" modalClassName="catalog-modal-container">
-                <ModalHeader toggle={this.toggle}>AWS Config</ModalHeader>
+            <Modal isOpen={state.modal} toggle={this.closeModel} className="" modalClassName="catalog-modal-container">
+                <ModalHeader toggle={this.closeModel}>{this.state.catalogName}</ModalHeader>
                 <ModalBody style={{ height: 'calc(75vh - 110px)', overflowY: 'auto', overflowX: "hidden" }}>
                     <div className="catalog-form-group">
                         <div className="form-group">
                             <label htmlFor="appName">App Name:</label>
-                            <input type="text" placeholder="AWS Config" className="input-group-text" />
+                            <input type="text" placeholder="" className="input-group-text" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="selectDataSource">Select Data Source</label>
