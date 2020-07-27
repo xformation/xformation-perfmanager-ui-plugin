@@ -25,6 +25,7 @@ export class Catalog extends React.Component<any, any> {
             displayCatalogData: [],
             selectedCatalogName:'',
             selectedCatalogDescription: '',
+            selectedCatalogId:null,
         };
         this.breadCrumbs = [
             {
@@ -51,6 +52,7 @@ export class Catalog extends React.Component<any, any> {
                     catalogs: response,
                     displayCatalogData: response
                   });
+                  console.log("Catalog response : ",response);
               }
             );
         }catch (err) {
@@ -74,7 +76,7 @@ export class Catalog extends React.Component<any, any> {
                         <div className="col-lg-8 col-md-8 col-sm-12">
                             <div className="category-name">{val.catalogName} </div>
                             <div className="category-add-link">
-                                <a onClick={e => this.onClickAddLibrary(e, val.catalogName)}>Add To library</a>
+                                <a onClick={e => this.onClickAddLibrary(e, val.catalogName, val.id)}>Add To library</a>
                                 <a onClick={this.onClickPreviewDashboard}>Preview Dashboard</a>
                             </div>
                         </div>
@@ -100,6 +102,7 @@ export class Catalog extends React.Component<any, any> {
                 currentCatalogDisplayData: displaycataloddescriptionData,
                 selectedCatalogName: arryData.catalogName,
                 selectedCatalogDescription: arryData.catalogDescription,
+                selectedCatalogId: arryData.id,
             })
         } else {
             this.setState({
@@ -107,6 +110,7 @@ export class Catalog extends React.Component<any, any> {
                 currentCatalogDisplayData: '',
                 selectedCatalogName: '',
                 selectedCatalogDescription: '',
+                selectedCatalogId: null,
             })
         }
     }
@@ -164,8 +168,8 @@ export class Catalog extends React.Component<any, any> {
         })
     }
 
-    onClickAddLibrary = (e: any, selectedCatalogName: any) => {
-        this.addlibraryRef.current.toggle(selectedCatalogName);
+    onClickAddLibrary = (e: any, selectedCatalogName: any, selectedCatalogId: any) => {
+        this.addlibraryRef.current.toggle(selectedCatalogName, selectedCatalogId);
     };
 
     onClickPreviewDashboard = (e: any) =>{
@@ -252,7 +256,7 @@ export class Catalog extends React.Component<any, any> {
                                         <div className="config-heading">
                                             <h5>{this.state.selectedCatalogName}</h5>
                                             <div className="category-add-link float-right">
-                                                <a onClick={e => this.onClickAddLibrary(e, this.state.selectedCatalogName)}>Add To library</a>
+                                                <a onClick={e => this.onClickAddLibrary(e, this.state.selectedCatalogName, this.state.selectedCatalogId)}>Add To library</a>
                                             </div>
                                         </div>
                                         <div className="publishing-text">

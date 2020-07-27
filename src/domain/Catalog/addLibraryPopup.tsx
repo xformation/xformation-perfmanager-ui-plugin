@@ -3,52 +3,69 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import openFolder from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
 import openFolderIcon from '../../img/open-folder.png';
-import { RestService } from '../_service/RestService';
+import {RestService} from '../_service/RestService';
 import { config } from '../../config';
+import AlertMessage from '../../components/AlertMessage';
 
 export class AddLibraryPopup extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            catalogName: this.props.catalogName,
+            appName: null,
+            dataSource: null,
+            catalogName: null,
+            catalogId: null,
             isApiCalled: false,
             modal: false,
-            folderArray: []
-            checkedFolder: []
+            folderArray: [],
+            checkedFolder: [],
+            isAlertOpen: false,
+            message: null,
+            severity: null,
         };
+
+        this.addToLibrary = this.addToLibrary.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.handleCloseAlert = this.handleCloseAlert.bind(this);
     }
 
-    async componentWillMount() {
+    async componentWillMount(){
         this.setState({
-            isApiCalled: true
+          isApiCalled: true
         });
-        try {
+        try{
             await RestService.getData(config.GET_FOLDER_TREE, null, null).then(
-                (response: any) => {
-                    this.setState({
-                        folderArray: response,
-                    });
-                }
+              (response: any) => {
+                  this.setState({
+                    folderArray: response,
+                  });
+              }
             );
-        } catch (err) {
+        }catch (err) {
             console.log("Loading folder tree failed. Error: ", err);
         }
         this.setState({
             isApiCalled: false
-        });
+        }); 
     }
 
-    toggle = (selectedCatalogName: any) => {
+    toggle = (selectedCatalogName: any, selectedCatalogId: any) => {
         this.setState({
             modal: !this.state.modal,
-            catalogName: selectedCatalogName
+            catalogName: selectedCatalogName, 
+            catalogId: selectedCatalogId,
+            checkedFolder: [],
+            appName: null
         });
     };
 
     closeModel = () => {
         this.setState({
             catalogName: '',
+            catalogId: null,
             modal: !this.state.modal,
+            checkedFolder: [],
+            appName: null
         });
     }
 
@@ -206,24 +223,91 @@ export class AddLibraryPopup extends React.Component<any, any> {
         return retData;
     }
 
+    onChange = (e: any) => {
+        const {name, value} = e.target;
+        this.setState({
+        [name]: value,
+        });
+    }
+
+    async addToLibrary() {
+        const {catalogId, checkedFolder, appName, dataSource} = this.state;
+        if(checkedFolder.length === 0){
+            console.log("Please select one folder");
+            this.setState({
+                severity : config.SEVERITY_ERROR,
+                message: "Please select at least one folder for library location",
+                isAlertOpen: true,
+            });
+            return;
+        }else if(checkedFolder.length > 1){
+            console.log("Only one folder can be selected for library location");
+            this.setState({
+                severity : config.SEVERITY_ERROR,
+                message: "Only one folder can be selected for library location",
+                isAlertOpen: true,
+            });
+            return;
+        }
+        if(!appName){
+            this.setState({
+                severity : config.SEVERITY_ERROR,
+                message: "App name is mandatory. Please provide some value for app name",
+                isAlertOpen: true,
+            });
+            return;
+        }
+        let obj = {
+            collectorId: catalogId,
+            folderIdList: checkedFolder,
+            appName: appName,
+            dataSource: dataSource === null ? "AWS" : dataSource
+        } 
+        console.log("Object being added to library : ",obj);
+        await RestService.add(config.ADD_COLLECTOR_TO_LIBRARY, obj).then(response => {
+            console.log('response: ', response);
+            if(response === "OK"){
+                this.setState({
+                    severity : config.SEVERITY_SUCCESS,
+                    message: config.ADD_COLLECTOR_TO_LIBRARY_SUCCESS_MESSAGE,
+                    isAlertOpen: true,
+                });
+            }else {
+                this.setState({
+                    severity : config.SEVERITY_ERROR,
+                    message: config.SERVER_ERROR_MESSAGE,
+                    isAlertOpen: true,
+                });
+            }
+            
+        });
+    }
+
+    handleCloseAlert = (e: any) =>{
+        this.setState({
+          isAlertOpen: false
+        })
+    }
+    
     render() {
         const state = this.state;
         return (
             <Modal isOpen={state.modal} toggle={this.closeModel} className="" modalClassName="catalog-modal-container">
+                <AlertMessage handleCloseAlert={this.handleCloseAlert} open={state.isAlertOpen} severity={state.severity} msg={state.message}></AlertMessage>
                 <ModalHeader toggle={this.closeModel}>{this.state.catalogName}</ModalHeader>
                 <ModalBody style={{ height: 'calc(75vh - 110px)', overflowY: 'auto', overflowX: "hidden" }}>
                     <div className="catalog-form-group">
                         <div className="form-group">
                             <label htmlFor="appName">App Name:</label>
-                            <input type="text" placeholder="" className="input-group-text" />
+                            <input type="text" placeholder="" name="appName" id="appName" value={state.appName} onChange={this.onChange} maxLength={255} className="input-group-text" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="selectDataSource">Select Data Source</label>
-                            <select className="form-control primary-select-box" id="signalType">
-                                <option>AWS</option>
-                                <option>AZURE</option>
-                                <option>GCP</option>
-                                <option>Synectiks</option>
+                            <select className="form-control primary-select-box" name="dataSource" id="dataSource" value={state.dataSource} onChange={this.onChange}>
+                                <option key="AWS" value="AWS">AWS</option>
+                                <option key="AZURE" value="AZURE">AZURE</option>
+                                <option key="GCP" value="GCP">GCP</option>
+                                <option key="GCP" value="GCP">Synectiks</option>
                             </select>
                         </div>
                         <div className="form-group">
@@ -231,8 +315,8 @@ export class AddLibraryPopup extends React.Component<any, any> {
                             {this.renderTree()}
                         </div>
                         <div className="form-group text-right">
-                            <a className="gray-button">Cancel</a>
-                            <a className="blue-button">Add to Library</a>
+                            <a className="gray-button" onClick={this.closeModel}>Cancel</a>
+                            <a className="blue-button" onClick={this.addToLibrary}>Add to Library</a>
                         </div>
                     </div>
                 </ModalBody>
