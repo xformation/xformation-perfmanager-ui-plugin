@@ -3,7 +3,7 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import openFolder from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
 import openFolderIcon from '../../img/open-folder.png';
-import {RestService} from '../_service/RestService';
+import { RestService } from '../_service/RestService';
 import { config } from '../../config';
 
 export class AddLibraryPopup extends React.Component<any, any> {
@@ -14,27 +14,28 @@ export class AddLibraryPopup extends React.Component<any, any> {
             isApiCalled: false,
             modal: false,
             folderArray: []
+            checkedFolder: []
         };
     }
 
-    async componentWillMount(){
+    async componentWillMount() {
         this.setState({
-          isApiCalled: true
+            isApiCalled: true
         });
-        try{
+        try {
             await RestService.getData(config.GET_FOLDER_TREE, null, null).then(
-              (response: any) => {
-                  this.setState({
-                    folderArray: response,
-                  });
-              }
+                (response: any) => {
+                    this.setState({
+                        folderArray: response,
+                    });
+                }
             );
-        }catch (err) {
+        } catch (err) {
             console.log("Loading folder tree failed. Error: ", err);
         }
         this.setState({
             isApiCalled: false
-        }); 
+        });
     }
 
     toggle = (selectedCatalogName: any) => {
@@ -125,6 +126,25 @@ export class AddLibraryPopup extends React.Component<any, any> {
         this.setState({
             folderArray
         });
+        const checkedFolder: any = [];
+        this.setCheckedArray(folderArray, checkedFolder);
+        this.setState({
+            checkedFolder
+        });
+    };
+
+    setCheckedArray = (folderArray: any, checkedArray: any): any => {
+        const length = folderArray.length;
+        for (let i = 0; i < length; i++) {
+            const folder = folderArray[i];
+            if (folder.isChecked) {
+                checkedArray.push(folder.id);
+            }
+            if (folder.isFolder) {
+                this.setCheckedArray(folder.subData, checkedArray);
+            }
+        }
+        return checkedArray;
     };
 
     renderTree = () => {
