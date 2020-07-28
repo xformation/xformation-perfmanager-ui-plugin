@@ -4,7 +4,7 @@ import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
 import folderIcon from '../../img/config-collapse-icon1.png';
 import fileIcon from '../../img/config-collapse-icon2.png';
-import {RestService} from '../_service/RestService';
+import { RestService } from '../_service/RestService';
 
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
@@ -13,92 +13,7 @@ export class Library extends React.Component<any, any> {
         super(props);
         this.state = {
             isApiCalled: false,
-            libData: [
-                {
-                  "id": null,
-                  "name": "Library",
-                  "description": null,
-                  "parentId": null,
-                  "isOpened": false,
-                  "isChecked": false,
-                  "isFolder": true,
-                  "items": [
-                    {
-                      "id": 1,
-                      "name": "a",
-                      "description": "folder description to do",
-                      "parentId": null,
-                      "isOpened": false,
-                      "isChecked": false,
-                      "isFolder": true,
-                      "items": [
-                        {
-                          "id": 2,
-                          "name": "b",
-                          "description": "folder description to do",
-                          "parentId": 1,
-                          "isOpened": false,
-                          "isChecked": false,
-                          "isFolder": true,
-                          "items": [
-                            {
-                              "id": 6,
-                              "name": "g",
-                              "description": "folder description to do",
-                              "parentId": 2,
-                              "isOpened": false,
-                              "isChecked": false,
-                              "isFolder": true,
-                              "items": [
-                                {
-                                  "id": 1001,
-                                  "name": "Test2 collector",
-                                  "description": "test aws collector 222",
-                                  "parentId": 6,
-                                  "isOpened": false,
-                                  "isChecked": false,
-                                  "isFolder": false,
-                                  "items": [],
-                                  "hasChild": false,
-                                  "createdBy": null,
-                                  "createdOn": null,
-                                  "updatedOn": null,
-                                  "updatedBy": null,
-                                  "lastModified": null
-                                }
-                              ],
-                              "hasChild": true,
-                              "createdBy": null,
-                              "createdOn": null,
-                              "updatedOn": null,
-                              "updatedBy": null,
-                              "lastModified": null
-                            }
-                          ],
-                          "hasChild": true,
-                          "createdBy": null,
-                          "createdOn": null,
-                          "updatedOn": null,
-                          "updatedBy": null,
-                          "lastModified": null
-                        }
-                      ],
-                      "hasChild": true,
-                      "createdBy": null,
-                      "createdOn": null,
-                      "updatedOn": null,
-                      "updatedBy": null,
-                      "lastModified": null
-                    }
-                  ],
-                  "hasChild": false,
-                  "createdBy": null,
-                  "createdOn": null,
-                  "updatedOn": null,
-                  "updatedBy": null,
-                  "lastModified": null
-                }
-              ], 
+            libData: [],
             activeTabs: [0]
         };
         this.breadCrumbs = [
@@ -113,26 +28,26 @@ export class Library extends React.Component<any, any> {
         ];
     }
 
-    // async componentWillMount(){
-    //     this.setState({
-    //       isApiCalled: true
-    //     });
-    //     try{
-    //         await RestService.getData(config.GET_LIBRARY_TREE, null, null).then(
-    //           (response: any) => {
-    //               this.setState({
-    //                 libData: response, 
-    //               });
-    //               console.log("Library response : ",response);
-    //           }
-    //         );
-    //     }catch (err) {
-    //         console.log("Loading library failed. Error: ", err);
-    //     }
-    //     this.setState({
-    //         isApiCalled: false
-    //     });
-    // }
+    async componentWillMount() {
+        this.setState({
+            isApiCalled: true
+        });
+        try {
+            await RestService.getData(config.GET_LIBRARY_TREE, null, null).then(
+                (response: any) => {
+                    this.setState({
+                        libData: response,
+                    });
+                    console.log("Library response : ", response);
+                }
+            );
+        } catch (err) {
+            console.log("Loading library failed. Error: ", err);
+        }
+        this.setState({
+            isApiCalled: false
+        });
+    }
 
     _displayTab = () => {
         const { activeTabs, libData } = this.state;
@@ -140,15 +55,17 @@ export class Library extends React.Component<any, any> {
         const duplicateTabs = [...activeTabs];
         const retData = [];
         let folder = libData;
-        for (let i = 0; i < length; i++) {
-            let tab = duplicateTabs[i];
-            let lib = folder[tab];
-            folder = lib.items;
-            retData.push(
-                <li className={length - 1 === i ? "active" : ''} onClick={() => this._onClickTab(i)}>
-                    {lib.name}
-                </li>
-            );
+        if (libData && libData.length > 0) {
+            for (let i = 0; i < length; i++) {
+                let tab = duplicateTabs[i];
+                let lib = folder[tab];
+                folder = lib.items;
+                retData.push(
+                    <li className={length - 1 === i ? "active" : ''} onClick={() => this._onClickTab(i)}>
+                        {lib.name}
+                    </li>
+                );
+            }
         }
         return retData;
     };
@@ -180,11 +97,11 @@ export class Library extends React.Component<any, any> {
                                 <input type="checkbox" className="checkbox" />
                                 <span className="config-icon">
                                     {
-                                        item.isFolder && 
+                                        item.isFolder &&
                                         <img src={folderIcon} alt="" />
                                     }
                                     {
-                                        !item.isFolder && 
+                                        !item.isFolder &&
                                         <img src={fileIcon} alt="" />
                                     }
                                 </span>
@@ -211,7 +128,7 @@ export class Library extends React.Component<any, any> {
                 );
             }
         } else {
-            retData.push(<tr><td>There is some issue...</td></tr>)
+            retData.push(<tr><td colSpan={5} style={{ textAlign: "center" }}>Your data is loading...</td></tr>)
         }
         return retData;
     }
@@ -297,35 +214,35 @@ export class Library extends React.Component<any, any> {
                     </div>
                     <div className="common-container p-b-0">
                         <div className="library-tabs">
-                            <ul> 
+                            <ul>
                                 {this._displayTab()}
                             </ul>
                         </div>
                     </div>
                     <div className="common-container border-bottom-0">
                         <div className="tab-container">
-                        <div className="library-details">
-                            <div className="container-inner">
-                                <table className="alert-data-table">
-                                    <tbody>
-                                        <tr className="alert-data-table-header">
-                                            <th>
-                                                <div className="pointer-label">
-                                                    <input type="checkbox" className="checkbox" />
+                            <div className="library-details">
+                                <div className="container-inner">
+                                    <table className="alert-data-table">
+                                        <tbody>
+                                            <tr className="alert-data-table-header">
+                                                <th>
+                                                    <div className="pointer-label">
+                                                        <input type="checkbox" className="checkbox" />
                                                 Name
                                             </div>
-                                            </th>
-                                            <th>Description</th>
-                                            <th>Created By</th>
-                                            <th>Last Modified</th>
-                                            <th></th>
-                                        </tr>
-                                        {this._createLibararyTable()}
-                                    </tbody>
-                                </table>
+                                                </th>
+                                                <th>Description</th>
+                                                <th>Created By</th>
+                                                <th>Last Modified</th>
+                                                <th></th>
+                                            </tr>
+                                            {this._createLibararyTable()}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
