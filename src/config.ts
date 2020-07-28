@@ -8,6 +8,8 @@ export const config = {
   GET_ALL_COLLECTOR: `${catalogSrvUrl}/listCollector`,
   GET_FOLDER_TREE: `${catalogSrvUrl}/listFolderTree`,
   ADD_COLLECTOR_TO_LIBRARY: `${catalogSrvUrl}/addCollectorToLibrary`,
+  GET_LIBRARY_TREE: `${catalogSrvUrl}/listLibraryTree`,
+
   PERMS_LIST_ALL: `${securitySrvUrl}/security/permissions/listAll`,
 
   SEVERITY_ERROR: "error",

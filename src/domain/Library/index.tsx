@@ -4,6 +4,7 @@ import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
 import folderIcon from '../../img/config-collapse-icon1.png';
 import fileIcon from '../../img/config-collapse-icon2.png';
+import {RestService} from '../_service/RestService';
 
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
@@ -11,137 +12,93 @@ export class Library extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            libData: [{
-                name: "Library",
-                isFolder: true,
-                items: [{
-                    name: 'Personal',
-                    isFolder: true,
-                    description: 'My saved search and Dashboards',
-                    createdBy: 'System Admin',
-                    lastModified: '16/06/2020 by System Admin',
-                    items: [
+            isApiCalled: false,
+            libData: [
+                {
+                  "id": null,
+                  "name": "Library",
+                  "description": null,
+                  "parentId": null,
+                  "isOpened": false,
+                  "isChecked": false,
+                  "isFolder": true,
+                  "items": [
+                    {
+                      "id": 1,
+                      "name": "a",
+                      "description": "folder description to do",
+                      "parentId": null,
+                      "isOpened": false,
+                      "isChecked": false,
+                      "isFolder": true,
+                      "items": [
                         {
-                            name: 'AWS Config',
-                            description: 'Amazon Web Services (AWS) Config provides...',
-                            createdBy: 'System Admin',
-                            lastModified: '16/06/2020 by System Admin',
-                            isFolder: true,
-                            items: [
+                          "id": 2,
+                          "name": "b",
+                          "description": "folder description to do",
+                          "parentId": 1,
+                          "isOpened": false,
+                          "isChecked": false,
+                          "isFolder": true,
+                          "items": [
+                            {
+                              "id": 6,
+                              "name": "g",
+                              "description": "folder description to do",
+                              "parentId": 2,
+                              "isOpened": false,
+                              "isChecked": false,
+                              "isFolder": true,
+                              "items": [
                                 {
-                                    name: 'AWS Config Overview - Interactive',
-                                    description: 'AWS Config Overview - Interactive',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                                {
-                                    name: 'AWS Config Overview - Live',
-                                    description: 'AWS Config Overview - Live',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                                {
-                                    name: 'Resource Modification Details - Interactive',
-                                    description: 'Resource Modification Details - Interactive',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                                {
-                                    name: 'Configuration Trend',
-                                    description: 'Configuration Trend',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                                {
-                                    name: 'Latest Resource Modifications',
-                                    description: 'Latest Resource Modifications',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                                {
-                                    name: 'Most Frequently Modified Resource Types',
-                                    description: 'Most Frequently Modified Resource Types',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                                {
-                                    name: 'Relationships',
-                                    description: 'Relationships',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                                {
-                                    name: 'ResourceNames Lookup Table Generator',
-                                    description: 'ResourceNames Lookup Table Generator',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                            ]
-                        },
-                        {
-                            name: 'Amazon ECS',
-                            description: 'Amazon EC2 Container Service (Amazon ECS)...',
-                            createdBy: 'System Admin',
-                            lastModified: '16/06/2020 by System Admin',
-                        },
-                        {
-                            name: 'AWS Cloud Trail',
-                            description: 'Amazon Web Services (AWS) Config provides...',
-                            createdBy: 'System Admin',
-                            lastModified: '16/06/2020 by System Admin',
-                            isFolder: true,
-                            items: [
-                                {
-                                    name: 'AWS Config Overview - Interactive',
-                                    description: 'AWS Config Overview - Interactive',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                    isFolder: true,
-                                    items: [{
-                                        name: 'Amazon ECS',
-                                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
-                                        createdBy: 'System Admin',
-                                        lastModified: '16/06/2020 by System Admin',
-                                    }, {
-                                        name: 'Amazon ECS',
-                                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
-                                        createdBy: 'System Admin',
-                                        lastModified: '16/06/2020 by System Admin',
-                                    }, {
-                                        name: 'Amazon ECS',
-                                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
-                                        createdBy: 'System Admin',
-                                        lastModified: '16/06/2020 by System Admin',
-                                    }, {
-                                        name: 'Amazon ECS',
-                                        description: 'Amazon EC2 Container Service (Amazon ECS)...',
-                                        createdBy: 'System Admin',
-                                        lastModified: '16/06/2020 by System Admin',
-                                    },]
-                                },
-                                {
-                                    name: 'AWS Config Overview - Live',
-                                    description: 'AWS Config Overview - Live',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                                {
-                                    name: 'Resource Modification Details - Interactive',
-                                    description: 'Resource Modification Details - Interactive',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                                {
-                                    name: 'Configuration Trend',
-                                    description: 'Configuration Trend',
-                                    createdBy: 'System Admin',
-                                    lastModified: '16/06/2020 by System Admin',
-                                },
-                            ]
-                        },
-                    ],
-                }]
-            }],
+                                  "id": 1001,
+                                  "name": "Test2 collector",
+                                  "description": "test aws collector 222",
+                                  "parentId": 6,
+                                  "isOpened": false,
+                                  "isChecked": false,
+                                  "isFolder": false,
+                                  "items": [],
+                                  "hasChild": false,
+                                  "createdBy": null,
+                                  "createdOn": null,
+                                  "updatedOn": null,
+                                  "updatedBy": null,
+                                  "lastModified": null
+                                }
+                              ],
+                              "hasChild": true,
+                              "createdBy": null,
+                              "createdOn": null,
+                              "updatedOn": null,
+                              "updatedBy": null,
+                              "lastModified": null
+                            }
+                          ],
+                          "hasChild": true,
+                          "createdBy": null,
+                          "createdOn": null,
+                          "updatedOn": null,
+                          "updatedBy": null,
+                          "lastModified": null
+                        }
+                      ],
+                      "hasChild": true,
+                      "createdBy": null,
+                      "createdOn": null,
+                      "updatedOn": null,
+                      "updatedBy": null,
+                      "lastModified": null
+                    }
+                  ],
+                  "hasChild": false,
+                  "createdBy": null,
+                  "createdOn": null,
+                  "updatedOn": null,
+                  "updatedBy": null,
+                  "lastModified": null
+                }
+              ], 
             activeTabs: [0]
         };
         this.breadCrumbs = [
@@ -155,6 +112,27 @@ export class Library extends React.Component<any, any> {
             }
         ];
     }
+
+    // async componentWillMount(){
+    //     this.setState({
+    //       isApiCalled: true
+    //     });
+    //     try{
+    //         await RestService.getData(config.GET_LIBRARY_TREE, null, null).then(
+    //           (response: any) => {
+    //               this.setState({
+    //                 libData: response, 
+    //               });
+    //               console.log("Library response : ",response);
+    //           }
+    //         );
+    //     }catch (err) {
+    //         console.log("Loading library failed. Error: ", err);
+    //     }
+    //     this.setState({
+    //         isApiCalled: false
+    //     });
+    // }
 
     _displayTab = () => {
         const { activeTabs, libData } = this.state;
@@ -257,6 +235,7 @@ export class Library extends React.Component<any, any> {
     };
 
     render() {
+        const state = this.state;
         return (
             <div className="perfmanager-dashboard-container">
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="MONITOR | ALERTS" />
@@ -318,7 +297,7 @@ export class Library extends React.Component<any, any> {
                     </div>
                     <div className="common-container p-b-0">
                         <div className="library-tabs">
-                            <ul>
+                            <ul> 
                                 {this._displayTab()}
                             </ul>
                         </div>
