@@ -5,6 +5,8 @@ import { config } from '../../config';
 import folderIcon from '../../img/config-collapse-icon1.png';
 import fileIcon from '../../img/config-collapse-icon2.png';
 import { RestService } from '../_service/RestService';
+import { Collapse } from 'reactstrap';
+import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
@@ -14,7 +16,8 @@ export class Library extends React.Component<any, any> {
         this.state = {
             isApiCalled: false,
             libData: [],
-            activeTabs: [0]
+            activeTabs: [0],
+            dashboardList: []
         };
         this.breadCrumbs = [
             {
@@ -138,7 +141,12 @@ export class Library extends React.Component<any, any> {
         if (item.isFolder) {
             activeTabs.push(index);
             this.setState({
-                activeTabs
+                activeTabs,
+                dashboardList: []
+            });
+        } else if (item.dashboardList) {
+            this.setState({
+                dashboardList: item.dashboardList
             });
         }
     };
@@ -147,7 +155,41 @@ export class Library extends React.Component<any, any> {
         const { activeTabs } = this.state;
         activeTabs.splice(index + 1, activeTabs.length - 1);
         this.setState({
-            activeTabs
+            activeTabs,
+            dashboardList: []
+        });
+    };
+
+    renderDashboardList = () => {
+        let { dashboardList } = this.state;
+        const retData = [];
+        if (dashboardList && dashboardList.length > 0) {
+            const length = dashboardList.length;
+            for (let i = 0; i < length; i++) {
+                const dashboard = dashboardList[i];
+                retData.push(
+                    <div className="config-collapse" key={`dashboard-list-${i}`}>
+                        <div className='collapse-toggle ' onClick={() => this.openDashboard(i)}>
+                            <span><img src={collapseToggleIcon} alt="" /></span>
+                            <p>{dashboard.title}</p>
+                        </div>
+                        <Collapse isOpen={dashboard.open}>
+                            <div className="collapse-card-body">
+                                <p>{dashboard.description}</p>
+                            </div>
+                        </Collapse>
+                    </div>
+                );
+            }
+        }
+        return retData;
+    };
+
+    openDashboard = (index: any) => {
+        let { dashboardList } = this.state;
+        dashboardList[index].open = !dashboardList[index].open;
+        this.setState({
+            dashboardList
         });
     };
 
@@ -242,6 +284,11 @@ export class Library extends React.Component<any, any> {
                                     </table>
                                 </div>
                             </div>
+                        </div>
+                        <div className="dashboard-collapse-expand catalog-collapse m-t-2">
+                            {
+                                state.dashboardList.length > 0 && this.renderDashboardList()
+                            }
                         </div>
                     </div>
                 </div>

@@ -132,7 +132,6 @@ export class Catalog extends React.Component<any, any> {
 
     catalogdetail() {
         let displayData = this.state.currentCatalogDisplayData;
-        console.log(displayData);
         const catalog = displayData.map((val: any, key: any) => {
             return (
                 <div className="config-collapse" key={key}>
