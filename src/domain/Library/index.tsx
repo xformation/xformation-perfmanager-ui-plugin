@@ -11,7 +11,7 @@ import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
     steps: any;
-    constructor(props: any) {
+    constructor(props: any) { 
         super(props);
         this.state = {
             isApiCalled: false,
@@ -122,9 +122,16 @@ export class Library extends React.Component<any, any> {
                                 <button className="btn btn-link">
                                     <i className="fa fa-trash"></i>
                                 </button>
-                                <button className="btn btn-link" id="PopoverFocus">
-                                    <i className="fa fa-ellipsis-h"></i>
-                                </button>
+                                {
+                                    !item.isFolder ?
+                                        <button className="btn btn-link" id="PopoverFocus">
+                                            <a href={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="fa fa-ellipsis-h"></a>
+                                        </button>
+                                    :
+                                    <button className="btn btn-link" id="PopoverFocus">
+                                        <i className="fa fa-ellipsis-h"></i>
+                                    </button>
+                                }
                             </div>
                         </td>
                     </tr>
@@ -171,7 +178,23 @@ export class Library extends React.Component<any, any> {
                     <div className="config-collapse" key={`dashboard-list-${i}`}>
                         <div className='collapse-toggle ' onClick={() => this.openDashboard(i)}>
                             <span><img src={collapseToggleIcon} alt="" /></span>
-                            <p>{dashboard.title}</p>
+                            <p><div className="d-flex">
+                                    <div>{dashboard.title}</div>
+                                    <div style={{float:'right'}}>
+                                        <button className="btn btn-link">
+                                            <i className="fa fa-edit"></i>
+                                        </button>
+                                        <button className="btn btn-link">
+                                            <i className="fa fa-trash"></i>
+                                        </button>
+                                        <button className="btn btn-link" id="PopoverFocus">
+                                            <a href={`/dashboard/import?id=${dashboard.id}&isFolder=false`} className="fa fa-ellipsis-h"></a>
+                                        </button>
+                                    </div>
+                                    
+                                </div>
+                            </p>
+                            
                         </div>
                         <Collapse isOpen={dashboard.open}>
                             <div className="collapse-card-body">
