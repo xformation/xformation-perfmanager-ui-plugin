@@ -1,7 +1,7 @@
-const IP = "localhost";
+const IP = "100.64.108.25";
 
 const securitySrvUrl = `http://${IP}:8094`;
-const catalogSrvUrl = `http://${IP}:4000/api`;
+const catalogSrvUrl = `http://${IP}:5040/api`;
 
 export const config = {
   basePath: "/plugins/xformation-perfmanager-ui-plugin/page",
