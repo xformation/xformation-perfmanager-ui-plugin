@@ -265,7 +265,7 @@ export class ManageTab extends React.Component<any, any> {
                     for (let k = 0; k < attribute.length; k++) {
                         const subAtt = attribute[k];
                         subAttributeFolder.push(
-                            <div className={subAtt.backColorClass}>{subAtt.attributeName}</div>
+                            <div className={`${subAtt.backColorClass } tag`}>{subAtt.attributeName}</div>
                         );
                     }
                 }

@@ -1,6 +1,7 @@
 export const RestService = {
   getData,
-  add
+  add,
+  getDashboardList
 };
 
 function add(url: any, data: any) {
@@ -29,4 +30,9 @@ function getRequestOptions(type: any, extraHeaders: any, body?: any): any {
     requestOptions["body"] = body;
   }
   return requestOptions;
+}
+
+function getDashboardList(url: any){
+  const requestOptions = getRequestOptions("GET", {}, null);
+  return fetch(url, requestOptions).then(response => response.json());
 }

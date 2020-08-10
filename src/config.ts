@@ -17,5 +17,6 @@ export const config = {
   SERVER_ERROR_MESSAGE:
     "Operation failed. Please check service logs for details",
   ADD_COLLECTOR_TO_LIBRARY_SUCCESS_MESSAGE:
-    "Collector is successfully added to library"
+    "Collector is successfully added to library",
+  DASHBOARD_LIST_API: "http://localhost:3002/api/search"
 };

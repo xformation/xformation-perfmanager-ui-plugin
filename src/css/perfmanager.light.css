@@ -964,41 +964,22 @@ a:focus, a:hover {
           margin-right: 15px; }
       .manage-dashboard-general .general-logs .data-table tr:nth-child(odd) {
         background-color: #f8f9fb; }
+    .manage-dashboard-general .general-logs .tag {
+      color: #ffffff;
+      padding: 2px 10px;
+      display: inline-block;
+      border-radius: 5px;
+      margin: 0 2px; }
     .manage-dashboard-general .general-logs .aws-bg {
-      background-color: #3d71aa;
-      color: #ffffff;
-      padding: 2px 10px;
-      display: inline-block;
-      border-radius: 5px;
-      margin: 0 2px; }
+      background-color: #3d71aa; }
     .manage-dashboard-general .general-logs .amazon-bg {
-      background-color: #8a2eb8;
-      color: #ffffff;
-      padding: 2px 10px;
-      display: inline-block;
-      border-radius: 5px;
-      margin: 0 2px; }
+      background-color: #8a2eb8; }
     .manage-dashboard-general .general-logs .cloudwatch-bg {
-      background-color: #bf1b00;
-      color: #ffffff;
-      padding: 2px 10px;
-      display: inline-block;
-      border-radius: 5px;
-      margin: 0 2px; }
+      background-color: #bf1b00; }
     .manage-dashboard-general .general-logs .logs-bg {
-      background-color: #4c7a3f;
-      color: #ffffff;
-      padding: 2px 10px;
-      display: inline-block;
-      border-radius: 5px;
-      margin: 0 2px; }
+      background-color: #4c7a3f; }
     .manage-dashboard-general .general-logs .monitorigartist-bg {
-      background-color: #3b4859;
-      color: #ffffff;
-      padding: 2px 10px;
-      display: inline-block;
-      border-radius: 5px;
-      margin: 0 2px; }
+      background-color: #3b4859; }
 
 .playlists-container {
   border: 1px solid #8392a7;

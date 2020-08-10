@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { config } from '../../config';
 import { Breadcrumbs } from '../Breadcrumbs';
-
+import { ManageDashboards } from './ManageDashboards';
 export class Dashboard extends React.Component<any, any> {
     breadCrumbs: any;
     constructor(props: any) {
@@ -54,11 +54,11 @@ export class Dashboard extends React.Component<any, any> {
                                     Preferences
                                 </a>
                             </div>
-                            
+
                         </div>
                     </div>
-                    <div className="dashboard-metrics">
-                        <p>Metrics dashboard to be done.</p>
+                    <div className="common-container border-bottom-0">
+                        <ManageDashboards />
                     </div>
                 </div>
             </div>
