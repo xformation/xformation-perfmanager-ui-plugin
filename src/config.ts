@@ -18,5 +18,5 @@ export const config = {
     "Operation failed. Please check service logs for details",
   ADD_COLLECTOR_TO_LIBRARY_SUCCESS_MESSAGE:
     "Collector is successfully added to library",
-  DASHBOARD_LIST_API: "http://localhost:3002/api/search"
+  DASHBOARD_LIST_API: "/api/search"
 };
