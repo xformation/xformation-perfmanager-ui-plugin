@@ -1193,6 +1193,7 @@ a:hover {
 }
 .manage-dashboard-general .general-heading .fa {
   padding-top: 6px;
+  cursor: pointer;
 }
 .manage-dashboard-general .general-logs {
   padding-left: 30px;
@@ -2776,7 +2777,7 @@ a:hover {
 }
 
 .library-tabs {
-  padding: 0 0 5px 0;
+  padding: 0 0 15px 0;
   margin-bottom: 0px;
 }
 .library-tabs ul li {

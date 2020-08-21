@@ -291,7 +291,11 @@ export class ManageTab extends React.Component<any, any> {
                         <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.onChangeParentCheckbox(e, i) }} className="checkbox" />
                         <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
                         <h4>{folder.title}</h4>
-                        <i className="fa fa-angle-down float-right"></i>
+                        {folder.openSubFolder ?
+                            <i className='fa fa-angle-up float-right' onClick={() => this.onClickOpenSubFolder(i)}></i>
+                            :
+                            <i className="fa fa-angle-down float-right" onClick={() => this.onClickOpenSubFolder(i)}></i>
+                        }
                     </div>
                     <Collapse isOpen={folder.openSubFolder}>
                         <div className="general-logs">
@@ -364,9 +368,7 @@ export class ManageTab extends React.Component<any, any> {
                             <div className="filter-starred float-right">
                                 <div className="sort-checkbox">
                                     <input type="checkbox" className="checkbox" />
-                                    <span>
-                                        Filter by starred
-                                            </span>
+                                    <span>Filter by starred</span>
                                 </div>
                                 <div className="sort-select-menu">
                                     <span>
