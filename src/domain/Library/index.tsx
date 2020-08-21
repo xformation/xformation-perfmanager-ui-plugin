@@ -11,7 +11,7 @@ import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
     steps: any;
-    constructor(props: any) { 
+    constructor(props: any) {
         super(props);
         this.state = {
             isApiCalled: false,
@@ -32,23 +32,320 @@ export class Library extends React.Component<any, any> {
     }
 
     async componentWillMount() {
+        // this.setState({
+        //     isApiCalled: true
+        // });
+        // try {
+        //     await RestService.getData(config.GET_LIBRARY_TREE, null, null).then(
+        //         (response: any) => {
+        //             this.setState({
+        //                 libData: response,
+        //             });
+        //             console.log("Library response : ", response);
+        //         }
+        //     );
+        // } catch (err) {
+        //     console.log("Loading library failed. Error: ", err);
+        // }
+        // this.setState({
+        //     isApiCalled: false
+        // });
         this.setState({
-            isApiCalled: true
-        });
-        try {
-            await RestService.getData(config.GET_LIBRARY_TREE, null, null).then(
-                (response: any) => {
-                    this.setState({
-                        libData: response,
-                    });
-                    console.log("Library response : ", response);
+            libData: [
+                {
+                    "id": null,
+                    "name": "Library",
+                    "description": null,
+                    "parentId": null,
+                    "isOpened": false,
+                    "isChecked": false,
+                    "isFolder": true,
+                    "items": [
+                        {
+                            "id": 1101,
+                            "name": "AWS",
+                            "description": "folder description to do",
+                            "parentId": null,
+                            "isOpened": false,
+                            "isChecked": false,
+                            "isFolder": true,
+                            "items": [
+                                {
+                                    "id": 1104,
+                                    "name": "VPC",
+                                    "description": "folder description to do",
+                                    "parentId": 1101,
+                                    "isOpened": false,
+                                    "isChecked": false,
+                                    "isFolder": true,
+                                    "items": [
+                                        {
+                                            "id": 1004,
+                                            "name": "AWS VPC",
+                                            "description": "AWS VPC Flow Log",
+                                            "parentId": 1104,
+                                            "isOpened": false,
+                                            "isChecked": false,
+                                            "isFolder": false,
+                                            "items": [],
+                                            "hasChild": false,
+                                            "createdBy": null,
+                                            "createdOn": null,
+                                            "updatedOn": null,
+                                            "updatedBy": null,
+                                            "lastModified": null,
+                                            "dashboardList": [
+                                                {
+                                                    "title": "Amazon VPC Flow Logs - Accespts",
+                                                    "description": "Amazon VPC Flow Logs - Accespts",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1206
+                                                },
+                                                {
+                                                    "title": "Amazon VPC Flow Logs - Overview",
+                                                    "description": "Amazon VPC Flow Logs - Overview",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1207
+                                                },
+                                                {
+                                                    "title": "Amazon VPC Flow Logs - Rejects",
+                                                    "description": "Amazon VPC Flow Logs - Rejects",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1208
+                                                },
+                                                {
+                                                    "title": "Amazon VPC Flow Logs - Traffic",
+                                                    "description": "Amazon VPC Flow Logs - Traffic",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1209
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "hasChild": true,
+                                    "createdBy": null,
+                                    "createdOn": null,
+                                    "updatedOn": null,
+                                    "updatedBy": null,
+                                    "lastModified": null,
+                                    "dashboardList": []
+                                }
+                            ],
+                            "hasChild": true,
+                            "createdBy": null,
+                            "createdOn": null,
+                            "updatedOn": null,
+                            "updatedBy": null,
+                            "lastModified": null,
+                            "dashboardList": []
+                        },
+                        {
+                            "id": 1105,
+                            "name": "NGINS",
+                            "description": "folder description to do",
+                            "parentId": null,
+                            "isOpened": false,
+                            "isChecked": false,
+                            "isFolder": true,
+                            "items": [
+                                {
+                                    "id": 1005,
+                                    "name": "NGINX Log",
+                                    "description": "NGINX Log",
+                                    "parentId": 1105,
+                                    "isOpened": false,
+                                    "isChecked": false,
+                                    "isFolder": false,
+                                    "items": [],
+                                    "hasChild": false,
+                                    "createdBy": null,
+                                    "createdOn": null,
+                                    "updatedOn": null,
+                                    "updatedBy": null,
+                                    "lastModified": null,
+                                    "dashboardList": [
+                                        {
+                                            "title": "Nginx Logs",
+                                            "description": "Nginx Logs",
+                                            "open": false,
+                                            "dashboardJson": null,
+                                            "id": 1210
+                                        }
+                                    ]
+                                }
+                            ],
+                            "hasChild": true,
+                            "createdBy": null,
+                            "createdOn": null,
+                            "updatedOn": null,
+                            "updatedBy": null,
+                            "lastModified": null,
+                            "dashboardList": []
+                        },
+                        {
+                            "id": 1101,
+                            "name": "AWS",
+                            "description": "folder description to do",
+                            "parentId": null,
+                            "isOpened": false,
+                            "isChecked": false,
+                            "isFolder": true,
+                            "items": [
+                                {
+                                    "id": 1102,
+                                    "name": "RDS",
+                                    "description": "folder description to do",
+                                    "parentId": 1101,
+                                    "isOpened": false,
+                                    "isChecked": false,
+                                    "isFolder": true,
+                                    "items": [
+                                        {
+                                            "id": 1002,
+                                            "name": "AWS RDS",
+                                            "description": "AWS RDS PostgresSQL",
+                                            "parentId": 1102,
+                                            "isOpened": false,
+                                            "isChecked": false,
+                                            "isFolder": false,
+                                            "items": [],
+                                            "hasChild": false,
+                                            "createdBy": null,
+                                            "createdOn": null,
+                                            "updatedOn": null,
+                                            "updatedBy": null,
+                                            "lastModified": null,
+                                            "dashboardList": [
+                                                {
+                                                    "title": "Amazon RDS",
+                                                    "description": "Amazon RDS",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1051
+                                                },
+                                                {
+                                                    "title": "Amazon RDS OS Metrics",
+                                                    "description": "Amazon RDS OS Metrics",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1201
+                                                },
+                                                {
+                                                    "title": "Amazon RDS",
+                                                    "description": "Amazon RDS",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1202
+                                                },
+                                                {
+                                                    "title": "Postgres Overview.json",
+                                                    "description": "Postgres Overview.json",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1203
+                                                },
+                                                {
+                                                    "title": "PostgreSQL Database",
+                                                    "description": "PostgreSQL Database",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1204
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "hasChild": true,
+                                    "createdBy": null,
+                                    "createdOn": null,
+                                    "updatedOn": null,
+                                    "updatedBy": null,
+                                    "lastModified": null,
+                                    "dashboardList": []
+                                }
+                            ],
+                            "hasChild": true,
+                            "createdBy": null,
+                            "createdOn": null,
+                            "updatedOn": null,
+                            "updatedBy": null,
+                            "lastModified": null,
+                            "dashboardList": []
+                        },
+                        {
+                            "id": 1101,
+                            "name": "AWS",
+                            "description": "folder description to do",
+                            "parentId": null,
+                            "isOpened": false,
+                            "isChecked": false,
+                            "isFolder": true,
+                            "items": [
+                                {
+                                    "id": 1103,
+                                    "name": "VPN",
+                                    "description": "folder description to do",
+                                    "parentId": 1101,
+                                    "isOpened": false,
+                                    "isChecked": false,
+                                    "isFolder": true,
+                                    "items": [
+                                        {
+                                            "id": 1003,
+                                            "name": "AWS VPN",
+                                            "description": "AWS VPN",
+                                            "parentId": 1103,
+                                            "isOpened": false,
+                                            "isChecked": false,
+                                            "isFolder": false,
+                                            "items": [],
+                                            "hasChild": false,
+                                            "createdBy": null,
+                                            "createdOn": null,
+                                            "updatedOn": null,
+                                            "updatedBy": null,
+                                            "lastModified": null,
+                                            "dashboardList": [
+                                                {
+                                                    "title": "AWS VPN Dashboard",
+                                                    "description": "AWS VPN Dashboard",
+                                                    "open": false,
+                                                    "dashboardJson": null,
+                                                    "id": 1205
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "hasChild": true,
+                                    "createdBy": null,
+                                    "createdOn": null,
+                                    "updatedOn": null,
+                                    "updatedBy": null,
+                                    "lastModified": null,
+                                    "dashboardList": []
+                                }
+                            ],
+                            "hasChild": true,
+                            "createdBy": null,
+                            "createdOn": null,
+                            "updatedOn": null,
+                            "updatedBy": null,
+                            "lastModified": null,
+                            "dashboardList": []
+                        }
+                    ],
+                    "hasChild": false,
+                    "createdBy": null,
+                    "createdOn": null,
+                    "updatedOn": null,
+                    "updatedBy": null,
+                    "lastModified": null,
+                    "dashboardList": []
                 }
-            );
-        } catch (err) {
-            console.log("Loading library failed. Error: ", err);
-        }
-        this.setState({
-            isApiCalled: false
+            ]
         });
     }
 
@@ -127,10 +424,10 @@ export class Library extends React.Component<any, any> {
                                         <button className="btn btn-link" id="PopoverFocus">
                                             <a href={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="fa fa-ellipsis-h"></a>
                                         </button>
-                                    :
-                                    <button className="btn btn-link" id="PopoverFocus">
-                                        <i className="fa fa-ellipsis-h"></i>
-                                    </button>
+                                        :
+                                        <button className="btn btn-link" id="PopoverFocus">
+                                            <i className="fa fa-ellipsis-h"></i>
+                                        </button>
                                 }
                             </div>
                         </td>
@@ -179,22 +476,22 @@ export class Library extends React.Component<any, any> {
                         <div className='collapse-toggle ' onClick={() => this.openDashboard(i)}>
                             <span><img src={collapseToggleIcon} alt="" /></span>
                             <p><div className="d-flex">
-                                    <div>{dashboard.title}</div>
-                                    <div style={{float:'right'}}>
-                                        <button className="btn btn-link">
-                                            <i className="fa fa-edit"></i>
-                                        </button>
-                                        <button className="btn btn-link">
-                                            <i className="fa fa-trash"></i>
-                                        </button>
-                                        <button className="btn btn-link" id="PopoverFocus">
-                                            <a href={`/dashboard/import?id=${dashboard.id}&isFolder=false`} className="fa fa-ellipsis-h"></a>
-                                        </button>
-                                    </div>
-                                    
+                                <div>{dashboard.title}</div>
+                                <div style={{ float: 'right' }}>
+                                    <button className="btn btn-link">
+                                        <i className="fa fa-edit"></i>
+                                    </button>
+                                    <button className="btn btn-link">
+                                        <i className="fa fa-trash"></i>
+                                    </button>
+                                    <button className="btn btn-link" id="PopoverFocus">
+                                        <a href={`/dashboard/import?id=${dashboard.id}&isFolder=false`} className="fa fa-ellipsis-h"></a>
+                                    </button>
                                 </div>
+
+                            </div>
                             </p>
-                            
+
                         </div>
                         <Collapse isOpen={dashboard.open}>
                             <div className="collapse-card-body">
