@@ -3,7 +3,7 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import openFolder from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
 import openFolderIcon from '../../img/open-folder.png';
-import {RestService} from '../_service/RestService';
+import { RestService } from '../_service/RestService';
 import { config } from '../../config';
 import AlertMessage from '../../components/AlertMessage';
 
@@ -29,7 +29,7 @@ export class AddLibraryPopup extends React.Component<any, any> {
         this.handleCloseAlert = this.handleCloseAlert.bind(this);
     }
 
-    async componentWillMount(){
+    async componentWillMount() {
         this.setState({
           isApiCalled: true
         });
@@ -52,7 +52,7 @@ export class AddLibraryPopup extends React.Component<any, any> {
     toggle = (selectedCatalogName: any, selectedCatalogId: any) => {
         this.setState({
             modal: !this.state.modal,
-            catalogName: selectedCatalogName, 
+            catalogName: selectedCatalogName,
             catalogId: selectedCatalogId,
             checkedFolder: [],
             appName: null
@@ -136,7 +136,7 @@ export class AddLibraryPopup extends React.Component<any, any> {
             this.checkUnCheckChild(folder.subData, checked);
         }
         if (checked) {
-            this.checkParent(folderArray, [...indexArr]);
+            // this.checkParent(folderArray, [...indexArr]);
         } else {
             this.unCheckParent(folderArray, [...indexArr]);
         }
@@ -224,34 +224,34 @@ export class AddLibraryPopup extends React.Component<any, any> {
     }
 
     onChange = (e: any) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         this.setState({
-        [name]: value,
+            [name]: value,
         });
     }
 
     async addToLibrary() {
-        const {catalogId, checkedFolder, appName, dataSource} = this.state;
-        if(checkedFolder.length === 0){
+        const { catalogId, checkedFolder, appName, dataSource } = this.state;
+        if (checkedFolder.length === 0) {
             console.log("Please select one folder");
             this.setState({
-                severity : config.SEVERITY_ERROR,
+                severity: config.SEVERITY_ERROR,
                 message: "Please select at least one folder for library location",
                 isAlertOpen: true,
             });
             return;
-        }else if(checkedFolder.length > 1){
+        } else if (checkedFolder.length > 1) {
             console.log("Only one folder can be selected for library location");
             this.setState({
-                severity : config.SEVERITY_ERROR,
+                severity: config.SEVERITY_ERROR,
                 message: "Only one folder can be selected for library location",
                 isAlertOpen: true,
             });
             return;
         }
-        if(!appName){
+        if (!appName) {
             this.setState({
-                severity : config.SEVERITY_ERROR,
+                severity: config.SEVERITY_ERROR,
                 message: "App name is mandatory. Please provide some value for app name",
                 isAlertOpen: true,
             });
@@ -262,33 +262,33 @@ export class AddLibraryPopup extends React.Component<any, any> {
             folderIdList: checkedFolder,
             appName: appName,
             dataSource: dataSource === null ? "AWS" : dataSource
-        } 
-        console.log("Object being added to library : ",obj);
+        }
+        console.log("Object being added to library : ", obj);
         await RestService.add(config.ADD_COLLECTOR_TO_LIBRARY, obj).then(response => {
             console.log('response: ', response);
-            if(response === "OK"){
+            if (response === "OK") {
                 this.setState({
-                    severity : config.SEVERITY_SUCCESS,
+                    severity: config.SEVERITY_SUCCESS,
                     message: config.ADD_COLLECTOR_TO_LIBRARY_SUCCESS_MESSAGE,
                     isAlertOpen: true,
                 });
-            }else {
+            } else {
                 this.setState({
-                    severity : config.SEVERITY_ERROR,
+                    severity: config.SEVERITY_ERROR,
                     message: config.SERVER_ERROR_MESSAGE,
                     isAlertOpen: true,
                 });
             }
-            
+
         });
     }
 
-    handleCloseAlert = (e: any) =>{
+    handleCloseAlert = (e: any) => {
         this.setState({
-          isAlertOpen: false
+            isAlertOpen: false
         })
     }
-    
+
     render() {
         const state = this.state;
         return (
