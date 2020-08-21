@@ -271,6 +271,7 @@
 
         .fa {
             padding-top: 6px;
+            cursor: pointer;
         }
     }
 
@@ -854,7 +855,6 @@
     }
 
 }
-
 
 @media (max-width: 990px) {
     .filter-starred {
