@@ -412,7 +412,7 @@ export class Library extends React.Component<any, any> {
                         <td>{item.createdBy}</td>
                         <td>{item.lastModified}</td>
                         <td>
-                            <div className="d-flex">
+                            <div className="text-right">
                                 <button className="btn btn-link">
                                     <i className="fa fa-edit"></i>
                                 </button>
@@ -421,9 +421,9 @@ export class Library extends React.Component<any, any> {
                                 </button>
                                 {
                                     !item.isFolder ?
-                                        <button className="btn btn-link" id="PopoverFocus">
-                                            <a href={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="fa fa-ellipsis-h"></a>
-                                        </button>
+                                        <Link to={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="btn btn-link popover-link" id="PopoverFocus">
+                                            <i  className="fa fa-ellipsis-h"></i>
+                                        </Link>
                                         :
                                         <button className="btn btn-link" id="PopoverFocus">
                                             <i className="fa fa-ellipsis-h"></i>
@@ -473,25 +473,20 @@ export class Library extends React.Component<any, any> {
                 const dashboard = dashboardList[i];
                 retData.push(
                     <div className="config-collapse" key={`dashboard-list-${i}`}>
-                        <div className='collapse-toggle ' onClick={() => this.openDashboard(i)}>
-                            <span><img src={collapseToggleIcon} alt="" /></span>
-                            <p><div className="d-flex">
-                                <div>{dashboard.title}</div>
-                                <div style={{ float: 'right' }}>
-                                    <button className="btn btn-link">
-                                        <i className="fa fa-edit"></i>
-                                    </button>
-                                    <button className="btn btn-link">
-                                        <i className="fa fa-trash"></i>
-                                    </button>
-                                    <button className="btn btn-link" id="PopoverFocus">
-                                        <a href={`/dashboard/import?id=${dashboard.id}&isFolder=false`} className="fa fa-ellipsis-h"></a>
-                                    </button>
-                                </div>
-
+                        <div className='collapse-toggle d-flex' onClick={() => this.openDashboard(i)}>
+                            <div className="collapse-Toggle-icon"><img src={collapseToggleIcon} alt="" /></div>
+                            <div className="collapse-Toggle-name">{dashboard.title}</div>
+                            <div className="float-right collapse-Toggle-buttons">
+                                <button className="btn btn-link">
+                                    <i className="fa fa-edit"></i>
+                                </button>
+                                <button className="btn btn-link">
+                                    <i className="fa fa-trash"></i>
+                                </button>
+                                <Link to={`/dashboard/import?id=${dashboard.id}&isFolder=false`} className="btn btn-link popover-link" id="PopoverFocus">
+                                    <i className="fa fa-ellipsis-h"></i>
+                                </Link>
                             </div>
-                            </p>
-
                         </div>
                         <Collapse isOpen={dashboard.open}>
                             <div className="collapse-card-body">
@@ -606,9 +601,11 @@ export class Library extends React.Component<any, any> {
                             </div>
                         </div>
                         <div className="dashboard-collapse-expand catalog-collapse m-t-2">
-                            {
-                                state.dashboardList.length > 0 && this.renderDashboardList()
-                            }
+                            <div className="dashboard-collapse-expand-inner">
+                                {
+                                    state.dashboardList.length > 0 && this.renderDashboardList()
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
