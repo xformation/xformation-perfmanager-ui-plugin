@@ -42,11 +42,11 @@ export class Library extends React.Component<any, any> {
                         libData: response,
                     });
                     console.log("Library response : ", response);
-                }
+                                                }
             );
         } catch (err) {
             console.log("Loading library failed. Error: ", err);
-        }
+                                        }
         this.setState({
             isApiCalled: false
         });
@@ -303,8 +303,8 @@ export class Library extends React.Component<any, any> {
                                 </div>
                             </div>
                         </div>
-                        <div className="dashboard-collapse-expand catalog-collapse m-t-2">
-                            <div className="dashboard-collapse-expand-inner">
+                        <div className="library-collapse-expand catalog-collapse m-t-2">
+                            <div className="library-collapse-expand-inner">
                                 {
                                     state.dashboardList.length > 0 && this.renderDashboardList()
                                 }

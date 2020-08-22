@@ -187,10 +187,10 @@
   }
 }
 
-.dashboard-collapse-expand{
+.library-collapse-expand{
   display: grid;
   
-  .dashboard-collapse-expand-inner{
+  .library-collapse-expand-inner{
     overflow-x: scroll;
     .config-collapse{
       width: 100%;
@@ -242,6 +242,10 @@
           }
         }
       }
+    }
+
+    .collapse-card-body{
+      padding:10px 37px 10px !important;
     }
   }
 }
