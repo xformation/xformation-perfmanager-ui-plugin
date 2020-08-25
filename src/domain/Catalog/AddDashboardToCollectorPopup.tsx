@@ -1,9 +1,5 @@
 import * as React from 'react';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import openFolder from '../../img/open-folder.png';
-import { Collapse } from 'reactstrap';
-import openFolderIcon from '../../img/open-folder.png';
-import { RestService } from '../_service/RestService';
 import { config } from '../../config';
 import AlertMessage from '../../components/AlertMessage';
 
@@ -91,7 +87,7 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                 if((dashboardJson!=null && !(dashboardJson==''))  && jsonFile!=null){
                     this.setState({
                         severity: config.SEVERITY_ERROR,
-                        message: "Please select one option either file upload or Text Input.",
+                        message: "Please select one option to upload dashboard json. Either file upload or text Input",
                         isAlertOpen: true,
                     });
                     return;
@@ -156,7 +152,7 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                             <textarea name="dashboardJson" className="input-group-text" id="dashboardJson"  onChange={this.onChange} value={state.dashboardJson}></textarea>
                         </div>
                         <div className="form-group">
-                            <label style={{float:"left"}} htmlFor="jsonFile">Or Upload Json File:</label>
+                            <label style={{float:"left"}} htmlFor="jsonFile">Upload Json File:</label>
                             <input type="file" name="jsonFile"   onChange={this.onSelectFile} />
                         </div>
                         <div className="form-group">
