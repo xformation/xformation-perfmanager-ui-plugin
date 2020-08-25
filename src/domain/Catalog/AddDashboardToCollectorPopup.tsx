@@ -92,6 +92,30 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                     });
                     return;
                 }
+                if(dashboardJson!=null && !(dashboardJson=='')){
+                    try {
+                        JSON.parse(dashboardJson);
+                    } catch (e) {
+                        this.setState({
+                            severity: config.SEVERITY_ERROR,
+                            message: "Your Json is invalid.Please check your json format",
+                            isAlertOpen: true,
+                        });
+                        return;
+                    }
+                } 
+                if(jsonFile!=null){
+                    try {
+                        JSON.parse(jsonFile);
+                    } catch (e) {
+                        this.setState({
+                            severity: config.SEVERITY_ERROR,
+                            message: "Your Json is invalid.Please check your json format",
+                            isAlertOpen: true,
+                        });
+                        return;
+                    }
+                }
             console.log("Catalog ID = "+catalogId+", dashboard name = "+dashboardName+", dashboard json = "+dashboardJson+", dashboard doc = "+dashboardDoc);
             
             const cd = new FormData();
