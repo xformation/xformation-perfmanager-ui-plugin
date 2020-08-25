@@ -9,6 +9,7 @@ export const config = {
   GET_FOLDER_TREE: `${catalogSrvUrl}/listFolderTree`,
   ADD_COLLECTOR_TO_LIBRARY: `${catalogSrvUrl}/addCollectorToLibrary`,
   GET_LIBRARY_TREE: `${catalogSrvUrl}/listLibraryTree`,
+  ADD_DASHBOARD_TO_COLLECTOR: `${catalogSrvUrl}/addDashboardToCollector`,
 
   PERMS_LIST_ALL: `${securitySrvUrl}/security/permissions/listAll`,
 
@@ -18,5 +19,7 @@ export const config = {
     "Operation failed. Please check service logs for details",
   ADD_COLLECTOR_TO_LIBRARY_SUCCESS_MESSAGE:
     "Collector is successfully added to library",
-  DASHBOARD_LIST_API: "/api/search"
+  DASHBOARD_LIST_API: "/api/search",
+  ADD_DASHBOARD_TO_COLLECTOR_SUCCESS_MESSAGE:
+    "Dashborad is successfully added to collector"
 };

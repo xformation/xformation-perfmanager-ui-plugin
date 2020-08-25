@@ -7,12 +7,14 @@ import { Collapse } from 'reactstrap';
 import categoryImage from '../../img/category-image1.png';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import { AddLibraryPopup } from './AddLibraryPopup';
+import { AddDashboardToCollectorPopup } from './AddDashboardToCollectorPopup'
 import {PreviewDashboard } from './PreviewDashboard';
 import {RestService} from '../_service/RestService';
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
     addlibraryRef: any;
+    addDashboardToCollectorRef:any;
     previewdashboardRef: any;
     constructor(props: any) {
         super(props);
@@ -38,6 +40,7 @@ export class Catalog extends React.Component<any, any> {
             }
         ];
         this.addlibraryRef = React.createRef();
+        this.addDashboardToCollectorRef=React.createRef();
         this.previewdashboardRef = React.createRef();
     }
 
@@ -77,7 +80,9 @@ export class Catalog extends React.Component<any, any> {
                             <div className="category-name">{val.catalogName} </div>
                             <div className="category-add-link">
                                 <a onClick={e => this.onClickAddLibrary(e, val.catalogName, val.id)}>Add To library</a>
+                                <a onClick={e => this.onClickaAddDashboardToCollector(e, val.catalogName, val.id)}>Add Dashboard To Collector</a>
                                 <a onClick={this.onClickPreviewDashboard}>Preview Dashboard</a>
+
                             </div>
                         </div>
                     </div>
@@ -169,6 +174,9 @@ export class Catalog extends React.Component<any, any> {
 
     onClickAddLibrary = (e: any, selectedCatalogName: any, selectedCatalogId: any) => {
         this.addlibraryRef.current.toggle(selectedCatalogName, selectedCatalogId);
+    };
+    onClickaAddDashboardToCollector = (e: any, selectedCatalogName: any, selectedCatalogId: any) => {
+        this.addDashboardToCollectorRef.current.toggle(selectedCatalogName, selectedCatalogId);
     };
 
     onClickPreviewDashboard = (e: any) =>{
@@ -272,6 +280,7 @@ export class Catalog extends React.Component<any, any> {
                 </div>
                 <AddLibraryPopup ref={this.addlibraryRef} />
                 <PreviewDashboard ref={this.previewdashboardRef} />
+                <AddDashboardToCollectorPopup ref={this.addDashboardToCollectorRef}/>
             </div>
         );
     }
