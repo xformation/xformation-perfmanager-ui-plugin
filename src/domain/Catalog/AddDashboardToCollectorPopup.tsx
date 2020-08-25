@@ -15,6 +15,7 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
             dashboardJson:null,
             dashboardDoc:null,
             catalogId: null,
+            jsonFile:null,
             isApiCalled: false,
             modal: false,
             folderArray: [],
@@ -56,9 +57,19 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
             [name]: value,
         });
     }
-
+    onSelectFile = async (e:any) =>{
+        e.preventDefault();
+        const fileReder = new FileReader();
+        fileReder.onload = async (e: any) => {
+            const text = e.target.result
+            this.setState({ 
+                jsonFile: text 
+            });
+        };
+        fileReder.readAsText(e.target.files[0]);
+    }
     addDashboard= async ()=>{
-            const { catalogId,dashboardName,dashboardJson,dashboardDoc}=this.state;
+            const { catalogId,dashboardName,dashboardJson,dashboardDoc,jsonFile}=this.state;
             if (!dashboardName) {
                 this.setState({
                     severity: config.SEVERITY_ERROR,
@@ -67,23 +78,36 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                 });
                 return;
             }
-            if (!dashboardJson) {
-                this.setState({
-                    severity: config.SEVERITY_ERROR,
-                    message: "Dashboard  Json is mandatory.",
-                    isAlertOpen: true,
-                });
-                return;
+            if(!jsonFile){
+                if (!dashboardJson) {
+                    this.setState({
+                        severity: config.SEVERITY_ERROR,
+                        message: "Dashboard  Json is mandatory.",
+                        isAlertOpen: true,
+                    });
+                    return;
+                }
             }
-            const url=config.ADD_DASHBOARD_TO_COLLECTOR; //+"?collectorId="+Number(catalogId)+"&dashboardName="+dashboardName+"&dashboardJson="+JSON.stringify(dashboardJson)+"&dashboardDoc="+dashboardDoc;
+                if((dashboardJson!=null && !(dashboardJson==''))  && jsonFile!=null){
+                    this.setState({
+                        severity: config.SEVERITY_ERROR,
+                        message: "Please select one option either file upload or Text Input.",
+                        isAlertOpen: true,
+                    });
+                    return;
+                }
             console.log("Catalog ID = "+catalogId+", dashboard name = "+dashboardName+", dashboard json = "+dashboardJson+", dashboard doc = "+dashboardDoc);
             
             const cd = new FormData();
             cd.append("collectorId", catalogId);
             cd.append("dashboardName", dashboardName);
-            cd.append("dashboardJson", JSON.stringify(dashboardJson));
+            if(jsonFile!=null){
+            cd.append("dashboardJson", JSON.stringify(jsonFile));
+            }else{
+                cd.append("dashboardJson", JSON.stringify(dashboardJson));
+            }
             cd.append("dashboardDoc", dashboardDoc);
-            await fetch(url, {
+            await fetch(config.ADD_DASHBOARD_TO_COLLECTOR, {
                 method: 'post',
                 body: cd,
             }).then(response => response.json())
@@ -130,6 +154,10 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                         <div className="form-group">
                             <label htmlFor="dashboardJson">Dashboard Json:</label>
                             <textarea name="dashboardJson" className="input-group-text" id="dashboardJson"  onChange={this.onChange} value={state.dashboardJson}></textarea>
+                        </div>
+                        <div className="form-group">
+                            <label style={{float:"left"}} htmlFor="jsonFile">Or Upload Json File:</label>
+                            <input type="file" name="jsonFile"   onChange={this.onSelectFile} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="dashboardDoc">Dashboard Doc:</label>
