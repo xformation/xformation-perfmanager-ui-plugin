@@ -122,9 +122,9 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
             cd.append("collectorId", catalogId);
             cd.append("dashboardName", dashboardName);
             if(jsonFile!=null){
-            cd.append("dashboardJson", JSON.stringify(jsonFile));
+                cd.append("dashboardJson", jsonFile);
             }else{
-                cd.append("dashboardJson", JSON.stringify(dashboardJson));
+                cd.append("dashboardJson", dashboardJson);
             }
             cd.append("dashboardDoc", dashboardDoc);
             await fetch(config.ADD_DASHBOARD_TO_COLLECTOR, {
