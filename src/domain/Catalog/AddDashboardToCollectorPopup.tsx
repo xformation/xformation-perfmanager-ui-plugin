@@ -50,25 +50,15 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
         });
     }
 
- 
-
-
-
-
-   
-   
-
-       
-
     onChange = (e: any) => {
         const { name, value } = e.target;
         this.setState({
             [name]: value,
         });
     }
+
     addDashboard= async ()=>{
             const { catalogId,dashboardName,dashboardJson,dashboardDoc}=this.state;
-                console.log("ID="+catalogId+"  dash name="+dashboardName+" json="+dashboardJson+" Doc"+dashboardDoc);
             if (!dashboardName) {
                 this.setState({
                     severity: config.SEVERITY_ERROR,
@@ -85,15 +75,23 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                 });
                 return;
             }
-            const url=config.ADD_DASHBOARD_TO_COLLECTOR+"?collectorId="+Number(catalogId)+"&dashboardName="+dashboardName+"&dashboardJson="+dashboardJson+"&dashboardDoc="+dashboardDoc;
-            console.log("url : ", url);
-            await RestService.add(url, null).then(response => {
+            const url=config.ADD_DASHBOARD_TO_COLLECTOR; //+"?collectorId="+Number(catalogId)+"&dashboardName="+dashboardName+"&dashboardJson="+JSON.stringify(dashboardJson)+"&dashboardDoc="+dashboardDoc;
+            console.log("Catalog ID = "+catalogId+", dashboard name = "+dashboardName+", dashboard json = "+dashboardJson+", dashboard doc = "+dashboardDoc);
+            
+            const cd = new FormData();
+            cd.append("collectorId", catalogId);
+            cd.append("dashboardName", dashboardName);
+            cd.append("dashboardJson", JSON.stringify(dashboardJson));
+            cd.append("dashboardDoc", dashboardDoc);
+            await fetch(url, {
+                method: 'post',
+                body: cd,
+            }).then(response => response.json())
+            .then(response => {
                 console.log('response: ', response);
                 if (response!=null) {
                     console.log("ok");
                     this.setState({
-                        
-                        
                         severity: config.SEVERITY_SUCCESS,
                         message: config.ADD_DASHBOARD_TO_COLLECTOR_SUCCESS_MESSAGE,
                         isAlertOpen: true,
@@ -101,7 +99,6 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                 } else {
                     console.log("Not ok");
                     this.setState({
-                
                         severity: config.SEVERITY_ERROR,
                         message: config.SERVER_ERROR_MESSAGE,
                         isAlertOpen: true,
