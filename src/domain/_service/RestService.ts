@@ -1,7 +1,8 @@
 export const RestService = {
   getData,
   add,
-  getDashboardList
+  getDashboardList,
+  deleteObject
 };
 
 function add(url: any, data: any) {
@@ -32,7 +33,14 @@ function getRequestOptions(type: any, extraHeaders: any, body?: any): any {
   return requestOptions;
 }
 
-function getDashboardList(url: any){
+function deleteObject(url: any) {
+  return fetch(url, {
+    method: "DELETE",
+    redirect: "follow"
+  }).then(response => response.text());
+}
+
+function getDashboardList(url: any) {
   const requestOptions = getRequestOptions("GET", {}, null);
   return fetch(url, requestOptions).then(response => response.json());
 }

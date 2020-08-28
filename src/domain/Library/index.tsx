@@ -54,7 +54,7 @@ export class Library extends React.Component<any, any> {
                         libData: response,
                     });
                     console.log("Library response : ", response);
-            );
+                })
         } catch (err) {
             console.log("Loading library failed. Error: ", err);
         }
