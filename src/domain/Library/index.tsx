@@ -7,6 +7,8 @@ import fileIcon from '../../img/config-collapse-icon2.png';
 import { RestService } from '../_service/RestService';
 import { Collapse } from 'reactstrap';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
+import ConfirmDialog from '../../components/ConfirmDialog';
+import AlertMessage from '../../components/AlertMessage';
 
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
@@ -17,7 +19,13 @@ export class Library extends React.Component<any, any> {
             isApiCalled: false,
             libData: [],
             activeTabs: [0],
-            dashboardList: []
+            dashboardList: [],
+            isConfirmDialogOpen: false,
+            confirmTitleMessage: null,
+            message: null,
+            objectType: null,
+            objectId: null,
+            isAlertOpen: false,
         };
         this.breadCrumbs = [
             {
@@ -32,6 +40,10 @@ export class Library extends React.Component<any, any> {
     }
 
     async componentWillMount() {
+        this.fetchData();
+    }
+
+    async fetchData() {
         this.setState({
             isApiCalled: true
         });
@@ -42,11 +54,10 @@ export class Library extends React.Component<any, any> {
                         libData: response,
                     });
                     console.log("Library response : ", response);
-                                                }
             );
         } catch (err) {
             console.log("Loading library failed. Error: ", err);
-                                        }
+        }
         this.setState({
             isApiCalled: false
         });
@@ -183,7 +194,7 @@ export class Library extends React.Component<any, any> {
                                 <button className="btn btn-link">
                                     <i className="fa fa-edit"></i>
                                 </button>
-                                <button className="btn btn-link">
+                                <button onClick={() => this.deleteDashboard(dashboard)} className="btn btn-link">
                                     <i className="fa fa-trash"></i>
                                 </button>
                                 <Link to={`/dashboard/import?id=${dashboard.id}&isFolder=false`} className="btn btn-link popover-link" id="PopoverFocus">
@@ -211,10 +222,64 @@ export class Library extends React.Component<any, any> {
         });
     };
 
+    deleteDashboard = (dashboard: any) => {
+        this.setState({
+            confirmTitleMessage: "Delete Dashboard",
+            message: "Are you sure, you want to delete the dashboard?",
+            isConfirmDialogOpen: true,
+            objectType: "dashboard",
+            objectId: dashboard.id,
+        });
+    };
+
+    handleCloseConfirmDialog = () => {
+        this.setState({
+            isConfirmDialogOpen: false
+        })
+    }
+
+    handleConfirmDelete = (objectType: any, objectId: any) => {
+        console.log("Deleting.... objectType : "+objectType+", objectId : "+objectId);
+        let url = null;
+        if(objectType === "dashboard"){
+            url = config.DELETE_DASHBOARD+`/`+objectId;
+        }
+        this.callDeleteApi(url);
+        this.setState({
+            isConfirmDialogOpen: false
+        })
+    }
+
+    async callDeleteApi(url: any){
+        await RestService.deleteObject(url).then((response: any) => {
+            console.log("Delete Response : ", response);
+            this.setState({
+                severity: config.SEVERITY_SUCCESS,
+                message: 'Data deleted successfully',
+                isAlertOpen: true,
+            });
+        }).catch(error => {
+            console.log('Deletion error', error);
+            this.setState({
+                severity: config.SEVERITY_ERROR,
+                message: 'Data could not be deleted. Please check the service logs for details',
+                isAlertOpen: true,
+            });
+        });
+    }
+
+    handleCloseAlert = (e: any) => {
+        this.setState({
+            isAlertOpen: false
+        })
+    }
+
     render() {
         const state = this.state;
         return (
             <div className="perfmanager-dashboard-container">
+                <ConfirmDialog objectType={state.objectType} objectId={state.objectId} handleCloseConfirmDialog={this.handleCloseConfirmDialog} handleConfirmDelete={this.handleConfirmDelete} open={state.isConfirmDialogOpen} titleMsg={state.confirmTitleMessage} msg={state.message}></ConfirmDialog>
+                <AlertMessage handleCloseAlert={this.handleCloseAlert} open={state.isAlertOpen} severity={state.severity} msg={state.message}></AlertMessage>
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="MONITOR | ALERTS" />
                 <div className="perfmanager-page-container">
                     <div className="common-container">

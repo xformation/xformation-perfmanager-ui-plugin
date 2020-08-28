@@ -10,6 +10,7 @@ export const config = {
   ADD_COLLECTOR_TO_LIBRARY: `${catalogSrvUrl}/addCollectorToLibrary`,
   GET_LIBRARY_TREE: `${catalogSrvUrl}/listLibraryTree`,
   ADD_DASHBOARD_TO_COLLECTOR: `${catalogSrvUrl}/addDashboardToCollector`,
+  DELETE_DASHBOARD: `${catalogSrvUrl}/deleteDashboard`,
 
   PERMS_LIST_ALL: `${securitySrvUrl}/security/permissions/listAll`,
 
