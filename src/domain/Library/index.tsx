@@ -25,6 +25,7 @@ export class Library extends React.Component<any, any> {
             message: null,
             objectType: null,
             objectId: null,
+            object:null,
             isAlertOpen: false,
         };
         this.breadCrumbs = [
@@ -115,7 +116,7 @@ export class Library extends React.Component<any, any> {
                                         <img src={folderIcon} alt="" />
                                     }
                                     {
-                                        !item.isFolder &&
+                                       !item.isFolder &&
                                         <img src={fileIcon} alt="" />
                                     }
                                 </span>
@@ -130,9 +131,18 @@ export class Library extends React.Component<any, any> {
                                 <button className="btn btn-link">
                                     <i className="fa fa-edit"></i>
                                 </button>
-                                <button className="btn btn-link">
-                                    <i className="fa fa-trash"></i>
-                                </button>
+                                {
+                                        item.isFolder &&
+                                        <button onClick={() => this.removeFolder(item)} className="btn btn-link">
+                                            <i className="fa fa-trash"></i>
+                                        </button>
+                                    }
+                                {
+                                       !item.isFolder &&
+                                       <button onClick={() => this.removeCollector(item)} className="btn btn-link">
+                                            <i className="fa fa-trash"></i>
+                                       </button>
+                                }
                                 {
                                     !item.isFolder ?
                                         <Link to={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="btn btn-link popover-link" id="PopoverFocus">
@@ -223,26 +233,54 @@ export class Library extends React.Component<any, any> {
     };
 
     deleteDashboard = (dashboard: any) => {
+        console.log("Dashborad="+dashboard.id);
         this.setState({
             confirmTitleMessage: "Delete Dashboard",
             message: "Are you sure, you want to delete the dashboard?",
             isConfirmDialogOpen: true,
             objectType: "dashboard",
-            objectId: dashboard.id,
+            object: dashboard,
         });
     };
-
+    removeCollector = (collector: any) => {
+        console.log("Parent id : ", collector.parentId);
+        this.setState({
+            confirmTitleMessage: "Remove Collector",
+            message: "Are you sure, you want to remove the collector?",
+            isConfirmDialogOpen: true,
+            objectType: "collector",
+            object: collector,
+        });
+    };
+    removeFolder=(folder: any) => {
+        console.log("library id : ", folder.id);
+        this.setState({
+            confirmTitleMessage: "Remove Folder",
+            message: "Are you sure, you want to Remove Folder?",
+            isConfirmDialogOpen: true,
+            objectType: "folder",
+            object: folder,
+        });
+    };
     handleCloseConfirmDialog = () => {
         this.setState({
             isConfirmDialogOpen: false
         })
     }
 
-    handleConfirmDelete = (objectType: any, objectId: any) => {
-        console.log("Deleting.... objectType : "+objectType+", objectId : "+objectId);
+    handleConfirmDelete = (objectType: any, object: any) => {
+        console.log("Deleting.... objectType : "+objectType+", objectId : "+object.id);
         let url = null;
         if(objectType === "dashboard"){
-            url = config.DELETE_DASHBOARD+`/`+objectId;
+            url = config.DELETE_DASHBOARD+`/`+object.id;
+        }
+        if(objectType === "collector"){
+            url = config.REMOVE_COLLECTOR+`?collectorId=`+object.id+`&folderId=`+object.parentId;
+            console.log("url="+url);
+        }
+        if(objectType === "folder"){
+            url = config.REMOVE_FOLDER+`/`+object.id;
+            console.log("url=",url)
         }
         this.callDeleteApi(url);
         this.setState({
@@ -278,7 +316,7 @@ export class Library extends React.Component<any, any> {
         const state = this.state;
         return (
             <div className="perfmanager-dashboard-container">
-                <ConfirmDialog objectType={state.objectType} objectId={state.objectId} handleCloseConfirmDialog={this.handleCloseConfirmDialog} handleConfirmDelete={this.handleConfirmDelete} open={state.isConfirmDialogOpen} titleMsg={state.confirmTitleMessage} msg={state.message}></ConfirmDialog>
+                <ConfirmDialog objectType={state.objectType}  objectId={state.object} handleCloseConfirmDialog={this.handleCloseConfirmDialog} handleConfirmDelete={this.handleConfirmDelete} open={state.isConfirmDialogOpen} titleMsg={state.confirmTitleMessage} msg={state.message}></ConfirmDialog>
                 <AlertMessage handleCloseAlert={this.handleCloseAlert} open={state.isAlertOpen} severity={state.severity} msg={state.message}></AlertMessage>
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="MONITOR | ALERTS" />
                 <div className="perfmanager-page-container">
