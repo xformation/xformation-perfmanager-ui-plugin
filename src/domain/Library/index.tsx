@@ -200,6 +200,9 @@ export class Library extends React.Component<any, any> {
                         <div className='collapse-toggle d-flex' onClick={() => this.openDashboard(i)}>
                             <div className="collapse-Toggle-icon"><img src={collapseToggleIcon} alt="" /></div>
                             <div className="collapse-Toggle-name">{dashboard.title}</div>
+                            <div className="collapse-Toggle-name">{dashboard.description}</div>
+                            <div className="collapse-Toggle-name">{dashboard.createdBy}</div>
+                            <div className="collapse-Toggle-name">{dashboard.lastModified}</div>
                             <div className="float-right collapse-Toggle-buttons">
                                 <button className="btn btn-link">
                                     <i className="fa fa-edit"></i>
