@@ -316,7 +316,7 @@ export class AddLibraryPopup extends React.Component<any, any> {
                         </div>
                         <div className="form-group text-right">
                             <a className="gray-button" onClick={this.closeModel}>Cancel</a>
-                            <a className="blue-button" onClick={this.addToLibrary}>Add to Library</a>
+                            <a className="blue-button m-r-0" onClick={this.addToLibrary}>Add to Library</a>
                         </div>
                     </div>
                 </ModalBody>

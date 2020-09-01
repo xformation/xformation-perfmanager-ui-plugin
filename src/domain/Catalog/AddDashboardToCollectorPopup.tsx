@@ -177,7 +177,7 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                         </div>
                         <div className="form-group">
                             <label style={{float:"left"}} htmlFor="jsonFile">Upload Json File:</label>
-                            <input type="file" name="jsonFile"   onChange={this.onSelectFile} />
+                            <input type="file" name="jsonFile" className="input-group-text file" onChange={this.onSelectFile} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="dashboardDoc">Dashboard Doc:</label>
@@ -185,7 +185,7 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                         </div>
                         <div className="form-group text-right">
                             <a className="gray-button" onClick={this.closeModel}>Cancel</a>
-                            <a className="blue-button" onClick={this.addDashboard}>Add  Dashboard</a>
+                            <a className="blue-button m-r-0" onClick={this.addDashboard}>Add  Dashboard</a>
                         </div>
                     </div>
                 </ModalBody>

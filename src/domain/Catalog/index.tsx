@@ -8,13 +8,13 @@ import categoryImage from '../../img/category-image1.png';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import { AddLibraryPopup } from './AddLibraryPopup';
 import { AddDashboardToCollectorPopup } from './AddDashboardToCollectorPopup'
-import {PreviewDashboard } from './PreviewDashboard';
-import {RestService} from '../_service/RestService';
+import { PreviewDashboard } from './PreviewDashboard';
+import { RestService } from '../_service/RestService';
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
     addlibraryRef: any;
-    addDashboardToCollectorRef:any;
+    addDashboardToCollectorRef: any;
     previewdashboardRef: any;
     constructor(props: any) {
         super(props);
@@ -25,9 +25,9 @@ export class Catalog extends React.Component<any, any> {
             currentCatalogDisplayData: [],
             catalogs: [],
             displayCatalogData: [],
-            selectedCatalogName:'',
+            selectedCatalogName: '',
             selectedCatalogDescription: '',
-            selectedCatalogId:null,
+            selectedCatalogId: null,
         };
         this.breadCrumbs = [
             {
@@ -40,29 +40,81 @@ export class Catalog extends React.Component<any, any> {
             }
         ];
         this.addlibraryRef = React.createRef();
-        this.addDashboardToCollectorRef=React.createRef();
+        this.addDashboardToCollectorRef = React.createRef();
         this.previewdashboardRef = React.createRef();
     }
 
-    async componentWillMount(){
+    async componentWillMount() {
+        // this.setState({
+        //   isApiCalled: true
+        // });
+        // try{
+        //     await RestService.getData(config.GET_ALL_COLLECTOR, null, null).then(
+        //       (response: any) => {
+        //           this.setState({
+        //             catalogs: response,
+        //             displayCatalogData: response
+        //           });
+        //           console.log("Catalog response : ",response);
+        //       }
+        //     );
+        // }catch (err) {
+        //     console.log("Loading catalog failed. Error: ", err);
+        // }
+        // this.setState({
+        //     isApiCalled: false
+        // });
         this.setState({
-          isApiCalled: true
-        });
-        try{
-            await RestService.getData(config.GET_ALL_COLLECTOR, null, null).then(
-              (response: any) => {
-                  this.setState({
-                    catalogs: response,
-                    displayCatalogData: response
-                  });
-                  console.log("Catalog response : ",response);
-              }
-            );
-        }catch (err) {
-            console.log("Loading catalog failed. Error: ", err);
-        }
-        this.setState({
-            isApiCalled: false
+            catalogs: [
+                {
+                    "id": 1001,
+                    "catalogName": "Test2 collector",
+                    "type": "AWS",
+                    "catalogDescription": "test aws collector 222",
+                    "catalogImage": null,
+                    "catalogDetail": []
+                },
+                {
+                    "id": 1351,
+                    "catalogName": "Test3 collector",
+                    "type": "AWS",
+                    "catalogDescription": "test aws collector 333",
+                    "catalogImage": null,
+                    "catalogDetail": [
+                        {
+                            "title": "dashboard-351",
+                            "description": "test  dashboard for collector 1351",
+                            "open": false,
+                            "dashboardJson": "collector 1351"
+                        }
+                    ]
+                }
+            ],
+            displayCatalogData: [
+                {
+                    "id": 1001,
+                    "catalogName": "Test2 collector",
+                    "type": "AWS",
+                    "catalogDescription": "test aws collector 222",
+                    "catalogImage": null,
+                    "catalogDetail": []
+                },
+                {
+                    "id": 1351,
+                    "catalogName": "Test3 collector",
+                    "type": "AWS",
+                    "catalogDescription": "test aws collector 333",
+                    "catalogImage": null,
+                    "catalogDetail": [
+                        {
+                            "title": "dashboard-351",
+                            "description": "test  dashboard for collector 1351",
+                            "open": false,
+                            "dashboardJson": "collector 1351"
+                        }
+                    ]
+                }
+            ]
         });
     }
 
@@ -179,7 +231,7 @@ export class Catalog extends React.Component<any, any> {
         this.addDashboardToCollectorRef.current.toggle(selectedCatalogName, selectedCatalogId);
     };
 
-    onClickPreviewDashboard = (e: any) =>{
+    onClickPreviewDashboard = (e: any) => {
         this.previewdashboardRef.current.toggle();
     };
 
@@ -280,7 +332,7 @@ export class Catalog extends React.Component<any, any> {
                 </div>
                 <AddLibraryPopup ref={this.addlibraryRef} />
                 <PreviewDashboard ref={this.previewdashboardRef} />
-                <AddDashboardToCollectorPopup ref={this.addDashboardToCollectorRef}/>
+                <AddDashboardToCollectorPopup ref={this.addDashboardToCollectorRef} />
             </div>
         );
     }
