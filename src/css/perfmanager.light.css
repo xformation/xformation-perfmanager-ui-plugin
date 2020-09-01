@@ -2967,6 +2967,34 @@ a:hover {
   display: inline-block;
   vertical-align: top;
   color: #3b4859;
+  width: 20%;
+}
+.library-collapse-expand
+  .library-collapse-expand-inner
+  .config-collapse
+  .collapse-Toggle-description {
+  display: inline-block;
+  vertical-align: top;
+  color: #3b4859;
+  width: 15%;
+}
+.library-collapse-expand
+  .library-collapse-expand-inner
+  .config-collapse
+  .collapse-Toggle-createdBy {
+  display: inline-block;
+  vertical-align: top;
+  color: #3b4859;
+  width: 17.5%;
+}
+.library-collapse-expand
+  .library-collapse-expand-inner
+  .config-collapse
+  .collapse-Toggle-lastModified {
+  display: inline-block;
+  vertical-align: top;
+  color: #3b4859;
+  width: 25%;
 }
 .library-collapse-expand
   .library-collapse-expand-inner
@@ -3023,6 +3051,9 @@ a:hover {
     width: 1040px;
   }
   .dashboard-collapse-expand .dashboard-collapse-expand-inner .config-collapse {
+    width: 1040px;
+  }
+  .library-collapse-expand .library-collapse-expand-inner .config-collapse {
     width: 1040px;
   }
 }

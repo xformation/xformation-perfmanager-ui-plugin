@@ -17,7 +17,296 @@ export class Library extends React.Component<any, any> {
         super(props);
         this.state = {
             isApiCalled: false,
-            libData: [],
+            libData: [
+                {
+                    "id": null,
+                    "name": "Library",
+                    "description": null,
+                    "parentId": null,
+                    "isOpened": false,
+                    "isChecked": false,
+                    "isFolder": true,
+                    "items": [
+                        {
+                            "id": 1510,
+                            "name": "TEST_2_ROOT",
+                            "description": "TEST_2_ROOT directory",
+                            "parentId": null,
+                            "isOpened": false,
+                            "isChecked": false,
+                            "isFolder": true,
+                            "items": [
+                                {
+                                    "id": 1511,
+                                    "name": "TEST_2_N1",
+                                    "description": "TEST_2_N1 directory",
+                                    "parentId": 1510,
+                                    "isOpened": false,
+                                    "isChecked": false,
+                                    "isFolder": true,
+                                    "items": [
+                                        {
+                                            "id": 1513,
+                                            "name": "TEST_2_N1_N11",
+                                            "description": "TEST_2_N1_N11 directory",
+                                            "parentId": 1511,
+                                            "isOpened": false,
+                                            "isChecked": false,
+                                            "isFolder": true,
+                                            "items": [
+                                                {
+                                                    "id": 1553,
+                                                    "name": "AWS TEST_2",
+                                                    "description": "AWS TEST_2",
+                                                    "parentId": 1513,
+                                                    "isOpened": false,
+                                                    "isChecked": false,
+                                                    "isFolder": false,
+                                                    "items": [],
+                                                    "hasChild": false,
+                                                    "createdBy": "System Admin",
+                                                    "createdOn": null,
+                                                    "updatedOn": null,
+                                                    "updatedBy": null,
+                                                    "lastModified": "31/08/2020 by System Admin",
+                                                    "dashboardList": [
+                                                        {
+                                                            "title": "AWS TEST 2_2",
+                                                            "description": "AWS TEST 2_2",
+                                                            "open": false,
+                                                            "dashboardJson": null,
+                                                            "createdBy": "System Admin",
+                                                            "createdOn": null,
+                                                            "updatedOn": null,
+                                                            "updatedBy": null,
+                                                            "lastModified": "01/09/2020 by System Admin",
+                                                            "id": 1605
+                                                        },
+                                                        {
+                                                            "title": "AWS TEST 2_3",
+                                                            "description": "AWS TEST 2_3",
+                                                            "open": false,
+                                                            "dashboardJson": null,
+                                                            "createdBy": "System Admin",
+                                                            "createdOn": null,
+                                                            "updatedOn": null,
+                                                            "updatedBy": null,
+                                                            "lastModified": "01/09/2020 by System Admin",
+                                                            "id": 1606
+                                                        },
+                                                        {
+                                                            "title": "aws test 2",
+                                                            "description": "aws test 2",
+                                                            "open": false,
+                                                            "dashboardJson": null,
+                                                            "createdBy": "System Admin",
+                                                            "createdOn": null,
+                                                            "updatedOn": null,
+                                                            "updatedBy": null,
+                                                            "lastModified": "01/09/2020 by System Admin",
+                                                            "id": 1751
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "hasChild": true,
+                                            "createdBy": "System Admin",
+                                            "createdOn": null,
+                                            "updatedOn": null,
+                                            "updatedBy": null,
+                                            "lastModified": "31/08/2020 by System Admin",
+                                            "dashboardList": []
+                                        }
+                                    ],
+                                    "hasChild": true,
+                                    "createdBy": "System Admin",
+                                    "createdOn": null,
+                                    "updatedOn": null,
+                                    "updatedBy": null,
+                                    "lastModified": "31/08/2020 by System Admin",
+                                    "dashboardList": []
+                                }
+                            ],
+                            "hasChild": true,
+                            "createdBy": "System Admin",
+                            "createdOn": null,
+                            "updatedOn": null,
+                            "updatedBy": null,
+                            "lastModified": "31/08/2020 by System Admin",
+                            "dashboardList": []
+                        },
+                        {
+                            "id": 1051,
+                            "name": "AWS",
+                            "description": "AWS directory",
+                            "parentId": null,
+                            "isOpened": false,
+                            "isChecked": false,
+                            "isFolder": true,
+                            "items": [
+                                {
+                                    "id": 1351,
+                                    "name": "VPC",
+                                    "description": "VPC directory",
+                                    "parentId": 1051,
+                                    "isOpened": false,
+                                    "isChecked": false,
+                                    "isFolder": true,
+                                    "items": [
+                                        {
+                                            "id": 1503,
+                                            "name": "VPC_1",
+                                            "description": "VPC_1 directory",
+                                            "parentId": 1351,
+                                            "isOpened": false,
+                                            "isChecked": false,
+                                            "isFolder": true,
+                                            "items": [
+                                                {
+                                                    "id": 1551,
+                                                    "name": "AWS VPC",
+                                                    "description": "AWS VPC",
+                                                    "parentId": 1503,
+                                                    "isOpened": false,
+                                                    "isChecked": false,
+                                                    "isFolder": false,
+                                                    "items": [],
+                                                    "hasChild": false,
+                                                    "createdBy": "System Admin",
+                                                    "createdOn": null,
+                                                    "updatedOn": null,
+                                                    "updatedBy": null,
+                                                    "lastModified": "31/08/2020 by System Admin",
+                                                    "dashboardList": [
+                                                        {
+                                                            "title": "AWS VPC",
+                                                            "description": "AWS VPC",
+                                                            "open": false,
+                                                            "dashboardJson": null,
+                                                            "createdBy": "System Admin",
+                                                            "createdOn": null,
+                                                            "updatedOn": null,
+                                                            "updatedBy": null,
+                                                            "lastModified": "01/09/2020 by System Admin",
+                                                            "id": 1601
+                                                        },
+                                                        {
+                                                            "title": "AWS VPC 2",
+                                                            "description": "AWS VPC 2",
+                                                            "open": false,
+                                                            "dashboardJson": null,
+                                                            "createdBy": "System Admin",
+                                                            "createdOn": null,
+                                                            "updatedOn": null,
+                                                            "updatedBy": null,
+                                                            "lastModified": "01/09/2020 by System Admin",
+                                                            "id": 1602
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "hasChild": true,
+                                            "createdBy": "System Admin",
+                                            "createdOn": null,
+                                            "updatedOn": null,
+                                            "updatedBy": null,
+                                            "lastModified": "31/08/2020 by System Admin",
+                                            "dashboardList": []
+                                        }
+                                    ],
+                                    "hasChild": true,
+                                    "createdBy": "System Admin",
+                                    "createdOn": null,
+                                    "updatedOn": null,
+                                    "updatedBy": null,
+                                    "lastModified": "28/08/2020 by System Admin",
+                                    "dashboardList": []
+                                },
+                                {
+                                    "id": 1401,
+                                    "name": "TEST",
+                                    "description": "TEST directory",
+                                    "parentId": 1051,
+                                    "isOpened": false,
+                                    "isChecked": false,
+                                    "isFolder": true,
+                                    "items": [
+                                        {
+                                            "id": 1502,
+                                            "name": "Test_2",
+                                            "description": "Test_2 directory",
+                                            "parentId": 1401,
+                                            "isOpened": false,
+                                            "isChecked": false,
+                                            "isFolder": true,
+                                            "items": [
+                                                {
+                                                    "id": 1552,
+                                                    "name": "AWS TEST",
+                                                    "description": "AWS TEST",
+                                                    "parentId": 1502,
+                                                    "isOpened": false,
+                                                    "isChecked": false,
+                                                    "isFolder": false,
+                                                    "items": [],
+                                                    "hasChild": false,
+                                                    "createdBy": "System Admin",
+                                                    "createdOn": null,
+                                                    "updatedOn": null,
+                                                    "updatedBy": null,
+                                                    "lastModified": "31/08/2020 by System Admin",
+                                                    "dashboardList": [
+                                                        {
+                                                            "title": "AWS TEST 2",
+                                                            "description": "AWS TEST 2",
+                                                            "open": false,
+                                                            "dashboardJson": null,
+                                                            "createdBy": "System Admin",
+                                                            "createdOn": null,
+                                                            "updatedOn": null,
+                                                            "updatedBy": null,
+                                                            "lastModified": "01/09/2020 by System Admin",
+                                                            "id": 1604
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "hasChild": true,
+                                            "createdBy": "System Admin",
+                                            "createdOn": null,
+                                            "updatedOn": null,
+                                            "updatedBy": null,
+                                            "lastModified": "31/08/2020 by System Admin",
+                                            "dashboardList": []
+                                        }
+                                    ],
+                                    "hasChild": true,
+                                    "createdBy": "System Admin",
+                                    "createdOn": null,
+                                    "updatedOn": null,
+                                    "updatedBy": null,
+                                    "lastModified": "31/08/2020 by System Admin",
+                                    "dashboardList": []
+                                }
+                            ],
+                            "hasChild": true,
+                            "createdBy": "System Admin",
+                            "createdOn": null,
+                            "updatedOn": null,
+                            "updatedBy": null,
+                            "lastModified": "26/08/2020 by System Admin",
+                            "dashboardList": []
+                        }
+                    ],
+                    "hasChild": false,
+                    "createdBy": null,
+                    "createdOn": null,
+                    "updatedOn": null,
+                    "updatedBy": null,
+                    "lastModified": null,
+                    "dashboardList": []
+                }
+            ],
             activeTabs: [0],
             dashboardList: [],
             isConfirmDialogOpen: false,
@@ -25,7 +314,7 @@ export class Library extends React.Component<any, any> {
             message: null,
             objectType: null,
             objectId: null,
-            object:null,
+            object: null,
             isAlertOpen: false,
         };
         this.breadCrumbs = [
@@ -41,7 +330,7 @@ export class Library extends React.Component<any, any> {
     }
 
     async componentWillMount() {
-        this.fetchData();
+        // this.fetchData();
     }
 
     async fetchData() {
@@ -116,7 +405,7 @@ export class Library extends React.Component<any, any> {
                                         <img src={folderIcon} alt="" />
                                     }
                                     {
-                                       !item.isFolder &&
+                                        !item.isFolder &&
                                         <img src={fileIcon} alt="" />
                                     }
                                 </span>
@@ -132,21 +421,21 @@ export class Library extends React.Component<any, any> {
                                     <i className="fa fa-edit"></i>
                                 </button>
                                 {
-                                        item.isFolder &&
-                                        <button onClick={() => this.removeFolder(item)} className="btn btn-link">
-                                            <i className="fa fa-trash"></i>
-                                        </button>
-                                    }
+                                    item.isFolder &&
+                                    <button onClick={() => this.removeFolder(item)} className="btn btn-link">
+                                        <i className="fa fa-trash"></i>
+                                    </button>
+                                }
                                 {
-                                       !item.isFolder &&
-                                       <button onClick={() => this.removeCollector(item)} className="btn btn-link">
-                                            <i className="fa fa-trash"></i>
-                                       </button>
+                                    !item.isFolder &&
+                                    <button onClick={() => this.removeCollector(item)} className="btn btn-link">
+                                        <i className="fa fa-trash"></i>
+                                    </button>
                                 }
                                 {
                                     !item.isFolder ?
                                         <Link to={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="btn btn-link popover-link" id="PopoverFocus">
-                                            <i  className="fa fa-ellipsis-h"></i>
+                                            <i className="fa fa-ellipsis-h"></i>
                                         </Link>
                                         :
                                         <button className="btn btn-link" id="PopoverFocus">
@@ -200,9 +489,9 @@ export class Library extends React.Component<any, any> {
                         <div className='collapse-toggle d-flex' onClick={() => this.openDashboard(i)}>
                             <div className="collapse-Toggle-icon"><img src={collapseToggleIcon} alt="" /></div>
                             <div className="collapse-Toggle-name">{dashboard.title}</div>
-                            <div className="collapse-Toggle-name">{dashboard.description}</div>
-                            <div className="collapse-Toggle-name">{dashboard.createdBy}</div>
-                            <div className="collapse-Toggle-name">{dashboard.lastModified}</div>
+                            <div className="collapse-Toggle-description">{dashboard.description}</div>
+                            <div className="collapse-Toggle-createdBy">{dashboard.createdBy}</div>
+                            <div className="collapse-Toggle-lastModified">{dashboard.lastModified}</div>
                             <div className="float-right collapse-Toggle-buttons">
                                 <button className="btn btn-link">
                                     <i className="fa fa-edit"></i>
@@ -236,7 +525,7 @@ export class Library extends React.Component<any, any> {
     };
 
     deleteDashboard = (dashboard: any) => {
-        console.log("Dashborad="+dashboard.id);
+        console.log("Dashborad=" + dashboard.id);
         this.setState({
             confirmTitleMessage: "Delete Dashboard",
             message: "Are you sure, you want to delete the dashboard?",
@@ -255,7 +544,7 @@ export class Library extends React.Component<any, any> {
             object: collector,
         });
     };
-    removeFolder=(folder: any) => {
+    removeFolder = (folder: any) => {
         console.log("library id : ", folder.id);
         this.setState({
             confirmTitleMessage: "Remove Folder",
@@ -272,18 +561,18 @@ export class Library extends React.Component<any, any> {
     }
 
     handleConfirmDelete = (objectType: any, object: any) => {
-        console.log("Deleting.... objectType : "+objectType+", objectId : "+object.id);
+        console.log("Deleting.... objectType : " + objectType + ", objectId : " + object.id);
         let url = null;
-        if(objectType === "dashboard"){
-            url = config.DELETE_DASHBOARD+`/`+object.id;
+        if (objectType === "dashboard") {
+            url = config.DELETE_DASHBOARD + `/` + object.id;
         }
-        if(objectType === "collector"){
-            url = config.REMOVE_COLLECTOR+`?collectorId=`+object.id+`&folderId=`+object.parentId;
-            console.log("url="+url);
+        if (objectType === "collector") {
+            url = config.REMOVE_COLLECTOR + `?collectorId=` + object.id + `&folderId=` + object.parentId;
+            console.log("url=" + url);
         }
-        if(objectType === "folder"){
-            url = config.REMOVE_FOLDER+`/`+object.id;
-            console.log("url=",url)
+        if (objectType === "folder") {
+            url = config.REMOVE_FOLDER + `/` + object.id;
+            console.log("url=", url)
         }
         this.callDeleteApi(url);
         this.setState({
@@ -291,7 +580,7 @@ export class Library extends React.Component<any, any> {
         })
     }
 
-    async callDeleteApi(url: any){
+    async callDeleteApi(url: any) {
         await RestService.deleteObject(url).then((response: any) => {
             console.log("Delete Response : ", response);
             this.setState({
@@ -319,7 +608,7 @@ export class Library extends React.Component<any, any> {
         const state = this.state;
         return (
             <div className="perfmanager-dashboard-container">
-                <ConfirmDialog objectType={state.objectType}  objectId={state.object} handleCloseConfirmDialog={this.handleCloseConfirmDialog} handleConfirmDelete={this.handleConfirmDelete} open={state.isConfirmDialogOpen} titleMsg={state.confirmTitleMessage} msg={state.message}></ConfirmDialog>
+                <ConfirmDialog objectType={state.objectType} objectId={state.object} handleCloseConfirmDialog={this.handleCloseConfirmDialog} handleConfirmDelete={this.handleConfirmDelete} open={state.isConfirmDialogOpen} titleMsg={state.confirmTitleMessage} msg={state.message}></ConfirmDialog>
                 <AlertMessage handleCloseAlert={this.handleCloseAlert} open={state.isAlertOpen} severity={state.severity} msg={state.message}></AlertMessage>
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="MONITOR | ALERTS" />
                 <div className="perfmanager-page-container">
