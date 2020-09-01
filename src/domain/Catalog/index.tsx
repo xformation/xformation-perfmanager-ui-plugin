@@ -45,76 +45,24 @@ export class Catalog extends React.Component<any, any> {
     }
 
     async componentWillMount() {
-        // this.setState({
-        //   isApiCalled: true
-        // });
-        // try{
-        //     await RestService.getData(config.GET_ALL_COLLECTOR, null, null).then(
-        //       (response: any) => {
-        //           this.setState({
-        //             catalogs: response,
-        //             displayCatalogData: response
-        //           });
-        //           console.log("Catalog response : ",response);
-        //       }
-        //     );
-        // }catch (err) {
-        //     console.log("Loading catalog failed. Error: ", err);
-        // }
-        // this.setState({
-        //     isApiCalled: false
-        // });
         this.setState({
-            catalogs: [
-                {
-                    "id": 1001,
-                    "catalogName": "Test2 collector",
-                    "type": "AWS",
-                    "catalogDescription": "test aws collector 222",
-                    "catalogImage": null,
-                    "catalogDetail": []
-                },
-                {
-                    "id": 1351,
-                    "catalogName": "Test3 collector",
-                    "type": "AWS",
-                    "catalogDescription": "test aws collector 333",
-                    "catalogImage": null,
-                    "catalogDetail": [
-                        {
-                            "title": "dashboard-351",
-                            "description": "test  dashboard for collector 1351",
-                            "open": false,
-                            "dashboardJson": "collector 1351"
-                        }
-                    ]
-                }
-            ],
-            displayCatalogData: [
-                {
-                    "id": 1001,
-                    "catalogName": "Test2 collector",
-                    "type": "AWS",
-                    "catalogDescription": "test aws collector 222",
-                    "catalogImage": null,
-                    "catalogDetail": []
-                },
-                {
-                    "id": 1351,
-                    "catalogName": "Test3 collector",
-                    "type": "AWS",
-                    "catalogDescription": "test aws collector 333",
-                    "catalogImage": null,
-                    "catalogDetail": [
-                        {
-                            "title": "dashboard-351",
-                            "description": "test  dashboard for collector 1351",
-                            "open": false,
-                            "dashboardJson": "collector 1351"
-                        }
-                    ]
-                }
-            ]
+          isApiCalled: true
+        });
+        try{
+            await RestService.getData(config.GET_ALL_COLLECTOR, null, null).then(
+              (response: any) => {
+                  this.setState({
+                    catalogs: response,
+                    displayCatalogData: response
+                  });
+                  console.log("Catalog response : ",response);
+              }
+            );
+        }catch (err) {
+            console.log("Loading catalog failed. Error: ", err);
+        }
+        this.setState({
+            isApiCalled: false
         });
     }
 
