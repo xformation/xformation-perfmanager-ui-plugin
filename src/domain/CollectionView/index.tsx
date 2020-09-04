@@ -180,7 +180,7 @@ export class CollectionView extends React.Component<any, any> {
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Library
                                 </Link>
-                                <Link to={`${config.basePath}/collection`} className="blue-button">
+                                <Link to={`${config.basePath}/collectionview`} className="blue-button">
                                     <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
