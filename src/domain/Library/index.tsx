@@ -9,12 +9,117 @@ import { Collapse } from 'reactstrap';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import ConfirmDialog from '../../components/ConfirmDialog';
 import AlertMessage from '../../components/AlertMessage';
+import Table from './../../components/table';
 
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
     steps: any;
+    tableValue: any;
+    perPageLimit: any;
+    checkboxValue: any;
     constructor(props: any) {
         super(props);
+        this.tableValue = {
+            columns: [
+                {
+                    label: 'Name',
+                    key: 'name'
+                },
+                {
+                    label: 'Description',
+                    key: 'description'
+                },
+                {
+                    label: 'Created By',
+                    key: 'createdBy'
+                },
+                {
+                    label: 'Last Modified',
+                    key: 'lastModified'
+                },
+            ],
+            data: [
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                },
+                {
+                    name: 'Rodney Artichoke',
+                    description: 'I need help with aading a New Contact....',
+                    createdBy: 'I need help with aading',
+                    lastModified: '15/09/2020',
+                    checkStatus: false
+                }
+            ],
+        };
+        this.perPageLimit = 6,
+        this.checkboxValue = true,
         this.state = {
             isApiCalled: false,
             libData: [],
@@ -365,20 +470,20 @@ export class Library extends React.Component<any, any> {
                             </div>
                             <div className="col-lg-9 col-md-12 col-sm-12">
                                 <div className="float-right">
-                                    <a href="#" className="blue-button add-folder">Add Folder</a>
-                                    <div className="form-group search-control-group">
+                                    <a href="#" className="blue-button m-r-0 add-folder">Add Folder</a>
+                                    {/* <div className="form-group search-control-group">
                                         <form>
                                             <input type="text" className="input-group-text" placeholder="Search" />
                                             <button>
                                                 <i className="fa fa-search"></i>
                                             </button>
                                         </form>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="common-container p-b-0">
+                    <div className="common-container border-bottom-0 p-b-0 p-t-0">
                         <div className="library-tabs">
                             <ul>
                                 {this._displayTab()}
@@ -386,7 +491,12 @@ export class Library extends React.Component<any, any> {
                         </div>
                     </div>
                     <div className="common-container border-bottom-0">
-                        <div className="tab-container">
+                        <div className="all-librarys-tabel">
+                            <Table valueFromData={this.tableValue} perPageLimit={this.perPageLimit} visiblecheckboxStatus={this.checkboxValue}
+                            tableClasses={{ table: "library-tabel", tableParent: "d-block librarys-tabel", parentClass: "all-library-tabels" }} searchKey="name" showingLine = "Latest Librarys (Showing %start% to %end% of %total% Librarys)"/>
+                        </div>
+
+                        {/* <div className="tab-container">
                             <div className="library-details">
                                 <div className="container-inner">
                                     <table className="alert-data-table">
@@ -408,7 +518,8 @@ export class Library extends React.Component<any, any> {
                                     </table>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
+
                         <div className="library-collapse-expand catalog-collapse m-t-2">
                             <div className="library-collapse-expand-inner">
                                 {
@@ -416,6 +527,7 @@ export class Library extends React.Component<any, any> {
                                 }
                             </div>
                         </div>
+                    
                     </div>
                 </div>
             </div>
