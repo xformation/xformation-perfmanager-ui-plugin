@@ -167,162 +167,6 @@ a:hover {
   margin-right: 0;
 }
 
-.showing {
-  font-size: 13px;
-  line-height: 40px;
-  color: #3b4859;
-  font-weight: 500;
-}
-
-.showby {
-  border-left: 1px solid #a9b9c6;
-  padding-left: 15px;
-  margin-left: 15px;
-}
-.showby label {
-  font-size: 13px;
-  line-height: 40px;
-  color: #3b4859;
-  font-weight: 500;
-  padding-right: 15px;
-}
-.showby .form-control {
-  display: inline-block;
-  width: 75px;
-  border-radius: 3px;
-}
-.showby span {
-  font-size: 13px;
-  line-height: 40px;
-  color: #3b4859;
-  font-weight: 500;
-  padding-left: 15px;
-}
-
-@media only screen and (max-width: 1200px) and (min-width: 1050px) {
-  .showing {
-    font-size: 11px;
-  }
-  .showby {
-    padding-left: 10px;
-    margin-left: 10px;
-  }
-  .showby label {
-    font-size: 11px;
-    padding-right: 10px;
-  }
-  .showby span {
-    font-size: 11px;
-    padding-left: 10px;
-  }
-}
-
-@media only screen and (max-width: 1050px) and (min-width: 320px) {
-  .showby {
-    border-left: none;
-    padding-left: 0px;
-    margin-left: 0px;
-  }
-}
-
-.filter-search-control {
-  position: relative;
-  margin-bottom: 0;
-}
-.filter-search-control .input-group-text {
-  max-width: 100%;
-  text-align: left;
-  padding-right: 30px;
-  padding-left: 15px;
-  width: 100%;
-  border: 1px solid #ced4da;
-  background-color: #ffffff;
-  border-radius: 3px;
-  padding-top: 0.399rem;
-}
-.filter-search-control .input-group-text:focus {
-  outline: none;
-}
-.filter-search-control button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  width: 34px;
-  height: 34px;
-}
-.filter-search-control button:hover {
-  color: #333333;
-}
-
-@media (max-width: 767px) {
-  .filter-search-control {
-    float: left;
-    margin-top: 15px;
-  }
-}
-
-.pagination ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.pagination ul li {
-  display: inline-block;
-}
-.pagination ul li a {
-  display: block;
-  padding: 5px 10px;
-  font-size: 11px;
-  color: #868f9b;
-  line-height: 16px;
-  border: 1px solid #cbcfd4;
-  border-right: none;
-}
-.pagination ul li a:hover {
-  background-color: #cbcfd4;
-}
-.pagination ul li a.active {
-  background-color: #cbcfd4;
-  color: black;
-}
-.pagination ul li a.deactive {
-  background-color: white;
-  color: black;
-}
-.pagination ul li a.desable {
-  background-color: #5e5757;
-  color: white;
-}
-.pagination ul li a.enable {
-  background-color: #3b4859;
-  color: #ffffff;
-}
-.pagination ul li.previous a {
-  padding-left: 20px;
-  padding-right: 20px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-.pagination ul li.next a {
-  padding-left: 20px;
-  padding-right: 20px;
-  border-right: 1px solid #cbcfd4;
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomright: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
 .breadcrumbs-container {
   background-color: #eff2f7;
   padding: 14px 20px 15px;
@@ -3264,6 +3108,14 @@ a:hover {
   tr
   th:nth-child(2) {
   padding-left: 5px;
+}
+.all-librarys-tabel
+  .all-library-tabels
+  .librarys-tabel
+  .library-tabel
+  tbody
+  tr {
+  background-color: #f0f3f7;
 }
 .all-librarys-tabel
   .all-library-tabels
