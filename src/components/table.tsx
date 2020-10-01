@@ -46,11 +46,15 @@ export class Table extends React.Component<any, any> {
                     for (let j = 0; j < cLength; j++) {
                         const column = columns[j];
                         if (!column.isRemoved) {
+                            let key = column.key;
+                            if (column.isCaseInsensitive) {
+                                key = key.toLowerCase();
+                            }
                             if (column.renderCallback) {
-                                const jsx = column.renderCallback(row[column.key]);
+                                const jsx = column.renderCallback(row[key], row);
                                 tdJSX.push(jsx);
                             } else {
-                                tdJSX.push(<td>{row[column.key]}</td>);
+                                tdJSX.push(<td>{row[key]}</td>);
                             }
                         }
                     }
@@ -101,7 +105,7 @@ export class Table extends React.Component<any, any> {
         const length = columns.length;
         const retData = [];
         if (visibleCheckbox == true && displayData.length > 0) {
-            retData.push(<th><input type="checkbox" checked={this.state.isAllChecked} onChange={this.checkAllAlerts} className="checkbox" /></th>);
+            retData.push(<th><input type="checkbox" checked={this.state.isAllChecked} onChange={this.checkAllBoxes} className="checkbox" /></th>);
         }
         for (let i = 0; i < length; i++) {
             const item = columns[i];
@@ -127,7 +131,7 @@ export class Table extends React.Component<any, any> {
         return retData;
     }
 
-    checkAllAlerts = (e: any) => {
+    checkAllBoxes = (e: any) => {
         const checked = e.target.checked;
         const { displayData } = this.state;
         for (let j = 0; j < displayData.length; j++) {
@@ -176,6 +180,7 @@ export class Table extends React.Component<any, any> {
                         <a className={currentPage === 0 ? 'page-link desable' : 'page-link enable'} href="#" onClick={(e) => this.navigatePage('pre', e, '')}>Previous</a>
                     </li>
                     {rows}
+                    <li><a href="#">......</a></li>
                     <li className="page-item next">
                         <a className={currentPage === this.state.totalPages - 1 ? 'page-link desable' : 'page-link enable'} href="#" onClick={(e) => this.navigatePage('next', e, '')}>Next</a>
                     </li>
@@ -233,8 +238,7 @@ export class Table extends React.Component<any, any> {
     }
 
     onSearchChange = (e: any) => {
-        const { value } = e.target;
-        console.log(value);
+        let { value } = e.target;
         this.setState({
             searchKey: value,
             currentPage: 0,
@@ -244,10 +248,10 @@ export class Table extends React.Component<any, any> {
         const { data } = this.state;
         const { searchKey } = this.props;
         var queryResult = [];
+        value = value ? value.toLowerCase() : "";
         for (let i = 0; i < data.length; i++) {
-            if (data[i][searchKey].indexOf(value) !== -1 || value === '') {
-                queryResult.push(data[i]);
-            } else if (data[i][searchKey].toLowerCase().indexOf(value) !== -1 || value === '') {
+            const searchKeyValue = data[i][searchKey];
+            if ((searchKeyValue && searchKeyValue.toLowerCase().indexOf(value) !== -1) || value === '') {
                 queryResult.push(data[i]);
             }
         }
@@ -281,9 +285,19 @@ export class Table extends React.Component<any, any> {
         e.preventDefault();
         const data = this.state.data;
         if (sortVal === sortEnum.ASCENDING) {
-            data.sort((a: any, b: any) => a[sortkey].localeCompare(b[sortkey]))
+            data.sort((a: any, b: any) => {
+                if (a[sortkey] && b[sortkey]) {
+                    return a[sortkey].localeCompare(b[sortkey]);
+                }
+                return 0;
+            });
         } else if (sortVal === sortEnum.DESCENDING) {
-            data.sort((a: any, b: any) => a[sortkey].localeCompare(b[sortkey])).reverse()
+            data.sort((a: any, b: any) => {
+                if (a[sortkey] && b[sortkey]) {
+                    return a[sortkey].localeCompare(b[sortkey]);
+                }
+                return 0;
+            }).reverse()
         }
         this.setState({
             displayData: data,
@@ -356,12 +370,10 @@ export class Table extends React.Component<any, any> {
                             </div>
                         </div>
                         <div className="d-inline-block float-right form-group filter-search-control">
-                            <form>
-                                <input type="text" className="input-group-text" onChange={this.onSearchChange} value={this.state.searchKey} />
-                                <button>
-                                    <i className="fa fa-search"></i>
-                                </button>
-                            </form>
+                            <input type="text" className="input-group-text" onChange={this.onSearchChange} value={this.state.searchKey} />
+                            <button>
+                                <i className="fa fa-search"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
