@@ -65,7 +65,11 @@ export class CollectionView extends React.Component<any, any> {
                 route: `/`
             },
             {
-                label: "Monitor | Alerts",
+                label: "Perfmanager",
+                route: `${config.basePath}/dashboard`
+            },
+            {
+                label: "Collection View",
                 isCurrentPage: true
             }
         ];

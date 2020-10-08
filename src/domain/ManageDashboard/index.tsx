@@ -20,7 +20,11 @@ export class ManageDashboard extends React.Component<any, any> {
                 route: `/`
             },
             {
-                label: "Monitor | Alerts",
+                label: "Perfmanager",
+                route: `${config.basePath}/dashboard`
+            },
+            {
+                label: "Manage Dashboard",
                 isCurrentPage: true
             }
         ];
