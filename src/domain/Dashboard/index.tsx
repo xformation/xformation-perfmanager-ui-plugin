@@ -14,7 +14,7 @@ export class Dashboard extends React.Component<any, any> {
                 route: `/`
             },
             {
-                label: "Monitor | Alerts",
+                label: "Perfmanager | Dashboard",
                 isCurrentPage: true
             }
         ];
