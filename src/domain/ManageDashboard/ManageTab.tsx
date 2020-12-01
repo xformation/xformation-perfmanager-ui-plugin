@@ -6,9 +6,11 @@ import listIcon from '../../img/list.png';
 import sortIcon from '../../img/sort.png';
 import openFolderIcon from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
-
+import Rbac from '../../components/Rbac';
+import { config } from '../../config';
+import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
 export class ManageTab extends React.Component<any, any> {
-
+    unimplementedFeatureModalRef: any;
     constructor(props: any) {
         super(props);
         this.state = {
@@ -205,7 +207,12 @@ export class ManageTab extends React.Component<any, any> {
                 }
             ]
         };
+        this.unimplementedFeatureModalRef = React.createRef();
     }
+    onClickUnImplementedFeature = (link: any) => {
+        this.unimplementedFeatureModalRef.current.setLink(link);
+        this.unimplementedFeatureModalRef.current.toggle();
+    };
 
     onClickChildCheckbox = (parentIndex: any, childIndex: any) => {
         let countCheckedCheckbox = 0;
@@ -265,7 +272,7 @@ export class ManageTab extends React.Component<any, any> {
                     for (let k = 0; k < attribute.length; k++) {
                         const subAtt = attribute[k];
                         subAttributeFolder.push(
-                            <div className={`${subAtt.backColorClass } tag`}>{subAtt.attributeName}</div>
+                            <div className={`${subAtt.backColorClass} tag`}>{subAtt.attributeName}</div>
                         );
                     }
                 }
@@ -330,9 +337,15 @@ export class ManageTab extends React.Component<any, any> {
                         </div>
                         <div className="col-lg-8 col-md-12 col-sm-12">
                             <div className="search-buttons float-right">
-                                <a className="blue-button">New Dashboard</a>
-                                <a className="blue-button">New Folder</a>
-                                <a className="blue-button m-r-0">Import</a>
+                                <Rbac parentName={config.PARENT_NAME} childName="managedashboard-managetab-newdashboardbtn">
+                                    <a className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>New Dashboard</a>
+                                </Rbac>
+                                <Rbac parentName={config.PARENT_NAME} childName="managedashboard-managetab-newfolderbtn">
+                                <a className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>New Folder</a>
+                                </Rbac>
+                                <Rbac parentName={config.PARENT_NAME} childName="managedashboard-managetab-importbtn">
+                                <a className="blue-button m-r-0" onClick={() => this.onClickUnImplementedFeature("")}>Import</a>
+                                </Rbac>
                             </div>
                         </div>
                     </div>
@@ -387,6 +400,7 @@ export class ManageTab extends React.Component<any, any> {
                 <div className="manage-dashboard-general">
                     {this.openCloseManageDashboardFolder()}
                 </div>
+                <UnimplementedFeaturePopup ref={this.unimplementedFeatureModalRef} />
             </div>
         );
     }

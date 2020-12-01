@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import tagIcon from '../../img/tag.png';
 import { Button } from 'reactstrap';
+import Rbac from '../../components/Rbac';
+import { config } from '../../config';
 
 
 export class NewPlaylists extends React.Component<any, any>{
@@ -188,9 +190,9 @@ export class NewPlaylists extends React.Component<any, any>{
 
     checkActiveButtonStatus() {
         let buttonStatus = false;
-        for(let i=0;i<this.state.playListArrayData.length;i++){
-            if(this.state.playListArrayData[i].isChecked){
-                buttonStatus= true;
+        for (let i = 0; i < this.state.playListArrayData.length; i++) {
+            if (this.state.playListArrayData[i].isChecked) {
+                buttonStatus = true;
             }
         }
         return buttonStatus;
@@ -288,7 +290,9 @@ export class NewPlaylists extends React.Component<any, any>{
                             </div >
                             <div className="col-md-6 col-sm-12" >
                                 <div className="float-right playlist" >
-                                    <Button onClick={() => this.backToPlayListPage()} className="blue-button m-r-0">Create new playlist</Button>
+                                    <Rbac parentName={config.PARENT_NAME} childName="managedashboard-newplaylist-createnewplaylistbtn">
+                                        <Button onClick={() => this.backToPlayListPage()} className="blue-button m-r-0">Create new playlist</Button>
+                                    </Rbac>
                                 </div >
                             </div >
                         </div >

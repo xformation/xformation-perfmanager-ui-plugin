@@ -12,9 +12,12 @@ import sortIcon from '../../img/sort.png';
 import tagIcon from '../../img/tag.png';
 import openFolderIcon from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
-
+import { TopMenu } from '../Catalog/TopMenu';
+import Rbac from '../../components/Rbac';
+import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
 export class CollectionView extends React.Component<any, any> {
     breadCrumbs: any;
+    unimplementedFeatureModalRef: any;
     constructor(props: any) {
         super(props);
         this.state = {
@@ -73,8 +76,12 @@ export class CollectionView extends React.Component<any, any> {
                 isCurrentPage: true
             }
         ];
-
+        this.unimplementedFeatureModalRef = React.createRef();
     }
+    onClickUnImplementedFeature = (link: any) => {
+        this.unimplementedFeatureModalRef.current.setLink(link);
+        this.unimplementedFeatureModalRef.current.toggle();
+    };
     createCollectionTable = () => {
         const retData = [];
         const { collectionArray } = this.state;
@@ -98,14 +105,18 @@ export class CollectionView extends React.Component<any, any> {
                         <div className="tbody-td">{collectionsubData.subCollectionMessages}</div>
                         <div className="tbody-td">
                             <div className="d-flex">
-                                <div className="enabled"></div>
-                                <button className="btn btn-link">
-                                    <i className="fa fa-edit"></i>
-                                </button>
-                                <button className="btn btn-link">
-                                    <i className="fa fa-trash"></i>
-                                </button>
-                                <button className="btn btn-link" id="PopoverFocus">
+                                <div className="enabled" onClick={() => this.onClickUnImplementedFeature("")}></div>
+                                <Rbac parentName={config.PARENT_NAME} childName="collectionview-index-collectiontbl-edtbtn">
+                                    <button className="btn btn-link" onClick={() => this.onClickUnImplementedFeature("")}>
+                                        <i className="fa fa-edit"></i>
+                                    </button>
+                                </Rbac>
+                                <Rbac parentName={config.PARENT_NAME} childName="collectionview-index-collectiontbl-deletebtn">
+                                    <button className="btn btn-link" onClick={() => this.onClickUnImplementedFeature("")}>
+                                        <i className="fa fa-trash"></i>
+                                    </button>
+                                </Rbac>
+                                <button className="btn btn-link" id="PopoverFocus" onClick={() => this.onClickUnImplementedFeature("")}>
                                     <i className="fa fa-ellipsis-h"></i>
                                 </button>
                             </div>
@@ -119,33 +130,41 @@ export class CollectionView extends React.Component<any, any> {
                         <div className="tbody-td">
                             {collection.openCollectionStatus == false && <div onClick={() => this.opensubCollection(i)} className="caret-right"></div>}
                             {collection.openCollectionStatus == true && <div onClick={() => this.opensubCollection(i)} className="caret-down"></div>}
-                            {collection.name} <b>({subCollections.length})</b>    
-                        </div> 
+                            {collection.name} <b>({subCollections.length})</b>
+                        </div>
                         <div className="tbody-td">{collection.type}</div>
                         <div className="tbody-td"><div className="status-icon"></div></div>
                         <div className="tbody-td">{collection.category}</div>
                         <div className="tbody-td">{collection.messages}</div>
                         <div className="tbody-td">
-                        <div className="d-flex">
-                            <button className="btn btn-link">
-                                <i className="fa fa-plus"></i>
-                            </button>
-                            <button className="btn btn-link">
-                                <i className="fa fa-edit"></i>
-                            </button>
-                            <button className="btn btn-link">
-                                <i className="fa fa-trash"></i>
-                            </button>
-                            <button className="btn btn-link" id="PopoverFocus">
-                                <i className="fa fa-ellipsis-h"></i>
-                            </button>
+                            <div className="d-flex">
+                                <Rbac parentName={config.PARENT_NAME} childName="collectionview-index-collectiontbl-plusbtn">
+                                    <button className="btn btn-link" onClick={() => this.onClickUnImplementedFeature("")}>
+                                        <i className="fa fa-plus"></i>
+                                    </button>
+                                </Rbac>
+                                <Rbac parentName={config.PARENT_NAME} childName="collectionview-index-collectiontbl-edtbtn">
+                                    <button className="btn btn-link" onClick={() => this.onClickUnImplementedFeature("")}>
+                                        <i className="fa fa-edit"></i>
+                                    </button>
+                                </Rbac>
+                                <Rbac parentName={config.PARENT_NAME} childName="collectionview-index-collectiontbl-edtbtn">
+                                    <button className="btn btn-link" onClick={() => this.onClickUnImplementedFeature("")}>
+                                        <i className="fa fa-trash"></i>
+                                    </button>
+                                </Rbac>
+                                <Rbac parentName={config.PARENT_NAME} childName="collectionview-index-collectiontbl-ellipsisbtn">
+                                    <button className="btn btn-link" id="PopoverFocus" onClick={() => this.onClickUnImplementedFeature("")}>
+                                        <i className="fa fa-ellipsis-h"></i>
+                                    </button>
+                                </Rbac>
+                            </div>
                         </div>
-                    </div>                 
                     </div>
                     <Collapse isOpen={collection.openCollectionStatus}>
                         {subCollectionJSX}
                     </Collapse>
-                </div>                
+                </div>
             );
         }
         return retData;
@@ -170,87 +189,56 @@ export class CollectionView extends React.Component<any, any> {
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="PREFORMANCE MANAGEMENT" />
                 <div className="perfmanager-page-container">
                     <div className="common-container">
-                        <div className="row">
-                            <div className="col-lg-10 col-md-12 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboard`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Manage Dashboards
-                                </Link>
-                                <Link to={`${config.basePath}/catalog`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Catalog
-                                </Link>
-                                <Link to={`${config.basePath}/library`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Library
-                                </Link>
-                                <Link to={`${config.basePath}/collectionview`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Collection
-                                </Link>
-                                <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Rule
-                                </Link>
-                                <a className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Preferences
-                                </a>
-                            </div>
-                            <div className="col-lg-2 col-md-12 col-sm-12">
-                                <div className="float-right common-right-btn">
-                                    <Link to={`${config.basePath}/dashboard`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
-                                </div>
-                            </div>
-                        </div>
+                        <TopMenu />
                     </div>
-                    <div className="common-container collection-search">
-                        <div className="row">
-                            <div className="col-lg-3 col-md-12 col-sm-12">
-                                <div className="collection-heading">Collection</div>
-                            </div>
-                            <div className="col-lg-9 col-md-12 col-sm-12">
-                                <div className="float-right">
-                                    <div className="category-select">
-                                        <select className="form-control">
-                                            <option>Category</option>
-                                            <option>Category</option>
-                                            <option>Category</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-group search-control-group">
-                                        <form>
-                                            <input type="text" className="input-group-text" placeholder="Search" />
-                                            <button>
-                                                <i className="fa fa-search"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+                <div className="common-container collection-search">
+                    <div className="row">
+                        <div className="col-lg-3 col-md-12 col-sm-12">
+                            <div className="collection-heading">Collection</div>
                         </div>
-                    </div>
-                    <div className="common-container border-bottom-0">
-                        <div className="collection-details">
-                            <div className="container-inner">
-                                <div className="collection-data-table">
-                                    <div className="thead">
-                                        <div className="thead-th">
-                                            <div className="caret-right"></div>
-                                            Name
-                                        </div>
-                                        <div className="thead-th">Type</div>
-                                        <div className="thead-th">Status</div>
-                                        <div className="thead-th">Category</div>
-                                        <div className="thead-th">Messages</div>
-                                        <div className="thead-th"></div>
-                                    </div>
-                                    {this.createCollectionTable()}
+                        <div className="col-lg-9 col-md-12 col-sm-12">
+                            <div className="float-right">
+                                <div className="category-select">
+                                    <select className="form-control">
+                                        <option>Category</option>
+                                        <option>Category</option>
+                                        <option>Category</option>
+                                    </select>
+                                </div>
+                                <div className="form-group search-control-group">
+                                    <form>
+                                        <input type="text" className="input-group-text" placeholder="Search" />
+                                        <button>
+                                            <i className="fa fa-search"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div className="common-container border-bottom-0">
+                    <div className="collection-details">
+                        <div className="container-inner">
+                            <div className="collection-data-table">
+                                <div className="thead">
+                                    <div className="thead-th">
+                                        <div className="caret-right"></div>
+                                            Name
+                                        </div>
+                                    <div className="thead-th">Type</div>
+                                    <div className="thead-th">Status</div>
+                                    <div className="thead-th">Category</div>
+                                    <div className="thead-th">Messages</div>
+                                    <div className="thead-th"></div>
+                                </div>
+                                {this.createCollectionTable()}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <UnimplementedFeaturePopup ref={this.unimplementedFeatureModalRef} />
             </div>
         );
     }

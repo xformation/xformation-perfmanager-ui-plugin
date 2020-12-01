@@ -14,6 +14,7 @@ export const config = {
   REMOVE_COLLECTOR: `${catalogSrvUrl}/removeCollector`,
   DELETE_LIBRARY: `${catalogSrvUrl}/deleteCollector`,
   REMOVE_FOLDER: `${catalogSrvUrl}/removeFolder`,
+  PARENT_NAME: "xformation-perfmanager-ui-plugin",
 
   PERMS_LIST_ALL: `${securitySrvUrl}/security/permissions/listAll`,
 

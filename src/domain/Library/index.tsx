@@ -10,9 +10,12 @@ import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import ConfirmDialog from '../../components/ConfirmDialog';
 import AlertMessage from '../../components/AlertMessage';
 import Table from './../../components/table';
-
+import { TopMenu } from "./../Catalog/TopMenu";
+import Rbac from '../../components/Rbac';
+import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
+    unimplementedFeatureModalRef: any;
     steps: any;
     tableValue: any;
     perPageLimit: any;
@@ -119,20 +122,20 @@ export class Library extends React.Component<any, any> {
             ],
         };
         this.perPageLimit = 2,
-        this.checkboxValue = true,
-        this.state = {
-            isApiCalled: false,
-            libData: [],
-            activeTabs: [0],
-            dashboardList: [],
-            isConfirmDialogOpen: false,
-            confirmTitleMessage: null,
-            message: null,
-            objectType: null,
-            objectId: null,
-            object: null,
-            isAlertOpen: false,
-        };
+            this.checkboxValue = true,
+            this.state = {
+                isApiCalled: false,
+                libData: [],
+                activeTabs: [0],
+                dashboardList: [],
+                isConfirmDialogOpen: false,
+                confirmTitleMessage: null,
+                message: null,
+                objectType: null,
+                objectId: null,
+                object: null,
+                isAlertOpen: false,
+            };
         this.breadCrumbs = [
             {
                 label: "Home",
@@ -147,7 +150,12 @@ export class Library extends React.Component<any, any> {
                 isCurrentPage: true
             }
         ];
+        this.unimplementedFeatureModalRef = React.createRef();
     }
+    onClickUnImplementedFeature = (link: any) => {
+        this.unimplementedFeatureModalRef.current.setLink(link);
+        this.unimplementedFeatureModalRef.current.toggle();
+    };
 
     async componentWillMount() {
         this.fetchData();
@@ -433,39 +441,7 @@ export class Library extends React.Component<any, any> {
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="MONITOR | ALERTS" />
                 <div className="perfmanager-page-container">
                     <div className="common-container">
-                        <div className="row">
-                            <div className="col-lg-10 col-md-12 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboard`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Manage Dashboards
-                                </Link>
-                                <Link to={`${config.basePath}/catalog`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Catalog
-                                </Link>
-                                <Link to={`${config.basePath}/library`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Library
-                                </Link>
-                                <Link to={`${config.basePath}/collectionview`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Collection
-                                </Link>
-                                <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Rule
-                                </Link>
-                                <a className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Preferences
-                                </a>
-                            </div>
-                            <div className="col-lg-2 col-md-12 col-sm-12">
-                                <div className="float-right common-right-btn">
-                                    <Link to={`${config.basePath}/dashboard`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
-                                </div>
-                            </div>
-                        </div>
+                        <TopMenu />
                     </div>
                     <div className="common-container library-search">
                         <div className="row">
@@ -474,7 +450,9 @@ export class Library extends React.Component<any, any> {
                             </div>
                             <div className="col-lg-9 col-md-12 col-sm-12">
                                 <div className="float-right">
-                                    <a href="#" className="blue-button m-r-0 add-folder">Add Folder</a>
+                                    <Rbac parentName={config.PARENT_NAME} childName="library-index-addfolderbtn">
+                                        <a href="#" className="blue-button m-r-0 add-folder" onClick={() => this.onClickUnImplementedFeature("")}>Add Folder</a>
+                                    </Rbac>
                                     {/* <div className="form-group search-control-group">
                                         <form>
                                             <input type="text" className="input-group-text" placeholder="Search" />
@@ -497,7 +475,7 @@ export class Library extends React.Component<any, any> {
                     <div className="common-container border-bottom-0">
                         <div className="all-librarys-tabel">
                             <Table valueFromData={this.tableValue} perPageLimit={this.perPageLimit} visiblecheckboxStatus={this.checkboxValue}
-                            tableClasses={{ table: "library-tabel", tableParent: "d-block librarys-tabel", parentClass: "all-library-tabels" }} searchKey="name" showingLine = "Latest Librarys (Showing %start% to %end% of %total% Librarys)"/>
+                                tableClasses={{ table: "library-tabel", tableParent: "d-block librarys-tabel", parentClass: "all-library-tabels" }} searchKey="name" showingLine="Latest Librarys (Showing %start% to %end% of %total% Librarys)" />
                         </div>
 
                         {/* <div className="tab-container">
@@ -531,7 +509,7 @@ export class Library extends React.Component<any, any> {
                                 }
                             </div>
                         </div>
-                    
+
                     </div>
                 </div>
             </div>

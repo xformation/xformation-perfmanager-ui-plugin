@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { config } from '../../config';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { ManageDashboards } from './ManageDashboards';
+import { TopMenu } from "./../Catalog/TopMenu";
 export class Dashboard extends React.Component<any, any> {
     breadCrumbs: any;
     constructor(props: any) {
@@ -27,35 +28,7 @@ export class Dashboard extends React.Component<any, any> {
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="PREFORMANCE MANAGEMENT" />
                 <div className="perfmanager-page-container">
                     <div className="common-container">
-                        <div className="row">
-                            <div className="col-lg-12 col-md-12 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboard`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Manage Dashboards
-                                </Link>
-                                <Link to={`${config.basePath}/catalog`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Catalog
-                                </Link>
-                                <Link to={`${config.basePath}/library`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Library
-                                </Link>
-                                <Link to={`${config.basePath}/collectionview`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Collection
-                                </Link>
-                                <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Rule
-                                </Link>
-                                <a className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Preferences
-                                </a>
-                            </div>
-
-                        </div>
+                        <TopMenu />
                     </div>
                     <div className="common-container border-bottom-0">
                         <ManageDashboards />

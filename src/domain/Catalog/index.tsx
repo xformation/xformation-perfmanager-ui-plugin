@@ -10,6 +10,8 @@ import { AddLibraryPopup } from './AddLibraryPopup';
 import { AddDashboardToCollectorPopup } from './AddDashboardToCollectorPopup'
 import { PreviewDashboard } from './PreviewDashboard';
 import { RestService } from '../_service/RestService';
+import Rbac from './../../components/Rbac'
+import { TopMenu } from "./TopMenu";
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
@@ -50,19 +52,19 @@ export class Catalog extends React.Component<any, any> {
 
     async componentWillMount() {
         this.setState({
-          isApiCalled: true
+            isApiCalled: true
         });
-        try{
+        try {
             await RestService.getData(config.GET_ALL_COLLECTOR, null, null).then(
-              (response: any) => {
-                  this.setState({
-                    catalogs: response,
-                    displayCatalogData: response
-                  });
-                  console.log("Catalog response : ",response);
-              }
+                (response: any) => {
+                    this.setState({
+                        catalogs: response,
+                        displayCatalogData: response
+                    });
+                    console.log("Catalog response : ", response);
+                }
             );
-        }catch (err) {
+        } catch (err) {
             console.log("Loading catalog failed. Error: ", err);
         }
         this.setState({
@@ -194,39 +196,7 @@ export class Catalog extends React.Component<any, any> {
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="PREFORMANCE MANAGEMENT" />
                 <div className="perfmanager-page-container">
                     <div className="common-container">
-                        <div className="row">
-                            <div className="col-lg-10 col-md-12 col-sm-12">
-                                <Link to={`${config.basePath}/managedashboard`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Manage Dashboards
-                                </Link>
-                                <Link to={`${config.basePath}/catalog`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Catalog
-                                </Link>
-                                <Link to={`${config.basePath}/library`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Library
-                                </Link>
-                                <Link to={`${config.basePath}/collectionview`} className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Collection
-                                </Link>
-                                <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Rule
-                                </Link>
-                                <a className="blue-button">
-                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Preferences
-                                </a>
-                            </div>
-                            <div className="col-lg-2 col-md-12 col-sm-12">
-                                <div className="float-right common-right-btn">
-                                    <Link to={`${config.basePath}/dashboard`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
-                                </div>
-                            </div>
-                        </div>
+                        <TopMenu />
                     </div>
                     <div className="common-container">
                         <div className="catalog-app-text">
