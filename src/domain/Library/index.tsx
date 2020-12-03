@@ -9,153 +9,36 @@ import { Collapse } from 'reactstrap';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import ConfirmDialog from '../../components/ConfirmDialog';
 import AlertMessage from '../../components/AlertMessage';
-import Table from './../../components/table';
-import { TopMenu } from "./../Catalog/TopMenu";
-import Rbac from '../../components/Rbac';
-import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
+
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
-    unimplementedFeatureModalRef: any;
     steps: any;
-    tableValue: any;
-    perPageLimit: any;
-    checkboxValue: any;
     constructor(props: any) {
         super(props);
-        this.tableValue = {
-            columns: [
-                {
-                    label: 'Name',
-                    key: 'name'
-                },
-                {
-                    label: 'Description',
-                    key: 'description'
-                },
-                {
-                    label: 'Created By',
-                    key: 'createdBy'
-                },
-                {
-                    label: 'Last Modified',
-                    key: 'lastModified'
-                },
-            ],
-            data: [
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                },
-                {
-                    name: 'Rodney Artichoke',
-                    description: 'I need help with aading a New Contact....',
-                    createdBy: 'I need help with aading',
-                    lastModified: '15/09/2020',
-                    checkStatus: false
-                }
-            ],
+        this.state = {
+            isApiCalled: false,
+            libData: [],
+            activeTabs: [0],
+            dashboardList: [],
+            isConfirmDialogOpen: false,
+            confirmTitleMessage: null,
+            message: null,
+            objectType: null,
+            objectId: null,
+            object:null,
+            isAlertOpen: false,
         };
-        this.perPageLimit = 2,
-            this.checkboxValue = true,
-            this.state = {
-                isApiCalled: false,
-                libData: [],
-                activeTabs: [0],
-                dashboardList: [],
-                isConfirmDialogOpen: false,
-                confirmTitleMessage: null,
-                message: null,
-                objectType: null,
-                objectId: null,
-                object: null,
-                isAlertOpen: false,
-            };
         this.breadCrumbs = [
             {
                 label: "Home",
                 route: `/`
             },
             {
-                label: "Perfmanager",
-                route: `${config.basePath}/dashboard`
-            },
-            {
-                label: "Library",
+                label: "Monitor | Alerts",
                 isCurrentPage: true
             }
         ];
-        this.unimplementedFeatureModalRef = React.createRef();
     }
-    onClickUnImplementedFeature = (link: any) => {
-        this.unimplementedFeatureModalRef.current.setLink(link);
-        this.unimplementedFeatureModalRef.current.toggle();
-    };
 
     async componentWillMount() {
         this.fetchData();
@@ -233,7 +116,7 @@ export class Library extends React.Component<any, any> {
                                         <img src={folderIcon} alt="" />
                                     }
                                     {
-                                        !item.isFolder &&
+                                       !item.isFolder &&
                                         <img src={fileIcon} alt="" />
                                     }
                                 </span>
@@ -249,26 +132,27 @@ export class Library extends React.Component<any, any> {
                                     <i className="fa fa-edit"></i>
                                 </button>
                                 {
-                                    item.isFolder &&
-                                    <button onClick={() => this.removeFolder(item)} className="btn btn-link">
-                                        <i className="fa fa-trash"></i>
-                                    </button>
+                                        item.isFolder &&
+                                        <button onClick={() => this.removeFolder(item)} className="btn btn-link">
+                                            <i className="fa fa-trash"></i>
+                                        </button>
+                                    }
+                                {
+                                       !item.isFolder &&
+                                       <button onClick={() => this.removeCollector(item)} className="btn btn-link">
+                                            <i className="fa fa-trash"></i>
+                                       </button>
                                 }
                                 {
-                                    !item.isFolder &&
-                                    <button onClick={() => this.removeCollector(item)} className="btn btn-link">
-                                        <i className="fa fa-trash"></i>
-                                    </button>
-                                }
-                                {
-                                    !item.isFolder ?
-                                        <Link to={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="btn btn-link popover-link" id="PopoverFocus">
-                                            <i className="fa fa-ellipsis-h"></i>
-                                        </Link>
-                                        :
+                                    item.isFolder ?
                                         <button className="btn btn-link" id="PopoverFocus">
                                             <i className="fa fa-ellipsis-h"></i>
-                                        </button>
+                                        </button> :
+                                        <Link to={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="btn btn-link popover-link" id="PopoverFocus">
+                                            <i  className="fa fa-ellipsis-h"></i>
+                                        </Link>
+                                        
+                                        
                                 }
                             </div>
                         </td>
@@ -317,9 +201,9 @@ export class Library extends React.Component<any, any> {
                         <div className='collapse-toggle d-flex' onClick={() => this.openDashboard(i)}>
                             <div className="collapse-Toggle-icon"><img src={collapseToggleIcon} alt="" /></div>
                             <div className="collapse-Toggle-name">{dashboard.title}</div>
-                            <div className="collapse-Toggle-description">{dashboard.description}</div>
-                            <div className="collapse-Toggle-createdBy">{dashboard.createdBy}</div>
-                            <div className="collapse-Toggle-lastModified">{dashboard.lastModified}</div>
+                            <div className="collapse-Toggle-name">{dashboard.description}</div>
+                            <div className="collapse-Toggle-name">{dashboard.createdBy}</div>
+                            <div className="collapse-Toggle-name">{dashboard.lastModified}</div>
                             <div className="float-right collapse-Toggle-buttons">
                                 <button className="btn btn-link">
                                     <i className="fa fa-edit"></i>
@@ -353,7 +237,7 @@ export class Library extends React.Component<any, any> {
     };
 
     deleteDashboard = (dashboard: any) => {
-        console.log("Dashborad=" + dashboard.id);
+        console.log("Dashborad="+dashboard.id);
         this.setState({
             confirmTitleMessage: "Delete Dashboard",
             message: "Are you sure, you want to delete the dashboard?",
@@ -372,7 +256,7 @@ export class Library extends React.Component<any, any> {
             object: collector,
         });
     };
-    removeFolder = (folder: any) => {
+    removeFolder=(folder: any) => {
         console.log("library id : ", folder.id);
         this.setState({
             confirmTitleMessage: "Remove Folder",
@@ -389,18 +273,18 @@ export class Library extends React.Component<any, any> {
     }
 
     handleConfirmDelete = (objectType: any, object: any) => {
-        console.log("Deleting.... objectType : " + objectType + ", objectId : " + object.id);
+        console.log("Deleting.... objectType : "+objectType+", objectId : "+object.id);
         let url = null;
-        if (objectType === "dashboard") {
-            url = config.DELETE_DASHBOARD + `/` + object.id;
+        if(objectType === "dashboard"){
+            url = config.DELETE_DASHBOARD+`/`+object.id;
         }
-        if (objectType === "collector") {
-            url = config.REMOVE_COLLECTOR + `?collectorId=` + object.id + `&folderId=` + object.parentId;
-            console.log("url=" + url);
+        if(objectType === "collector"){
+            url = config.REMOVE_COLLECTOR+`?collectorId=`+object.id+`&folderId=`+object.parentId;
+            console.log("url="+url);
         }
-        if (objectType === "folder") {
-            url = config.REMOVE_FOLDER + `/` + object.id;
-            console.log("url=", url)
+        if(objectType === "folder"){
+            url = config.REMOVE_FOLDER+`/`+object.id;
+            console.log("url=",url)
         }
         this.callDeleteApi(url);
         this.setState({
@@ -408,7 +292,7 @@ export class Library extends React.Component<any, any> {
         })
     }
 
-    async callDeleteApi(url: any) {
+    async callDeleteApi(url: any){
         await RestService.deleteObject(url).then((response: any) => {
             console.log("Delete Response : ", response);
             this.setState({
@@ -436,12 +320,44 @@ export class Library extends React.Component<any, any> {
         const state = this.state;
         return (
             <div className="perfmanager-dashboard-container">
-                <ConfirmDialog objectType={state.objectType} objectId={state.object} handleCloseConfirmDialog={this.handleCloseConfirmDialog} handleConfirmDelete={this.handleConfirmDelete} open={state.isConfirmDialogOpen} titleMsg={state.confirmTitleMessage} msg={state.message}></ConfirmDialog>
+                <ConfirmDialog objectType={state.objectType}  objectId={state.object} handleCloseConfirmDialog={this.handleCloseConfirmDialog} handleConfirmDelete={this.handleConfirmDelete} open={state.isConfirmDialogOpen} titleMsg={state.confirmTitleMessage} msg={state.message}></ConfirmDialog>
                 <AlertMessage handleCloseAlert={this.handleCloseAlert} open={state.isAlertOpen} severity={state.severity} msg={state.message}></AlertMessage>
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="MONITOR | ALERTS" />
                 <div className="perfmanager-page-container">
                     <div className="common-container">
-                        <TopMenu />
+                        <div className="row">
+                            <div className="col-lg-10 col-md-12 col-sm-12">
+                                <Link to={`${config.basePath}/managedashboard`} className="blue-button">
+                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
+                                    Manage Dashboards
+                                </Link>
+                                <Link to={`${config.basePath}/catalog`} className="blue-button">
+                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
+                                    Catalog
+                                </Link>
+                                <Link to={`${config.basePath}/library`} className="blue-button">
+                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
+                                    Library
+                                </Link>
+                                <Link to={`${config.basePath}/collection`} className="blue-button">
+                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
+                                    Collection
+                                </Link>
+                                <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button">
+                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
+                                    Rule
+                                </Link>
+                                <a className="blue-button">
+                                    <i className="fa fa-cog"></i>&nbsp;&nbsp;
+                                    Preferences
+                                </a>
+                            </div>
+                            <div className="col-lg-2 col-md-12 col-sm-12">
+                                <div className="float-right common-right-btn">
+                                    <Link to={`${config.basePath}/dashboard`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="common-container library-search">
                         <div className="row">
@@ -450,22 +366,20 @@ export class Library extends React.Component<any, any> {
                             </div>
                             <div className="col-lg-9 col-md-12 col-sm-12">
                                 <div className="float-right">
-                                    <Rbac parentName={config.PARENT_NAME} childName="library-index-addfolderbtn">
-                                        <a href="#" className="blue-button m-r-0 add-folder" onClick={() => this.onClickUnImplementedFeature("")}>Add Folder</a>
-                                    </Rbac>
-                                    {/* <div className="form-group search-control-group">
+                                    <a href="#" className="blue-button add-folder">Add Folder</a>
+                                    <div className="form-group search-control-group">
                                         <form>
                                             <input type="text" className="input-group-text" placeholder="Search" />
                                             <button>
                                                 <i className="fa fa-search"></i>
                                             </button>
                                         </form>
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="common-container border-bottom-0 p-b-0 p-t-0">
+                    <div className="common-container p-b-0">
                         <div className="library-tabs">
                             <ul>
                                 {this._displayTab()}
@@ -473,12 +387,7 @@ export class Library extends React.Component<any, any> {
                         </div>
                     </div>
                     <div className="common-container border-bottom-0">
-                        <div className="all-librarys-tabel">
-                            <Table valueFromData={this.tableValue} perPageLimit={this.perPageLimit} visiblecheckboxStatus={this.checkboxValue}
-                                tableClasses={{ table: "library-tabel", tableParent: "d-block librarys-tabel", parentClass: "all-library-tabels" }} searchKey="name" showingLine="Latest Librarys (Showing %start% to %end% of %total% Librarys)" />
-                        </div>
-
-                        {/* <div className="tab-container">
+                        <div className="tab-container">
                             <div className="library-details">
                                 <div className="container-inner">
                                     <table className="alert-data-table">
@@ -500,8 +409,7 @@ export class Library extends React.Component<any, any> {
                                     </table>
                                 </div>
                             </div>
-                        </div> */}
-
+                        </div>
                         <div className="library-collapse-expand catalog-collapse m-t-2">
                             <div className="library-collapse-expand-inner">
                                 {
@@ -509,7 +417,6 @@ export class Library extends React.Component<any, any> {
                                 }
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
