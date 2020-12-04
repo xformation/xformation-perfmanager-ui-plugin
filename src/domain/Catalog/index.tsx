@@ -201,7 +201,7 @@ export class Catalog extends React.Component<any, any> {
                     <div className="common-container">
                         <div className="catalog-app-text">
                             <h3>Catalog</h3>
-                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
+                            <p>A catalog is collection of dashboards</p>
                         </div>
                     </div>
                     <div className="common-container">

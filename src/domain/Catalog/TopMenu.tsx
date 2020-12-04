@@ -2,12 +2,12 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { config } from '../../config';
 import { Collapse } from 'reactstrap';
-// import {Collapse} from 'react-bootstrap';
-import categoryImage from '../../img/category-image1.png';
-import collapseToggleIcon from '../../img/config-collapse-icon1.png';
-import { AddLibraryPopup } from './AddLibraryPopup';
-import { AddDashboardToCollectorPopup } from './AddDashboardToCollectorPopup'
-import { PreviewDashboard } from './PreviewDashboard';
+// // import {Collapse} from 'react-bootstrap';
+// import categoryImage from '../../img/category-image1.png';
+// import collapseToggleIcon from '../../img/config-collapse-icon1.png';
+// import { AddLibraryPopup } from './AddLibraryPopup';
+// import { AddDashboardToCollectorPopup } from './AddDashboardToCollectorPopup'
+// import { PreviewDashboard } from './PreviewDashboard';
 import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
 
 import Rbac from '../../components/Rbac'
@@ -32,31 +32,31 @@ export class TopMenu extends React.Component<any, any> {
             <div className="row">
                 <div className="col-lg-10 col-md-12 col-sm-12">
                     <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-manangedashboardsbtn">
-                        <Link to={`${config.basePath}/managedashboard`} className="blue-button">
+                        <Link to={`${config.basePath}/managedashboard`} className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Manage Dashboards
                                 </Link>
                     </Rbac>
                     <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-catlogbtn">
-                        <Link to={`${config.basePath}/catalog`} className="blue-button">
+                        <Link to={`${config.basePath}/catalog`} className="blue-button" >
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Catalog
                                 </Link>
                     </Rbac>
                     <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-librarybtn">
-                        <Link to={`${config.basePath}/library`} className="blue-button">
+                        <Link to={`${config.basePath}/library`} className="blue-button" >
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Library
                                 </Link>
                     </Rbac>
                     <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-collectionbtn">
-                        <Link to={`${config.basePath}/collectionview`} className="blue-button">
+                        <Link to={`${config.basePath}/collectionview`} className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Collection
                                 </Link>
                     </Rbac>
                     <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-rulebtn">
-                        <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button">
+                        <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
                                 </Link>
