@@ -5,7 +5,7 @@ import { config } from '../../config';
 import folderIcon from '../../img/config-collapse-icon1.png';
 import fileIcon from '../../img/config-collapse-icon2.png';
 import { RestService } from '../_service/RestService';
-import { Collapse } from 'reactstrap';
+import { Collapse, UncontrolledPopover, PopoverBody } from 'reactstrap';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import ConfirmDialog from '../../components/ConfirmDialog';
 import AlertMessage from '../../components/AlertMessage';
@@ -140,31 +140,45 @@ export class Library extends React.Component<any, any> {
                         <td>{item.lastModified}</td>
                         <td>
                             <div className="text-right">
-                                <button className="btn btn-link">
-                                    <i className="fa fa-edit"></i>
-                                </button>
-                                {
-                                    item.isFolder &&
-                                    <button onClick={() => this.removeFolder(item)} className="btn btn-link">
-                                        <i className="fa fa-trash"></i>
+                                <Rbac parentName={config.PARENT_NAME} childName="library-index-tbl-editbtn">
+                                    <button className="btn btn-link">
+                                        <i className="fa fa-edit"></i>
                                     </button>
+                                </Rbac>
+                                {
+                                    <Rbac parentName={config.PARENT_NAME} childName="library-index-tbl-deletebtn">
+                                        item.isFolder &&
+                                    <button onClick={() => this.removeFolder(item)} className="btn btn-link">
+                                            <i className="fa fa-trash"></i>
+                                        </button>
+                                    </Rbac>
                                 }
                                 {
                                     !item.isFolder &&
-                                    <button onClick={() => this.removeCollector(item)} className="btn btn-link">
-                                        <i className="fa fa-trash"></i>
-                                    </button>
+                                    <Rbac parentName={config.PARENT_NAME} childName="library-index-tbl-deletebtn">
+                                        <button onClick={() => this.removeCollector(item)} className="btn btn-link">
+                                            <i className="fa fa-trash"></i>
+                                        </button>
+                                    </Rbac>
                                 }
                                 {
                                     item.isFolder ?
-                                        <button className="btn btn-link" id="PopoverFocus">
-                                            <i className="fa fa-ellipsis-h"></i>
-                                        </button> :
+                                        <Rbac parentName={config.PARENT_NAME} childName="library-index-tbl-ellipsisbtn">
+                                            <button className="btn btn-link" id={`PopoverFocus-${item.id}`}>
+                                                <i className="fa fa-ellipsis-h"></i>
+                                            </button>
+                                            <UncontrolledPopover trigger="legacy" placement="bottom" target={`PopoverFocus-${item.id}`}>
+                                                <PopoverBody>
+                                                    {/* <Link className=" " to={`${config.basePath}/alltickets?guid=` + item.id+"&alertName="+alert.name}>Create Ticket</Link> */}
+                                                    <Link className=" " to="#">Create Ticket</Link>
+                                                    <Link className=" " to="#">Silence</Link>
+                                                </PopoverBody>
+                                            </UncontrolledPopover>
+                                        </Rbac>
+                                        :
                                         <Link to={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="btn btn-link popover-link" id="PopoverFocus">
                                             <i className="fa fa-ellipsis-h"></i>
                                         </Link>
-
-
                                 }
                             </div>
                         </td>
@@ -213,7 +227,7 @@ export class Library extends React.Component<any, any> {
                         <div className='collapse-toggle d-flex' onClick={() => this.openDashboard(i)}>
                             <div className="collapse-Toggle-icon"><img src={collapseToggleIcon} alt="" /></div>
                             <div className="collapse-Toggle-name">{dashboard.title}</div>
-                            <div className="collapse-Toggle-description">{dashboard.description}</div>
+                            <div className="collapse-Toggle-description">{dashboard.description}OK</div>
                             <div className="collapse-Toggle-createdBy">{dashboard.createdBy}</div>
                             <div className="collapse-Toggle-lastModified">{dashboard.lastModified}</div>
                             <div className="float-right collapse-Toggle-buttons">
@@ -403,7 +417,7 @@ export class Library extends React.Component<any, any> {
                     <UnimplementedFeaturePopup ref={this.unimplementedFeatureModalRef} />
                 </div>
 
-                
+
             </div>
         );
     }
