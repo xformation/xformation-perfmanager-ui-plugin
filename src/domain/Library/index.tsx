@@ -12,10 +12,12 @@ import AlertMessage from '../../components/AlertMessage';
 import { TopMenu } from "./../Catalog/TopMenu";
 import Rbac from '../../components/Rbac';
 import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
+import { ViewDashboardJsonPopup } from './ViewDashboardJsonPopup'
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
     unimplementedFeatureModalRef: any;
     steps: any;
+    viewDashboardJsonPopupRef: any;
     constructor(props: any) {
         super(props);
         this.state = {
@@ -46,6 +48,7 @@ export class Library extends React.Component<any, any> {
             }
         ];
         this.unimplementedFeatureModalRef = React.createRef();
+        this.viewDashboardJsonPopupRef = React.createRef();
     }
     onClickUnImplementedFeature = (link: any) => {
         this.unimplementedFeatureModalRef.current.setLink(link);
@@ -63,10 +66,11 @@ export class Library extends React.Component<any, any> {
         try {
             await RestService.getData(config.GET_LIBRARY_TREE, null, null).then(
                 (response: any) => {
+                    // console.log("response :: ",response);
                     this.setState({
                         libData: response,
                     });
-                    console.log("Library response : ", response);
+                    // console.log("Library response : ", response);
                 })
         } catch (err) {
             console.log("Loading library failed. Error: ", err);
@@ -114,7 +118,9 @@ export class Library extends React.Component<any, any> {
         const retData = [];
         const currentItem = this._findChild([...activeTabs], libData);
         if (currentItem) {
+
             const items = currentItem.items;
+            // console.log("Items :: ", items)
             for (let i = 0; i < items.length; i++) {
                 const item = items[i];
                 retData.push(
@@ -146,9 +152,10 @@ export class Library extends React.Component<any, any> {
                                     </button>
                                 </Rbac>
                                 {
+                                    item.isFolder &&
                                     <Rbac parentName={config.PARENT_NAME} childName="library-index-tbl-deletebtn">
-                                        item.isFolder &&
-                                    <button onClick={() => this.removeFolder(item)} className="btn btn-link">
+
+                                        <button onClick={() => this.removeFolder(item)} className="btn btn-link">
                                             <i className="fa fa-trash"></i>
                                         </button>
                                     </Rbac>
@@ -231,6 +238,9 @@ export class Library extends React.Component<any, any> {
                             <div className="collapse-Toggle-createdBy">{dashboard.createdBy}</div>
                             <div className="collapse-Toggle-lastModified">{dashboard.lastModified}</div>
                             <div className="float-right collapse-Toggle-buttons">
+                                <button onClick={() => this.viewDashboradJson(dashboard)} className="btn btn-link">
+                                    <i className="fa fa-eye"></i>
+                                </button>
                                 <button className="btn btn-link">
                                     <i className="fa fa-edit"></i>
                                 </button>
@@ -271,6 +281,12 @@ export class Library extends React.Component<any, any> {
             objectType: "dashboard",
             object: dashboard,
         });
+    };
+    viewDashboradJson = (dashboard: any) => {
+        console.log("Dashborad=" +
+            JSON.stringify(dashboard));
+        this.viewDashboardJsonPopupRef.current.toggle(JSON.stringify(dashboard));
+
     };
     removeCollector = (collector: any) => {
         console.log("Parent id : ", collector.parentId);
@@ -414,6 +430,7 @@ export class Library extends React.Component<any, any> {
                             </div>
                         </div>
                     </div>
+                    <ViewDashboardJsonPopup ref={this.viewDashboardJsonPopupRef} />
                     <UnimplementedFeaturePopup ref={this.unimplementedFeatureModalRef} />
                 </div>
 

@@ -33,9 +33,11 @@ export class AddLibraryPopup extends React.Component<any, any> {
         this.setState({
           isApiCalled: true
         });
+        console.log("Add Lib popup");
         try{
             await RestService.getData(config.GET_FOLDER_TREE, null, null).then(
               (response: any) => {
+                  console.log("Folder Ary::",response);
                   this.setState({
                     folderArray: response,
                   });
