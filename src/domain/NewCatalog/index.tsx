@@ -225,8 +225,8 @@ export class NewCatalog extends React.Component<any, any> {
                     <div className="common-container">
                         <label>Import Dashboard</label>
                     </div>
-                    <div className="common-container">
-                        <div className="text-right">
+                    <div className="common-container border-bottom-0">
+                        <div className="d-block m-b-10">
                             <div className="category-select">
                                 <select className="form-control">
                                     <option>category</option>
@@ -244,44 +244,47 @@ export class NewCatalog extends React.Component<any, any> {
                                 </form>
                             </div>
                         </div>
+                        <div className="wizard-container">
+                            <div className="wizard-step-line-container">
+                                <div className={activeTab === 0 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(0)}>
+                                    Select Catalog
+                                </div>
+                                <div className={activeTab === 1 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(1)}>
+                                    Select Dashboard
+                                </div>
+                                <div className={activeTab === 2 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(2)}>
+                                    Edit Data Source
+                                </div>
+                                <div className={activeTab === 3 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(3)}>
+                                    Preview
+                                </div>
+                                <div className={activeTab === 4 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(4)}>
+                                    Import
+                                </div>
+                            </div>
+                            <div className="wizard-step-component">
+                                {
+                                    activeTab === 0 && <CatalogList catalogsData={this.state.catalogs} />
+                                }
+                                {
+                                    activeTab === 1 && <div>Select Dashboard</div>
+                                }
+                                {
+                                    activeTab === 2 && <div>Edit Data Source</div>
+                                }
+                                {
+                                    activeTab === 3 && <div>Preview</div>
+                                }
+                                {
+                                    activeTab === 4 && <div>Import</div>
+                                }
+                                <div className="d-block text-right p-t-20">
+                                    <button className="blue-button previous">Previous</button>
+                                    <button className="blue-button next">Next</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="new-catalog-tabs">
-                        <ul>
-                            <li className={activeTab === 0 ? "active-tab" : ''} onClick={e => this.setActiveTab(0)}>
-                                <a href="#">Select Catalog</a>
-                            </li>
-                            <li className={activeTab === 1 ? "active-tab" : ''} onClick={e => this.setActiveTab(1)}>
-                                <a href="#">Select Dashboard</a>
-                            </li>
-                            <li className={activeTab === 2 ? "active-tab" : ''} onClick={e => this.setActiveTab(2)}>
-                                <a href="#">Edit Data Source</a>
-                            </li>
-                            <li className={activeTab === 3 ? "active-tab" : ''} onClick={e => this.setActiveTab(2)}>
-                                <a href="#">Preview</a>
-                            </li>
-                            <li className={activeTab === 4 ? "active-tab" : ''} onClick={e => this.setActiveTab(2)}>
-                                <a href="#">Import</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="tab-container">
-                        {
-                            activeTab === 0 && <CatalogList catalogsData={this.state.catalogs} />
-                        }
-                        {
-                            activeTab === 1 && <div></div>
-                        }
-                        {
-                            activeTab === 2 && <div></div>
-                        }
-                        {
-                            activeTab === 3 && <div></div>
-                        }
-                        {
-                            activeTab === 4 && <div></div>
-                        }
-                    </div>
-
                 </div>
                 {/* <AddLibraryPopup ref={this.addlibraryRef} />
                 <PreviewDashboard ref={this.previewdashboardRef} />

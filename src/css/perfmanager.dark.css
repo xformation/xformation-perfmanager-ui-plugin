@@ -91,6 +91,10 @@ a:hover {
   padding-bottom: 0 !important;
 }
 
+.p-t-20 {
+  padding-top: 20px !important;
+}
+
 .m-l-0 {
   margin-left: 0 !important;
 }
@@ -99,8 +103,12 @@ a:hover {
   margin-right: 0 !important;
 }
 
-.p-t-20 {
-  padding-top: 20px !important;
+.m-b-0 {
+  margin-bottom: 0 !important;
+}
+
+.m-b-10 {
+  margin-bottom: 10px !important;
 }
 
 .width-auto {
@@ -477,50 +485,40 @@ a:hover {
   margin-right: 0px;
 }
 
-.wizard-library-container .wizard-step-line-container {
+.wizard-step-line-container {
   padding: 5px;
   background-color: #f8f9fb;
 }
-.wizard-library-container .wizard-step-line-container .wizard-step-button {
+.wizard-step-line-container .wizard-step-button {
   display: inline-block;
-  width: auto;
+  width: 19.9%;
   border-top: 1px solid #707070b5;
   border-bottom: 1px solid #707070b5;
   background-color: #dde4e9;
   font-size: 12px;
   line-height: 20px;
-  padding: 5px 30px;
+  padding: 5px 0;
   text-align: center;
   color: #414d55;
   font-weight: 500;
   cursor: pointer;
   position: relative;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button:last-child {
+.wizard-step-line-container .wizard-step-button:last-child {
   border-right: 1px solid #707070b5;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button:first-child {
+.wizard-step-line-container .wizard-step-button:first-child {
   border-left: 1px solid #707070b5;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button:hover {
+.wizard-step-line-container .wizard-step-button:hover {
   background-color: #efefef;
   color: #2662f0;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button.active {
+.wizard-step-line-container .wizard-step-button.active {
   background-color: #ffffff;
   color: #2662f0;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button:after {
+.wizard-step-line-container .wizard-step-button:after {
   position: absolute;
   top: 1px;
   right: -27px;
@@ -534,9 +532,7 @@ a:hover {
   height: 0;
   z-index: 1;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button:before {
+.wizard-step-line-container .wizard-step-button:before {
   position: absolute;
   top: 1px;
   right: -28px;
@@ -550,44 +546,32 @@ a:hover {
   height: 0;
   z-index: 1;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button:hover:after {
+.wizard-step-line-container .wizard-step-button:hover:after {
   border-color: rgba(255, 255, 255, 0);
   border-left-color: #efefef;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button.active:after {
+.wizard-step-line-container .wizard-step-button.active:after {
   border-color: rgba(255, 255, 255, 0);
   border-left-color: #ffffff;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button:hover:before {
+.wizard-step-line-container .wizard-step-button:hover:before {
   border-color: rgba(255, 255, 255, 0);
   border-left-color: #efefef;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button.active:before {
+.wizard-step-line-container .wizard-step-button.active:before {
   border-color: rgba(255, 255, 255, 0);
   border-left-color: #ffffff;
 }
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button:last-child:after,
-.wizard-library-container
-  .wizard-step-line-container
-  .wizard-step-button:last-child:before {
+.wizard-step-line-container .wizard-step-button:last-child:after,
+.wizard-step-line-container .wizard-step-button:last-child:before {
   display: none;
 }
 
-.wizard-library-container .wizard-step-component {
+.wizard-step-component {
   padding: 20px 0px;
   display: block;
 }
-.wizard-library-container .wizard-step-component.d-none {
+.wizard-step-component.d-none {
   display: none;
 }
 
@@ -1251,6 +1235,54 @@ a:hover {
 }
 .manage-dashboard-general .general-logs .monitorigartist-bg {
   background-color: #3b4859;
+}
+.manage-dashboard-general .newdashboard-container {
+  display: block;
+  background-color: #e9ecf0;
+}
+
+.manage-newdashboard-general {
+  border: 1px solid #ffff;
+  padding: 15px;
+  background-color: #e9ecf0;
+  color: #3b4859;
+}
+.manage-newdashboard-general .general-heading {
+  display: block;
+  padding-bottom: 5px;
+}
+.manage-newdashboard-general .general-heading span {
+  display: block;
+  float: right;
+}
+.manage-newdashboard-general .general-heading span .fa {
+  color: #2662f0;
+  size: 10px;
+}
+.manage-newdashboard-general .general-heading h4 {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #414d55;
+  margin-bottom: 0;
+  padding-left: 15px;
+  padding-top: 2px;
+}
+.manage-newdashboard-general .general-center-contain {
+  display: block;
+  margin-top: 100px;
+}
+.manage-newdashboard-general .general-center-contain .own-dashboard {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.manage-newdashboard-general .general-center-contain .own-dashboard img {
+  padding-bottom: 10px;
+}
+.manage-newdashboard-general .general-center-contain .own-dashboard label {
+  display: block;
+  padding-top: 5px;
 }
 
 .playlists-container {
