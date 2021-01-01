@@ -38,7 +38,7 @@ export class CatalogList extends React.Component<any, any> {
     }
 
     openCatalogDetail = (i: any, arryData: any) => {
-
+        this.props.setCatalogDetail(i, arryData);
     }
 
     render() {

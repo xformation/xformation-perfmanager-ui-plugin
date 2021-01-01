@@ -5,6 +5,7 @@ import { Breadcrumbs } from '../Breadcrumbs';
 import { Collapse } from 'reactstrap';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import { CatalogList } from './CatalogList';
+import { SelectDashboard } from './SelectDashboard';
 import { RestService } from '../_service/RestService';
 import Rbac from './../../components/Rbac';
 import { TopMenu } from "./../Catalog/TopMenu";
@@ -215,6 +216,11 @@ export class NewCatalog extends React.Component<any, any> {
         // })
     }
 
+    openCatalogDetail = (index: any, data: any) => {
+        this.setState({
+            activeTab: 1
+        });
+    }
 
     render() {
         const { activeTab, selectedCatalogDescription } = this.state;
@@ -264,10 +270,10 @@ export class NewCatalog extends React.Component<any, any> {
                             </div>
                             <div className="wizard-step-component">
                                 {
-                                    activeTab === 0 && <CatalogList catalogsData={this.state.catalogs} />
+                                    activeTab === 0 && <CatalogList catalogsData={this.state.catalogs} setCatalogDetail={this.openCatalogDetail} />
                                 }
                                 {
-                                    activeTab === 1 && <div>Select Dashboard</div>
+                                    activeTab === 1 && <SelectDashboard />
                                 }
                                 {
                                     activeTab === 2 && <div>Edit Data Source</div>
