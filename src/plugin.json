@@ -58,6 +58,13 @@
       "addToNav": false,
       "defaultNav": false,
       "component": "CollectionView"
+    },
+    {
+      "type": "page",
+      "name": "NewCatalog",
+      "addToNav": false,
+      "defaultNav": false,
+      "component": "NewCatalog"
     }
   ],
   "dependencies": {

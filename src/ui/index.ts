@@ -5,3 +5,4 @@ export * from "./Collection";
 export * from "./CollectionView";
 export * from "./Rules";
 export * from "./Library";
+export * from "./NewCatalog";

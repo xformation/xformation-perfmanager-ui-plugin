@@ -31,24 +31,24 @@ export class TopMenu extends React.Component<any, any> {
         return (
             <div className="row">
                 <div className="col-lg-10 col-md-12 col-sm-12">
+                    <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-catlogbtn">
+                        <Link to='' className="blue-button" >
+                            <i className="fa fa-cog"></i>&nbsp;&nbsp;
+                            Discovery
+                                </Link>
+                    </Rbac>
                     <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-manangedashboardsbtn">
                         <Link to={`${config.basePath}/managedashboard`} className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Manage Dashboards
+                                    Dashboards
                                 </Link>
                     </Rbac>
-                    <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-catlogbtn">
-                        <Link to={`${config.basePath}/catalog`} className="blue-button" >
-                            <i className="fa fa-cog"></i>&nbsp;&nbsp;
-                                    Catalog
-                                </Link>
-                    </Rbac>
-                    <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-librarybtn">
+                    {/* <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-librarybtn">
                         <Link to={`${config.basePath}/library`} className="blue-button" >
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Library
                                 </Link>
-                    </Rbac>
+                    </Rbac> */}
                     <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-collectionbtn">
                         <Link to={`${config.basePath}/collectionview`} className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
@@ -56,6 +56,12 @@ export class TopMenu extends React.Component<any, any> {
                                 </Link>
                     </Rbac>
                     <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-rulebtn">
+                        <Link to="" className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>
+                            <i className="fa fa-cog"></i>&nbsp;&nbsp;
+                                    View
+                                </Link>
+                    </Rbac>
+                    {/* <Rbac parentName={config.PARENT_NAME} childName="catalog-topmenu-rulebtn">
                         <Link to="/plugins/xformation-alertmanager-ui-plugin/page/managealertrule" className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Rule
@@ -66,7 +72,7 @@ export class TopMenu extends React.Component<any, any> {
                             <i className="fa fa-cog"></i>&nbsp;&nbsp;
                                     Preferences
                                 </a>
-                    </Rbac>
+                    </Rbac> */}
                 </div>
                 <div className="col-lg-2 col-md-12 col-sm-12">
                     <div className="float-right common-right-btn">
