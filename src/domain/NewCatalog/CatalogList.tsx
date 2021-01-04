@@ -11,7 +11,7 @@ export class CatalogList extends React.Component<any, any> {
     _displayCatalogBox() {
         const catalogBox = this.state.catalogs.map((val: any, key: any) => {
             return (
-                <div className="catalog-list-box" onClick={() => this.openCatalogDetail(key, val)}>
+                <div className="catalog-list-box" onClick={() => this.openCatalogDetail(val)}>
                     <div className="row">
                         <div className="col-lg-3 col-md-4 col-sm-12 p-r-0">
                             <div className="catalog-list-image confit-image">
@@ -28,8 +28,8 @@ export class CatalogList extends React.Component<any, any> {
         return catalogBox;
     }
 
-    openCatalogDetail = (i: any, arryData: any) => {
-        this.props.setCatalogDetail(i, arryData);
+    openCatalogDetail = (arryData: any) => {
+        this.props.setCatalogDetail(arryData);
     }
 
     render() {

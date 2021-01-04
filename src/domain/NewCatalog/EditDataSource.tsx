@@ -10,8 +10,35 @@ export class EditDataSource extends React.Component<any, any> {
         };
     }
 
+    _displaycatalogList = () => {
+        const { catalogs } = this.state;
+        let retData = [];
+        for (let i = 0; i < catalogs.catalogListL.length; i++) {
+            let row = catalogs.catalogListL[i];
+            retData.push(
+                <div className="collapse-card-body" onClick={() => this.openEditCatalogDetail(catalogs)}>
+                    <div className="row">
+                        <div className="col-lg-10 col-md-10 col-sm-12">
+                            <span><img src={collapseToggleIcon} alt="" /></span>
+                            <p>{row.name}</p>
+                        </div>
+                        <div className="col-lg-2 col-md-2 col-sm-12 text-right">
+                            <button className="btn btn-link"><i className="fa fa-edit"></i></button>
+                            <button className="btn btn-link"><i className="fa fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        return retData;
+    }
+
+    openEditCatalogDetail = (data: any) => {
+        this.props.setCatalogDetail(data);
+    }
+
     render() {
-        const { newDashboard } = this.state;
+        const { catalogs } = this.state;
         return (
             <div className="select-dashboard">
                 <div className="select-dashboard-heading">
@@ -23,8 +50,8 @@ export class EditDataSource extends React.Component<any, any> {
                         </div>
                         <div className="col-lg-10 col-md-9 col-sm-12 p-l-0">
                             <div className="heading-text">
-                                <h3>AWS config</h3>
-                                <p>Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.</p>
+                                <h3>{catalogs.catalogName}</h3>
+                                <p>{catalogs.catalogDescription}</p>
                             </div>
                         </div>
                     </div>
@@ -33,42 +60,7 @@ export class EditDataSource extends React.Component<any, any> {
                     <button className="blue-button m-r-0">Bulk edit</button>
                 </div>
                 <div className="bulk-lists">
-                    <div className="collapse-card-body">
-                        <div className="row">
-                            <div className="col-lg-10 col-md-10 col-sm-12">
-                                <span><img src={collapseToggleIcon} alt="" /></span>
-                                <p>AWS Config Overview - Interactive</p>
-                            </div>
-                            <div className="col-lg-2 col-md-2 col-sm-12 text-right">
-                                <button className="btn btn-link"><i className="fa fa-edit"></i></button>
-                                <button className="btn btn-link"><i className="fa fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="collapse-card-body">
-                        <div className="row">
-                            <div className="col-lg-10 col-md-10 col-sm-12">
-                                <span><img src={collapseToggleIcon} alt="" /></span>
-                                <p>AWS Config Overview - Interactive</p>
-                            </div>
-                            <div className="col-lg-2 col-md-2 col-sm-12 text-right">
-                                <button className="btn btn-link"><i className="fa fa-edit"></i></button>
-                                <button className="btn btn-link"><i className="fa fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="collapse-card-body">
-                        <div className="row">
-                            <div className="col-lg-10 col-md-10 col-sm-12">
-                                <span><img src={collapseToggleIcon} alt="" /></span>
-                                <p>AWS Config Overview - Interactive</p>
-                            </div>
-                            <div className="col-lg-2 col-md-2 col-sm-12 text-right">
-                                <button className="btn btn-link"><i className="fa fa-edit"></i></button>
-                                <button className="btn btn-link"><i className="fa fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
+                    {this._displaycatalogList()}
                 </div>
             </div>
         );

@@ -241,7 +241,6 @@ export class NewCatalog extends React.Component<any, any> {
             ],
             catalogTab2Data: {},
             activeTab: 0,
-            selectedCatalogDescription: '',
         };
         this.breadCrumbs = [
             {
@@ -283,19 +282,16 @@ export class NewCatalog extends React.Component<any, any> {
         // })
     }
 
-    openCatalogDetail = (index: any, data: any) => {
+    openCatalogDetail = (data: any) => {
         this.setState({
             catalogTab2Data: data
         });
         this.setActiveTab(this.state.activeTab + 1)
     }
 
-    openEditCatalogDetail = () => {
-        this.setActiveTab(this.state.activeTab + 1)
-    }
 
     render() {
-        const { activeTab, selectedCatalogDescription } = this.state;
+        const { activeTab } = this.state;
         return (
             <div className="perfmanager-dashboard-container">
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="PREFORMANCE MANAGEMENT" />
@@ -345,13 +341,13 @@ export class NewCatalog extends React.Component<any, any> {
                                     activeTab === 0 && <CatalogList catalogsData={this.state.catalogs} setCatalogDetail={this.openCatalogDetail} />
                                 }
                                 {
-                                    activeTab === 1 && <SelectDashboard catalogsData={this.state.catalogTab2Data} setEditCatalog={this.openEditCatalogDetail} />
+                                    activeTab === 1 && <SelectDashboard catalogsData={this.state.catalogTab2Data} setCatalogDetail={this.openCatalogDetail} />
                                 }
                                 {
-                                    activeTab === 2 && <EditDataSource />
+                                    activeTab === 2 && <EditDataSource catalogsData={this.state.catalogTab2Data} setCatalogDetail={this.openCatalogDetail}/>
                                 }
                                 {
-                                    activeTab === 3 && <Preview />
+                                    activeTab === 3 && <Preview catalogsData={this.state.catalogTab2Data} setCatalogDetail={this.openCatalogDetail}/>
                                 }
                                 {
                                     activeTab === 4 && <div>Import</div>
