@@ -1,8 +1,9 @@
 import * as React from 'react';
-import Rbac from '../../components/Rbac';
-import { config } from '../../config';
 import createDashboardImage from '../../img/create-dashboard-image.png';
 import importDashboardImage from '../../img/import-dashboard-image.png';
+import { config } from '../../config';
+import { Link  } from 'react-router-dom';
+
 export class NewDashboard extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
@@ -31,10 +32,12 @@ export class NewDashboard extends React.Component<any, any> {
                             <label>Create your own dashboard</label>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12 own-dashboard">
-                            <span>
-                                <img src={importDashboardImage} alt="Import Dashboard from Catalog" />
-                            </span>
-                            <label>Import Dashboard from Catalog</label>
+                            <Link  to={`${config.basePath}/newcatalog`}>
+                                <span>
+                                    <img src={importDashboardImage} alt="Import Dashboard from Catalog" />
+                                </span>
+                                <label>Import Dashboard from Catalog</label>
+                            </Link >
                         </div>
                     </div>
                 </div>
