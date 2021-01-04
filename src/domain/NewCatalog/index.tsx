@@ -339,7 +339,7 @@ export class NewCatalog extends React.Component<any, any> {
                                     Import
                                 </div>
                             </div>
-                            <div className="wizard-step-component">
+                            <div className="wizard-step-component import-dashboard-container">
                                 {
                                     activeTab === 0 && <CatalogList catalogsData={this.state.catalogs} setCatalogDetail={this.openCatalogDetail} />
                                 }
