@@ -1,14 +1,5 @@
 import * as React from 'react';
-import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import tagIcon from '../../img/tag.png';
-import folderIcon from '../../img/folder.png';
-import listIcon from '../../img/list.png';
-import sortIcon from '../../img/sort.png';
-import openFolderIcon from '../../img/open-folder.png';
-import { Collapse } from 'reactstrap';
-import Rbac from '../../components/Rbac';
-import { config } from '../../config';
-import categoryImage from '../../img/category-image1.png';
+import catalogListImage from '../../img/category-image1.png';
 export class CatalogList extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
@@ -20,15 +11,15 @@ export class CatalogList extends React.Component<any, any> {
     _displayCatalogBox() {
         const catalogBox = this.state.catalogs.map((val: any, key: any) => {
             return (
-                <div className="category-box" onClick={() => this.openCatalogDetail(key, val)}>
+                <div className="catalog-list-box" onClick={() => this.openCatalogDetail(key, val)}>
                     <div className="row">
-                        <div className="col-lg-4 col-md-4 col-sm-12 p-r-0">
-                            <div className="category-image confit-image">
-                                <img src={categoryImage} alt="" />
+                        <div className="col-lg-3 col-md-4 col-sm-12 p-r-0">
+                            <div className="catalog-list-image confit-image">
+                                <img src={catalogListImage} alt="" />
                             </div>
                         </div>
-                        <div className="col-lg-8 col-md-8 col-sm-12">
-                            <div className="category-name">{val.catalogName} </div>
+                        <div className="col-lg-9 col-md-8 col-sm-12">
+                            <div className="catalog-list-name">{val.catalogName} </div>
                         </div>
                     </div>
                 </div>
@@ -44,16 +35,8 @@ export class CatalogList extends React.Component<any, any> {
     render() {
         const { newDashboard } = this.state;
         return (
-            <div>
-                <div className="common-container border-bottom-0">
-                    <div className="row">
-                        <div className="col-xl- col-lg-12 col-md-12 col-sm-12">
-                            <div className="categories-boxes">
-                                {this._displayCatalogBox()}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="select-catalog-lists">
+                {this._displayCatalogBox()}
             </div>
         );
     }

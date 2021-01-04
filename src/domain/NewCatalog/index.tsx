@@ -6,6 +6,7 @@ import { Collapse } from 'reactstrap';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import { CatalogList } from './CatalogList';
 import { SelectDashboard } from './SelectDashboard';
+import { EditDataSource } from './EditDataSource';
 import { RestService } from '../_service/RestService';
 import Rbac from './../../components/Rbac';
 import { TopMenu } from "./../Catalog/TopMenu";
@@ -276,7 +277,7 @@ export class NewCatalog extends React.Component<any, any> {
                                     activeTab === 1 && <SelectDashboard />
                                 }
                                 {
-                                    activeTab === 2 && <div>Edit Data Source</div>
+                                    activeTab === 2 && <EditDataSource />
                                 }
                                 {
                                     activeTab === 3 && <div>Preview</div>
