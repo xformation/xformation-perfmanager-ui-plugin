@@ -283,15 +283,10 @@ export class NewCatalog extends React.Component<any, any> {
     }
 
     openCatalogDetail = (index: any, data: any) => {
-        const { activeTab } = this.state;
-        let activedata = activeTab + 1;
         this.setState({
-            catalogTab2Data: {}
-        })
-        this.setState({
-            activeTab: activedata,
             catalogTab2Data: data
         });
+        this.setActiveTab(this.state.activeTab + 1)
     }
 
     render() {
