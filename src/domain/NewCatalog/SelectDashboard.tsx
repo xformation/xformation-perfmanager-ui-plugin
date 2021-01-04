@@ -16,7 +16,7 @@ export class SelectDashboard extends React.Component<any, any> {
         for (let i = 0; i < catalogs.catalogListL.length; i++) {
             let row = catalogs.catalogListL[i];
             retData.push(
-                <div className="collapse-card-body">
+                <div className="collapse-card-body" onClick={() => this.openEditCatalogDetail()}>
                     <input type="checkbox" />
                     <span><img src={collapseToggleIcon} alt="" /></span>
                     <p>{row.name}</p>
@@ -25,6 +25,11 @@ export class SelectDashboard extends React.Component<any, any> {
         }
         return retData;
     }
+
+    openEditCatalogDetail = () => {
+        this.props.setEditCatalog();
+    }
+
     render() {
         const { catalogs } = this.state;
         console.log(catalogs);

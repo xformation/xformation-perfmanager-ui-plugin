@@ -289,6 +289,10 @@ export class NewCatalog extends React.Component<any, any> {
         this.setActiveTab(this.state.activeTab + 1)
     }
 
+    openEditCatalogDetail = () => {
+        this.setActiveTab(this.state.activeTab + 1)
+    }
+
     render() {
         const { activeTab, selectedCatalogDescription } = this.state;
         return (
@@ -340,7 +344,7 @@ export class NewCatalog extends React.Component<any, any> {
                                     activeTab === 0 && <CatalogList catalogsData={this.state.catalogs} setCatalogDetail={this.openCatalogDetail} />
                                 }
                                 {
-                                    activeTab === 1 && <SelectDashboard catalogsData={this.state.catalogTab2Data} />
+                                    activeTab === 1 && <SelectDashboard catalogsData={this.state.catalogTab2Data} setEditCatalog={this.openEditCatalogDetail} />
                                 }
                                 {
                                     activeTab === 2 && <EditDataSource />
