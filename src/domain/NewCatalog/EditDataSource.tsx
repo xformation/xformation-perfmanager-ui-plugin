@@ -7,6 +7,7 @@ export class EditDataSource extends React.Component<any, any> {
         super(props);
         this.state = {
             catalogs: this.props.catalogsData,
+            isEdit: false
         };
     }
 
@@ -16,14 +17,14 @@ export class EditDataSource extends React.Component<any, any> {
         for (let i = 0; i < catalogs.catalogListL.length; i++) {
             let row = catalogs.catalogListL[i];
             retData.push(
-                <div className="collapse-card-body" onClick={() => this.openEditCatalogDetail(catalogs)}>
+                <div className="collapse-card-body" >
                     <div className="row">
-                        <div className="col-lg-10 col-md-10 col-sm-12">
+                        <div className="col-lg-10 col-md-9 col-sm-9" onClick={() => this.openEditCatalogDetail(catalogs)}>
                             <span><img src={collapseToggleIcon} alt="" /></span>
                             <p>{row.name}</p>
                         </div>
-                        <div className="col-lg-2 col-md-2 col-sm-12 text-right">
-                            <button className="btn btn-link"><i className="fa fa-edit"></i></button>
+                        <div className="col-lg-2 col-md-3 col-sm-3 text-right">
+                            <button className="btn btn-link" onClick={this.setIsEdit}><i className="fa fa-edit"></i></button>
                             <button className="btn btn-link"><i className="fa fa-trash"></i></button>
                         </div>
                     </div>
@@ -36,31 +37,103 @@ export class EditDataSource extends React.Component<any, any> {
     openEditCatalogDetail = (data: any) => {
         this.props.setCatalogDetail(data);
     }
+    setIsEdit = () => {
+        const { isEdit } = this.state;
+        let edit = !isEdit;
+        this.setState({
+            isEdit: edit
+        })
+    }
 
     render() {
-        const { catalogs } = this.state;
+        const { catalogs, isEdit } = this.state;
         return (
             <div className="select-dashboard">
-                <div className="select-dashboard-heading">
-                    <div className="row">
-                        <div className="col-lg-2 col-md-3 col-sm-12 p-r-0">
-                            <div className="heading-image">
-                                <img src={categoryImage} alt="" />
+                <div className={isEdit === false ? "d-block" : "d-none"}>
+                    <div className="select-dashboard-heading">
+                        <div className="row">
+                            <div className="col-lg-2 col-md-3 col-sm-12">
+                                <div className="heading-image">
+                                    <img src={categoryImage} alt="" />
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-lg-10 col-md-9 col-sm-12 p-l-0">
-                            <div className="heading-text">
-                                <h3>{catalogs.catalogName}</h3>
-                                <p>{catalogs.catalogDescription}</p>
+                            <div className="col-lg-10 col-md-9 col-sm-12">
+                                <div className="heading-text">
+                                    <h3>{catalogs.catalogName}</h3>
+                                    <p>{catalogs.catalogDescription}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div className="d-block text-right">
+                        <button className="blue-button m-r-0">Bulk edit</button>
+                    </div>
+                    <div className="bulk-lists">
+                        {this._displaycatalogList()}
+                    </div>
                 </div>
-                <div className="d-block text-right">
-                    <button className="blue-button m-r-0">Bulk edit</button>
-                </div>
-                <div className="bulk-lists">
-                    {this._displaycatalogList()}
+                <div className={isEdit === true ? "d-block" : "d-none"}>
+                    <div className="edit-dashboard">
+                        <div className="select-dashboard-heading">
+                            <div className="row">
+                                <div className="col-lg-10 col-md-9 col-sm-12">
+                                    <div className="row">
+                                        <div className="col-lg-2 col-md-3 col-sm-12">
+                                            <div className="heading-image">
+                                                <img src={categoryImage} alt="" />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-10 col-md-9 col-sm-12">
+                                            <div className="heading-text">
+                                                <h3>{catalogs.catalogName}</h3>
+                                                <p>{catalogs.catalogDescription}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-lg-2 col-md-3 col-sm-12">
+                                    <div className="d-block text-right">
+                                        <a href="#" className="white-button min-width-inherit">
+                                            <i className="fa fa-arrow-circle-left"></i>
+                                            &nbsp;&nbsp;Back
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="d-block data-source-heading">
+                            Select Data Source
+                        </div>
+                        <div className="d-block">
+                            <h3 className="d-block">AWS</h3>
+                            <div className="d-block">
+                                <div className="d-inline-block text-center data-source-box">
+                                    <div className="d-inline-block image">
+                                        <img src={categoryImage} alt="" />
+                                    </div>
+                                    <div className="d-block name">
+                                        Amazon CloudWatch
+                                    </div>
+                                </div>
+                                <div className="d-inline-block text-center data-source-box">
+                                    <div className="d-inline-block image">
+                                        <img src={categoryImage} alt="" />
+                                    </div>
+                                    <div className="d-block name">
+                                        Amazon CloudWatch
+                                    </div>
+                                </div>
+                                <div className="d-inline-block text-center data-source-box">
+                                    <div className="d-inline-block image">
+                                        <img src={categoryImage} alt="" />
+                                    </div>
+                                    <div className="d-block name">
+                                        Amazon CloudWatch
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
