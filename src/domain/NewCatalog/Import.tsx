@@ -11,7 +11,7 @@ export class Import extends React.Component<any, any> {
     }
 
     render() {
-        const { newDashboard } = this.state;
+        const { catalogs } = this.state;
         return (
             <div className="select-dashboard">
                 <div className="select-dashboard-heading">
@@ -23,8 +23,8 @@ export class Import extends React.Component<any, any> {
                         </div>
                         <div className="col-lg-10 col-md-9 col-sm-12 p-l-0">
                             <div className="heading-text">
-                                <h3>AWS config</h3>
-                                <p>Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.</p>
+                                <h3>{catalogs.catalogName}</h3>
+                                <p>{catalogs.catalogDescription}</p>
                             </div>
                         </div>
                     </div>

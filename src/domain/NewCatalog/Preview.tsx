@@ -23,7 +23,7 @@ export class Preview extends React.Component<any, any> {
                         </div>
                         <div className="col-lg-10 col-md-9 col-sm-12 p-l-0">
                             <div className="heading-text">
-                            <h3>{catalogs.catalogName}</h3>
+                                <h3>{catalogs.catalogName}</h3>
                                 <p>{catalogs.catalogDescription}</p>
                             </div>
                         </div>

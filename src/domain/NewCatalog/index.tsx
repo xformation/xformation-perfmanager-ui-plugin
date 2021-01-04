@@ -240,7 +240,24 @@ export class NewCatalog extends React.Component<any, any> {
                     ],
                 }
             ],
-            catalogTab2Data: {},
+            catalogTab2Data: {
+                catalogName: 'Aws config',
+                catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
+                catalogImage: '',
+                catalogListL: [
+                    {
+                        name: 'AWS Config Overview - Interactive',
+                        description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                    },
+                    { name: 'AWS Config Overview - Live' },
+                    { name: 'Resource Modification Details - Interactive' },
+                    { name: 'Configuration Trend' },
+                    { name: 'Latest Resource Modifications' },
+                    { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                    { name: 'Relationships' },
+                    { name: 'ResourceNames Lookup Table Generator' },
+                ],
+            },
             activeTab: 0,
         };
         this.breadCrumbs = [
@@ -253,7 +270,7 @@ export class NewCatalog extends React.Component<any, any> {
                 route: `${config.basePath}/dashboard`
             },
             {
-                label: "COtalog",
+                label: "Catalog",
                 isCurrentPage: true
             }
         ];
@@ -345,17 +362,17 @@ export class NewCatalog extends React.Component<any, any> {
                                     activeTab === 1 && <SelectDashboard catalogsData={this.state.catalogTab2Data} setCatalogDetail={this.openCatalogDetail} />
                                 }
                                 {
-                                    activeTab === 2 && <EditDataSource catalogsData={this.state.catalogTab2Data} setCatalogDetail={this.openCatalogDetail}/>
+                                    activeTab === 2 && <EditDataSource catalogsData={this.state.catalogTab2Data} setCatalogDetail={this.openCatalogDetail} />
                                 }
                                 {
-                                    activeTab === 3 && <Preview catalogsData={this.state.catalogTab2Data} setCatalogDetail={this.openCatalogDetail}/>
+                                    activeTab === 3 && <Preview catalogsData={this.state.catalogTab2Data} setCatalogDetail={this.openCatalogDetail} />
                                 }
                                 {
-                                    activeTab === 4 && <Import />
+                                    activeTab === 4 && <Import catalogsData={this.state.catalogTab2Data} />
                                 }
                                 <div className="d-block text-right p-t-20">
-                                    <button className="blue-button previous">Previous</button>
-                                    <button className="blue-button m-r-0 next">Next</button>
+                                    <button disabled={activeTab == 0} className="blue-button previous" onClick={e => this.setActiveTab(activeTab - 1)}>Previous</button>
+                                    <button disabled={activeTab == 4} className="blue-button m-r-0 next" onClick={e => this.setActiveTab(activeTab + 1)}>Next</button>
                                 </div>
                             </div>
                         </div>
