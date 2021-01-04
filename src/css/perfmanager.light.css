@@ -1172,6 +1172,24 @@ a:hover {
   border: 0.25px solid #707070;
   opacity: 1;
 }
+.select-dashboard .config-form {
+  padding-top: 40px;
+}
+.select-dashboard .config-form .form-group {
+  margin-bottom: 20px;
+}
+.select-dashboard .config-form .form-group label {
+  display: inline-block;
+  width: 12%;
+}
+.select-dashboard .config-form .form-group input {
+  display: inline-block;
+  width: 50%;
+}
+.select-dashboard .config-form .form-group select {
+  display: inline-block;
+  width: 50%;
+}
 
 .manage-dashboard-heading {
   display: block;

@@ -7,7 +7,8 @@ import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import { CatalogList } from './CatalogList';
 import { SelectDashboard } from './SelectDashboard';
 import { EditDataSource } from './EditDataSource';
-import { Preview } from './Preview'
+import { Preview } from './Preview';
+import { Import } from './Import';
 import { RestService } from '../_service/RestService';
 import Rbac from './../../components/Rbac';
 import { TopMenu } from "./../Catalog/TopMenu";
@@ -350,7 +351,7 @@ export class NewCatalog extends React.Component<any, any> {
                                     activeTab === 3 && <Preview catalogsData={this.state.catalogTab2Data} setCatalogDetail={this.openCatalogDetail}/>
                                 }
                                 {
-                                    activeTab === 4 && <div>Import</div>
+                                    activeTab === 4 && <Import />
                                 }
                                 <div className="d-block text-right p-t-20">
                                     <button className="blue-button previous">Previous</button>
