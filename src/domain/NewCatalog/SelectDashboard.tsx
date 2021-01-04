@@ -10,8 +10,24 @@ export class SelectDashboard extends React.Component<any, any> {
         };
     }
 
+    _displaycatalogList = () => {
+        const { catalogs } = this.state;
+        let retData = [];
+        for (let i = 0; i < catalogs.catalogListL.length; i++) {
+            let row = catalogs.catalogListL[i];
+            retData.push(
+                <div className="collapse-card-body">
+                    <input type="checkbox" />
+                    <span><img src={collapseToggleIcon} alt="" /></span>
+                    <p>{row.name}</p>
+                </div>
+            );
+        }
+        return retData;
+    }
     render() {
-        const { newDashboard } = this.state;
+        const { catalogs } = this.state;
+        console.log(catalogs);
         return (
             <div className="select-dashboard">
                 <div className="select-dashboard-heading">
@@ -23,8 +39,8 @@ export class SelectDashboard extends React.Component<any, any> {
                         </div>
                         <div className="col-lg-10 col-md-9 col-sm-12 p-l-0">
                             <div className="heading-text">
-                                <h3>AWS config</h3>
-                                <p>Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.</p>
+                                <h3>{catalogs.catalogName}</h3>
+                                <p>{catalogs.catalogDescription}</p>
                             </div>
                         </div>
                     </div>
@@ -33,54 +49,14 @@ export class SelectDashboard extends React.Component<any, any> {
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="lists">
-                                <div className="collapse-card-body">
-                                    <input type="checkbox" />
-                                    <span><img src={collapseToggleIcon} alt="" /></span>
-                                    <p>AWS Config Overview - Interactive</p>
-                                </div>
-                                <div className="collapse-card-body">
-                                    <input type="checkbox" />
-                                    <span><img src={collapseToggleIcon} alt="" /></span>
-                                    <p>AWS Config Overview - Live</p>
-                                </div>
-                                <div className="collapse-card-body">
-                                    <input type="checkbox" />
-                                    <span><img src={collapseToggleIcon} alt="" /></span>
-                                    <p>Resource Modification Details - Interactive</p>
-                                </div>
-                                <div className="collapse-card-body">
-                                    <input type="checkbox" />
-                                    <span><img src={collapseToggleIcon} alt="" /></span>
-                                    <p>Configuration Trend</p>
-                                </div>
-                                <div className="collapse-card-body">
-                                    <input type="checkbox" />
-                                    <span><img src={collapseToggleIcon} alt="" /></span>
-                                    <p>Latest Resource Modifications</p>
-                                </div>
-                                <div className="collapse-card-body">
-                                    <input type="checkbox" />
-                                    <span><img src={collapseToggleIcon} alt="" /></span>
-                                    <p>Most Frequently Modified Resource Types (with latest update)</p>
-                                </div>
-                                <div className="collapse-card-body">
-                                    <input type="checkbox" />
-                                    <span><img src={collapseToggleIcon} alt="" /></span>
-                                    <p>Relationships</p>
-                                </div>
-                                <div className="collapse-card-body">
-                                    <input type="checkbox" />
-                                    <span><img src={collapseToggleIcon} alt="" /></span>
-                                    <p>ResourceNames Lookup Table Generator</p>
-                                </div>
+                                {this._displaycatalogList()}
                             </div>
-
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-12">
                             <div className="list-right-content">
                                 <div className="heading">
                                     <span><img src={collapseToggleIcon} alt="" /></span>
-                                    <p>AWS Config Overview - Interactive</p>
+                                    <p>{catalogs.catalogName}</p>
                                 </div>
                                 <div className="content">
                                     <h3>Dashboard Panels</h3>

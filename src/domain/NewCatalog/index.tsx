@@ -20,160 +20,225 @@ export class NewCatalog extends React.Component<any, any> {
             catalogs: [
                 {
                     catalogName: 'Aws config',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
-                    catalogDetail: [
+                    catalogListL: [
                         {
-                            title: 'AWS config',
-                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                            open: false
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
                         },
-                        {
-                            title: 'AWS config OverView-Interactive',
-                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                            open: false
-                        }
-                    ]
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
+
                 },
                 {
                     catalogName: 'AWS Elastic Load Balancer - Application',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
-                    catalogDetail: [
+                    catalogListL: [
                         {
-                            title: 'AWS Elastic Load Balancer - Application',
-                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                            open: false
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
                         },
-                        {
-                            title: 'AWS Elastic Load Balancer - Application',
-                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                            open: false
-                        },
-                        {
-                            title: 'AWS config OverView-Interactive',
-                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                            open: false
-                        },
-                    ]
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
+
                 },
                 {
                     catalogName: 'AWS Security Hub',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
-                    catalogDetail: [
+                    catalogListL: [
                         {
-                            title: 'AWS Security Hub',
-                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                            open: false
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
                         },
-                        {
-                            title: 'AWS config OverView-Interactive',
-                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                            open: false
-                        },
-                        {
-                            title: 'AWS Security Hub',
-                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                            open: false
-                        },
-                        {
-                            title: 'AWS Security Hub',
-                            description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                            open: false
-                        },
-                    ]
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
+
                 },
                 {
                     catalogName: 'Amazon Dynamo DB',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
+                    catalogListL: [
+                        {
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                        },
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
                 },
                 {
                     catalogName: 'AWS Elasticache Redis ULM',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
+                    catalogListL: [
+                        {
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                        },
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
                 },
                 {
                     catalogName: 'AWS Security Hub',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
+                    catalogListL: [
+                        {
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                        },
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
                 },
                 {
                     catalogName: 'Amazon CloudTrail',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
+                    catalogListL: [
+                        {
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                        },
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
                 },
                 {
                     catalogName: 'Amazon SES',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
+                    catalogListL: [
+                        {
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                        },
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
                 },
                 {
                     catalogName: 'AWS Inspector',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
+                    catalogListL: [
+                        {
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                        },
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
                 },
                 {
                     catalogName: 'AWS Inspector',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
+                    catalogListL: [
+                        {
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                        },
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
                 },
                 {
                     catalogName: 'AWS Inspector',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
+                    catalogListL: [
+                        {
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                        },
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
                 },
                 {
                     catalogName: 'AWS Inspector',
-                    catalogDescription: 'Add To library Preview Dashboard',
+                    catalogDescription: 'Amazon Web Services (AWS) Config provides a simple web services interface that can be used to track modifications made to the resources that belong to an AWS account.',
                     catalogImage: '',
+                    catalogListL: [
+                        {
+                            name: 'AWS Config Overview - Interactive',
+                            description: 'Dashboard Panels Changed Resources by Type Configuration Activity by AWS Region Deleted Resources by Type Discovered Resources by Type Modifications by Day - Outlier Modifications by Day - Trend Recent Modifications Resource Modifications Trend Data Access Level Sharing Outside The Org: This dashboard is inaccessible to people outside the organization. Last Modified On: 12/03/2019 6:27:14 AM +0530 Created On: 12/03/2019 6:27:14 AM +0530 Type: Dashboard'
+                        },
+                        { name: 'AWS Config Overview - Live' },
+                        { name: 'Resource Modification Details - Interactive' },
+                        { name: 'Configuration Trend' },
+                        { name: 'Latest Resource Modifications' },
+                        { name: 'Most Frequently Modified Resource Types (with latest update)' },
+                        { name: 'Relationships' },
+                        { name: 'ResourceNames Lookup Table Generator' },
+                    ],
                 }
             ],
-            displayCatalogData: [],
-            catalogDetail: [
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-                {
-                    title: 'AWS config OverView-Interactive',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry,Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    open: false
-                },
-            ],
+            catalogTab2Data: {},
             activeTab: 0,
             selectedCatalogDescription: '',
         };
@@ -218,8 +283,14 @@ export class NewCatalog extends React.Component<any, any> {
     }
 
     openCatalogDetail = (index: any, data: any) => {
+        const { activeTab } = this.state;
+        let activedata = activeTab + 1;
         this.setState({
-            activeTab: 1
+            catalogTab2Data: {}
+        })
+        this.setState({
+            activeTab: activedata,
+            catalogTab2Data: data
         });
     }
 
@@ -274,7 +345,7 @@ export class NewCatalog extends React.Component<any, any> {
                                     activeTab === 0 && <CatalogList catalogsData={this.state.catalogs} setCatalogDetail={this.openCatalogDetail} />
                                 }
                                 {
-                                    activeTab === 1 && <SelectDashboard />
+                                    activeTab === 1 && <SelectDashboard catalogsData={this.state.catalogTab2Data} />
                                 }
                                 {
                                     activeTab === 2 && <EditDataSource />
@@ -293,9 +364,6 @@ export class NewCatalog extends React.Component<any, any> {
                         </div>
                     </div>
                 </div>
-                {/* <AddLibraryPopup ref={this.addlibraryRef} />
-                <PreviewDashboard ref={this.previewdashboardRef} />
-                <AddDashboardToCollectorPopup ref={this.addDashboardToCollectorRef} /> */}
             </div>
         );
     }
