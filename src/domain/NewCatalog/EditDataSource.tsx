@@ -76,27 +76,23 @@ export class EditDataSource extends React.Component<any, any> {
                     <div className="edit-dashboard">
                         <div className="select-dashboard-heading">
                             <div className="row">
-                                <div className="col-lg-10 col-md-9 col-sm-12">
-                                    <div className="row">
-                                        <div className="col-lg-2 col-md-3 col-sm-12">
-                                            <div className="heading-image">
-                                                <img src={categoryImage} alt="" />
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-10 col-md-9 col-sm-12">
-                                            <div className="heading-text">
-                                                <h3>{catalogs.catalogName}</h3>
-                                                <p>{catalogs.catalogDescription}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-2 col-md-3 col-sm-12">
-                                    <div className="d-block text-right">
-                                        <a href="#" className="white-button min-width-inherit">
+                                <div className="col-lg-3 col-md-12 col-sm-12 order">
+                                    <div className="d-block width-100 text-right">
+                                        <a href="#" className="white-button min-width-inherit m-r-0">
                                             <i className="fa fa-arrow-circle-left"></i>
                                             &nbsp;&nbsp;Back
                                         </a>
+                                    </div>
+                                </div>
+                                <div className="col-lg-2 col-md-12 col-sm-12">
+                                    <div className="heading-image">
+                                        <img src={categoryImage} alt="" />
+                                    </div>
+                                </div>
+                                <div className="col-lg-7 col-md-12 col-sm-12">
+                                    <div className="heading-text">
+                                        <h3>{catalogs.catalogName}</h3>
+                                        <p>{catalogs.catalogDescription}</p>
                                     </div>
                                 </div>
                             </div>

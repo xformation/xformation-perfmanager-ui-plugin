@@ -115,6 +115,10 @@ a:hover {
   width: auto;
 }
 
+.width-100 {
+  width: 100%;
+}
+
 .min-width-inherit {
   min-width: inherit !important;
 }
@@ -1217,6 +1221,10 @@ a:hover {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.select-dashboard .edit-dashboard .order {
+  order: 3;
+  display: flex;
+}
 .select-dashboard .edit-dashboard h3 {
   font-size: 18px;
   font-weight: 500;
@@ -1229,6 +1237,7 @@ a:hover {
   padding: 15px;
   width: 180px;
   margin-right: 15px;
+  margin-bottom: 15px;
 }
 .select-dashboard .edit-dashboard .data-source-box .image {
   width: 110px;
@@ -1268,6 +1277,13 @@ a:hover {
   .select-dashboard .config-form .form-group label {
     width: 22%;
   }
+  .select-dashboard .edit-dashboard {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .select-dashboard .edit-dashboard .order {
+    order: 0;
+  }
 }
 
 @media only screen and (max-width: 767px) and (min-width: 540px) {
@@ -1299,6 +1315,13 @@ a:hover {
   }
   .select-dashboard .config-form .form-group select {
     width: 70%;
+  }
+  .select-dashboard .edit-dashboard {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .select-dashboard .edit-dashboard .order {
+    order: 0;
   }
 }
 
