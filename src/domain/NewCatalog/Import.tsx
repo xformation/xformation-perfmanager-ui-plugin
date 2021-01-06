@@ -100,13 +100,14 @@ export class Import extends React.Component<any, any> {
             retData.push(
                 <div>
                     <div className="general-heading">
+                        {folder.openSubFolder ?
+                            <i className='fa fa-angle-down' onClick={() => this.onClickOpenSubFolder(i)}></i>
+                            :
+                            <i className="fa fa-angle-right" onClick={() => this.onClickOpenSubFolder(i)}></i>
+                        }
                         <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
                         <h4>{folder.title}</h4>
-                        {folder.openSubFolder ?
-                            <i className='fa fa-angle-up' onClick={() => this.onClickOpenSubFolder(i)}></i>
-                            :
-                            <i className="fa fa-angle-down" onClick={() => this.onClickOpenSubFolder(i)}></i>
-                        }
+
                     </div>
                     <Collapse isOpen={folder.openSubFolder}>
                         <div className="general-logs">
@@ -157,18 +158,22 @@ export class Import extends React.Component<any, any> {
                         <input className="form-control" type="text" placeholder="AWS Config" />
                     </div>
                     <div className="form-group">
-                        <label>Location Path::</label>
-                        <input className="form-control" value={locationPath} type="text" placeholder="AWS Config" />
+                        <label>Location Path:</label>
+                        <p>
+                            {locationPath}
+                        </p>
                     </div>
                     <div className="form-group">
                         <label>Location:</label>
-                        <select className="form-control" id="importDashboard" name="importDashboard" onClick={this.openTreeView}>
-                            <option value="Select Folder to import Dashboard">Select Folder to import Dashboard</option>
-                        </select>
-                        {openTreeView === true && <div>
-                            {this.openCloseManageDashboardFolder()}
+                        <div className="select-import-dashboard">
+                            <span className="form-control" onClick={this.openTreeView}>
+                                Select Folder to import Dashboard <i className="fa fa-angle-down float-right"></i>
+                            </span>
+                            {openTreeView === true && <div className="import-dashboard-general">
+                                {this.openCloseManageDashboardFolder()}
+                            </div>
+                            }
                         </div>
-                        }
                     </div>
                 </div>
             </div>

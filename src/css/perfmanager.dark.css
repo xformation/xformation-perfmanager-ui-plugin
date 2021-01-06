@@ -1165,6 +1165,7 @@ a:hover {
   color: #3b4859;
   margin-bottom: 0;
   width: 80%;
+  cursor: pointer;
 }
 .select-dashboard .bulk-lists .collapse-card-body .btn-link {
   color: #3b7cff !important;
@@ -1194,15 +1195,172 @@ a:hover {
 }
 .select-dashboard .config-form .form-group label {
   display: inline-block;
+  vertical-align: top;
   width: 12%;
 }
 .select-dashboard .config-form .form-group input {
   display: inline-block;
+  vertical-align: top;
   width: 50%;
 }
-.select-dashboard .config-form .form-group select {
+.select-dashboard .config-form .form-group p {
   display: inline-block;
+  vertical-align: top;
   width: 50%;
+  border-bottom: 1px solid #ced4da;
+  color: #3b7cff;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 0;
+  height: calc(1.5em + 0.75rem + 2px);
+}
+.select-dashboard .config-form .form-group .select-import-dashboard {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+.select-dashboard .config-form .form-group .select-import-dashboard span {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  color: #495057;
+  line-height: 22px;
+}
+.select-dashboard .config-form .form-group .select-import-dashboard span i {
+  line-height: 22px;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general {
+  display: block;
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 15px;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general
+  .general-heading {
+  display: block;
+  padding-bottom: 5px;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general
+  .general-heading
+  span {
+  display: inline-block;
+  padding-left: 15px;
+  vertical-align: top;
+  cursor: pointer;
+  width: auto;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general
+  .general-heading
+  h4 {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #3b4859;
+  margin-bottom: 0;
+  padding-left: 15px;
+  padding-top: 2px;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general
+  .general-heading
+  .fa {
+  padding-top: 6px;
+  cursor: pointer;
+  display: inline-block;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general
+  .general-logs {
+  padding-left: 35px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general
+  .general-logs
+  .data-table {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  font-weight: 500;
+  color: #3b4859;
+  background-color: #ffffff;
+  width: 100%;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general
+  .general-logs
+  .data-table
+  tr
+  td {
+  padding: 0 0 5px 0;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general
+  .general-logs
+  .data-table
+  tr
+  td
+  span {
+  display: inline-block;
+  padding-left: 0px;
+  vertical-align: top;
+  cursor: pointer;
+  width: auto;
+}
+.select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  .import-dashboard-general
+  .general-logs
+  .data-table
+  tr
+  td
+  h4 {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #3b4859;
+  margin-bottom: 0;
+  padding-left: 15px;
+  padding-top: 2px;
 }
 .select-dashboard .edit-dashboard {
   margin-left: -30px;
@@ -1603,16 +1761,12 @@ a:hover {
   background-color: #3b4859;
 }
 
-.manage-newdashboard-general {
+.manage-newdashboard-general .newdashboard-container {
+  display: block;
   border: 1px solid #fbfbfc;
   padding: 18px 20px;
   opacity: 1;
   background-color: #fbfbfc;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-.manage-newdashboard-general .newdashboard-container {
-  display: block;
 }
 .manage-newdashboard-general .newdashboard-container .general-heading {
   display: block;
@@ -1682,6 +1836,46 @@ a:hover {
   line-height: 24px;
   color: #3b4859;
   font-weight: 500;
+}
+
+.manage-newdashboard-general .createnewdashboard-container {
+  border: 1px solid #8392a7;
+  padding: 15px;
+}
+.manage-newdashboard-general .createnewdashboard-container .general-heading {
+  display: block;
+  padding-bottom: 5px;
+}
+.manage-newdashboard-general .createnewdashboard-container .general-heading h4 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #414d55;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.manage-newdashboard-general
+  .createnewdashboard-container
+  .general-heading
+  .newdashboard-close {
+  cursor: pointer;
+  float: right;
+}
+.manage-newdashboard-general
+  .createnewdashboard-container
+  .general-heading
+  .newdashboard-close
+  .fa {
+  color: #2662f0;
+  font-size: 16px;
+  line-height: 24px;
+}
+.manage-newdashboard-general .createnewdashboard-container .create-dashboard {
+  background: #fafafa;
+  box-shadow: 2px 2px 6px #00000029;
+  padding: 75px 0;
+  margin: 60px 50px;
+  text-align: center;
 }
 
 .playlists-container {

@@ -42,7 +42,7 @@
 }
 
 .react-multiple-carousel__arrow--left {
-  left: 0;
+  left: 40%;
 }
 
 .react-multiple-carousel__arrow--left::before {
@@ -52,9 +52,12 @@
   border-bottom: 10px solid transparent;
   border-right: 10px solid #8392a7;
 }
+.react-multiple-carousel__arrow--left:hover:before {
+  border-right: 10px solid #3b7cff;
+}
 
 .react-multiple-carousel__arrow--right {
-  right: 0;
+  right: 41.5%;
 }
 
 .react-multiple-carousel__arrow--right::before {
@@ -63,6 +66,9 @@
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 10px solid #8392a7;
+}
+.react-multiple-carousel__arrow--right:hover:before {
+  border-left: 10px solid #3b7cff;
 }
 
 .react-multi-carousel-dot-list {
@@ -98,7 +104,7 @@
   cursor: pointer;
 }
 
-.react-multi-carousel-dot button:hover:active {
+.react-multi-carousel-dot button:hover {
   background: #3b7cff;
   border-color: #3b7cff;
 }

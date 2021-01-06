@@ -351,7 +351,7 @@ export class ManageTab extends React.Component<any, any> {
                                     <a className="blue-button" onClick={this.openNewDashboard}>New Dashboard</a>
                                 </Rbac>
                                 <Rbac parentName={config.PARENT_NAME} childName="managedashboard-managetab-newfolderbtn">
-                                    <a className="blue-button" onClick={() => this.onClickUnImplementedFeature("")}>New Folder</a>
+                                    <a className="blue-button m-r-0" onClick={() => this.onClickUnImplementedFeature("")}>New Folder</a>
                                 </Rbac>
                                 {/* <Rbac parentName={config.PARENT_NAME} childName="managedashboard-managetab-importbtn">
                                 <a className="blue-button m-r-0" onClick={() => this.onClickUnImplementedFeature("")}>Import</a>
@@ -360,54 +360,56 @@ export class ManageTab extends React.Component<any, any> {
                         </div>
                     </div>
                 </div>
-                <div className="manage-dashboard-fliter-sort">
-                    {newDashboard === false && <div className="row">
-                        <div className="col-lg-6 col-md-12 col-sm-12">
-                            <div className="sort-checkbox">
-                                <input type="checkbox" className="checkbox" />
-                            </div>
-                            <div className="sort-view">
-                                <ul>
-                                    <li className="active">
-                                        <a href="#"><img src={folderIcon} alt="" /></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src={listIcon} alt="" /></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="sort-select-menu">
-                                <span>
-                                    <img src={sortIcon} alt="" />
-                                </span>
-                                <select>
-                                    <option>Sort (Default A-Z)</option>
-                                    <option>Sort (Default A-Z)</option>
-                                    <option>Sort (Default A-Z)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 col-md-12 col-sm-12">
-                            <div className="filter-starred float-right">
+                {newDashboard === false &&
+                    <div className="manage-dashboard-fliter-sort">
+                        <div className="row">
+                            <div className="col-lg-6 col-md-12 col-sm-12">
                                 <div className="sort-checkbox">
                                     <input type="checkbox" className="checkbox" />
-                                    <span>Filter by starred</span>
+                                </div>
+                                <div className="sort-view">
+                                    <ul>
+                                        <li className="active">
+                                            <a href="#"><img src={folderIcon} alt="" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src={listIcon} alt="" /></a>
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div className="sort-select-menu">
                                     <span>
-                                        <img src={tagIcon} alt="" />
+                                        <img src={sortIcon} alt="" />
                                     </span>
                                     <select>
-                                        <option>Filter by tag</option>
-                                        <option>Filter by tag</option>
-                                        <option>Filter by tag</option>
+                                        <option>Sort (Default A-Z)</option>
+                                        <option>Sort (Default A-Z)</option>
+                                        <option>Sort (Default A-Z)</option>
                                     </select>
                                 </div>
                             </div>
+                            <div className="col-lg-6 col-md-12 col-sm-12">
+                                <div className="filter-starred float-right">
+                                    <div className="sort-checkbox">
+                                        <input type="checkbox" className="checkbox" />
+                                        <span>Filter by starred</span>
+                                    </div>
+                                    <div className="sort-select-menu">
+                                        <span>
+                                            <img src={tagIcon} alt="" />
+                                        </span>
+                                        <select>
+                                            <option>Filter by tag</option>
+                                            <option>Filter by tag</option>
+                                            <option>Filter by tag</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-                    }
-                </div>
+                }
                 {newDashboard === false && <div className="manage-dashboard-general">
                     {this.openCloseManageDashboardFolder()}
                 </div>

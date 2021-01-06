@@ -69,16 +69,16 @@ export class Preview extends React.Component<any, any> {
                         itemClass="carousel-item-padding-0"
                     >
                         <div>
-                            <iframe width="100%" height="370" src="https://eazybi.com/accounts/1/embed/report/1?disable_actions"></iframe>
+                            <iframe width="100%" height="370" src="/"></iframe>
                         </div>
                         <div>
-                            <iframe width="100%" height="370" src="https://eazybi.com/accounts/1/embed/report/1?disable_actions"></iframe>
+                            <iframe width="100%" height="370" src="/plugins/xformation-perfmanager-ui-plugin/page/managedashboard"></iframe>
                         </div>
                         <div>
-                            <iframe width="100%" height="370" src="https://eazybi.com/accounts/1/embed/report/1?disable_actions"></iframe>
+                            <iframe width="100%" height="370" src="/analytics"></iframe>
                         </div>
                         <div>
-                            <iframe width="100%" height="370" src="https://eazybi.com/accounts/1/embed/report/1?disable_actions"></iframe>
+                            <iframe width="100%" height="370" src="/plugins/xformation-servicedesk-ui-plugin/page/dashboard"></iframe>
                         </div>
                     </Carousel>
                 </div>
