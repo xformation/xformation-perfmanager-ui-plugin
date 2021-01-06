@@ -19,7 +19,7 @@ export class EditDataSource extends React.Component<any, any> {
             retData.push(
                 <div className="collapse-card-body" >
                     <div className="row">
-                        <div className="col-lg-10 col-md-9 col-sm-9" onClick={() => this.openEditCatalogDetail(catalogs)}>
+                        <div className="col-lg-10 col-md-9 col-sm-9">
                             <span><img src={collapseToggleIcon} alt="" /></span>
                             <p>{row.name}</p>
                         </div>

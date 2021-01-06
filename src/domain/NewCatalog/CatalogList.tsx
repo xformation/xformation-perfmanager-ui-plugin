@@ -13,12 +13,12 @@ export class CatalogList extends React.Component<any, any> {
             return (
                 <div className="catalog-list-box" onClick={() => this.openCatalogDetail(val)}>
                     <div className="row">
-                        <div className="col-lg-3 col-md-4 col-sm-12 p-r-0">
+                        <div className="col-lg-5 col-md-4 col-sm-12 p-r-0">
                             <div className="catalog-list-image confit-image">
                                 <img src={catalogListImage} alt="" />
                             </div>
                         </div>
-                        <div className="col-lg-9 col-md-8 col-sm-12">
+                        <div className="col-lg-7 col-md-8 col-sm-12">
                             <div className="catalog-list-name">{val.catalogName} </div>
                         </div>
                     </div>

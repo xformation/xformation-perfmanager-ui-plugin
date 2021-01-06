@@ -1,6 +1,37 @@
 import * as React from 'react';
 import categoryImage from '../../img/category-image1.png';
-import collapseToggleIcon from '../../img/config-collapse-icon1.png';
+import './lib/styles.css';
+import Carousel from 'react-multi-carousel';
+
+const responsive = {
+    desktop: {
+        breakpoint: {
+            max: 3000,
+            min: 1024,
+        },
+        items: 1,
+        slidesToSlide: 1,
+        partialVisibilityGutter: 40,
+    },
+    tablet: {
+        breakpoint: {
+            max: 1024,
+            min: 768,
+        },
+        items: 1,
+        slidesToSlide: 1,
+        partialVisibilityGutter: 30,
+    },
+    mobile: {
+        breakpoint: {
+            max: 767,
+            min: 0,
+        },
+        items: 1,
+        slidesToSlide: 1,
+        partialVisibilityGutter: 30,
+    },
+};
 
 export class Preview extends React.Component<any, any> {
     constructor(props: any) {
@@ -29,7 +60,28 @@ export class Preview extends React.Component<any, any> {
                         </div>
                     </div>
                 </div>
-                <div className="dashboard-frame"></div>
+                <div className="dashboard-frame">
+                    <Carousel
+                        responsive={responsive}
+                        showDots={true}
+                        infinite={true}
+                        containerClass="carousel-container"
+                        itemClass="carousel-item-padding-0"
+                    >
+                        <div>
+                            <iframe width="100%" height="370" src="https://eazybi.com/accounts/1/embed/report/1?disable_actions"></iframe>
+                        </div>
+                        <div>
+                            <iframe width="100%" height="370" src="https://eazybi.com/accounts/1/embed/report/1?disable_actions"></iframe>
+                        </div>
+                        <div>
+                            <iframe width="100%" height="370" src="https://eazybi.com/accounts/1/embed/report/1?disable_actions"></iframe>
+                        </div>
+                        <div>
+                            <iframe width="100%" height="370" src="https://eazybi.com/accounts/1/embed/report/1?disable_actions"></iframe>
+                        </div>
+                    </Carousel>
+                </div>
             </div>
         );
     }
