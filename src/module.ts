@@ -5,7 +5,8 @@ import {
   Collection,
   CollectionView,
   Library,
-  NewCatalog
+  NewCatalog,
+  NewManageDashboard
 } from "./ui";
 import { ConfigCtrl } from "./ConfigCtrl";
 
@@ -30,5 +31,6 @@ export {
   Collection,
   CollectionView,
   Library,
-  NewCatalog
+  NewCatalog,
+  NewManageDashboard
 };

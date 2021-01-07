@@ -65,6 +65,13 @@
       "addToNav": false,
       "defaultNav": false,
       "component": "NewCatalog"
+    },
+    {
+      "type": "page",
+      "name": "NewManageDashboard",
+      "addToNav": false,
+      "defaultNav": false,
+      "component": "NewManageDashboard"
     }
   ],
   "dependencies": {

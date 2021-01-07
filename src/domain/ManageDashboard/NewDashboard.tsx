@@ -63,7 +63,7 @@ export class NewDashboard extends React.Component<any, any> {
                         </div>
                         <div className="create-dashboard">
                             <div className="d-block" style={{ marginBottom: '50px' }}>
-                                <a className="blue-button"><i className="fa fa-plus"></i> Add New Panel</a>
+                                <a className="blue-button" href={`${config.basePath}/newmanagedashboard`}><i className="fa fa-plus"></i> Add New Panel</a>
                             </div>
                             <div className="d-block">
                                 <a className="blue-button">Convert to Row</a>
