@@ -45,7 +45,6 @@ export class NewManageDashboard extends React.Component<any, any> {
                     </div>
                 </div>
             </div>
-
         );
     }
 };

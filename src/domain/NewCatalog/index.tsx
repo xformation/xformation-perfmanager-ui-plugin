@@ -338,19 +338,19 @@ export class NewCatalog extends React.Component<any, any> {
                         </div>
                         <div className="wizard-container">
                             <div className="wizard-step-line-container">
-                                <div className={activeTab === 0 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(0)}>
+                                <div className={activeTab === 0 ? 'wizard-step-button active' : 'wizard-step-button'}>
                                     Select Catalog
                                 </div>
-                                <div className={activeTab === 1 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(1)}>
+                                <div className={activeTab === 1 ? 'wizard-step-button active' : 'wizard-step-button'}>
                                     Select Dashboard
                                 </div>
-                                <div className={activeTab === 2 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(2)}>
+                                <div className={activeTab === 2 ? 'wizard-step-button active' : 'wizard-step-button'}>
                                     Edit Data Source
                                 </div>
-                                <div className={activeTab === 3 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(3)}>
+                                <div className={activeTab === 3 ? 'wizard-step-button active' : 'wizard-step-button'}>
                                     Preview
                                 </div>
-                                <div className={activeTab === 4 ? 'wizard-step-button active' : 'wizard-step-button'} onClick={e => this.setActiveTab(4)}>
+                                <div className={activeTab === 4 ? 'wizard-step-button active' : 'wizard-step-button'}>
                                     Import
                                 </div>
                             </div>
@@ -371,8 +371,9 @@ export class NewCatalog extends React.Component<any, any> {
                                     activeTab === 4 && <Import catalogsData={this.state.catalogTab2Data} />
                                 }
                                 <div className="d-block text-right p-t-20">
-                                    <button disabled={activeTab == 0} className="blue-button previous" onClick={e => this.setActiveTab(activeTab - 1)}>Previous</button>
-                                    <button disabled={activeTab == 4} className="blue-button m-r-0 next" onClick={e => this.setActiveTab(activeTab + 1)}>Next</button>
+                                    <button disabled={activeTab == 0} className={activeTab !== 0 ? "blue-button previous":"disable previous"} onClick={e => this.setActiveTab(activeTab - 1)}>Previous</button>
+                                    {activeTab !== 4 && <button className={activeTab !== 4 ? "blue-button m-r-0 next" : 'm-r-0 next disable'} onClick={e => this.setActiveTab(activeTab + 1)}> Next</button>}
+                                    {activeTab === 4 && <button className="blue-button m-r-0"> Finish</button>}
                                 </div>
                             </div>
                         </div>
