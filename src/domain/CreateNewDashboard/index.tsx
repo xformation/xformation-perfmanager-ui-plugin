@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
 import dashboardIcon from '../../img/dashboard-icon.png';
-import { TopMenu } from "./../Catalog/TopMenu";
+import { TopMenu } from "../Catalog/TopMenu";
 
 
-export class NewManageDashboard extends React.Component<any, any> {
+export class CreateNewDashboard extends React.Component<any, any> {
     breadCrumbs: any;
     steps: any;
     constructor(props: any) {
