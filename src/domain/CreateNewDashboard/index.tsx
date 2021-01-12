@@ -42,6 +42,9 @@ export class CreateNewDashboard extends React.Component<any, any> {
                                 <p>Manage dashboards & folders</p>
                             </div>
                         </div>
+                        <div className="dashboard-frame">
+                           <iframe src="http://localhost:3000/d/dbVKljaMz/new-dashboard-copy?editPanel=2&orgId=1" /> 
+                        </div>
                     </div>
                 </div>
             </div>
