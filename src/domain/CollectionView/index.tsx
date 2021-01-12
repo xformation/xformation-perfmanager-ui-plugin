@@ -191,49 +191,49 @@ export class CollectionView extends React.Component<any, any> {
                     <div className="common-container">
                         <TopMenu />
                     </div>
-                </div>
-                <div className="common-container collection-search">
-                    <div className="row">
-                        <div className="col-lg-3 col-md-12 col-sm-12">
-                            <div className="collection-heading">Collection</div>
-                        </div>
-                        <div className="col-lg-9 col-md-12 col-sm-12">
-                            <div className="float-right">
-                                <div className="category-select">
-                                    <select className="form-control">
-                                        <option>Category</option>
-                                        <option>Category</option>
-                                        <option>Category</option>
-                                    </select>
-                                </div>
-                                <div className="form-group search-control-group">
-                                    <form>
-                                        <input type="text" className="input-group-text" placeholder="Search" />
-                                        <button>
-                                            <i className="fa fa-search"></i>
-                                        </button>
-                                    </form>
+                    <div className="common-container collection-search">
+                        <div className="row">
+                            <div className="col-lg-3 col-md-12 col-sm-12">
+                                <div className="collection-heading">Collection</div>
+                            </div>
+                            <div className="col-lg-9 col-md-12 col-sm-12">
+                                <div className="float-right">
+                                    <div className="category-select">
+                                        <select className="form-control">
+                                            <option>Category</option>
+                                            <option>Category</option>
+                                            <option>Category</option>
+                                        </select>
+                                    </div>
+                                    <div className="form-group search-control-group">
+                                        <form>
+                                            <input type="text" className="input-group-text" placeholder="Search" />
+                                            <button>
+                                                <i className="fa fa-search"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="common-container border-bottom-0">
-                    <div className="collection-details">
-                        <div className="container-inner">
-                            <div className="collection-data-table">
-                                <div className="thead">
-                                    <div className="thead-th">
-                                        <div className="caret-right"></div>
-                                            Name
-                                        </div>
-                                    <div className="thead-th">Type</div>
-                                    <div className="thead-th">Status</div>
-                                    <div className="thead-th">Category</div>
-                                    <div className="thead-th">Messages</div>
-                                    <div className="thead-th"></div>
+                    <div className="common-container border-bottom-0">
+                        <div className="collection-details">
+                            <div className="container-inner">
+                                <div className="collection-data-table">
+                                    <div className="thead">
+                                        <div className="thead-th">
+                                            <div className="caret-right"></div>
+                                                Name
+                                            </div>
+                                        <div className="thead-th">Type</div>
+                                        <div className="thead-th">Status</div>
+                                        <div className="thead-th">Category</div>
+                                        <div className="thead-th">Messages</div>
+                                        <div className="thead-th"></div>
+                                    </div>
+                                    {this.createCollectionTable()}
                                 </div>
-                                {this.createCollectionTable()}
                             </div>
                         </div>
                     </div>
