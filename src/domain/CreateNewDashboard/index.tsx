@@ -16,11 +16,11 @@ export class CreateNewDashboard extends React.Component<any, any> {
                 route: `/`
             },
             {
-                label: "Perfmanager",
-                route: `${config.basePath}/dashboard`
+                label: "Dashboard",
+                route: `${config.basePath}/managedashboard`
             },
             {
-                label: "Manage Dashboard",
+                label: "New Panel",
                 isCurrentPage: true
             }
         ];

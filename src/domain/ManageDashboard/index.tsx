@@ -25,7 +25,7 @@ export class ManageDashboard extends React.Component<any, any> {
             //     route: `${config.basePath}/dashboard`
             // },
             {
-                label: "Manage Dashboard",
+                label: "Dashboard",
                 isCurrentPage: true
             }
         ];
