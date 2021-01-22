@@ -211,7 +211,7 @@ a:hover {
 }
 
 .catalog-modal-container {
-  max-width: 800px !important;
+  max-width: 992px !important;
   box-shadow: 0px 0px 16px #3b48593d;
   border-radius: 10px;
   background: white;
@@ -285,7 +285,7 @@ a:hover {
   line-height: 34px;
   color: #3b4859;
   padding: 0 10px;
-  width: 70%;
+  width: 100%;
   text-align: left;
   vertical-align: top;
   height: auto;
@@ -3797,6 +3797,40 @@ a:hover {
   tr
   td.there-no-data {
   font-size: 18px;
+}
+
+.manage-dashboard-box {
+  border: 1px solid #8291a6;
+  padding: 30px 0 10px 15px;
+}
+.manage-dashboard-box .heading h4 {
+  font-size: 18px;
+  color: #414d55;
+  font-weight: 500;
+  margin-right: 50px !important;
+}
+.manage-dashboard-box .heading .heading-bottons {
+  float: right;
+}
+.manage-dashboard-box .heading .heading-bottons .heading-button {
+  font-size: 14px;
+  color: #2662f0 !important;
+  line-height: 30px;
+  padding: 0 15px;
+  border: none;
+  background-color: #fafbfd;
+  box-shadow: 0px 1px 6px #00000029;
+}
+.manage-dashboard-box .heading .heading-bottons .heading-button:hover {
+  background-color: #e6e6e6 !important;
+}
+
+.dashboard-frame {
+  margin-top: 10px;
+}
+.dashboard-frame iframe {
+  width: 100% !important;
+  height: 750px;
 }
 
 /*# sourceMappingURL=perfmanager.light.css.map */

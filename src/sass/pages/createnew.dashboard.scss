@@ -1,0 +1,35 @@
+.manage-dashboard-box{
+   border: 1px solid rgb(130, 145, 166);
+  padding: 30px 0 10px 15px;
+  .heading{
+      h4{
+          font-size: 18px;
+          color: #414D55;
+          font-weight: 500;
+          margin-right: 50px!important;
+      }
+      .heading-bottons{
+        float:right;
+        .heading-button{
+            font-size: 14px;
+            color: #2662F0!important;
+            line-height: 30px;
+            padding: 0 15px;
+            border: none ;
+            background-color: #FAFBFD;
+            box-shadow: 0px 1px 6px #00000029;
+            &:hover{
+                background-color: #e6e6e6 !important;
+            }
+        }  
+      }  
+  }
+  
+}
+.dashboard-frame{
+    margin-top: 10px;
+    iframe{
+        width: 100%!important;
+        height: 750px;
+    }
+}

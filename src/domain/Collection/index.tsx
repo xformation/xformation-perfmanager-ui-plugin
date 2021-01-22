@@ -218,8 +218,8 @@ export class Collection extends React.Component<any, any> {
                 route: `/`
             },
             {
-                label: "Perfmanager",
-                route: `${config.basePath}/dashboard`
+                label: "Dashboard",
+                route: `${config.basePath}/managedashboard`
             },
             {
                 label: "Collection",

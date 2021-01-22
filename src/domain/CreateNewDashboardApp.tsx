@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import { NewManageDashboard } from './newManageDashboard';
+import { CreateNewDashboard } from './CreateNewDashboard';
 import { config } from '../config';
 
 export default function init() {
@@ -9,7 +9,7 @@ export default function init() {
     ReactDOM.render(
       <BrowserRouter>
         <Switch>
-          <Route path={`${config.basePath}/newmanagedashboard`} component={NewManageDashboard} />
+          <Route path={`${config.basePath}/createnewdashboard`} component={CreateNewDashboard} />
         </Switch>
       </BrowserRouter>,
       document.getElementById('performance-main-container')

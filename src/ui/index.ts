@@ -6,4 +6,4 @@ export * from "./CollectionView";
 export * from "./Rules";
 export * from "./Library";
 export * from "./NewCatalog";
-export * from "./NewManageDashboard";
+export * from "./CreateNewDashboard";

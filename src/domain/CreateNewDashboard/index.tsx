@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Breadcrumbs } from '../Breadcrumbs';
 import { config } from '../../config';
 import dashboardIcon from '../../img/dashboard-icon.png';
-import { TopMenu } from "./../Catalog/TopMenu";
+import { TopMenu } from "../Catalog/TopMenu";
 
 
-export class NewManageDashboard extends React.Component<any, any> {
+export class CreateNewDashboard extends React.Component<any, any> {
     breadCrumbs: any;
     steps: any;
     constructor(props: any) {
@@ -41,6 +41,9 @@ export class NewManageDashboard extends React.Component<any, any> {
                                 <h3>Dashboards</h3>
                                 <p>Manage dashboards & folders</p>
                             </div>
+                        </div>
+                        <div className="dashboard-frame">
+                           <iframe src="http://localhost:3000/d/dbVKljaMz/new-dashboard-copy?editPanel=2&orgId=1" /> 
                         </div>
                     </div>
                 </div>
