@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import tagIcon from '../../img/tag.png';
 import folderIcon from '../../img/folder.png';
 import listIcon from '../../img/list.png';
@@ -10,207 +9,81 @@ import Rbac from '../../components/Rbac';
 import { config } from '../../config';
 import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
 import { NewDashboard } from './NewDashboard';
+import { RestService } from '../_service/RestService';
+import { getTagColorsFromName } from '../_utilities';
+
 export class ManageTab extends React.Component<any, any> {
     unimplementedFeatureModalRef: any;
     constructor(props: any) {
         super(props);
         this.state = {
-            folderArray: [
-                {
-                    title: 'General',
-                    openSubFolder: true,
-                    checkValueStatus: false,
-                    subData: [
-                        {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'AWS',
-                                    backColorClass: 'aws-bg'
-                                },
-                                {
-                                    attributeName: 'Amazon',
-                                    backColorClass: 'amazon-bg'
-                                },
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Logs',
-                                    backColorClass: 'logs-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-
-                        },
-                    ]
-                },
-                {
-                    title: 'Main',
-                    openSubFolder: false,
-                    checkValueStatus: false,
-                    subData: [
-                        {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'AWS',
-                                    backColorClass: 'aws-bg'
-                                },
-                                {
-                                    attributeName: 'Amazon',
-                                    backColorClass: 'amazon-bg'
-                                },
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Logs',
-                                    backColorClass: 'logs-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-                        },
-                    ]
-                },
-                {
-                    title: 'Open',
-                    openSubFolder: false,
-                    checkValueStatus: false,
-                    subData: [
-                        {
-                            tableTitle: 'Amazon CloudWatch Logs',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Amazon RDS',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN',
-                            checkValue: false,
-                            attribute: [
-                                {
-                                    attributeName: 'Cloud Watch',
-                                    backColorClass: 'cloudwatch-bg'
-                                },
-                                {
-                                    attributeName: 'Monitoringartist',
-                                    backColorClass: 'aws-bg'
-                                }
-                            ]
-                        },
-                        {
-                            tableTitle: 'AWS VPN Dashboard',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Trial',
-                            checkValue: false,
-                        },
-                        {
-                            tableTitle: 'Cloud Watch',
-                            checkValue: false,
-                        },
-                    ]
-                }
-            ],
+            folderArray: [],
             newDashboard: false,
+            sortValue: '',
+            starred: false,
+            searchkey: '',
+            tags: [],
+            selectedTags: '',
         };
         this.unimplementedFeatureModalRef = React.createRef();
     }
+    componentDidMount() {
+        const { starred, searchkey, sortValue } = this.state;
+        let sendData = `sort=${sortValue}&starred=${starred}&query=${searchkey}`;
+        this.getsearchData(sendData);
+    }
+
+    getsearchData = (data: any) => {
+        RestService.getDashboardList(config.DASHBOARD_LIST_API + '?' + data).then((response: any) => {
+            const retData = this.manipulateData(response);
+            const folderArray = this.convertObjectToArray(retData);
+            this.setState({
+                folderArray
+            });
+        });
+    };
+
+    convertObjectToArray(object: any) {
+        const keys = Object.keys(object);
+        const retData = [];
+        for (let i = 0; i < keys.length; i++) {
+            retData.push(object[keys[i]]);
+        }
+        return retData;
+    }
+    manipulateData(result: any) {
+        const retData: any = {};
+        let tagList: any = [];
+        for (let i = 0; i < result.length; i++) {
+            const dash = result[i];
+            if (dash.type === 'dash-db') {
+                retData[dash.folderId] = retData[dash.folderId] || { subData: [], openSubFolder: false, checkValueStatus: false, id: dash.folderId };
+                retData[dash.folderId].title = dash.folderTitle;
+                const tags = dash.tags.map((tag: any, index: any) => {
+                    tagList.push({
+                        term: tag,
+                        count: index + 1,
+                    });
+                    const color = getTagColorsFromName(tag);
+                    return {
+                        name: tag,
+                        color
+                    }
+                });
+                retData[dash.folderId].subData.push({
+                    ...dash,
+                    title: dash.title,
+                    checkValue: false,
+                    tags,
+                });
+            }
+            this.setState({
+                tags: tagList,
+            });
+        }
+        return retData;
+    }
+
     onClickUnImplementedFeature = (link: any) => {
         this.unimplementedFeatureModalRef.current.setLink(link);
         this.unimplementedFeatureModalRef.current.toggle();
@@ -268,13 +141,13 @@ export class ManageTab extends React.Component<any, any> {
             const subFolders = folder.subData;
             const subFolderJSX = [];
             for (let j = 0; j < subFolders.length; j++) {
-                const attribute = subFolders[j].attribute;
+                const tags = subFolders[j].tags;
                 const subAttributeFolder = [];
-                if (subFolders[j].attribute) {
-                    for (let k = 0; k < attribute.length; k++) {
-                        const subAtt = attribute[k];
+                if (subFolders[j].tags) {
+                    for (let k = 0; k < tags.length; k++) {
+                        const tag = tags[k];
                         subAttributeFolder.push(
-                            <div className={`${subAtt.backColorClass} tag`}>{subAtt.attributeName}</div>
+                            <div className="tag" style={tag.color}>{tag.name}</div>
                         );
                     }
                 }
@@ -283,7 +156,7 @@ export class ManageTab extends React.Component<any, any> {
                     <tr>
                         <td>
                             <input type="checkbox" className="checkbox" checked={subFolder.checkValue} onClick={() => this.onClickChildCheckbox(i, j)} />
-                            <span>{subFolder.tableTitle}</span>
+                            <span>{subFolder.title}</span>
                         </td>
                         <td>
                             <div className="float-right">
@@ -300,11 +173,7 @@ export class ManageTab extends React.Component<any, any> {
                         <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.onChangeParentCheckbox(e, i) }} className="checkbox" />
                         <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
                         <h4>{folder.title}</h4>
-                        {folder.openSubFolder ?
-                            <i className='fa fa-angle-up float-right' onClick={() => this.onClickOpenSubFolder(i)}></i>
-                            :
-                            <i className="fa fa-angle-down float-right" onClick={() => this.onClickOpenSubFolder(i)}></i>
-                        }
+                        <i className="fa fa-angle-down float-right"></i>
                     </div>
                     <Collapse isOpen={folder.openSubFolder}>
                         <div className="general-logs">
@@ -328,9 +197,59 @@ export class ManageTab extends React.Component<any, any> {
         })
     }
 
+    setsortingData = (e: any) => {
+        const { starred, searchkey } = this.state;
+        this.setState({
+            sortValue: e.target.value,
+        });
+        let sendData = `sort=${e.target.value}&starred=${starred}&query=${searchkey}`;
+        this.getsearchData(sendData);
+    }
+
+    setStared = (e: any) => {
+        const { starred, searchkey, sortValue } = this.state;
+        this.setState({
+            starred: e.target.checked,
+        });
+        let sendData = `sort=${sortValue}&starred=${e.target.checked}&query=${searchkey}`;
+        this.getsearchData(sendData);
+    }
+
+    searchdashboard = (e: any) => {
+        const { starred, searchkey, sortValue } = this.state;
+        this.setState({
+            searchkey: e.target.value,
+        });
+        let sendData = `sort=${sortValue}&starred=${starred}&query=${e.target.value}`;
+        this.getsearchData(sendData);
+    }
+
+    displayTags = () => {
+        const { tags } = this.state;
+        let retData = [];
+        for (let i = 0; i < tags.length; i++) {
+            retData.push(
+                <option value={tags[i].count}>{tags[i].term}</option>
+            )
+        }
+        return retData;
+    }
+
+    setTags = (e: any) => {
+        const { tags, starred, searchkey, sortValue } = this.state;
+        this.setState({
+            selectedTags: e.target.value,
+        })
+        for (let i = 0; i < tags.length; i++) {
+            if (tags[i].count == e.target.value) {
+                let sendData = `sort=${sortValue}&starred=${starred}&query=${searchkey}&tags=${tags[i].term}`;
+                this.getsearchData(sendData);
+            }
+        }
+    }
 
     render() {
-        const { newDashboard } = this.state;
+        const { newDashboard, sortValue, starred, searchkey, tags, selectedTags } = this.state;
         return (
             <div>
                 <div className="manage-dashboard-search">
@@ -338,7 +257,8 @@ export class ManageTab extends React.Component<any, any> {
                         <div className="col-lg-4 col-md-12 col-sm-12">
                             <div className="form-group search-control-group">
                                 <form>
-                                    <input type="text" className="input-group-text" placeholder="Search dashboards by name" />
+                                    <input type="text" className="input-group-text"
+                                        onChange={this.searchdashboard} value={searchkey} placeholder="Search dashboards by name" />
                                     <button>
                                         <i className="fa fa-search"></i>
                                     </button>
@@ -381,33 +301,29 @@ export class ManageTab extends React.Component<any, any> {
                                     <span>
                                         <img src={sortIcon} alt="" />
                                     </span>
-                                    <select>
+                                    <select value={sortValue} onChange={this.setsortingData}>
                                         <option>Sort (Default A-Z)</option>
-                                        <option>Sort (Default A-Z)</option>
-                                        <option>Sort (Default A-Z)</option>
+                                        <option>Sort (Default Z-A)</option>
                                     </select>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-12 col-sm-12">
                                 <div className="filter-starred float-right">
                                     <div className="sort-checkbox">
-                                        <input type="checkbox" className="checkbox" />
+                                        <input type="checkbox" checked={starred} onChange={this.setStared} className="checkbox" />
                                         <span>Filter by starred</span>
                                     </div>
                                     <div className="sort-select-menu">
                                         <span>
                                             <img src={tagIcon} alt="" />
                                         </span>
-                                        <select>
-                                            <option>Filter by tag</option>
-                                            <option>Filter by tag</option>
-                                            <option>Filter by tag</option>
+                                        <select onChange={this.setTags} value={selectedTags}>
+                                            {this.displayTags()}
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 }
                 {newDashboard === false && <div className="manage-dashboard-general">
