@@ -11,6 +11,7 @@ import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeature
 import { NewDashboard } from './NewDashboard';
 import { RestService } from '../_service/RestService';
 import { getTagColorsFromName } from '../_utilities';
+import { Multiselect } from 'multiselect-react-dropdown';
 
 export class ManageTab extends React.Component<any, any> {
     unimplementedFeatureModalRef: any;
@@ -22,8 +23,11 @@ export class ManageTab extends React.Component<any, any> {
             sortValue: '',
             starred: false,
             searchkey: '',
-            tags: [],
+            tags: [
+                { term: 'tag', id: 1 }, { term: 'tag', id: 2 }
+            ],
             selectedTags: '',
+            selectedTagsstring: '',
         };
         this.unimplementedFeatureModalRef = React.createRef();
     }
@@ -62,7 +66,7 @@ export class ManageTab extends React.Component<any, any> {
                 const tags = dash.tags.map((tag: any, index: any) => {
                     tagList.push({
                         term: tag,
-                        count: index + 1,
+                        id: index + 1,
                     });
                     const color = getTagColorsFromName(tag);
                     return {
@@ -136,56 +140,62 @@ export class ManageTab extends React.Component<any, any> {
         const retData = [];
         const { folderArray } = this.state;
         const length = folderArray.length;
-        for (let i = 0; i < length; i++) {
-            const folder = folderArray[i];
-            const subFolders = folder.subData;
-            const subFolderJSX = [];
-            for (let j = 0; j < subFolders.length; j++) {
-                const tags = subFolders[j].tags;
-                const subAttributeFolder = [];
-                if (subFolders[j].tags) {
-                    for (let k = 0; k < tags.length; k++) {
-                        const tag = tags[k];
-                        subAttributeFolder.push(
-                            <div className="tag" style={tag.color}>{tag.name}</div>
-                        );
+        if (length > 0) {
+            for (let i = 0; i < length; i++) {
+                const folder = folderArray[i];
+                const subFolders = folder.subData;
+                const subFolderJSX = [];
+                for (let j = 0; j < subFolders.length; j++) {
+                    const tags = subFolders[j].tags;
+                    const subAttributeFolder = [];
+                    if (subFolders[j].tags) {
+                        for (let k = 0; k < tags.length; k++) {
+                            const tag = tags[k];
+                            subAttributeFolder.push(
+                                <div className="tag" style={tag.color}>{tag.name}</div>
+                            );
+                        }
                     }
-                }
-                const subFolder = subFolders[j];
-                subFolderJSX.push(
-                    <tr>
-                        <td>
-                            <input type="checkbox" className="checkbox" checked={subFolder.checkValue} onClick={() => this.onClickChildCheckbox(i, j)} />
-                            <span>{subFolder.title}</span>
-                        </td>
-                        <td>
-                            <div className="float-right">
-                                {subAttributeFolder}
-                            </div>
-                        </td>
-                    </tr>
-                );
+                    const subFolder = subFolders[j];
+                    subFolderJSX.push(
+                        <tr>
+                            <td>
+                                <input type="checkbox" className="checkbox" checked={subFolder.checkValue} onClick={() => this.onClickChildCheckbox(i, j)} />
+                                <span>{subFolder.title}</span>
+                            </td>
+                            <td>
+                                <div className="float-right">
+                                    {subAttributeFolder}
+                                </div>
+                            </td>
+                        </tr>
+                    );
 
-            }
-            retData.push(
-                <div>
-                    <div className="general-heading">
-                        <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.onChangeParentCheckbox(e, i) }} className="checkbox" />
-                        <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
-                        <h4>{folder.title}</h4>
-                        <i className="fa fa-angle-down float-right"></i>
-                    </div>
-                    <Collapse isOpen={folder.openSubFolder}>
-                        <div className="general-logs">
-                            <div className="general-logs-inner">
-                                <table className="data-table">
-                                    {subFolderJSX}
-                                </table>
-                            </div>
+                }
+                retData.push(
+                    <div>
+                        <div className="general-heading">
+                            <input type="checkbox" checked={folder.checkValueStatus} onChange={(e) => { this.onChangeParentCheckbox(e, i) }} className="checkbox" />
+                            <span onClick={() => this.onClickOpenSubFolder(i)}><img src={openFolderIcon} alt="" /></span>
+                            <h4>{folder.title}</h4>
+                            <i className="fa fa-angle-down float-right"></i>
                         </div>
-                    </Collapse>
-                </div>
-            );
+                        <Collapse isOpen={folder.openSubFolder}>
+                            <div className="general-logs">
+                                <div className="general-logs-inner">
+                                    <table className="data-table" style={{ maxWidth: "800px", width: "100%" }}>
+                                        {subFolderJSX}
+                                    </table>
+                                </div>
+                            </div>
+                        </Collapse>
+                    </div>
+                );
+            }
+        } else {
+            retData.push(
+                <div>Record not found</div>
+            )
         }
         return retData;
     }
@@ -198,29 +208,29 @@ export class ManageTab extends React.Component<any, any> {
     }
 
     setsortingData = (e: any) => {
-        const { starred, searchkey } = this.state;
+        const { starred, searchkey, selectedTagsstring } = this.state;
         this.setState({
             sortValue: e.target.value,
         });
-        let sendData = `sort=${e.target.value}&starred=${starred}&query=${searchkey}`;
+        let sendData = `sort=${e.target.value}&starred=${starred}${selectedTagsstring}&query=${searchkey}`;
         this.getsearchData(sendData);
     }
 
     setStared = (e: any) => {
-        const { starred, searchkey, sortValue } = this.state;
+        const { selectedTagsstring, searchkey, sortValue } = this.state;
         this.setState({
             starred: e.target.checked,
         });
-        let sendData = `sort=${sortValue}&starred=${e.target.checked}&query=${searchkey}`;
+        let sendData = `sort=${sortValue}&starred=${e.target.checked}${selectedTagsstring}&query=${searchkey}`;
         this.getsearchData(sendData);
     }
 
     searchdashboard = (e: any) => {
-        const { starred, searchkey, sortValue } = this.state;
+        const { starred, selectedTagsstring, sortValue } = this.state;
         this.setState({
             searchkey: e.target.value,
         });
-        let sendData = `sort=${sortValue}&starred=${starred}&query=${e.target.value}`;
+        let sendData = `sort=${sortValue}&starred=${starred}${selectedTagsstring}&query=${e.target.value}`;
         this.getsearchData(sendData);
     }
 
@@ -235,17 +245,18 @@ export class ManageTab extends React.Component<any, any> {
         return retData;
     }
 
-    setTags = (e: any) => {
-        const { tags, starred, searchkey, sortValue } = this.state;
-        this.setState({
-            selectedTags: e.target.value,
-        })
-        for (let i = 0; i < tags.length; i++) {
-            if (tags[i].count == e.target.value) {
-                let sendData = `sort=${sortValue}&starred=${starred}&query=${searchkey}&tags=${tags[i].term}`;
-                this.getsearchData(sendData);
-            }
+    setTags = (selectedval: any) => {
+        const { starred, searchkey, sortValue } = this.state;
+        let sendData = '';
+        let tagQuery = "";
+        for (let i = 0; i < selectedval.length; i++) {
+            tagQuery += `&tag=${selectedval[i].term}`;
         }
+        this.setState({
+            selectedTagsstring: tagQuery,
+        })
+        sendData = `sort=${sortValue}&starred=${starred}${tagQuery}&query=${searchkey}`;
+        this.getsearchData(sendData);
     }
 
     render() {
@@ -314,12 +325,14 @@ export class ManageTab extends React.Component<any, any> {
                                         <span>Filter by starred</span>
                                     </div>
                                     <div className="sort-select-menu">
-                                        <span>
-                                            <img src={tagIcon} alt="" />
-                                        </span>
-                                        <select onChange={this.setTags} value={selectedTags}>
-                                            {this.displayTags()}
-                                        </select>
+                                        <Multiselect
+                                            options={tags}
+                                            selectedValues={selectedTags}
+                                            onSelect={this.setTags}
+                                            showCheckbox={true}
+                                            onRemove={this.setTags}
+                                            displayValue="term"
+                                        />
                                     </div>
                                 </div>
                             </div>

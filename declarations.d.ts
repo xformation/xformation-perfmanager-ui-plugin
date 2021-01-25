@@ -1,6 +1,6 @@
 interface RequireImport {
-    default: any;
+  default: any;
 }
 
-declare module '*.png';
-
+declare module "*.png";
+declare module "multiselect-react-dropdown";
