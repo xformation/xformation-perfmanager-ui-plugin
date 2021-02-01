@@ -43,7 +43,7 @@ export class CreateNewDashboard extends React.Component<any, any> {
                             </div>
                         </div>
                         <div className="dashboard-frame">
-                           <iframe src="http://localhost:3000/d/dbVKljaMz/new-dashboard-copy?editPanel=2&orgId=1" /> 
+                           <iframe src="dashboard/new?editPanel=2&orgId=1" /> 
                         </div>
                     </div>
                 </div>
