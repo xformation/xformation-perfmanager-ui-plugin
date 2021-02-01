@@ -371,8 +371,8 @@ export class NewCatalog extends React.Component<any, any> {
                                     activeTab === 4 && <Import catalogsData={this.state.catalogTab2Data} />
                                 }
                                 <div className="d-block text-right p-t-20">
-                                    <button disabled={activeTab == 0} className={activeTab !== 0 ? "blue-button previous":"disable previous"} onClick={e => this.setActiveTab(activeTab - 1)}>Previous</button>
-                                    {activeTab !== 4 && <button className={activeTab !== 4 ? "blue-button m-r-0 next" : 'm-r-0 next disable'} onClick={e => this.setActiveTab(activeTab + 1)}> Next</button>}
+                                    <button disabled={activeTab == 0} className={activeTab !== 0 ? "blue-button" : "blue-button disable"} onClick={e => this.setActiveTab(activeTab - 1)}>Previous</button>
+                                    {activeTab !== 4 && <button className={activeTab !== 4 ? "blue-button m-r-0" : 'm-r-0 disable'} onClick={e => this.setActiveTab(activeTab + 1)}> Next</button>}
                                     {activeTab === 4 && <button className="blue-button m-r-0"> Finish</button>}
                                 </div>
                             </div>

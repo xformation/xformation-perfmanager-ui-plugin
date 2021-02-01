@@ -54,6 +54,24 @@
   color: #57a4ff !important;
 }
 
+.disable {
+  background: #8392a7 !important;
+  color: #000000 !important;
+  border: none !important;
+  padding: 7px 18px !important;
+  border-radius: 0px !important;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block !important;
+  min-width: 100px;
+  text-align: center;
+}
+.disable:hover,
+.disable:focus {
+  background: #8392a7 !important;
+  color: #000000 !important;
+}
+
 a:focus,
 a:hover {
   color: #000000;
@@ -505,7 +523,6 @@ a:hover {
   text-align: center;
   color: #414d55;
   font-weight: 500;
-  cursor: pointer;
   position: relative;
 }
 .wizard-step-line-container .wizard-step-button:last-child {
@@ -513,10 +530,6 @@ a:hover {
 }
 .wizard-step-line-container .wizard-step-button:first-child {
   border-left: 1px solid #707070b5;
-}
-.wizard-step-line-container .wizard-step-button:hover {
-  background-color: #efefef;
-  color: #2662f0;
 }
 .wizard-step-line-container .wizard-step-button.active {
   background-color: #ffffff;
@@ -550,17 +563,9 @@ a:hover {
   height: 0;
   z-index: 1;
 }
-.wizard-step-line-container .wizard-step-button:hover:after {
-  border-color: rgba(255, 255, 255, 0);
-  border-left-color: #efefef;
-}
 .wizard-step-line-container .wizard-step-button.active:after {
   border-color: rgba(255, 255, 255, 0);
   border-left-color: #ffffff;
-}
-.wizard-step-line-container .wizard-step-button:hover:before {
-  border-color: rgba(255, 255, 255, 0);
-  border-left-color: #efefef;
 }
 .wizard-step-line-container .wizard-step-button.active:before {
   border-color: rgba(255, 255, 255, 0);
