@@ -5,7 +5,6 @@ import { config } from '../../config';
 import dashboardIcon from '../../img/dashboard-icon.png';
 import { Playlists } from './Playlists';
 import { ManageTab } from './ManageTab';
-import { TopMenu } from "./../Catalog/TopMenu";
 
 export class ManageDashboard extends React.Component<any, any> {
     breadCrumbs: any;
@@ -43,9 +42,6 @@ export class ManageDashboard extends React.Component<any, any> {
             <div className="perfmanager-dashboard-container">
                 <Breadcrumbs breadcrumbs={this.breadCrumbs} pageTitle="PREFORMANCE MANAGEMENT" />
                 <div className="perfmanager-page-container">
-                    <div className="common-container">
-                        <TopMenu />
-                    </div>
                     <div className="common-container border-bottom-0">
                         <div className="manage-dashboard-heading">
                             <div className="heading-icon"><img src={dashboardIcon} alt="" /></div>

@@ -1,17 +1,12 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { config } from '../../config';
 import { Breadcrumbs } from '../Breadcrumbs';
-import { Collapse } from 'reactstrap';
-import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import { CatalogList } from './CatalogList';
 import { SelectDashboard } from './SelectDashboard';
 import { EditDataSource } from './EditDataSource';
 import { Preview } from './Preview';
 import { Import } from './Import';
-import { RestService } from '../_service/RestService';
-import Rbac from './../../components/Rbac';
-import { TopMenu } from "./../Catalog/TopMenu";
+
 
 export class NewCatalog extends React.Component<any, any> {
     breadCrumbs: any;
@@ -335,6 +330,7 @@ export class NewCatalog extends React.Component<any, any> {
                                     </button>
                                 </form>
                             </div>
+                            <div className="float-right common-right-btn"><a className="white-button" href="/plugins/xformation-perfmanager-ui-plugin/page/managedashboard"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</a></div>
                         </div>
                         <div className="wizard-container">
                             <div className="wizard-step-line-container">
