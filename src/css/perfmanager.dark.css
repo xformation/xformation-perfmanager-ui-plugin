@@ -228,23 +228,23 @@ a:hover {
   }
 }
 
-.catalog-modal-container {
+.perfmanager-modal-container {
   max-width: 992px !important;
   box-shadow: 0px 0px 16px #3b48593d;
   border-radius: 10px;
   background: white;
 }
-.catalog-modal-container .modal-content {
+.perfmanager-modal-container .modal-content {
   padding: 20px 20px 50px;
 }
-.catalog-modal-container .modal-content .modal-header {
+.perfmanager-modal-container .modal-content .modal-header {
   background: white;
   box-shadow: none;
   border-bottom: 1px dashed #a2c0d4;
   margin-bottom: 30px;
   padding: 0 10px 10px;
 }
-.catalog-modal-container .modal-content .modal-header .modal-title {
+.perfmanager-modal-container .modal-content .modal-header .modal-title {
   color: #3b4859;
   float: left;
   margin: 0px;
@@ -253,7 +253,7 @@ a:hover {
   padding: 0;
   line-height: 28px;
 }
-.catalog-modal-container .modal-content .modal-header button {
+.perfmanager-modal-container .modal-content .modal-header button {
   float: right;
   font-size: 28px;
   top: 0;
@@ -268,18 +268,18 @@ a:hover {
   line-height: 28px;
   text-align: center;
 }
-.catalog-modal-container .modal-content .modal-body {
+.perfmanager-modal-container .modal-content .modal-body {
   padding: 0px;
 }
-.catalog-modal-container .modal-content .modal-body img {
+.perfmanager-modal-container .modal-content .modal-body img {
   max-width: 100%;
   height: auto;
   vertical-align: top;
 }
-.catalog-modal-container .modal-content .modal-body .form-group {
+.perfmanager-modal-container .modal-content .modal-body .form-group {
   padding-bottom: 20px;
 }
-.catalog-modal-container .modal-content .modal-body .form-group label {
+.perfmanager-modal-container .modal-content .modal-body .form-group label {
   display: inline-block;
   font-size: 13px;
   font-weight: 500;
@@ -289,7 +289,7 @@ a:hover {
   vertical-align: top;
   width: 30%;
 }
-.catalog-modal-container
+.perfmanager-modal-container
   .modal-content
   .modal-body
   .form-group
@@ -308,7 +308,7 @@ a:hover {
   vertical-align: top;
   height: auto;
 }
-.catalog-modal-container
+.perfmanager-modal-container
   .modal-content
   .modal-body
   .form-group
@@ -317,7 +317,11 @@ a:hover {
   height: 34px;
   padding-top: 5px;
 }
-.catalog-modal-container .modal-content .modal-body .form-group .form-control {
+.perfmanager-modal-container
+  .modal-content
+  .modal-body
+  .form-group
+  .form-control {
   background-color: #f0f3f7 !important;
   border: none !important;
   font-size: 13px;
@@ -326,7 +330,7 @@ a:hover {
   width: 250px;
   display: inline-block;
 }
-.catalog-modal-container
+.perfmanager-modal-container
   .modal-content
   .modal-body
   .form-group
@@ -335,7 +339,7 @@ a:hover {
   padding-top: 10px;
   padding-bottom: 0px;
 }
-.catalog-modal-container
+.perfmanager-modal-container
   .modal-content
   .modal-body
   .form-group
@@ -345,7 +349,7 @@ a:hover {
   margin-right: 10px;
   vertical-align: top;
 }
-.catalog-modal-container
+.perfmanager-modal-container
   .modal-content
   .modal-body
   .form-group
@@ -357,7 +361,7 @@ a:hover {
   height: 18px;
   vertical-align: middle;
 }
-.catalog-modal-container
+.perfmanager-modal-container
   .modal-content
   .modal-body
   .form-group

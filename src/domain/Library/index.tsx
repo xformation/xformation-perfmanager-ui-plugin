@@ -39,7 +39,7 @@ export class Library extends React.Component<any, any> {
                 route: `/`
             },
             {
-                label: "Dashboard",
+                label: "Manage Dashboard",
                 route: `${config.basePath}/managedashboard`
             },
             {

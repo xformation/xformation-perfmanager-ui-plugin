@@ -19,12 +19,8 @@ export class ManageDashboard extends React.Component<any, any> {
                 label: "Home",
                 route: `/`
             },
-            // {
-            //     label: "Perfmanager",
-            //     route: `${config.basePath}/dashboard`
-            // },
             {
-                label: "Dashboard",
+                label: "Manage Dashboard",
                 isCurrentPage: true
             }
         ];

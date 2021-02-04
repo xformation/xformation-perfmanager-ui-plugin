@@ -50,7 +50,7 @@ export class ViewDashboardJsonPopup extends React.Component<any, any> {
     render() {
         const state = this.state;
         return (
-            <Modal isOpen={state.modal} toggle={this.closeModel} className="" modalClassName="catalog-modal-container">
+            <Modal isOpen={state.modal} toggle={this.closeModel} className="modal-container perfmanager-modal-container">
                 <AlertMessage handleCloseAlert={this.handleCloseAlert} open={state.isAlertOpen} severity={state.severity} msg={state.message}></AlertMessage>
                 <ModalHeader toggle={this.closeModel}>{this.state.catalogName}</ModalHeader>
                 <ModalBody style={{ height: 'calc(75vh - 110px)', overflowY: 'auto', overflowX: "hidden" }}>
