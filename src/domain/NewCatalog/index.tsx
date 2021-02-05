@@ -330,7 +330,7 @@ export class NewCatalog extends React.Component<any, any> {
                                     </button>
                                 </form>
                             </div>
-                            <div className="float-right common-right-btn"><a className="white-button" href="/plugins/xformation-perfmanager-ui-plugin/page/managedashboard"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</a></div>
+                            <div className="float-right common-right-btn"><a className="white-button m-r-0" href="/plugins/xformation-perfmanager-ui-plugin/page/managedashboard"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</a></div>
                         </div>
                         <div className="wizard-container">
                             <div className="wizard-step-line-container">

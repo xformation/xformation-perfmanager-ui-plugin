@@ -76,7 +76,7 @@ export class TopMenu extends React.Component<any, any> {
                  {/* </div>  */}
                 <div className="col-lg-12 col-md-12 col-sm-12">
                     <div className="float-right common-right-btn">
-                        <Link to={`${config.basePath}/managedashboard`} className="white-button"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
+                        <Link to={`${config.basePath}/managedashboard`} className="white-button m-r-0"><i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back</Link>
                     </div>
                 </div>
                 <UnimplementedFeaturePopup ref={this.unimplementedFeatureModalRef} />
