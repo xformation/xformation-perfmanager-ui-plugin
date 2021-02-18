@@ -12,11 +12,13 @@ import { PreviewDashboard } from './PreviewDashboard';
 import { RestService } from '../_service/RestService';
 import Rbac from './../../components/Rbac'
 import { TopMenu } from "./TopMenu";
+import { AddCatalog} from './AddCatalog'
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
     addlibraryRef: any;
     addDashboardToCollectorRef: any;
+    addCatalogRef:any;
     previewdashboardRef: any;
     constructor(props: any) {
         super(props);
@@ -48,6 +50,7 @@ export class Catalog extends React.Component<any, any> {
         this.addlibraryRef = React.createRef();
         this.addDashboardToCollectorRef = React.createRef();
         this.previewdashboardRef = React.createRef();
+        this.addCatalogRef=React.createRef();
     }
 
     async componentWillMount() {
@@ -188,6 +191,9 @@ export class Catalog extends React.Component<any, any> {
     onClickPreviewDashboard = (e: any) => {
         this.previewdashboardRef.current.toggle();
     };
+    onClickCreateCatalog = () => {
+        this.addCatalogRef.current.toggle();
+    }
 
     render() {
         const state = this.state;
@@ -205,7 +211,15 @@ export class Catalog extends React.Component<any, any> {
                         </div>
                     </div>
                     <div className="common-container">
+                        <div className="text-left">
+                            <Rbac parentName={config.PARENT_NAME} childName="commancomponent-createbuttoncomponent-createbtn">
+                                <a href="#" style={{float:'left'}} onClick={this.onClickCreateCatalog} className="blue-button m-r-0 min-width-inherit width-auto create-btn">
+                                    Add Catalog
+                                    </a>
+                            </Rbac>
+                        </div>
                         <div className="text-right">
+
                             <div className="category-select">
                                 <select className="form-control">
                                     <option>AWS</option>
@@ -255,6 +269,7 @@ export class Catalog extends React.Component<any, any> {
                 <AddLibraryPopup ref={this.addlibraryRef} />
                 <PreviewDashboard ref={this.previewdashboardRef} />
                 <AddDashboardToCollectorPopup ref={this.addDashboardToCollectorRef} />
+                <AddCatalog ref={this.addCatalogRef}/>
             </div>
         );
     }
