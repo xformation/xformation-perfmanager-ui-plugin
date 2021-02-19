@@ -12,13 +12,13 @@ import { PreviewDashboard } from './PreviewDashboard';
 import { RestService } from '../_service/RestService';
 import Rbac from './../../components/Rbac'
 import { TopMenu } from "./TopMenu";
-import { AddCatalog} from './AddCatalog'
+import { AddCatalog } from './AddCatalog'
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
     addlibraryRef: any;
     addDashboardToCollectorRef: any;
-    addCatalogRef:any;
+    addCatalogRef: any;
     previewdashboardRef: any;
     constructor(props: any) {
         super(props);
@@ -28,7 +28,9 @@ export class Catalog extends React.Component<any, any> {
             currentOpenIndex: '',
             currentCatalogDisplayData: [],
             catalogs: [],
+            filterByCatalogTypeFlag: false,
             displayCatalogData: [],
+            catalogType: '',
             selectedCatalogName: '',
             selectedCatalogDescription: '',
             selectedCatalogId: null,
@@ -50,7 +52,7 @@ export class Catalog extends React.Component<any, any> {
         this.addlibraryRef = React.createRef();
         this.addDashboardToCollectorRef = React.createRef();
         this.previewdashboardRef = React.createRef();
-        this.addCatalogRef=React.createRef();
+        this.addCatalogRef = React.createRef();
     }
 
     async componentWillMount() {
@@ -194,6 +196,28 @@ export class Catalog extends React.Component<any, any> {
     onClickCreateCatalog = () => {
         this.addCatalogRef.current.toggle();
     }
+    onClickFilterByCatalogType = (e: any) => {
+        const { catalogs } = this.state;
+        const catalogType = e.target.value;
+        this.setState({
+            catalogType: catalogType,
+        });
+        console.log("Catalog type :: ", catalogType);
+        if (!(catalogType == '') && !(catalogType == 'ALL')) {
+            console.log("before filter :: ", catalogs);
+            let displayCatalogData = catalogs.filter((d: any) => d.type === catalogType);
+            console.log("after filter :: ", displayCatalogData);
+            console.log("I am in");
+            this.setState({
+                displayCatalogData: displayCatalogData,
+            });
+        }else if(catalogType == 'ALL'){
+            this.setState({
+                displayCatalogData: catalogs,
+            });
+        }
+
+    }
 
     render() {
         const state = this.state;
@@ -213,7 +237,7 @@ export class Catalog extends React.Component<any, any> {
                     <div className="common-container">
                         <div className="text-left">
                             <Rbac parentName={config.PARENT_NAME} childName="commancomponent-createbuttoncomponent-createbtn">
-                                <a href="#" style={{float:'left'}} onClick={this.onClickCreateCatalog} className="blue-button m-r-0 min-width-inherit width-auto create-btn">
+                                <a href="#" style={{ float: 'left' }} onClick={this.onClickCreateCatalog} className="blue-button m-r-0 min-width-inherit width-auto create-btn">
                                     Add Catalog
                                     </a>
                             </Rbac>
@@ -221,7 +245,8 @@ export class Catalog extends React.Component<any, any> {
                         <div className="text-right">
 
                             <div className="category-select">
-                                <select className="form-control">
+                                <select className="form-control" name="catalogType" value={state.catalogType} onClick={this.onClickFilterByCatalogType}>
+                                    <option>ALL</option>
                                     <option>AWS</option>
                                     <option>AZURE</option>
                                     <option>GCP</option>
@@ -269,7 +294,7 @@ export class Catalog extends React.Component<any, any> {
                 <AddLibraryPopup ref={this.addlibraryRef} />
                 <PreviewDashboard ref={this.previewdashboardRef} />
                 <AddDashboardToCollectorPopup ref={this.addDashboardToCollectorRef} />
-                <AddCatalog ref={this.addCatalogRef}/>
+                <AddCatalog ref={this.addCatalogRef} />
             </div>
         );
     }

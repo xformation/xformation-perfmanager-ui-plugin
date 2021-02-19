@@ -59,7 +59,7 @@ export class AddCatalog extends React.Component<any, any> {
             return;
         }
 
-        if (!catalogType || catalogType=='') {
+        if (!catalogType || catalogType == '') {
             this.setState({
                 severity: config.SEVERITY_ERROR,
                 message: "Please select catalog type",
@@ -72,12 +72,12 @@ export class AddCatalog extends React.Component<any, any> {
         cd.append("name", catalogName);
         cd.append("type", catalogType);
         cd.append("description", catalogDescription);
-        console.log("Data is adding :: ",cd);
-        await fetch(config.ADD_CATALOG+"?name="+catalogName+"&type="+catalogType+"&description="+catalogDescription, {
+        console.log("Data is adding :: ", cd);
+        await fetch(config.ADD_CATALOG + "?name=" + catalogName + "&type=" + catalogType + "&description=" + catalogDescription, {
             method: 'post',
             headers: new Headers({
-                "X-Requested-By":"me"
-              })
+                "X-Requested-By": "me"
+            })
         }).then(response => response.json())
             .then(response => {
                 console.log('response: ', response);
@@ -106,7 +106,11 @@ export class AddCatalog extends React.Component<any, any> {
             isAlertOpen: false
         })
     }
-
+    onChangeSelectBox = (e: any) => {
+        this.setState({
+            catalogType: e.target.value
+        });
+    }
     render() {
         const state = this.state;
         return (
@@ -121,7 +125,7 @@ export class AddCatalog extends React.Component<any, any> {
                         </div>
                         <div className="form-group">
                             <label htmlFor="CatalogType">Catalog Type</label>
-                            <select className="form-control primary-select-box" name="dataSource" id="dataSource" value={state.dataSource} onChange={this.onChange}>
+                            <select className="form-control primary-select-box" name="catalogType" id="catalogType" value={state.catalogType} onChange={this.onChangeSelectBox}>
                                 <option value="">select catalog type</option>
                                 <option key="AWS" value="AWS">AWS</option>
                                 <option key="AZURE" value="AZURE">AZURE</option>
