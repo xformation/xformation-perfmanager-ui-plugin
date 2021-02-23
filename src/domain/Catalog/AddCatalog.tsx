@@ -85,7 +85,7 @@ export class AddCatalog extends React.Component<any, any> {
                     console.log("ok");
                     this.setState({
                         severity: config.SEVERITY_SUCCESS,
-                        message: config.ADD_DASHBOARD_TO_COLLECTOR_SUCCESS_MESSAGE,
+                        message: config.ADD_CATALOGUE_SUCCESS_MESSAGE,
                         isAlertOpen: true,
                     });
                 } else {
@@ -130,7 +130,7 @@ export class AddCatalog extends React.Component<any, any> {
                                 <option key="AWS" value="AWS">AWS</option>
                                 <option key="AZURE" value="AZURE">AZURE</option>
                                 <option key="GCP" value="GCP">GCP</option>
-                                <option key="GCP" value="GCP">Synectiks</option>
+                                <option key="Synectiks" value="Synectiks">Synectiks</option>
                             </select>
                         </div>
                         <div className="form-group">

@@ -28,5 +28,6 @@ export const config = {
     "Collector is successfully added to library",
   DASHBOARD_LIST_API: "/api/search",
   ADD_DASHBOARD_TO_COLLECTOR_SUCCESS_MESSAGE:
-    "Dashborad is successfully added to collector"
+    "Dashborad is successfully added to collector",
+  ADD_CATALOGUE_SUCCESS_MESSAGE: "Catalogue added successfully"
 };
