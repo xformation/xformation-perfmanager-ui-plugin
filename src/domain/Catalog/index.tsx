@@ -107,12 +107,12 @@ export class Catalog extends React.Component<any, any> {
     openCatalogDetail(i: any, arryData: any) {
         console.log(arryData);
         let displaycataloddescriptionData = [];
-        if (arryData.catalogDetail != '' && arryData.catalogDetail) {
-            for (let i = 0; i < arryData.catalogDetail.length; i++) {
-                if (arryData.catalogDetail[i].open == true) {
-                    arryData.catalogDetail[i].open = false;
+        if (arryData.catalog_detail != '' && arryData.catalog_detail) {
+            for (let i = 0; i < arryData.catalog_detail.length; i++) {
+                if (arryData.catalog_detail[i].open == true) {
+                    arryData.catalog_detail[i].open = false;
                 }
-                displaycataloddescriptionData.push(arryData.catalogDetail[i]);
+                displaycataloddescriptionData.push(arryData.catalog_detail[i]);
             }
             this.setState({
                 currentOpenIndex: i,
