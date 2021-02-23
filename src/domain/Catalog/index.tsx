@@ -88,10 +88,11 @@ export class Catalog extends React.Component<any, any> {
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-8 col-sm-12">
-                            <div className="category-name">{val.catalogName} </div>
+                            <div className="category-name">{val.catalog_name}</div>
+                            <div className="category-name">{val.type}</div>
                             <div className="category-add-link">
-                                <a onClick={e => this.onClickAddLibrary(e, val.catalogName, val.id)}>Add To library</a>
-                                <a onClick={e => this.onClickaAddDashboardToCollector(e, val.catalogName, val.id)}>Add Dashboard To Collector</a>
+                                <a onClick={e => this.onClickAddLibrary(e, val.catalog_name, val.id)}>Add To library</a>
+                                <a onClick={e => this.onClickaAddDashboardToCollector(e, val.catalog_name, val.id)}>Add Dashboard To Collector</a>
                                 <a onClick={this.onClickPreviewDashboard}>Preview Dashboard</a>
 
                             </div>
@@ -199,10 +200,11 @@ export class Catalog extends React.Component<any, any> {
     onClickFilterByCatalogType = (e: any) => {
         const { catalogs } = this.state;
         const catalogType = e.target.value;
+        console.log("Selected Catalog type :: ", catalogType);
         this.setState({
             catalogType: catalogType,
         });
-        console.log("Catalog type :: ", catalogType);
+        
         if (!(catalogType == '') && !(catalogType == 'ALL')) {
             console.log("before filter :: ", catalogs);
             let displayCatalogData = catalogs.filter((d: any) => d.type === catalogType);
@@ -245,12 +247,12 @@ export class Catalog extends React.Component<any, any> {
                         <div className="text-right">
 
                             <div className="category-select">
-                                <select className="form-control" name="catalogType" value={state.catalogType} onClick={this.onClickFilterByCatalogType}>
-                                    <option>ALL</option>
-                                    <option>AWS</option>
-                                    <option>AZURE</option>
-                                    <option>GCP</option>
-                                    <option>Synectiks</option>
+                                <select className="form-control" name="catalogType" value={state.catalogType} onChange={this.onClickFilterByCatalogType}>
+                                    <option value="ALL">ALL</option>
+                                    <option value="AWS">AWS</option>
+                                    <option value="AZURE">AZURE</option>
+                                    <option value="GCP">GCP</option>
+                                    <option value="Synectiks">Synectiks</option>
                                 </select>
                             </div>
                             <div className="form-group category-control-group">
