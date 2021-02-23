@@ -232,15 +232,15 @@ export class Catalog extends React.Component<any, any> {
                     </div>
                     <div className="common-container">
                         <div className="catalog-app-text">
-                            <h3>Catalog</h3>
-                            <p>A catalog is collection of dashboards</p>
+                            <h3>Catalogue</h3>
+                            <p>A catalogue is collection of dashboards</p>
                         </div>
                     </div>
                     <div className="common-container">
                         <div className="text-left">
                             <Rbac parentName={config.PARENT_NAME} childName="commancomponent-createbuttoncomponent-createbtn">
                                 <a href="#" style={{ float: 'left' }} onClick={this.onClickCreateCatalog} className="blue-button m-r-0 min-width-inherit width-auto create-btn">
-                                    Add Catalog
+                                    Add Catalogue
                                     </a>
                             </Rbac>
                         </div>
