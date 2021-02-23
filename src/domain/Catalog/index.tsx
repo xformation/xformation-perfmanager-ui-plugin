@@ -175,7 +175,7 @@ export class Catalog extends React.Component<any, any> {
         const { catalogs } = this.state;
         var searchResult = [];
         for (let i = 0; i < catalogs.length; i++) {
-            if (catalogs[i].catalogName.indexOf(value) !== -1 || value === '') {
+            if (catalogs[i].catalog_name.indexOf(value) !== -1 || value === '') {
                 searchResult.push(catalogs[i]);
             }
         }
