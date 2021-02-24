@@ -12,11 +12,13 @@ import { PreviewDashboard } from './PreviewDashboard';
 import { RestService } from '../_service/RestService';
 import Rbac from './../../components/Rbac'
 import { TopMenu } from "./TopMenu";
+import { AddCatalog } from './AddCatalog'
 
 export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
     addlibraryRef: any;
     addDashboardToCollectorRef: any;
+    addCatalogRef: any;
     previewdashboardRef: any;
     constructor(props: any) {
         super(props);
@@ -26,7 +28,9 @@ export class Catalog extends React.Component<any, any> {
             currentOpenIndex: '',
             currentCatalogDisplayData: [],
             catalogs: [],
+            filterByCatalogTypeFlag: false,
             displayCatalogData: [],
+            catalogType: '',
             selectedCatalogName: '',
             selectedCatalogDescription: '',
             selectedCatalogId: null,
@@ -48,6 +52,7 @@ export class Catalog extends React.Component<any, any> {
         this.addlibraryRef = React.createRef();
         this.addDashboardToCollectorRef = React.createRef();
         this.previewdashboardRef = React.createRef();
+        this.addCatalogRef = React.createRef();
     }
 
     async componentWillMount() {
@@ -83,10 +88,11 @@ export class Catalog extends React.Component<any, any> {
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-8 col-sm-12">
-                            <div className="category-name">{val.catalogName} </div>
+                            <div className="category-name">{val.catalog_name}</div>
+                            <div className="category-name">{val.type}</div>
                             <div className="category-add-link">
-                                <a onClick={e => this.onClickAddLibrary(e, val.catalogName, val.id)}>Add To library</a>
-                                <a onClick={e => this.onClickaAddDashboardToCollector(e, val.catalogName, val.id)}>Add Dashboard To Collector</a>
+                                <a onClick={e => this.onClickAddLibrary(e, val.catalog_name, val.id)}>Add To library</a>
+                                <a onClick={e => this.onClickaAddDashboardToCollector(e, val.catalog_name, val.id)}>Add Dashboard To Collector</a>
                                 <a onClick={this.onClickPreviewDashboard}>Preview Dashboard</a>
 
                             </div>
@@ -101,12 +107,12 @@ export class Catalog extends React.Component<any, any> {
     openCatalogDetail(i: any, arryData: any) {
         console.log(arryData);
         let displaycataloddescriptionData = [];
-        if (arryData.catalogDetail != '' && arryData.catalogDetail) {
-            for (let i = 0; i < arryData.catalogDetail.length; i++) {
-                if (arryData.catalogDetail[i].open == true) {
-                    arryData.catalogDetail[i].open = false;
+        if (arryData.catalog_detail != '' && arryData.catalog_detail) {
+            for (let i = 0; i < arryData.catalog_detail.length; i++) {
+                if (arryData.catalog_detail[i].open == true) {
+                    arryData.catalog_detail[i].open = false;
                 }
-                displaycataloddescriptionData.push(arryData.catalogDetail[i]);
+                displaycataloddescriptionData.push(arryData.catalog_detail[i]);
             }
             this.setState({
                 currentOpenIndex: i,
@@ -169,7 +175,7 @@ export class Catalog extends React.Component<any, any> {
         const { catalogs } = this.state;
         var searchResult = [];
         for (let i = 0; i < catalogs.length; i++) {
-            if (catalogs[i].catalogName.indexOf(value) !== -1 || value === '') {
+            if (catalogs[i].catalog_name.indexOf(value) !== -1 || value === '') {
                 searchResult.push(catalogs[i]);
             }
         }
@@ -188,6 +194,32 @@ export class Catalog extends React.Component<any, any> {
     onClickPreviewDashboard = (e: any) => {
         this.previewdashboardRef.current.toggle();
     };
+    onClickCreateCatalog = () => {
+        this.addCatalogRef.current.toggle();
+    }
+    onClickFilterByCatalogType = (e: any) => {
+        const { catalogs } = this.state;
+        const catalogType = e.target.value;
+        console.log("Selected Catalog type :: ", catalogType);
+        this.setState({
+            catalogType: catalogType,
+        });
+        
+        if (!(catalogType == '') && !(catalogType == 'ALL')) {
+            console.log("before filter :: ", catalogs);
+            let displayCatalogData = catalogs.filter((d: any) => d.type === catalogType);
+            console.log("after filter :: ", displayCatalogData);
+            console.log("I am in");
+            this.setState({
+                displayCatalogData: displayCatalogData,
+            });
+        }else if(catalogType == 'ALL'){
+            this.setState({
+                displayCatalogData: catalogs,
+            });
+        }
+
+    }
 
     render() {
         const state = this.state;
@@ -200,18 +232,27 @@ export class Catalog extends React.Component<any, any> {
                     </div>
                     <div className="common-container">
                         <div className="catalog-app-text">
-                            <h3>Catalog</h3>
-                            <p>A catalog is collection of dashboards</p>
+                            <h3>Catalogue</h3>
+                            <p>A catalogue is collection of dashboards</p>
                         </div>
                     </div>
                     <div className="common-container">
+                        <div className="text-left">
+                            <Rbac parentName={config.PARENT_NAME} childName="commancomponent-createbuttoncomponent-createbtn">
+                                <a href="#" style={{ float: 'left' }} onClick={this.onClickCreateCatalog} className="blue-button m-r-0 min-width-inherit width-auto create-btn">
+                                    Add Catalogue
+                                    </a>
+                            </Rbac>
+                        </div>
                         <div className="text-right">
+
                             <div className="category-select">
-                                <select className="form-control">
-                                    <option>AWS</option>
-                                    <option>AZURE</option>
-                                    <option>GCP</option>
-                                    <option>Synectiks</option>
+                                <select className="form-control" name="catalogType" value={state.catalogType} onChange={this.onClickFilterByCatalogType}>
+                                    <option value="ALL">ALL</option>
+                                    <option value="AWS">AWS</option>
+                                    <option value="AZURE">AZURE</option>
+                                    <option value="GCP">GCP</option>
+                                    <option value="Synectiks">Synectiks</option>
                                 </select>
                             </div>
                             <div className="form-group category-control-group">
@@ -255,6 +296,7 @@ export class Catalog extends React.Component<any, any> {
                 <AddLibraryPopup ref={this.addlibraryRef} />
                 <PreviewDashboard ref={this.previewdashboardRef} />
                 <AddDashboardToCollectorPopup ref={this.addDashboardToCollectorRef} />
+                <AddCatalog ref={this.addCatalogRef} />
             </div>
         );
     }
