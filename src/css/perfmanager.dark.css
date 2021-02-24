@@ -1495,19 +1495,19 @@ a:hover {
   }
 }
 
-.manage-dashboard-heading {
+.perfmanager-dashboard-container .manage-dashboard-heading {
   display: block;
 }
-.manage-dashboard-heading .heading-icon {
+.perfmanager-dashboard-container .manage-dashboard-heading .heading-icon {
   display: inline-block;
   vertical-align: top;
   padding-right: 20px;
 }
-.manage-dashboard-heading .heading-right {
+.perfmanager-dashboard-container .manage-dashboard-heading .heading-right {
   display: inline-block;
   vertical-align: top;
 }
-.manage-dashboard-heading .heading-right h3 {
+.perfmanager-dashboard-container .manage-dashboard-heading .heading-right h3 {
   display: block;
   font-size: 18px;
   font-weight: 500;
@@ -1516,7 +1516,7 @@ a:hover {
   color: #ffffff;
   margin-bottom: 10px;
 }
-.manage-dashboard-heading .heading-right p {
+.perfmanager-dashboard-container .manage-dashboard-heading .heading-right p {
   display: block;
   font-size: 12px;
   font-weight: 400;
@@ -1525,23 +1525,27 @@ a:hover {
   margin-bottom: 0;
 }
 
-.manage-dashboard-radio-btns {
+.perfmanager-dashboard-container .manage-dashboard-radio-btns {
   display: block;
   padding-top: 30px;
   padding-bottom: 30px;
 }
-.manage-dashboard-radio-btns ul li {
+.perfmanager-dashboard-container .manage-dashboard-radio-btns ul li {
   position: relative;
   display: inline-block;
   padding-right: 30px;
   vertical-align: top;
 }
-.manage-dashboard-radio-btns ul li input[type="radio"] {
+.perfmanager-dashboard-container
+  .manage-dashboard-radio-btns
+  ul
+  li
+  input[type="radio"] {
   margin-top: 3px;
   cursor: pointer;
   vertical-align: top;
 }
-.manage-dashboard-radio-btns ul li label {
+.perfmanager-dashboard-container .manage-dashboard-radio-btns ul li label {
   padding-left: 7px;
   vertical-align: top;
   color: #ffffff;
@@ -1550,18 +1554,18 @@ a:hover {
   font-weight: 500;
 }
 
-.manage-dashboard-tabs {
+.perfmanager-dashboard-container .manage-dashboard-tabs {
   display: block;
   padding-top: 0px;
   padding-bottom: 30px;
 }
-.manage-dashboard-tabs ul {
+.perfmanager-dashboard-container .manage-dashboard-tabs ul {
   list-style: none;
 }
-.manage-dashboard-tabs ul li {
+.perfmanager-dashboard-container .manage-dashboard-tabs ul li {
   display: inline-block;
 }
-.manage-dashboard-tabs ul li a {
+.perfmanager-dashboard-container .manage-dashboard-tabs ul li a {
   border-right: 1px solid #ffffff;
   display: block;
   background-color: #f0f3f7;
@@ -1571,32 +1575,37 @@ a:hover {
   font-weight: 500;
   padding: 0 20px;
 }
-.manage-dashboard-tabs ul li a:hover {
+.perfmanager-dashboard-container .manage-dashboard-tabs ul li a:hover {
   background-color: #ffffff;
   box-shadow: 0px 1px 8px #142e6e1a;
 }
-.manage-dashboard-tabs ul li.active-tab a {
+.perfmanager-dashboard-container .manage-dashboard-tabs ul li.active-tab a {
   background-color: #ffffff;
   box-shadow: 0px 1px 8px #142e6e1a;
 }
-.manage-dashboard-tabs ul li:first-child a {
+.perfmanager-dashboard-container .manage-dashboard-tabs ul li:first-child a {
   border-radius: 8px 0px 0px 8px;
 }
-.manage-dashboard-tabs ul li:last-child a {
+.perfmanager-dashboard-container .manage-dashboard-tabs ul li:last-child a {
   border-right: none;
   border-radius: 0px 8px 8px 0px;
 }
 
-.manage-dashboard-search {
+.perfmanager-dashboard-container .manage-dashboard-search {
   padding-bottom: 30px;
 }
-.manage-dashboard-search .search-control-group {
+.perfmanager-dashboard-container
+  .manage-dashboard-search
+  .search-control-group {
   position: relative;
   display: inline-block;
   vertical-align: top;
   width: 80%;
 }
-.manage-dashboard-search .search-control-group .input-group-text {
+.perfmanager-dashboard-container
+  .manage-dashboard-search
+  .search-control-group
+  .input-group-text {
   max-width: 100%;
   text-align: left;
   padding-left: 35px;
@@ -1608,7 +1617,10 @@ a:hover {
   font-weight: 400;
   height: 36px;
 }
-.manage-dashboard-search .search-control-group button {
+.perfmanager-dashboard-container
+  .manage-dashboard-search
+  .search-control-group
+  button {
   position: absolute;
   left: 0;
   top: 0;
@@ -1620,16 +1632,19 @@ a:hover {
   height: 36px;
 }
 
-.manage-dashboard-fliter-sort {
+.perfmanager-dashboard-container .manage-dashboard-fliter-sort {
   padding-bottom: 20px;
 }
-.manage-dashboard-fliter-sort .sort-checkbox {
+.perfmanager-dashboard-container .manage-dashboard-fliter-sort .sort-checkbox {
   display: inline-block;
   vertical-align: top;
   padding-right: 15px;
   padding-top: 10px;
 }
-.manage-dashboard-fliter-sort .sort-checkbox span {
+.perfmanager-dashboard-container
+  .manage-dashboard-fliter-sort
+  .sort-checkbox
+  span {
   padding-left: 10px;
   color: #ffffff;
   font-size: 14px;
@@ -1638,15 +1653,24 @@ a:hover {
   display: inline-block;
   vertical-align: top;
 }
-.manage-dashboard-fliter-sort .sort-view {
+.perfmanager-dashboard-container .manage-dashboard-fliter-sort .sort-view {
   display: inline-block;
   vertical-align: top;
   padding-right: 15px;
 }
-.manage-dashboard-fliter-sort .sort-view ul li {
+.perfmanager-dashboard-container
+  .manage-dashboard-fliter-sort
+  .sort-view
+  ul
+  li {
   display: inline-block;
 }
-.manage-dashboard-fliter-sort .sort-view ul li a {
+.perfmanager-dashboard-container
+  .manage-dashboard-fliter-sort
+  .sort-view
+  ul
+  li
+  a {
   display: block;
   height: 40px;
   width: 58px;
@@ -1654,30 +1678,53 @@ a:hover {
   background-color: #f5f6f5;
   line-height: 40px;
 }
-.manage-dashboard-fliter-sort .sort-view ul li.active a {
+.perfmanager-dashboard-container
+  .manage-dashboard-fliter-sort
+  .sort-view
+  ul
+  li.active
+  a {
   background-color: #e9ecf0;
 }
-.manage-dashboard-fliter-sort .sort-view ul li:first-child a {
+.perfmanager-dashboard-container
+  .manage-dashboard-fliter-sort
+  .sort-view
+  ul
+  li:first-child
+  a {
   border-radius: 5px 0px 0px 5px;
 }
-.manage-dashboard-fliter-sort .sort-view ul li:last-child a {
+.perfmanager-dashboard-container
+  .manage-dashboard-fliter-sort
+  .sort-view
+  ul
+  li:last-child
+  a {
   border-radius: 0px 5px 5px 0px;
 }
-.manage-dashboard-fliter-sort .sort-select-menu {
+.perfmanager-dashboard-container
+  .manage-dashboard-fliter-sort
+  .sort-select-menu {
   background-color: #f0f3f7;
   border-radius: 8px;
   height: 40px;
   display: inline-block;
   width: 265px;
 }
-.manage-dashboard-fliter-sort .sort-select-menu span {
+.perfmanager-dashboard-container
+  .manage-dashboard-fliter-sort
+  .sort-select-menu
+  span {
   display: inline-block;
   padding-top: 10px;
   padding-left: 15px;
   padding-right: 10px;
   vertical-align: top;
 }
-.manage-dashboard-fliter-sort .sort-select-menu select {
+.perfmanager-dashboard-container
+  .manage-dashboard-fliter-sort
+  .sort-select-menu
+  select {
   display: inline-block;
   background-color: transparent;
   border: none;
@@ -1688,28 +1735,34 @@ a:hover {
   color: #464c54;
 }
 
-.manage-dashboard-general {
+.perfmanager-dashboard-container .manage-dashboard-general {
   border: 1px solid #8392a7;
   padding: 15px;
   background-color: #ffffff;
   color: #3b4859;
 }
-.manage-dashboard-general .general-heading {
+.perfmanager-dashboard-container .manage-dashboard-general .general-heading {
   display: block;
   padding-bottom: 5px;
 }
-.manage-dashboard-general .general-heading input {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-heading
+  input {
   display: inline-block;
   vertical-align: top;
   margin-top: 5px;
 }
-.manage-dashboard-general .general-heading span {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-heading
+  span {
   display: inline-block;
   padding-left: 15px;
   vertical-align: top;
   cursor: pointer;
 }
-.manage-dashboard-general .general-heading h4 {
+.perfmanager-dashboard-container .manage-dashboard-general .general-heading h4 {
   display: inline-block;
   font-size: 15px;
   font-weight: 500;
@@ -1719,16 +1772,22 @@ a:hover {
   padding-left: 15px;
   padding-top: 2px;
 }
-.manage-dashboard-general .general-heading .fa {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-heading
+  .fa {
   padding-top: 6px;
   cursor: pointer;
 }
-.manage-dashboard-general .general-logs {
+.perfmanager-dashboard-container .manage-dashboard-general .general-logs {
   padding-left: 30px;
   padding-top: 15px;
   padding-bottom: 10px;
 }
-.manage-dashboard-general .general-logs .data-table {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-logs
+  .data-table {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -1737,51 +1796,90 @@ a:hover {
   background-color: #ffffff;
   width: 100%;
 }
-.manage-dashboard-general .general-logs .data-table tr td {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-logs
+  .data-table
+  tr
+  td {
   padding: 8px 10px;
 }
-.manage-dashboard-general .general-logs .data-table tr td input {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-logs
+  .data-table
+  tr
+  td
+  input {
   margin-top: 0px;
   margin-right: 15px;
 }
-.manage-dashboard-general .general-logs .data-table tr:nth-child(odd) {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-logs
+  .data-table
+  tr:nth-child(odd) {
   background-color: #f8f9fb;
 }
-.manage-dashboard-general .general-logs .tag {
+.perfmanager-dashboard-container .manage-dashboard-general .general-logs .tag {
   color: #ffffff;
   padding: 2px 10px;
   display: inline-block;
   border-radius: 5px;
   margin: 0 2px;
 }
-.manage-dashboard-general .general-logs .aws-bg {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-logs
+  .aws-bg {
   background-color: #3d71aa;
 }
-.manage-dashboard-general .general-logs .amazon-bg {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-logs
+  .amazon-bg {
   background-color: #8a2eb8;
 }
-.manage-dashboard-general .general-logs .cloudwatch-bg {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-logs
+  .cloudwatch-bg {
   background-color: #bf1b00;
 }
-.manage-dashboard-general .general-logs .logs-bg {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-logs
+  .logs-bg {
   background-color: #4c7a3f;
 }
-.manage-dashboard-general .general-logs .monitorigartist-bg {
+.perfmanager-dashboard-container
+  .manage-dashboard-general
+  .general-logs
+  .monitorigartist-bg {
   background-color: #3b4859;
 }
 
-.manage-newdashboard-general .newdashboard-container {
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
+  .newdashboard-container {
   display: block;
   border: 1px solid #fbfbfc;
   padding: 18px 20px;
   opacity: 1;
   background-color: #fbfbfc;
 }
-.manage-newdashboard-general .newdashboard-container .general-heading {
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
+  .newdashboard-container
+  .general-heading {
   display: block;
   padding-bottom: 5px;
 }
-.manage-newdashboard-general .newdashboard-container .general-heading h4 {
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
+  .newdashboard-container
+  .general-heading
+  h4 {
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
@@ -1789,14 +1887,16 @@ a:hover {
   margin-bottom: 0;
   display: inline-block;
 }
-.manage-newdashboard-general
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
   .newdashboard-container
   .general-heading
   .newdashboard-close {
   cursor: pointer;
   float: right;
 }
-.manage-newdashboard-general
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
   .newdashboard-container
   .general-heading
   .newdashboard-close
@@ -1805,19 +1905,24 @@ a:hover {
   font-size: 16px;
   line-height: 24px;
 }
-.manage-newdashboard-general .newdashboard-container .general-center-contain {
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
+  .newdashboard-container
+  .general-center-contain {
   display: block;
   margin-top: 100px;
   margin-bottom: 100px;
 }
-.manage-newdashboard-general
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
   .newdashboard-container
   .general-center-contain
   .own-dashboard {
   text-align: center;
   display: block;
 }
-.manage-newdashboard-general
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
   .newdashboard-container
   .general-center-contain
   .own-dashboard
@@ -1825,7 +1930,8 @@ a:hover {
   display: block;
   padding-bottom: 20px;
 }
-.manage-newdashboard-general
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
   .newdashboard-container
   .general-center-contain
   .own-dashboard
@@ -1835,7 +1941,8 @@ a:hover {
   width: 100px;
   height: 69px;
 }
-.manage-newdashboard-general
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
   .newdashboard-container
   .general-center-contain
   .own-dashboard
@@ -1847,15 +1954,24 @@ a:hover {
   font-weight: 500;
 }
 
-.manage-newdashboard-general .createnewdashboard-container {
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
+  .createnewdashboard-container {
   border: 1px solid #8392a7;
   padding: 15px;
 }
-.manage-newdashboard-general .createnewdashboard-container .general-heading {
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
+  .createnewdashboard-container
+  .general-heading {
   display: block;
   padding-bottom: 5px;
 }
-.manage-newdashboard-general .createnewdashboard-container .general-heading h4 {
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
+  .createnewdashboard-container
+  .general-heading
+  h4 {
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
@@ -1863,14 +1979,16 @@ a:hover {
   margin-bottom: 0;
   display: inline-block;
 }
-.manage-newdashboard-general
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
   .createnewdashboard-container
   .general-heading
   .newdashboard-close {
   cursor: pointer;
   float: right;
 }
-.manage-newdashboard-general
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
   .createnewdashboard-container
   .general-heading
   .newdashboard-close
@@ -1879,7 +1997,10 @@ a:hover {
   font-size: 16px;
   line-height: 24px;
 }
-.manage-newdashboard-general .createnewdashboard-container .create-dashboard {
+.perfmanager-dashboard-container
+  .manage-newdashboard-general
+  .createnewdashboard-container
+  .create-dashboard {
   background: #fafafa;
   box-shadow: 2px 2px 6px #00000029;
   padding: 75px 0;
@@ -1887,19 +2008,22 @@ a:hover {
   text-align: center;
 }
 
-.playlists-container {
+.perfmanager-dashboard-container .playlists-container {
   border: 1px solid #8392a7;
   padding: 15px 30px;
   background-color: #ffffff;
   min-height: 600px;
 }
-.playlists-container .playlist-inner {
+.perfmanager-dashboard-container .playlists-container .playlist-inner {
   background-color: #fafafa;
   box-shadow: 2px 2px 6px #00000029;
   padding: 50px 30px;
   text-align: center;
 }
-.playlists-container .playlist-inner .playlist-heading {
+.perfmanager-dashboard-container
+  .playlists-container
+  .playlist-inner
+  .playlist-heading {
   display: block;
   color: #3b4859;
   font-size: 13px;
@@ -1908,11 +2032,17 @@ a:hover {
   font-weight: 500;
   padding-bottom: 50px;
 }
-.playlists-container .playlist-inner .playlist-btn {
+.perfmanager-dashboard-container
+  .playlists-container
+  .playlist-inner
+  .playlist-btn {
   padding-bottom: 50px;
   display: block;
 }
-.playlists-container .playlist-inner .playlist-heading {
+.perfmanager-dashboard-container
+  .playlists-container
+  .playlist-inner
+  .playlist-heading {
   display: block;
   color: #3b4859;
   font-size: 13px;
@@ -1921,26 +2051,28 @@ a:hover {
   padding-bottom: 50px;
 }
 
-.new-playlist-container {
+.perfmanager-dashboard-container .new-playlist-container {
   display: block;
 }
-.new-playlist-container .new-playlist-heading {
+.perfmanager-dashboard-container .new-playlist-container .new-playlist-heading {
   line-height: 36px;
   font-size: 18px;
   font-weight: 600;
   color: #414d55;
 }
-.new-playlist-container .save-playlist-heading {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .save-playlist-heading {
   line-height: 36px;
   font-size: 18px;
   font-weight: 600;
   color: #414d55;
 }
-.new-playlist-container .playlist-text {
+.perfmanager-dashboard-container .new-playlist-container .playlist-text {
   display: block;
   padding-bottom: 20px;
 }
-.new-playlist-container .playlist-text p {
+.perfmanager-dashboard-container .new-playlist-container .playlist-text p {
   color: #3b4859;
   font-size: 12px;
   line-height: 18px;
@@ -1948,11 +2080,14 @@ a:hover {
   font-style: italic;
   margin-bottom: 0;
 }
-.new-playlist-container .playlist-name-input {
+.perfmanager-dashboard-container .new-playlist-container .playlist-name-input {
   display: block;
   padding-bottom: 10px;
 }
-.new-playlist-container .playlist-name-input label {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .playlist-name-input
+  label {
   display: inline-block;
   color: #3b4859;
   font-size: 14px;
@@ -1961,7 +2096,10 @@ a:hover {
   padding-right: 15px;
   min-width: 75px;
 }
-.new-playlist-container .playlist-name-input .input-group-text {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .playlist-name-input
+  .input-group-text {
   height: 30px;
   border: 1px solid #8392a7;
   border-radius: 4px;
@@ -1972,11 +2110,16 @@ a:hover {
   color: #3b4859;
   font-size: 14px;
 }
-.new-playlist-container .playlist-interval-select {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .playlist-interval-select {
   display: block;
   padding-bottom: 10px;
 }
-.new-playlist-container .playlist-interval-select label {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .playlist-interval-select
+  label {
   display: inline-block;
   color: #3b4859;
   font-size: 14px;
@@ -1985,7 +2128,10 @@ a:hover {
   padding-right: 15px;
   min-width: 75px;
 }
-.new-playlist-container .playlist-interval-select select {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .playlist-interval-select
+  select {
   height: 30px;
   border: 1px solid #8392a7;
   border-radius: 4px;
@@ -1996,11 +2142,16 @@ a:hover {
   padding: 0 10px;
   background-color: #ffffff;
 }
-.new-playlist-container .add-dashboards-playlist {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .add-dashboards-playlist {
   display: block;
   padding-bottom: 30px;
 }
-.new-playlist-container .add-dashboards-playlist label {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .add-dashboards-playlist
+  label {
   display: block;
   color: #3b4859;
   font-size: 14px;
@@ -2008,27 +2159,36 @@ a:hover {
   font-weight: 500;
   padding-right: 15px;
 }
-.new-playlist-container .add-dashboards-playlist .add-dashboard {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .add-dashboards-playlist
+  .add-dashboard {
   border: 1px solid #8392a7;
   border-radius: 4px;
   display: grid;
   background-color: #ffffff;
   overflow: hidden;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-aashboards-text {
   background: none !important;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-aashboards-text
   td {
   padding: 0 !important;
 }
-.new-playlist-container .add-dashboards-playlist .add-dashboard p {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .add-dashboards-playlist
+  .add-dashboard
+  p {
   color: #3b4859;
   font-size: 12px;
   font-style: italic;
@@ -2037,13 +2197,15 @@ a:hover {
   padding: 10px 0 10px 10px;
   margin-bottom: 0;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist {
   padding-bottom: 0px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2056,7 +2218,8 @@ a:hover {
   background-color: #ffffff;
   width: 100%;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2065,7 +2228,8 @@ a:hover {
   td {
   padding: 8px 10px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2078,7 +2242,8 @@ a:hover {
   display: inline-block;
   vertical-align: middle;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2097,7 +2262,8 @@ a:hover {
   padding: 0;
   cursor: pointer;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2115,7 +2281,8 @@ a:hover {
   left: 7.5px;
   top: 8px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2139,7 +2306,8 @@ a:hover {
   left: 3px;
   top: 16px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2158,7 +2326,8 @@ a:hover {
   background: none;
   cursor: pointer;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2182,7 +2351,8 @@ a:hover {
   left: 3px;
   top: 2px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2202,7 +2372,8 @@ a:hover {
   left: 8px;
   top: 13px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2220,7 +2391,8 @@ a:hover {
   padding: 0;
   background: none;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2239,7 +2411,8 @@ a:hover {
   transform: rotate(-45deg);
   z-index: 1;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2258,7 +2431,8 @@ a:hover {
   transform: rotate(45deg);
   z-index: 1;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboards-playlist
   .add-dashboard
   .add-dashboard-playlist
@@ -2266,22 +2440,24 @@ a:hover {
   tr:nth-child(odd) {
   background-color: #f8f9fb;
 }
-.new-playlist-container .add-dashboard-heading {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .add-dashboard-heading {
   line-height: 38px;
   font-size: 16px;
   font-weight: 600;
   color: #414d55;
 }
-.new-playlist-container .addalltolist {
+.perfmanager-dashboard-container .new-playlist-container .addalltolist {
   display: inline-block;
 }
-.new-playlist-container .sort-checkbox {
+.perfmanager-dashboard-container .new-playlist-container .sort-checkbox {
   display: inline-block;
   vertical-align: top;
   padding-right: 15px;
   padding-top: 10px;
 }
-.new-playlist-container .sort-checkbox span {
+.perfmanager-dashboard-container .new-playlist-container .sort-checkbox span {
   padding-left: 10px;
   color: #3b4859;
   font-size: 14px;
@@ -2290,21 +2466,27 @@ a:hover {
   display: inline-block;
   vertical-align: top;
 }
-.new-playlist-container .sort-select-menu {
+.perfmanager-dashboard-container .new-playlist-container .sort-select-menu {
   background-color: #f0f3f7;
   border-radius: 8px;
   height: 40px;
   display: inline-block;
   width: 265px;
 }
-.new-playlist-container .sort-select-menu span {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .sort-select-menu
+  span {
   display: inline-block;
   padding-top: 10px;
   padding-left: 15px;
   padding-right: 10px;
   vertical-align: top;
 }
-.new-playlist-container .sort-select-menu select {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .sort-select-menu
+  select {
   display: inline-block;
   background-color: transparent;
   border: none;
@@ -2314,14 +2496,21 @@ a:hover {
   cursor: pointer;
   color: #464c54;
 }
-.new-playlist-container .add-dashboard {
+.perfmanager-dashboard-container .new-playlist-container .add-dashboard {
   margin-top: 15px;
   border: 0.5px solid #8392a7;
 }
-.new-playlist-container .add-dashboard .add-dashboard-inner {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .add-dashboard
+  .add-dashboard-inner {
   padding-bottom: 30px;
 }
-.new-playlist-container .add-dashboard .add-dashboard-inner .data-table {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .add-dashboard
+  .add-dashboard-inner
+  .data-table {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -2330,10 +2519,17 @@ a:hover {
   background-color: #ffffff;
   width: 100%;
 }
-.new-playlist-container .add-dashboard .add-dashboard-inner .data-table tr td {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .add-dashboard
+  .add-dashboard-inner
+  .data-table
+  tr
+  td {
   padding: 8px 10px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboard
   .add-dashboard-inner
   .data-table
@@ -2345,7 +2541,8 @@ a:hover {
   display: inline-block;
   vertical-align: middle;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboard
   .add-dashboard-inner
   .data-table
@@ -2360,33 +2557,40 @@ a:hover {
   text-align: left;
   vertical-align: top;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .add-dashboard
   .add-dashboard-inner
   .data-table
   tr:nth-child(even) {
   background-color: #f8f9fb;
 }
-.new-playlist-container .gray-button {
+.perfmanager-dashboard-container .new-playlist-container .gray-button {
   border-radius: 8px !important;
   vertical-align: top !important;
 }
-.new-playlist-container .blue-button {
+.perfmanager-dashboard-container .new-playlist-container .blue-button {
   border-radius: 8px !important;
   vertical-align: top !important;
 }
-.new-playlist-container .save-playlist-container {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .save-playlist-container {
   border: 1px solid #8392a7;
   border-radius: 4px;
   display: grid;
   background-color: #f8f9fb;
   overflow: hidden;
 }
-.new-playlist-container .save-playlist-container .save-playlist-inner {
+.perfmanager-dashboard-container
+  .new-playlist-container
+  .save-playlist-container
+  .save-playlist-inner {
   overflow-x: auto;
   padding-bottom: 0px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .save-playlist-container
   .save-playlist-inner
   .data-table {
@@ -2398,7 +2602,8 @@ a:hover {
   background-color: #ffffff;
   width: 975px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .save-playlist-container
   .save-playlist-inner
   .data-table
@@ -2406,7 +2611,8 @@ a:hover {
   td {
   padding: 8px 10px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .save-playlist-container
   .save-playlist-inner
   .data-table
@@ -2418,7 +2624,8 @@ a:hover {
   display: inline-block;
   vertical-align: middle;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .save-playlist-container
   .save-playlist-inner
   .data-table
@@ -2434,7 +2641,8 @@ a:hover {
   box-shadow: 0px 1px 6px #00000029;
   border-radius: 2px;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .save-playlist-container
   .save-playlist-inner
   .data-table
@@ -2451,7 +2659,8 @@ a:hover {
   padding: 0;
   background: none;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .save-playlist-container
   .save-playlist-inner
   .data-table
@@ -2469,7 +2678,8 @@ a:hover {
   transform: rotate(-45deg);
   z-index: 1;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .save-playlist-container
   .save-playlist-inner
   .data-table
@@ -2487,7 +2697,8 @@ a:hover {
   transform: rotate(45deg);
   z-index: 1;
 }
-.new-playlist-container
+.perfmanager-dashboard-container
+  .new-playlist-container
   .save-playlist-container
   .save-playlist-inner
   .data-table
@@ -2496,72 +2707,104 @@ a:hover {
 }
 
 @media (max-width: 990px) {
-  .filter-starred.float-right {
+  .perfmanager-dashboard-container .filter-starred.float-right {
     float: left;
     padding-top: 15px;
   }
-  .manage-dashboard-search .search-control-group {
+  .perfmanager-dashboard-container
+    .manage-dashboard-search
+    .search-control-group {
     width: 100%;
     margin-bottom: 15px;
   }
-  .manage-dashboard-search .search-buttons.float-right {
+  .perfmanager-dashboard-container
+    .manage-dashboard-search
+    .search-buttons.float-right {
     float: left;
   }
-  .manage-dashboard-general .general-logs {
+  .perfmanager-dashboard-container .manage-dashboard-general .general-logs {
     display: grid;
   }
-  .manage-dashboard-general .general-logs .general-logs-inner {
+  .perfmanager-dashboard-container
+    .manage-dashboard-general
+    .general-logs
+    .general-logs-inner {
     overflow-x: auto;
   }
-  .manage-dashboard-general .general-logs .general-logs-inner .data-table {
+  .perfmanager-dashboard-container
+    .manage-dashboard-general
+    .general-logs
+    .general-logs-inner
+    .data-table {
     width: 800px;
   }
-  .new-playlist-container .new-playlist-heading {
+  .perfmanager-dashboard-container
+    .new-playlist-container
+    .new-playlist-heading {
     padding-bottom: 10px;
   }
-  .new-playlist-container .float-right.playlist {
+  .perfmanager-dashboard-container
+    .new-playlist-container
+    .float-right.playlist {
     float: left;
     padding-bottom: 15px;
   }
-  .new-playlist-container .sort-checkbox {
+  .perfmanager-dashboard-container .new-playlist-container .sort-checkbox {
     padding-bottom: 10px;
   }
-  .new-playlist-container .addalltolist {
+  .perfmanager-dashboard-container .new-playlist-container .addalltolist {
     display: block;
   }
 }
 
 @media (max-width: 767px) {
-  .filter-starred.float-right {
+  .perfmanager-dashboard-container .filter-starred.float-right {
     width: 100%;
   }
-  .manage-dashboard-fliter-sort .sort-select-menu {
+  .perfmanager-dashboard-container
+    .manage-dashboard-fliter-sort
+    .sort-select-menu {
     width: 75%;
     margin-top: 15px;
   }
-  .manage-dashboard-fliter-sort .sort-select-menu select {
+  .perfmanager-dashboard-container
+    .manage-dashboard-fliter-sort
+    .sort-select-menu
+    select {
     width: 80%;
   }
-  .new-playlist-container .add-dashboard {
+  .perfmanager-dashboard-container .new-playlist-container .add-dashboard {
     display: grid;
   }
-  .new-playlist-container .add-dashboard .add-dashboard-inner {
+  .perfmanager-dashboard-container
+    .new-playlist-container
+    .add-dashboard
+    .add-dashboard-inner {
     overflow-x: auto;
   }
-  .new-playlist-container .add-dashboard .add-dashboard-inner .data-table {
+  .perfmanager-dashboard-container
+    .new-playlist-container
+    .add-dashboard
+    .add-dashboard-inner
+    .data-table {
     width: 450px;
   }
-  .new-playlist-container .add-dashboards-playlist .add-dashboard {
+  .perfmanager-dashboard-container
+    .new-playlist-container
+    .add-dashboards-playlist
+    .add-dashboard {
     display: grid;
   }
-  .new-playlist-container
+  .perfmanager-dashboard-container
+    .new-playlist-container
     .add-dashboards-playlist
     .add-dashboard
     .add-dashboard-playlist {
     overflow-x: auto;
     overflow-y: hidden;
   }
-  .new-playlist-container
+  .perfmanager-dashboard-container
+    .new-playlist-container
     .add-dashboards-playlist
     .add-dashboard
     .add-dashboard-playlist
@@ -2571,30 +2814,46 @@ a:hover {
 }
 
 @media only screen and (max-width: 1200px) and (min-width: 992px) {
-  .new-playlist-container .sort-checkbox span {
+  .perfmanager-dashboard-container .new-playlist-container .sort-checkbox span {
     font-size: 12px;
   }
-  .new-playlist-container .sort-select-menu {
+  .perfmanager-dashboard-container .new-playlist-container .sort-select-menu {
     width: 205px;
   }
-  .new-playlist-container .sort-select-menu select {
+  .perfmanager-dashboard-container
+    .new-playlist-container
+    .sort-select-menu
+    select {
     width: 150px;
   }
-  .new-playlist-container .filter-starred.float-right {
+  .perfmanager-dashboard-container
+    .new-playlist-container
+    .filter-starred.float-right {
     float: left;
     padding-top: 15px;
   }
-  .manage-dashboard-fliter-sort .sort-checkbox span {
+  .perfmanager-dashboard-container
+    .manage-dashboard-fliter-sort
+    .sort-checkbox
+    span {
     font-size: 12px;
   }
-  .manage-dashboard-fliter-sort .sort-select-menu {
+  .perfmanager-dashboard-container
+    .manage-dashboard-fliter-sort
+    .sort-select-menu {
     width: 165px;
   }
-  .manage-dashboard-fliter-sort .sort-select-menu span {
+  .perfmanager-dashboard-container
+    .manage-dashboard-fliter-sort
+    .sort-select-menu
+    span {
     padding-left: 10px;
     padding-right: 5px;
   }
-  .manage-dashboard-fliter-sort .sort-select-menu select {
+  .perfmanager-dashboard-container
+    .manage-dashboard-fliter-sort
+    .sort-select-menu
+    select {
     width: 130px;
     font-size: 12px;
   }
