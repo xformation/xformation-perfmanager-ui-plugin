@@ -278,9 +278,9 @@ export class ManageTab extends React.Component<any, any> {
                         </div>
                         <div className="col-lg-8 col-md-12 col-sm-12">
                             <div className="search-buttons float-right">
-                                <Rbac parentName={config.PARENT_NAME} childName="managedashboard-managetab-newdashboardbtn">
+                                {/* <Rbac parentName={config.PARENT_NAME} childName="managedashboard-managetab-newdashboardbtn">
                                     <a className="blue-button" onClick={this.openNewDashboard}>New Dashboard</a>
-                                </Rbac>
+                                </Rbac> */}
                                 <Rbac parentName={config.PARENT_NAME} childName="managedashboard-managetab-newfolderbtn">
                                     <a className="blue-button m-r-0" onClick={() => this.onClickUnImplementedFeature("")}>New Folder</a>
                                 </Rbac>
