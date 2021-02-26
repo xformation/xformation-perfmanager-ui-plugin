@@ -611,7 +611,7 @@ a:hover {
   color: #ffffff;
 }
 
-.catalog-app-text h3 {
+.perfmanager-dashboard-container .catalog-app-text h3 {
   font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;
@@ -619,7 +619,7 @@ a:hover {
   color: #ffffff;
 }
 
-.catalog-app-text p {
+.perfmanager-dashboard-container .catalog-app-text p {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -627,12 +627,12 @@ a:hover {
   margin-bottom: 0;
 }
 
-.category-select {
+.perfmanager-dashboard-container .category-select {
   display: inline-block;
   vertical-align: top;
   padding-right: 15px;
 }
-.category-select .form-control {
+.perfmanager-dashboard-container .category-select .form-control {
   background-color: #f0f3f7 !important;
   border: none !important;
   font-size: 12px;
@@ -643,13 +643,13 @@ a:hover {
   line-height: 34px;
 }
 
-.category-control-group {
+.perfmanager-dashboard-container .category-control-group {
   position: relative;
   display: inline-block;
   vertical-align: top;
   width: 300px;
 }
-.category-control-group .input-group-text {
+.perfmanager-dashboard-container .category-control-group .input-group-text {
   max-width: 100%;
   text-align: left;
   padding-left: 30px;
@@ -657,7 +657,7 @@ a:hover {
   border: 1px solid #8392a7;
   background-color: #ffffff;
 }
-.category-control-group button {
+.perfmanager-dashboard-container .category-control-group button {
   position: absolute;
   left: 0;
   top: 0;
@@ -669,12 +669,12 @@ a:hover {
   height: 34px;
 }
 
-.categories-boxes {
+.perfmanager-dashboard-container .categories-boxes {
   height: 410px;
   overflow-y: auto;
   padding: 5px 0 5px 5px;
 }
-.categories-boxes .category-box {
+.perfmanager-dashboard-container .categories-boxes .category-box {
   width: 32.33%;
   margin-right: 1%;
   margin-bottom: 5px;
@@ -684,15 +684,25 @@ a:hover {
   display: inline-block;
   padding: 15px 10px;
 }
-.categories-boxes .category-box .category-image {
+.perfmanager-dashboard-container
+  .categories-boxes
+  .category-box
+  .category-image {
   width: 100%;
   height: auto;
 }
-.categories-boxes .category-box .category-image img {
+.perfmanager-dashboard-container
+  .categories-boxes
+  .category-box
+  .category-image
+  img {
   max-width: 100%;
   max-height: 70px;
 }
-.categories-boxes .category-box .category-name {
+.perfmanager-dashboard-container
+  .categories-boxes
+  .category-box
+  .category-name {
   font-size: 13px;
   font-weight: 500;
   line-height: 16px;
@@ -700,7 +710,11 @@ a:hover {
   padding-bottom: 15px;
   min-height: 40px;
 }
-.categories-boxes .category-box .category-add-link a {
+.perfmanager-dashboard-container
+  .categories-boxes
+  .category-box
+  .category-add-link
+  a {
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
@@ -708,11 +722,11 @@ a:hover {
   display: block;
 }
 
-.catalog-form-group {
+.perfmanager-dashboard-container .catalog-form-group {
   padding: 0 60px 0 30px;
 }
 
-.salect-services-text {
+.perfmanager-dashboard-container .salect-services-text {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -721,17 +735,17 @@ a:hover {
   text-align: center;
 }
 
-.right-config-box {
+.perfmanager-dashboard-container .right-config-box {
   overflow-y: auto;
   height: 410px;
   padding-left: 0;
   padding-right: 5px;
   color: #ffffff;
 }
-.right-config-box .config-heading {
+.perfmanager-dashboard-container .right-config-box .config-heading {
   padding-bottom: 20px;
 }
-.right-config-box .config-heading h5 {
+.perfmanager-dashboard-container .right-config-box .config-heading h5 {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -739,16 +753,16 @@ a:hover {
   margin-bottom: 0;
   display: inline-block;
 }
-.right-config-box .config-heading a {
+.perfmanager-dashboard-container .right-config-box .config-heading a {
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
   color: #2a9ce7;
 }
-.right-config-box .publishing-text {
+.perfmanager-dashboard-container .right-config-box .publishing-text {
   padding-bottom: 20px;
 }
-.right-config-box .publishing-text p {
+.perfmanager-dashboard-container .right-config-box .publishing-text p {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -756,29 +770,48 @@ a:hover {
   margin-bottom: 0;
 }
 
-.catalog-collapse .config-collapse {
+.perfmanager-dashboard-container .catalog-collapse .config-collapse {
   position: relative;
 }
-.catalog-collapse .config-collapse:nth-child(odd) .collapse-toggle {
+.perfmanager-dashboard-container
+  .catalog-collapse
+  .config-collapse:nth-child(odd)
+  .collapse-toggle {
   background-color: #202226;
 }
-.catalog-collapse .config-collapse .collapse-toggle {
+.perfmanager-dashboard-container
+  .catalog-collapse
+  .config-collapse
+  .collapse-toggle {
   display: block;
   padding: 10px;
   cursor: pointer;
 }
-.catalog-collapse .config-collapse .collapse-toggle span {
+.perfmanager-dashboard-container
+  .catalog-collapse
+  .config-collapse
+  .collapse-toggle
+  span {
   display: inline-block;
   margin-right: 10px;
   width: 20px;
   height: 20px;
   vertical-align: top;
 }
-.catalog-collapse .config-collapse .collapse-toggle span img {
+.perfmanager-dashboard-container
+  .catalog-collapse
+  .config-collapse
+  .collapse-toggle
+  span
+  img {
   max-width: 100%;
   height: auto;
 }
-.catalog-collapse .config-collapse .collapse-toggle p {
+.perfmanager-dashboard-container
+  .catalog-collapse
+  .config-collapse
+  .collapse-toggle
+  p {
   display: inline-block;
   font-size: 13px;
   font-weight: 400;
@@ -789,7 +822,10 @@ a:hover {
   vertical-align: top;
   width: 80%;
 }
-.catalog-collapse .config-collapse .collapse-card-body {
+.perfmanager-dashboard-container
+  .catalog-collapse
+  .config-collapse
+  .collapse-card-body {
   padding: 30px 15px 10px;
   background: #ffffff;
   box-shadow: 0px 3px 3px #00000029;
@@ -797,7 +833,11 @@ a:hover {
   width: 100%;
   z-index: 10;
 }
-.catalog-collapse .config-collapse .collapse-card-body p {
+.perfmanager-dashboard-container
+  .catalog-collapse
+  .config-collapse
+  .collapse-card-body
+  p {
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
@@ -805,24 +845,24 @@ a:hover {
   margin-bottom: 0;
 }
 
-.catalog-form-group .general-heading {
+.perfmanager-dashboard-container .catalog-form-group .general-heading {
   display: block;
   padding-bottom: 5px;
 }
-.catalog-form-group .general-heading input {
+.perfmanager-dashboard-container .catalog-form-group .general-heading input {
   display: inline-block;
   vertical-align: top;
   margin-top: 5px;
   cursor: pointer;
 }
-.catalog-form-group .general-heading span {
+.perfmanager-dashboard-container .catalog-form-group .general-heading span {
   display: inline-block;
   padding-left: 15px;
   padding-top: 3px;
   vertical-align: top;
   cursor: pointer;
 }
-.catalog-form-group .general-heading h4 {
+.perfmanager-dashboard-container .catalog-form-group .general-heading h4 {
   display: inline-block;
   font-size: 15px;
   font-weight: 500;
@@ -833,18 +873,18 @@ a:hover {
   padding-top: 2px;
 }
 
-.catalog-form-group .general-logs {
+.perfmanager-dashboard-container .catalog-form-group .general-logs {
   padding-left: 30px;
   padding-top: 0px;
   padding-bottom: 5px;
 }
-.catalog-form-group .general-logs input {
+.perfmanager-dashboard-container .catalog-form-group .general-logs input {
   display: inline-block;
   vertical-align: top;
   margin-top: 5px;
   cursor: pointer;
 }
-.catalog-form-group .general-logs span {
+.perfmanager-dashboard-container .catalog-form-group .general-logs span {
   display: inline-block;
   padding-left: 15px;
   padding-top: 3px;
@@ -855,7 +895,7 @@ a:hover {
   line-height: 22px;
   color: #3b4859;
 }
-.catalog-form-group .general-logs h4 {
+.perfmanager-dashboard-container .catalog-form-group .general-logs h4 {
   display: inline-block;
   font-size: 15px;
   font-weight: 500;
@@ -865,7 +905,7 @@ a:hover {
   padding-left: 15px;
   padding-top: 2px;
 }
-.catalog-form-group .general-logs .data-table {
+.perfmanager-dashboard-container .catalog-form-group .general-logs .data-table {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -874,19 +914,38 @@ a:hover {
   background-color: #ffffff;
   width: 100%;
 }
-.catalog-form-group .general-logs .data-table tr td {
+.perfmanager-dashboard-container
+  .catalog-form-group
+  .general-logs
+  .data-table
+  tr
+  td {
   padding: 3px 0px;
 }
-.catalog-form-group .general-logs .data-table tr td input {
+.perfmanager-dashboard-container
+  .catalog-form-group
+  .general-logs
+  .data-table
+  tr
+  td
+  input {
   margin-top: 6px;
 }
-.catalog-form-group .general-logs .data-table .general-heading {
+.perfmanager-dashboard-container
+  .catalog-form-group
+  .general-logs
+  .data-table
+  .general-heading {
   padding-bottom: 0;
 }
-.catalog-form-group .general-logs .data-table .general-logs {
+.perfmanager-dashboard-container
+  .catalog-form-group
+  .general-logs
+  .data-table
+  .general-logs {
   padding-bottom: 0;
 }
-.catalog-form-group .general-logs .aws-bg {
+.perfmanager-dashboard-container .catalog-form-group .general-logs .aws-bg {
   background-color: #3d71aa;
   color: #ffffff;
   padding: 2px 10px;
@@ -894,7 +953,7 @@ a:hover {
   border-radius: 5px;
   margin: 0 2px;
 }
-.catalog-form-group .general-logs .amazon-bg {
+.perfmanager-dashboard-container .catalog-form-group .general-logs .amazon-bg {
   background-color: #8a2eb8;
   color: #ffffff;
   padding: 2px 10px;
@@ -902,7 +961,10 @@ a:hover {
   border-radius: 5px;
   margin: 0 2px;
 }
-.catalog-form-group .general-logs .cloudwatch-bg {
+.perfmanager-dashboard-container
+  .catalog-form-group
+  .general-logs
+  .cloudwatch-bg {
   background-color: #bf1b00;
   color: #ffffff;
   padding: 2px 10px;
@@ -910,7 +972,7 @@ a:hover {
   border-radius: 5px;
   margin: 0 2px;
 }
-.catalog-form-group .general-logs .logs-bg {
+.perfmanager-dashboard-container .catalog-form-group .general-logs .logs-bg {
   background-color: #4c7a3f;
   color: #ffffff;
   padding: 2px 10px;
@@ -918,7 +980,10 @@ a:hover {
   border-radius: 5px;
   margin: 0 2px;
 }
-.catalog-form-group .general-logs .monitorigartist-bg {
+.perfmanager-dashboard-container
+  .catalog-form-group
+  .general-logs
+  .monitorigartist-bg {
   background-color: #3b4859;
   color: #ffffff;
   padding: 2px 10px;
@@ -927,11 +992,11 @@ a:hover {
   margin: 0 2px;
 }
 
-.catalog-form-group .collapse:not(.show) {
+.perfmanager-dashboard-container .catalog-form-group .collapse:not(.show) {
   display: none;
 }
 
-.catalog-form-group .collapsing {
+.perfmanager-dashboard-container .catalog-form-group .collapsing {
   position: relative;
   height: 0;
   overflow: hidden;
@@ -939,7 +1004,7 @@ a:hover {
 }
 
 @media (max-width: 1200px) {
-  .right-config-box {
+  .perfmanager-dashboard-container .right-config-box {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 20px;
@@ -949,43 +1014,46 @@ a:hover {
 }
 
 @media (max-width: 980px) {
-  .category-select {
+  .perfmanager-dashboard-container .category-select {
     padding-right: 0;
     padding-bottom: 15px;
     width: 100%;
   }
-  .category-select .form-control {
+  .perfmanager-dashboard-container .category-select .form-control {
     width: 100%;
   }
-  .category-control-group {
+  .perfmanager-dashboard-container .category-control-group {
     width: 100%;
   }
-  .categories-boxes .category-box {
+  .perfmanager-dashboard-container .categories-boxes .category-box {
     width: 49%;
   }
 }
 
 @media (max-width: 767px) {
-  .categories-boxes .category-box .category-image {
+  .perfmanager-dashboard-container
+    .categories-boxes
+    .category-box
+    .category-image {
     margin-bottom: 15px;
   }
-  .salect-services-text {
+  .perfmanager-dashboard-container .salect-services-text {
     margin-top: 50px;
     margin-bottom: 50px;
   }
 }
 
-.import-dashboard-container {
+.perfmanager-dashboard-container .import-dashboard-container {
   padding-left: 30px;
   padding-right: 30px;
 }
 
-.select-catalog-lists {
+.perfmanager-dashboard-container .select-catalog-lists {
   height: 410px;
   overflow-y: auto;
   padding: 5px 5px;
 }
-.select-catalog-lists .catalog-list-box {
+.perfmanager-dashboard-container .select-catalog-lists .catalog-list-box {
   width: 24%;
   margin-right: 1%;
   margin-bottom: 5px;
@@ -996,15 +1064,25 @@ a:hover {
   padding: 15px 10px;
   cursor: pointer;
 }
-.select-catalog-lists .catalog-list-box .catalog-list-image {
+.perfmanager-dashboard-container
+  .select-catalog-lists
+  .catalog-list-box
+  .catalog-list-image {
   width: 100%;
   height: auto;
 }
-.select-catalog-lists .catalog-list-box .catalog-list-image img {
+.perfmanager-dashboard-container
+  .select-catalog-lists
+  .catalog-list-box
+  .catalog-list-image
+  img {
   max-width: 100%;
   max-height: 82px;
 }
-.select-catalog-lists .catalog-list-box .catalog-list-name {
+.perfmanager-dashboard-container
+  .select-catalog-lists
+  .catalog-list-box
+  .catalog-list-name {
   font-size: 13px;
   font-weight: 500;
   line-height: 16px;
@@ -1012,7 +1090,11 @@ a:hover {
   padding-bottom: 15px;
   min-height: 40px;
 }
-.select-catalog-lists .catalog-list-box .catalog-list-add-link a {
+.perfmanager-dashboard-container
+  .select-catalog-lists
+  .catalog-list-box
+  .catalog-list-add-link
+  a {
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
@@ -1020,17 +1102,24 @@ a:hover {
   display: block;
 }
 
-.select-dashboard {
+.perfmanager-dashboard-container .select-dashboard {
   padding: 5px 0px 5px 0px;
 }
-.select-dashboard .d-none {
+.perfmanager-dashboard-container .select-dashboard .d-none {
   display: none;
 }
-.select-dashboard .select-dashboard-heading .heading-image img {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .select-dashboard-heading
+  .heading-image
+  img {
   max-width: 100%;
   height: auto;
 }
-.select-dashboard .select-dashboard-heading h3 {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .select-dashboard-heading
+  h3 {
   color: #3b4859;
   font-size: 16px;
   font-weight: 500;
@@ -1038,36 +1127,54 @@ a:hover {
   margin-bottom: 20px;
   margin-top: 5px;
 }
-.select-dashboard .select-dashboard-heading p {
+.perfmanager-dashboard-container .select-dashboard .select-dashboard-heading p {
   color: #8998ac;
   font-size: 14px;
   font-weight: 300;
   line-height: 22px;
 }
-.select-dashboard .select-dashboard-lists {
+.perfmanager-dashboard-container .select-dashboard .select-dashboard-lists {
   padding-top: 50px;
 }
-.select-dashboard .select-dashboard-lists .lists {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .select-dashboard-lists
+  .lists {
   height: 410px;
   overflow-y: auto;
 }
-.select-dashboard .select-dashboard-lists .lists .collapse-card-body {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .select-dashboard-lists
+  .lists
+  .collapse-card-body {
   padding: 10px 15px;
   background-color: #ffffff;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .select-dashboard-lists
   .lists
   .collapse-card-body:nth-child(odd) {
   background-color: #f8f9fb;
 }
-.select-dashboard .select-dashboard-lists .lists .collapse-card-body input {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .select-dashboard-lists
+  .lists
+  .collapse-card-body
+  input {
   display: inline-block;
   vertical-align: top;
   margin-right: 15px;
   margin-top: 5px;
 }
-.select-dashboard .select-dashboard-lists .lists .collapse-card-body span {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .select-dashboard-lists
+  .lists
+  .collapse-card-body
+  span {
   display: inline-block;
   vertical-align: top;
   width: 24px;
@@ -1075,11 +1182,22 @@ a:hover {
   margin-right: 15px;
   margin-bottom: 0;
 }
-.select-dashboard .select-dashboard-lists .lists .collapse-card-body span img {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .select-dashboard-lists
+  .lists
+  .collapse-card-body
+  span
+  img {
   width: 100%;
   height: 100%;
 }
-.select-dashboard .select-dashboard-lists .lists .collapse-card-body p {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .select-dashboard-lists
+  .lists
+  .collapse-card-body
+  p {
   display: inline-block;
   vertical-align: top;
   font-size: 14px;
@@ -1089,11 +1207,18 @@ a:hover {
   margin-bottom: 0;
   width: 80%;
 }
-.select-dashboard .list-right-content .heading {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .list-right-content
+  .heading {
   background-color: #f8f9fb;
   padding: 10px 15px;
 }
-.select-dashboard .list-right-content .heading span {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .list-right-content
+  .heading
+  span {
   display: inline-block;
   vertical-align: top;
   width: 24px;
@@ -1101,11 +1226,20 @@ a:hover {
   margin-right: 15px;
   margin-bottom: 0;
 }
-.select-dashboard .list-right-content .heading span img {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .list-right-content
+  .heading
+  span
+  img {
   width: 100%;
   height: 100%;
 }
-.select-dashboard .list-right-content .heading p {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .list-right-content
+  .heading
+  p {
   display: inline-block;
   vertical-align: top;
   font-size: 14px;
@@ -1115,13 +1249,20 @@ a:hover {
   margin-bottom: 0;
   width: 80%;
 }
-.select-dashboard .list-right-content .content {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .list-right-content
+  .content {
   padding: 30px 15px;
   background: #ffffff;
   box-shadow: 0px 3px 3px #00000029;
   border: 1px solid #eff2f7;
 }
-.select-dashboard .list-right-content .content h3 {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .list-right-content
+  .content
+  h3 {
   display: block;
   font-size: 16px;
   font-weight: 600;
@@ -1129,31 +1270,50 @@ a:hover {
   color: #8998ac;
   margin-bottom: 0;
 }
-.select-dashboard .list-right-content .content ul {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .list-right-content
+  .content
+  ul {
   display: block;
   list-style: none;
   margin-bottom: 20px;
 }
-.select-dashboard .list-right-content .content ul li {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .list-right-content
+  .content
+  ul
+  li {
   display: block;
   font-size: 14px;
   font-weight: 300;
   line-height: 24px;
   color: #8998ac;
 }
-.select-dashboard .bulk-lists {
+.perfmanager-dashboard-container .select-dashboard .bulk-lists {
   height: 400px;
   overflow-y: auto;
   padding: 0;
 }
-.select-dashboard .bulk-lists .collapse-card-body {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .bulk-lists
+  .collapse-card-body {
   padding: 10px 15px;
   background-color: #ffffff;
 }
-.select-dashboard .bulk-lists .collapse-card-body:nth-child(odd) {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .bulk-lists
+  .collapse-card-body:nth-child(odd) {
   background-color: #f8f9fb;
 }
-.select-dashboard .bulk-lists .collapse-card-body span {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .bulk-lists
+  .collapse-card-body
+  span {
   display: inline-block;
   vertical-align: top;
   width: 24px;
@@ -1161,11 +1321,20 @@ a:hover {
   margin-right: 15px;
   margin-bottom: 0;
 }
-.select-dashboard .bulk-lists .collapse-card-body span img {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .bulk-lists
+  .collapse-card-body
+  span
+  img {
   width: 100%;
   height: 100%;
 }
-.select-dashboard .bulk-lists .collapse-card-body p {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .bulk-lists
+  .collapse-card-body
+  p {
   display: inline-block;
   vertical-align: top;
   font-size: 14px;
@@ -1176,14 +1345,18 @@ a:hover {
   width: 80%;
   cursor: pointer;
 }
-.select-dashboard .bulk-lists .collapse-card-body .btn-link {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .bulk-lists
+  .collapse-card-body
+  .btn-link {
   color: #3b7cff !important;
   padding: 0 5px;
   font-size: 18px;
   line-height: 22px;
   vertical-align: middle;
 }
-.select-dashboard .dashboard-frame {
+.perfmanager-dashboard-container .select-dashboard .dashboard-frame {
   height: 430px;
   overflow-y: auto;
   padding: 15px 20px;
@@ -1193,26 +1366,34 @@ a:hover {
   border: 0.25px solid #707070;
   opacity: 1;
 }
-.select-dashboard .dashboard-frame iframe {
+.perfmanager-dashboard-container .select-dashboard .dashboard-frame iframe {
   border: none;
 }
-.select-dashboard .config-form {
+.perfmanager-dashboard-container .select-dashboard .config-form {
   padding-top: 40px;
 }
-.select-dashboard .config-form .form-group {
+.perfmanager-dashboard-container .select-dashboard .config-form .form-group {
   margin-bottom: 20px;
 }
-.select-dashboard .config-form .form-group label {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .config-form
+  .form-group
+  label {
   display: inline-block;
   vertical-align: top;
   width: 12%;
 }
-.select-dashboard .config-form .form-group input {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .config-form
+  .form-group
+  input {
   display: inline-block;
   vertical-align: top;
   width: 50%;
 }
-.select-dashboard .config-form .form-group p {
+.perfmanager-dashboard-container .select-dashboard .config-form .form-group p {
   display: inline-block;
   vertical-align: top;
   width: 50%;
@@ -1224,23 +1405,39 @@ a:hover {
   margin-bottom: 0;
   height: calc(1.5em + 0.75rem + 2px);
 }
-.select-dashboard .config-form .form-group .select-import-dashboard {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard {
   position: relative;
   display: inline-block;
   vertical-align: top;
   width: 50%;
 }
-.select-dashboard .config-form .form-group .select-import-dashboard span {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  span {
   display: block;
   width: 100%;
   cursor: pointer;
   color: #495057;
   line-height: 22px;
 }
-.select-dashboard .config-form .form-group .select-import-dashboard span i {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .config-form
+  .form-group
+  .select-import-dashboard
+  span
+  i {
   line-height: 22px;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1251,7 +1448,8 @@ a:hover {
   border-radius: 4px;
   padding: 15px;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1260,7 +1458,8 @@ a:hover {
   display: block;
   padding-bottom: 5px;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1273,7 +1472,8 @@ a:hover {
   cursor: pointer;
   width: auto;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1289,7 +1489,8 @@ a:hover {
   padding-left: 15px;
   padding-top: 2px;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1300,7 +1501,8 @@ a:hover {
   cursor: pointer;
   display: inline-block;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1310,7 +1512,8 @@ a:hover {
   padding-top: 5px;
   padding-bottom: 10px;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1325,7 +1528,8 @@ a:hover {
   background-color: #ffffff;
   width: 100%;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1336,7 +1540,8 @@ a:hover {
   td {
   padding: 0 0 5px 0;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1352,7 +1557,8 @@ a:hover {
   cursor: pointer;
   width: auto;
 }
-.select-dashboard
+.perfmanager-dashboard-container
+  .select-dashboard
   .config-form
   .form-group
   .select-import-dashboard
@@ -1371,7 +1577,7 @@ a:hover {
   padding-left: 15px;
   padding-top: 2px;
 }
-.select-dashboard .edit-dashboard {
+.perfmanager-dashboard-container .select-dashboard .edit-dashboard {
   margin-left: -30px;
   margin-right: -30px;
   padding-left: 30px;
@@ -1381,7 +1587,10 @@ a:hover {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #707070;
 }
-.select-dashboard .edit-dashboard .data-source-heading {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .edit-dashboard
+  .data-source-heading {
   background-color: #f8f9fb;
   color: #3b4859;
   font-size: 20px;
@@ -1391,17 +1600,20 @@ a:hover {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.select-dashboard .edit-dashboard .order {
+.perfmanager-dashboard-container .select-dashboard .edit-dashboard .order {
   order: 3;
   display: flex;
 }
-.select-dashboard .edit-dashboard h3 {
+.perfmanager-dashboard-container .select-dashboard .edit-dashboard h3 {
   font-size: 18px;
   font-weight: 500;
   line-height: 22px;
   color: #3b4859;
 }
-.select-dashboard .edit-dashboard .data-source-box {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .edit-dashboard
+  .data-source-box {
   background: #ffffff;
   box-shadow: 0px 0px 6px #00000029;
   padding: 15px;
@@ -1409,10 +1621,18 @@ a:hover {
   margin-right: 15px;
   margin-bottom: 15px;
 }
-.select-dashboard .edit-dashboard .data-source-box .image {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .edit-dashboard
+  .data-source-box
+  .image {
   width: 110px;
 }
-.select-dashboard .edit-dashboard .data-source-box .name {
+.perfmanager-dashboard-container
+  .select-dashboard
+  .edit-dashboard
+  .data-source-box
+  .name {
   color: #3b4859;
   font-size: 16px;
   line-height: 22px;
@@ -1421,76 +1641,111 @@ a:hover {
 }
 
 @media only screen and (max-width: 1023px) {
-  .wizard-step-line-container .wizard-step-button {
+  .perfmanager-dashboard-container
+    .wizard-step-line-container
+    .wizard-step-button {
     width: 100%;
     border-left: 1px solid #707070b5;
     border-right: 1px solid #707070b5;
     border-bottom: none;
   }
-  .wizard-step-line-container .wizard-step-button:last-child {
+  .perfmanager-dashboard-container
+    .wizard-step-line-container
+    .wizard-step-button:last-child {
     border-bottom: 1px solid #707070b5;
   }
-  .wizard-step-line-container .wizard-step-button:before,
-  .wizard-step-line-container .wizard-step-button:after {
+  .perfmanager-dashboard-container
+    .wizard-step-line-container
+    .wizard-step-button:before,
+  .perfmanager-dashboard-container
+    .wizard-step-line-container
+    .wizard-step-button:after {
     display: none;
   }
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 768px) {
-  .import-dashboard-container {
+  .perfmanager-dashboard-container .import-dashboard-container {
     padding-left: 0;
     padding-right: 0;
   }
-  .select-catalog-lists .catalog-list-box {
+  .perfmanager-dashboard-container .select-catalog-lists .catalog-list-box {
     width: 32.3333%;
   }
-  .select-dashboard .config-form .form-group label {
+  .perfmanager-dashboard-container
+    .select-dashboard
+    .config-form
+    .form-group
+    label {
     width: 22%;
   }
-  .select-dashboard .edit-dashboard {
+  .perfmanager-dashboard-container .select-dashboard .edit-dashboard {
     margin-left: 0;
     margin-right: 0;
   }
-  .select-dashboard .edit-dashboard .order {
+  .perfmanager-dashboard-container .select-dashboard .edit-dashboard .order {
     order: 0;
   }
 }
 
 @media only screen and (max-width: 767px) and (min-width: 540px) {
-  .import-dashboard-container {
+  .perfmanager-dashboard-container .import-dashboard-container {
     padding-left: 0;
     padding-right: 0;
   }
-  .select-catalog-lists .catalog-list-box {
+  .perfmanager-dashboard-container .select-catalog-lists .catalog-list-box {
     width: 49%;
   }
-  .select-catalog-lists .catalog-list-box .catalog-list-name {
+  .perfmanager-dashboard-container
+    .select-catalog-lists
+    .catalog-list-box
+    .catalog-list-name {
     margin-bottom: 0;
     margin-top: 15px;
   }
-  .select-dashboard .select-dashboard-heading .heading-text {
+  .perfmanager-dashboard-container
+    .select-dashboard
+    .select-dashboard-heading
+    .heading-text {
     padding-top: 15px;
   }
-  .select-dashboard .list-right-content {
+  .perfmanager-dashboard-container .select-dashboard .list-right-content {
     margin-top: 30px;
   }
-  .select-dashboard .select-dashboard-lists .lists .collapse-card-body p {
+  .perfmanager-dashboard-container
+    .select-dashboard
+    .select-dashboard-lists
+    .lists
+    .collapse-card-body
+    p {
     width: 75%;
   }
-  .select-dashboard .config-form .form-group label {
+  .perfmanager-dashboard-container
+    .select-dashboard
+    .config-form
+    .form-group
+    label {
     width: 30%;
   }
-  .select-dashboard .config-form .form-group input {
+  .perfmanager-dashboard-container
+    .select-dashboard
+    .config-form
+    .form-group
+    input {
     width: 70%;
   }
-  .select-dashboard .config-form .form-group select {
+  .perfmanager-dashboard-container
+    .select-dashboard
+    .config-form
+    .form-group
+    select {
     width: 70%;
   }
-  .select-dashboard .edit-dashboard {
+  .perfmanager-dashboard-container .select-dashboard .edit-dashboard {
     margin-left: 0;
     margin-right: 0;
   }
-  .select-dashboard .edit-dashboard .order {
+  .perfmanager-dashboard-container .select-dashboard .edit-dashboard .order {
     order: 0;
   }
 }
