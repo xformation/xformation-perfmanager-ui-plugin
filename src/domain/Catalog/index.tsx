@@ -88,11 +88,11 @@ export class Catalog extends React.Component<any, any> {
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-8 col-sm-12">
-                            <div className="category-name">{val.catalog_name}</div>
+                            <div className="category-name">{val.catalogName}</div>
                             <div className="category-name">{val.type}</div>
                             <div className="category-add-link">
-                                <a onClick={e => this.onClickAddLibrary(e, val.catalog_name, val.id)}>Add To library</a>
-                                <a onClick={e => this.onClickaAddDashboardToCollector(e, val.catalog_name, val.id)}>Add Dashboard To Collector</a>
+                                <a onClick={e => this.onClickaAddDashboardToCollector(e, val.catalogName, val.id)}>Add Dashboard To Catalog</a>
+                                <a onClick={e => this.onClickAddLibrary(e, val.catalogName, val.id)}>Add Catalog To library</a>
                                 <a onClick={this.onClickPreviewDashboard}>Preview Dashboard</a>
 
                             </div>
@@ -175,7 +175,7 @@ export class Catalog extends React.Component<any, any> {
         const { catalogs } = this.state;
         var searchResult = [];
         for (let i = 0; i < catalogs.length; i++) {
-            if (catalogs[i].catalog_name.indexOf(value) !== -1 || value === '') {
+            if (catalogs[i].catalogName.indexOf(value) !== -1 || value === '') {
                 searchResult.push(catalogs[i]);
             }
         }
@@ -278,7 +278,7 @@ export class Catalog extends React.Component<any, any> {
                                         <div className="config-heading">
                                             <h5>{this.state.selectedCatalogName}</h5>
                                             <div className="category-add-link float-right">
-                                                <a onClick={e => this.onClickAddLibrary(e, this.state.selectedCatalogName, this.state.selectedCatalogId)}>Add To library</a>
+                                                <a onClick={e => this.onClickAddLibrary(e, this.state.selectedCatalogName, this.state.selectedCatalogId)}>Add Catalog To library</a>
                                             </div>
                                         </div>
                                         <div className="publishing-text">

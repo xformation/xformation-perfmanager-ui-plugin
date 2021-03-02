@@ -2,16 +2,16 @@
 const IP = "localhost";
 
 const securitySrvUrl = `http://${IP}:8094`;
-const catalogSrvUrl = `http://${IP}:7043/api/xformation`;
+const catalogSrvUrl = `http://${IP}:5050/api`;
 
 export const config = {
   basePath: "/plugins/xformation-perfmanager-ui-plugin/page",
-  GET_ALL_COLLECTOR: `${catalogSrvUrl}/catalogue`,
-  ADD_CATALOG: `${catalogSrvUrl}/catalogue`,
+  GET_ALL_COLLECTOR: `${catalogSrvUrl}/listCollector`,
+  ADD_CATALOG: `${catalogSrvUrl}/addCollector`,
   GET_FOLDER_TREE: `${catalogSrvUrl}/listFolderTree`,
   ADD_COLLECTOR_TO_LIBRARY: `${catalogSrvUrl}/addCollectorToLibrary`,
   GET_LIBRARY_TREE: `${catalogSrvUrl}/listLibraryTree`,
-  ADD_DASHBOARD_TO_COLLECTOR: `${catalogSrvUrl}/dashboard/addToCollector`,
+  ADD_DASHBOARD_TO_COLLECTOR: `${catalogSrvUrl}/addDashboardToCollector`,
   DELETE_DASHBOARD: `${catalogSrvUrl}`,
   REMOVE_COLLECTOR: `${catalogSrvUrl}/removeCollector`,
   DELETE_LIBRARY: `${catalogSrvUrl}/deleteCollector`,

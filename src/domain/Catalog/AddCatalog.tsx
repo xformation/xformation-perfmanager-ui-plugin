@@ -75,9 +75,6 @@ export class AddCatalog extends React.Component<any, any> {
         console.log("Data is adding :: ", cd);
         await fetch(config.ADD_CATALOG + "?name=" + catalogName + "&type=" + catalogType + "&description=" + catalogDescription, {
             method: 'post',
-            headers: new Headers({
-                "X-Requested-By": "me"
-            })
         }).then(response => response.json())
             .then(response => {
                 console.log('response: ', response);
