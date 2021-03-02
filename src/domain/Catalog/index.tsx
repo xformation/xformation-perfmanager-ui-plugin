@@ -56,6 +56,9 @@ export class Catalog extends React.Component<any, any> {
     }
 
     async componentWillMount() {
+        this.getCatalogs();
+    }
+    getCatalogs=async()=>{
         this.setState({
             isApiCalled: true
         });
@@ -76,7 +79,9 @@ export class Catalog extends React.Component<any, any> {
             isApiCalled: false
         });
     }
-
+    refreshCatalog=async ()=>{
+                this.getCatalogs(); 
+    }
     _displayCatalogBox() {
         const catalogBox = this.state.displayCatalogData.map((val: any, key: any) => {
             return (
@@ -296,7 +301,7 @@ export class Catalog extends React.Component<any, any> {
                 <AddLibraryPopup ref={this.addlibraryRef} />
                 <PreviewDashboard ref={this.previewdashboardRef} />
                 <AddDashboardToCollectorPopup ref={this.addDashboardToCollectorRef} />
-                <AddCatalog ref={this.addCatalogRef} />
+                <AddCatalog refreshCatalog={this.refreshCatalog} displayCatalogData={state.displayCatalogData} ref={this.addCatalogRef} />
             </div>
         );
     }

@@ -58,13 +58,13 @@ export class AddCatalog extends React.Component<any, any> {
             });
             return;
         }
-
-        if (!catalogType || catalogType == '') {
+        if (!catalogType) {
             this.setState({
                 severity: config.SEVERITY_ERROR,
                 message: "Please select catalog type",
                 isAlertOpen: true,
             });
+            return;
         }
         console.log("Cataloge Name = " + catalogName + ", Cataloge Type = " + catalogType + ", catalog description = " + catalogDescription);
 
@@ -78,12 +78,15 @@ export class AddCatalog extends React.Component<any, any> {
         }).then(response => response.json())
             .then(response => {
                 console.log('response: ', response);
+                let refreshCatalog=this.props.refreshCatalog;
+                refreshCatalog();
                 if (response != null) {
                     console.log("ok");
                     this.setState({
                         severity: config.SEVERITY_SUCCESS,
                         message: config.ADD_CATALOGUE_SUCCESS_MESSAGE,
                         isAlertOpen: true,
+                        modal: !this.state.modal,
                     });
                 } else {
                     console.log("Not ok");
@@ -136,7 +139,7 @@ export class AddCatalog extends React.Component<any, any> {
                         </div>
                         <div className="form-group text-right">
                             <a className="gray-button" onClick={this.closeModel}>Cancel</a>
-                            <a className="blue-button m-r-0" onClick={this.addDashboard}>Add  Dashboard</a>
+                            <a className="blue-button m-r-0" onClick={this.addDashboard}>Add  Catalog</a>
                         </div>
                     </div>
                 </ModalBody>
