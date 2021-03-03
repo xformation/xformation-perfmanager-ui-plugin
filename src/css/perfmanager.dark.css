@@ -707,15 +707,15 @@ a:hover {
   font-weight: 500;
   line-height: 16px;
   color: #3b4859;
-  padding-bottom: 15px;
-  min-height: 40px;
+  padding-bottom: 0px;
+  min-height: 30px;
 }
 .perfmanager-dashboard-container
   .categories-boxes
   .category-box
   .category-add-link
   a {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   line-height: 16px;
   color: #2a9ce7;
@@ -845,24 +845,24 @@ a:hover {
   margin-bottom: 0;
 }
 
-.perfmanager-dashboard-container .catalog-form-group .general-heading {
+.catalog-form-group .general-heading {
   display: block;
   padding-bottom: 5px;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-heading input {
+.catalog-form-group .general-heading input {
   display: inline-block;
   vertical-align: top;
   margin-top: 5px;
   cursor: pointer;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-heading span {
+.catalog-form-group .general-heading span {
   display: inline-block;
   padding-left: 15px;
   padding-top: 3px;
   vertical-align: top;
   cursor: pointer;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-heading h4 {
+.catalog-form-group .general-heading h4 {
   display: inline-block;
   font-size: 15px;
   font-weight: 500;
@@ -873,18 +873,18 @@ a:hover {
   padding-top: 2px;
 }
 
-.perfmanager-dashboard-container .catalog-form-group .general-logs {
+.catalog-form-group .general-logs {
   padding-left: 30px;
   padding-top: 0px;
   padding-bottom: 5px;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-logs input {
+.catalog-form-group .general-logs input {
   display: inline-block;
   vertical-align: top;
   margin-top: 5px;
   cursor: pointer;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-logs span {
+.catalog-form-group .general-logs span {
   display: inline-block;
   padding-left: 15px;
   padding-top: 3px;
@@ -895,7 +895,7 @@ a:hover {
   line-height: 22px;
   color: #3b4859;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-logs h4 {
+.catalog-form-group .general-logs h4 {
   display: inline-block;
   font-size: 15px;
   font-weight: 500;
@@ -905,7 +905,7 @@ a:hover {
   padding-left: 15px;
   padding-top: 2px;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-logs .data-table {
+.catalog-form-group .general-logs .data-table {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -914,38 +914,19 @@ a:hover {
   background-color: #ffffff;
   width: 100%;
 }
-.perfmanager-dashboard-container
-  .catalog-form-group
-  .general-logs
-  .data-table
-  tr
-  td {
+.catalog-form-group .general-logs .data-table tr td {
   padding: 3px 0px;
 }
-.perfmanager-dashboard-container
-  .catalog-form-group
-  .general-logs
-  .data-table
-  tr
-  td
-  input {
+.catalog-form-group .general-logs .data-table tr td input {
   margin-top: 6px;
 }
-.perfmanager-dashboard-container
-  .catalog-form-group
-  .general-logs
-  .data-table
-  .general-heading {
+.catalog-form-group .general-logs .data-table .general-heading {
   padding-bottom: 0;
 }
-.perfmanager-dashboard-container
-  .catalog-form-group
-  .general-logs
-  .data-table
-  .general-logs {
+.catalog-form-group .general-logs .data-table .general-logs {
   padding-bottom: 0;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-logs .aws-bg {
+.catalog-form-group .general-logs .aws-bg {
   background-color: #3d71aa;
   color: #ffffff;
   padding: 2px 10px;
@@ -953,7 +934,7 @@ a:hover {
   border-radius: 5px;
   margin: 0 2px;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-logs .amazon-bg {
+.catalog-form-group .general-logs .amazon-bg {
   background-color: #8a2eb8;
   color: #ffffff;
   padding: 2px 10px;
@@ -961,10 +942,7 @@ a:hover {
   border-radius: 5px;
   margin: 0 2px;
 }
-.perfmanager-dashboard-container
-  .catalog-form-group
-  .general-logs
-  .cloudwatch-bg {
+.catalog-form-group .general-logs .cloudwatch-bg {
   background-color: #bf1b00;
   color: #ffffff;
   padding: 2px 10px;
@@ -972,7 +950,7 @@ a:hover {
   border-radius: 5px;
   margin: 0 2px;
 }
-.perfmanager-dashboard-container .catalog-form-group .general-logs .logs-bg {
+.catalog-form-group .general-logs .logs-bg {
   background-color: #4c7a3f;
   color: #ffffff;
   padding: 2px 10px;
@@ -980,10 +958,7 @@ a:hover {
   border-radius: 5px;
   margin: 0 2px;
 }
-.perfmanager-dashboard-container
-  .catalog-form-group
-  .general-logs
-  .monitorigartist-bg {
+.catalog-form-group .general-logs .monitorigartist-bg {
   background-color: #3b4859;
   color: #ffffff;
   padding: 2px 10px;
@@ -992,11 +967,11 @@ a:hover {
   margin: 0 2px;
 }
 
-.perfmanager-dashboard-container .catalog-form-group .collapse:not(.show) {
+.catalog-form-group .collapse:not(.show) {
   display: none;
 }
 
-.perfmanager-dashboard-container .catalog-form-group .collapsing {
+.catalog-form-group .collapsing {
   position: relative;
   height: 0;
   overflow: hidden;

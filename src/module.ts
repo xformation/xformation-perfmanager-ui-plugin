@@ -1,13 +1,4 @@
-import {
-  Dashboard,
-  ManageDashboard,
-  Catalog,
-  Collection,
-  CollectionView,
-  Library,
-  NewCatalog,
-  CreateNewDashboard
-} from "./ui";
+import { Dashboard, Catalog, Collection, CollectionView, Library } from "./ui";
 import { ConfigCtrl } from "./ConfigCtrl";
 
 // import { loadPluginCss } from '@grafana/runtime';
@@ -23,14 +14,4 @@ export function loadPluginCss() {
 
 loadPluginCss();
 
-export {
-  ConfigCtrl,
-  Dashboard,
-  ManageDashboard,
-  Catalog,
-  Collection,
-  CollectionView,
-  Library,
-  NewCatalog,
-  CreateNewDashboard
-};
+export { ConfigCtrl, Dashboard, Catalog, Collection, CollectionView, Library };

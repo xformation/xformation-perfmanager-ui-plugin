@@ -205,7 +205,7 @@ export class AddLibraryPopup extends React.Component<any, any> {
 
         }
         retData.push(
-            <div>
+            <>
                 <div className="general-heading">
                     <input type="checkbox" checked={folder.isChecked} className="checkbox" onClick={(e) => this.onClickCheckbox(e, [...indexArr])} />
                     <span onClick={() => this.onClickOpenSubFolderArr([...indexArr])}><img src={openFolderIcon} alt="" /></span>
@@ -220,7 +220,7 @@ export class AddLibraryPopup extends React.Component<any, any> {
                         </div>
                     </div>
                 </Collapse>
-            </div>
+            </>
         );
         return retData;
     }
