@@ -92,7 +92,7 @@ export class Catalog extends React.Component<any, any> {
                                 <img src={categoryImage} alt="" />
                             </div>
                         </div>
-                        <div className="col-lg-3 col-md-3 col-sm-12">
+                        <div className="col-lg-9 col-md-9 col-sm-12">
                             <div className="category-name">{val.catalogName}</div>
                             <div className="category-name">{val.type}</div>
                             <div className="category-add-link">
