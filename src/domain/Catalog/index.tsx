@@ -58,7 +58,7 @@ export class Catalog extends React.Component<any, any> {
     async componentWillMount() {
         this.getCatalogs();
     }
-    getCatalogs=async()=>{
+    getCatalogs = async () => {
         this.setState({
             isApiCalled: true
         });
@@ -79,27 +79,26 @@ export class Catalog extends React.Component<any, any> {
             isApiCalled: false
         });
     }
-    refreshCatalog=async ()=>{
-                this.getCatalogs(); 
+    refreshCatalog = async () => {
+        this.getCatalogs();
     }
     _displayCatalogBox() {
         const catalogBox = this.state.displayCatalogData.map((val: any, key: any) => {
             return (
                 <div className="category-box" onClick={() => this.openCatalogDetail(key, val)}>
                     <div className="row">
-                        <div className="col-lg-4 col-md-4 col-sm-12 p-r-0">
+                        <div className="col-lg-3 col-md-3 col-sm-12 p-r-0">
                             <div className="category-image confit-image">
                                 <img src={categoryImage} alt="" />
                             </div>
                         </div>
-                        <div className="col-lg-8 col-md-8 col-sm-12">
+                        <div className="col-lg-9 col-md-9 col-sm-12">
                             <div className="category-name">{val.catalogName}</div>
                             <div className="category-name">{val.type}</div>
                             <div className="category-add-link">
                                 <a onClick={e => this.onClickaAddDashboardToCollector(e, val.catalogName, val.id)}>Add Dashboard To Catalog</a>
                                 <a onClick={e => this.onClickAddLibrary(e, val.catalogName, val.id)}>Add Catalog To library</a>
                                 <a onClick={this.onClickPreviewDashboard}>Preview Dashboard</a>
-
                             </div>
                         </div>
                     </div>
@@ -209,7 +208,7 @@ export class Catalog extends React.Component<any, any> {
         this.setState({
             catalogType: catalogType,
         });
-        
+
         if (!(catalogType == '') && !(catalogType == 'ALL')) {
             console.log("before filter :: ", catalogs);
             let displayCatalogData = catalogs.filter((d: any) => d.type === catalogType);
@@ -218,7 +217,7 @@ export class Catalog extends React.Component<any, any> {
             this.setState({
                 displayCatalogData: displayCatalogData,
             });
-        }else if(catalogType == 'ALL'){
+        } else if (catalogType == 'ALL') {
             this.setState({
                 displayCatalogData: catalogs,
             });

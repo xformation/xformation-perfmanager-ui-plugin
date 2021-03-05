@@ -26,13 +26,6 @@
     },
     {
       "type": "page",
-      "name": "ManageDashboard",
-      "addToNav": false,
-      "defaultNav": false,
-      "component": "ManageDashboard"
-    },
-    {
-      "type": "page",
       "name": "Catalog",
       "addToNav": false,
       "defaultNav": false,
@@ -58,20 +51,6 @@
       "addToNav": false,
       "defaultNav": false,
       "component": "CollectionView"
-    },
-    {
-      "type": "page",
-      "name": "NewCatalog",
-      "addToNav": false,
-      "defaultNav": false,
-      "component": "NewCatalog"
-    },
-    {
-      "type": "page",
-      "name": "CreateNewDashboard",
-      "addToNav": false,
-      "defaultNav": false,
-      "component": "CreateNewDashboard"
     }
   ],
   "dependencies": {

@@ -117,7 +117,7 @@ export class AddCatalog extends React.Component<any, any> {
             <Modal isOpen={state.modal} toggle={this.closeModel} className="modal-container perfmanager-modal-container">
                 <AlertMessage handleCloseAlert={this.handleCloseAlert} open={state.isAlertOpen} severity={state.severity} msg={state.message}></AlertMessage>
                 {/* <ModalHeader toggle={this.closeModel}>{this.state.catalogName} </ModalHeader> */}
-                <ModalBody style={{ height: 'calc(75vh - 110px)', overflowY: 'auto', overflowX: "hidden" }}>
+                <ModalBody style={{ height: 'calc(48vh - 0px)', overflowY: 'auto', overflowX: "hidden" }}>
                     <div className="catalog-form-group">
                         <div className="form-group">
                             <label htmlFor="catalogName">Catalog Name:</label>
@@ -137,7 +137,7 @@ export class AddCatalog extends React.Component<any, any> {
                             <label htmlFor="catalogDescription">Catalog Description:</label>
                             <textarea name="catalogDescription" className="input-group-text" id="catalogDescription" onChange={this.onChange} value={state.catalogDescription}></textarea>
                         </div>
-                        <div className="form-group text-right">
+                        <div className="form-group p-b-0 text-right">
                             <a className="gray-button" onClick={this.closeModel}>Cancel</a>
                             <a className="blue-button m-r-0" onClick={this.addDashboard}>Add  Catalog</a>
                         </div>
