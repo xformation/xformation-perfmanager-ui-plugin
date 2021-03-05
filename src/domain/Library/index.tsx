@@ -169,23 +169,23 @@ export class Library extends React.Component<any, any> {
                                     </Rbac>
                                 }
                                 {
-                                    item.isFolder ?
-                                        <Rbac parentName={config.PARENT_NAME} childName="library-index-tbl-ellipsisbtn">
-                                            <button className="btn btn-link" id={`PopoverFocus-${item.id}`}>
-                                                <i className="fa fa-ellipsis-h"></i>
-                                            </button>
-                                            <UncontrolledPopover trigger="legacy" placement="bottom" target={`PopoverFocus-${item.id}`}>
-                                                <PopoverBody>
-                                                    {/* <Link className=" " to={`${config.basePath}/alltickets?guid=` + item.id+"&alertName="+alert.name}>Create Ticket</Link> */}
-                                                    <Link className=" " to="#">Create Ticket</Link>
-                                                    <Link className=" " to="#">Silence</Link>
-                                                </PopoverBody>
-                                            </UncontrolledPopover>
-                                        </Rbac>
-                                        :
-                                        <Link to={`/dashboard/import?id=${item.id}&isFolder=${!item.isFolder}`} className="btn btn-link popover-link" id="PopoverFocus">
+                                    item.type=="catalogue" &&
+                                    <>
+                                        <button className="btn btn-link" id={`PopoverFocus-${item.id}`}>
+
                                             <i className="fa fa-ellipsis-h"></i>
-                                        </Link>
+                                        </button>
+                                        <UncontrolledPopover trigger="legacy" placement="bottom" target={`PopoverFocus-${item.id}`}>
+                                            <PopoverBody>
+                                                <Rbac parentName={config.PARENT_NAME} childName="allalerts-index-alerttbl-createticketbtn">
+                                                    <Link className=" "to={`/dashboard/import?id=${item.id}&isFolder=false&type=${item.type}`}>Import All Dashborads</Link>
+                                                </Rbac>
+                                                {/* <Rbac parentName={config.PARENT_NAME} childName="allalerts-index-alerttbl-silencebtn">
+                                                    <Link className=" " to="#">Silence</Link>
+                                                </Rbac> */}
+                                            </PopoverBody>
+                                        </UncontrolledPopover>
+                                    </>
                                 }
                             </div>
                         </td>
@@ -247,9 +247,22 @@ export class Library extends React.Component<any, any> {
                                 <button onClick={() => this.deleteDashboard(dashboard)} className="btn btn-link">
                                     <i className="fa fa-trash"></i>
                                 </button>
-                                <Link to={`/dashboard/import?id=${dashboard.id}&isFolder=false`} className="btn btn-link popover-link" id="PopoverFocus">
+                                {/* <Link to={`/dashboard/import?id=${dashboard.id}&isFolder=false`} className="btn btn-link popover-link" id="PopoverFocus">
                                     <i className="fa fa-ellipsis-h"></i>
-                                </Link>
+                                </Link> */}
+                                <button className="btn btn-link" id={`PopoverFocus-${dashboard.id}`}>
+                                    <i className="fa fa-ellipsis-h"></i>
+                                </button>
+                                <UncontrolledPopover trigger="legacy" placement="bottom" target={`PopoverFocus-${dashboard.id}`}>
+                                    <PopoverBody>
+                                        <Rbac parentName={config.PARENT_NAME} childName="allalerts-index-alerttbl-createticketbtn">
+                                            <Link className=" " to={`/dashboard/import?id=${dashboard.id}&isFolder=false&type=${dashboard.type}`}>Import Dashborad</Link>
+                                        </Rbac>
+                                        {/* <Rbac parentName={config.PARENT_NAME} childName="allalerts-index-alerttbl-silencebtn">
+                                            <Link className=" " to="#">Silence</Link>
+                                        </Rbac> */}
+                                    </PopoverBody>
+                                </UncontrolledPopover>
                             </div>
                         </div>
                         <Collapse isOpen={dashboard.open}>
