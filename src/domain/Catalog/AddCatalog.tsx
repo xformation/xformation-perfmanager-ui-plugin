@@ -48,7 +48,7 @@ export class AddCatalog extends React.Component<any, any> {
         });
     }
 
-    addDashboard = async () => {
+    addCatalog = async () => {
         const { catalogName, catalogType, catalogDescription } = this.state;
         if (!catalogName) {
             this.setState({
@@ -86,7 +86,7 @@ export class AddCatalog extends React.Component<any, any> {
                         severity: config.SEVERITY_SUCCESS,
                         message: config.ADD_CATALOGUE_SUCCESS_MESSAGE,
                         isAlertOpen: true,
-                        modal: !this.state.modal,
+
                     });
                 } else {
                     console.log("Not ok");
@@ -96,11 +96,17 @@ export class AddCatalog extends React.Component<any, any> {
                         isAlertOpen: true,
                     });
                 }
-
+                setTimeout(()=>{
+                    this.setState({
+                        isAlertOpen:false,
+                        modal: !this.state.modal,
+                    });
+                },
+                    3000
+                  );
             });
+            
     }
-
-
     handleCloseAlert = (e: any) => {
         this.setState({
             isAlertOpen: false
@@ -139,7 +145,7 @@ export class AddCatalog extends React.Component<any, any> {
                         </div>
                         <div className="form-group p-b-0 text-right">
                             <a className="gray-button" onClick={this.closeModel}>Cancel</a>
-                            <a className="blue-button m-r-0" onClick={this.addDashboard}>Add  Catalog</a>
+                            <a className="blue-button m-r-0" onClick={this.addCatalog}>Add  Catalog</a>
                         </div>
                     </div>
                 </ModalBody>

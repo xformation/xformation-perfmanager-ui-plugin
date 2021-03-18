@@ -8,6 +8,7 @@ import categoryImage from '../../img/category-image1.png';
 import collapseToggleIcon from '../../img/config-collapse-icon1.png';
 import { AddLibraryPopup } from './AddLibraryPopup';
 import { AddDashboardToCollectorPopup } from './AddDashboardToCollectorPopup'
+import { EditToCollectorPopup } from './EditToCollectorPopup'
 import { PreviewDashboard } from './PreviewDashboard';
 import { RestService } from '../_service/RestService';
 import Rbac from './../../components/Rbac'
@@ -18,6 +19,7 @@ export class Catalog extends React.Component<any, any> {
     breadCrumbs: any;
     addlibraryRef: any;
     addDashboardToCollectorRef: any;
+    editToCollectorRef: any;
     addCatalogRef: any;
     previewdashboardRef: any;
     constructor(props: any) {
@@ -51,6 +53,7 @@ export class Catalog extends React.Component<any, any> {
         ];
         this.addlibraryRef = React.createRef();
         this.addDashboardToCollectorRef = React.createRef();
+        this.editToCollectorRef = React.createRef();
         this.previewdashboardRef = React.createRef();
         this.addCatalogRef = React.createRef();
     }
@@ -69,11 +72,11 @@ export class Catalog extends React.Component<any, any> {
                         catalogs: response,
                         displayCatalogData: response
                     });
-                    console.log("Catalog response : ", response);
+               
                 }
             );
         } catch (err) {
-            console.log("Loading catalog failed. Error: ", err);
+           
         }
         this.setState({
             isApiCalled: false
@@ -82,19 +85,29 @@ export class Catalog extends React.Component<any, any> {
     refreshCatalog = async () => {
         this.getCatalogs();
     }
+    
     _displayCatalogBox() {
+        
         const catalogBox = this.state.displayCatalogData.map((val: any, key: any) => {
+            console.log("data all :: ",val);
             return (
-                <div className="category-box" onClick={() => this.openCatalogDetail(key, val)}>
+                <div className="category-box" onClick={() => this.openCatalogDetail(key,val)}>
+                  
                     <div className="row">
                         <div className="col-lg-3 col-md-3 col-sm-12 p-r-0">
                             <div className="category-image confit-image">
                                 <img src={categoryImage} alt="" />
                             </div>
                         </div>
+                   
+                      
+                    
                         <div className="col-lg-9 col-md-9 col-sm-12">
+                        <a style={{ float: 'right' }} onClick={e => this.onClickaEditToCollector(e, val)}><i className="fa fa-edit"></i></a>
+                        <a style={{ float: 'right' , marginRight:'9px' }} ><i className="fa fa-refresh"></i></a>
                             <div className="category-name">{val.catalogName}</div>
                             <div className="category-name">{val.type}</div>
+                           
                             <div className="category-add-link">
                                 <a onClick={e => this.onClickaAddDashboardToCollector(e, val.catalogName, val.id)}>Add Dashboard To Catalog</a>
                                 <a onClick={e => this.onClickAddLibrary(e, val.catalogName, val.id)}>Add Catalog To library</a>
@@ -108,22 +121,27 @@ export class Catalog extends React.Component<any, any> {
         return catalogBox;
     }
 
-    openCatalogDetail(i: any, arryData: any) {
-        console.log(arryData);
+    openCatalogDetail(key: any, val: any) {
+        
+        console.log("data get :: ",val);
         let displaycataloddescriptionData = [];
-        if (arryData.catalog_detail != '' && arryData.catalog_detail) {
-            for (let i = 0; i < arryData.catalog_detail.length; i++) {
-                if (arryData.catalog_detail[i].open == true) {
-                    arryData.catalog_detail[i].open = false;
+        
+        if (val.catalog_detail != '' && val.catalog_detail) {
+            for (let i = 0; i < val.catalog_detail.length; i++) {
+                if (val.catalog_detail[i].open == true) {
+                    val.catalog_detail[i].open = false;
+                   
                 }
-                displaycataloddescriptionData.push(arryData.catalog_detail[i]);
+               
+                displaycataloddescriptionData.push(val.catalog_detail[i]);
+              
             }
             this.setState({
-                currentOpenIndex: i,
+                currentOpenIndex: key,
                 currentCatalogDisplayData: displaycataloddescriptionData,
-                selectedCatalogName: arryData.catalogName,
-                selectedCatalogDescription: arryData.catalogDescription,
-                selectedCatalogId: arryData.id,
+                selectedCatalogName: val.catalogName,
+                selectedCatalogDescription: val.catalogDescription,
+                selectedCatalogId: val.id,
             })
         } else {
             this.setState({
@@ -136,29 +154,40 @@ export class Catalog extends React.Component<any, any> {
         }
     }
 
-    openCatalogDescription(index: any) {
+    openCatalogDescription(val: any) {
+        
         let opencatalog = [];
+
         for (let i = 0; i < this.state.currentCatalogDisplayData.length; i++) {
-            if (i === index) {
+         
+            if (i === val) {
                 this.state.currentCatalogDisplayData[i].open = !this.state.currentCatalogDisplayData[i].open;
             } else {
                 this.state.currentCatalogDisplayData[i].open = false;
             }
             opencatalog.push(this.state.currentCatalogDisplayData[i]);
         }
+       
         this.setState({
             catalogDetail: opencatalog
+            
         })
+        
     };
 
     catalogdetail() {
         let displayData = this.state.currentCatalogDisplayData;
+      
         const catalog = displayData.map((val: any, key: any) => {
+           
             return (
+                
                 <div className="config-collapse" key={key}>
+                     <p>Hello</p>
                     <div className='collapse-toggle ' onClick={() => this.openCatalogDescription(key)}>
                         <span><img src={collapseToggleIcon} alt="" /></span>
                         <p>{val.title}</p>
+                        <p>Hello</p>
                     </div>
                     <Collapse isOpen={val.open}>
                         <div className="collapse-card-body">
@@ -194,13 +223,16 @@ export class Catalog extends React.Component<any, any> {
     onClickaAddDashboardToCollector = (e: any, selectedCatalogName: any, selectedCatalogId: any) => {
         this.addDashboardToCollectorRef.current.toggle(selectedCatalogName, selectedCatalogId);
     };
+    onClickaEditToCollector = (e: any, selectedCagtalog:any) => {
+        this.editToCollectorRef.current.toggle(selectedCagtalog);
+    };
 
     onClickPreviewDashboard = (e: any) => {
         this.previewdashboardRef.current.toggle();
     };
     onClickCreateCatalog = () => {
         this.addCatalogRef.current.toggle();
-    }
+    };
     onClickFilterByCatalogType = (e: any) => {
         const { catalogs } = this.state;
         const catalogType = e.target.value;
@@ -281,14 +313,17 @@ export class Catalog extends React.Component<any, any> {
                                     <div className="right-config-box">
                                         <div className="config-heading">
                                             <h5>{this.state.selectedCatalogName}</h5>
+                                        
                                             <div className="category-add-link float-right">
                                                 <a onClick={e => this.onClickAddLibrary(e, this.state.selectedCatalogName, this.state.selectedCatalogId)}>Add Catalog To library</a>
                                             </div>
                                         </div>
                                         <div className="publishing-text">
+                                            
                                             <p>{this.state.selectedCatalogDescription}</p>
                                         </div>
                                         <div className="catalog-collapse">
+                                            <p>hello</p>
                                             {this.catalogdetail()}
                                         </div>
                                     </div>
@@ -300,6 +335,7 @@ export class Catalog extends React.Component<any, any> {
                 <AddLibraryPopup ref={this.addlibraryRef} />
                 <PreviewDashboard ref={this.previewdashboardRef} />
                 <AddDashboardToCollectorPopup ref={this.addDashboardToCollectorRef} />
+                <EditToCollectorPopup getCatalogs={this.getCatalogs} ref={this.editToCollectorRef} />
                 <AddCatalog refreshCatalog={this.refreshCatalog} displayCatalogData={state.displayCatalogData} ref={this.addCatalogRef} />
             </div>
         );

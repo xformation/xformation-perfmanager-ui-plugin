@@ -17,11 +17,14 @@ export const config = {
   DELETE_LIBRARY: `${catalogSrvUrl}/deleteCollector`,
   REMOVE_FOLDER: `${catalogSrvUrl}/removeFolder`,
   PARENT_NAME: "xformation-perfmanager-ui-plugin",
-
+  UPDATE_CATALOG: `${catalogSrvUrl}/updateCollector`,
+  GET_CATALOG_BY_ID: `${catalogSrvUrl}/getCatalogById`,
   PERMS_LIST_ALL: `${securitySrvUrl}/security/permissions/listAll`,
-
+  UPDATE_CATALOG_SUCCESS: "Catalogue updated successfully",
   SEVERITY_ERROR: "error",
   SEVERITY_SUCCESS: "success",
+  SEVERITY_NONE: "none",
+  UPDATE_CATALOG_ERROR: " Catalog Can't update",
   SERVER_ERROR_MESSAGE:
     "Operation failed. Please check service logs for details",
   ADD_COLLECTOR_TO_LIBRARY_SUCCESS_MESSAGE:
@@ -29,5 +32,6 @@ export const config = {
   DASHBOARD_LIST_API: "/api/search",
   ADD_DASHBOARD_TO_COLLECTOR_SUCCESS_MESSAGE:
     "Dashborad is successfully added to collector",
-  ADD_CATALOGUE_SUCCESS_MESSAGE: "Catalogue added successfully"
+  ADD_CATALOGUE_SUCCESS_MESSAGE: "Catalogue added successfully",
+  UPDATE_CATALOG_SUCCESS_MESSAGE: "Alert updated successfully"
 };
