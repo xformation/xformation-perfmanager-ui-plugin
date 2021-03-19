@@ -31,24 +31,24 @@ export class AddLibraryPopup extends React.Component<any, any> {
 
     async componentWillMount() {
         this.setState({
-          isApiCalled: true
+            isApiCalled: true
         });
         console.log("Add Lib popup");
-        try{
+        try {
             await RestService.getData(config.GET_FOLDER_TREE, null, null).then(
-              (response: any) => {
-                  console.log("Folder Ary::",response);
-                  this.setState({
-                    folderArray: response,
-                  });
-              }
+                (response: any) => {
+                    console.log("Folder Ary::", response);
+                    this.setState({
+                        folderArray: response,
+                    });
+                }
             );
-        }catch (err) {
+        } catch (err) {
             console.log("Loading folder tree failed. Error: ", err);
         }
         this.setState({
             isApiCalled: false
-        }); 
+        });
     }
 
     toggle = (selectedCatalogName: any, selectedCatalogId: any) => {
@@ -281,6 +281,15 @@ export class AddLibraryPopup extends React.Component<any, any> {
                     isAlertOpen: true,
                 });
             }
+            setTimeout(() => {
+                this.setState({
+                    isAlertOpen: false,
+                    modal: !this.state.modal,
+                });
+            },
+                3000
+            );
+
 
         });
     }

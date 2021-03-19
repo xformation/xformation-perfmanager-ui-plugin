@@ -33,5 +33,14 @@ export const config = {
   ADD_DASHBOARD_TO_COLLECTOR_SUCCESS_MESSAGE:
     "Dashborad is successfully added to collector",
   ADD_CATALOGUE_SUCCESS_MESSAGE: "Catalogue added successfully",
-  UPDATE_CATALOG_SUCCESS_MESSAGE: "Alert updated successfully"
+  UPDATE_CATALOG_SUCCESS_MESSAGE: "Alert updated successfully",
+  UPDATE_DASHBOARD_MONITOR_FLAG: "Dashborad Monitor flag is updated",
+  UPDATE_DASHBOARD_MONITOR_FLAG_URL: `${catalogSrvUrl}/updateDashbordMonitorFlag`,
+  CATALOG_SUB_TYPES_JSON: {
+    AWS: ["VPS", "VPN", "RSD"],
+    AZURE: ["X", "Y", "Z"],
+    GCP: ["A", "B", "C"],
+    Synectiks: ["P", "Q", "R"]
+  },
+  DASHBOARD_TYPES: ["KPI", "LOG", "SCHEMA"]
 };

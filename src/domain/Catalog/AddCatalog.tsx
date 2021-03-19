@@ -17,6 +17,14 @@ export class AddCatalog extends React.Component<any, any> {
             isAlertOpen: false,
             message: null,
             severity: null,
+            showSubTypesFlag: false,
+            selectedSubType: "",
+            subTypesJson: {
+                "AWS": ["VPS", "VPN", "RSD"],
+                "AZURE": ["X", "Y", "Z"],
+                "GCP": ["A", "B", "C"],
+                "Synectiks": ["P", "Q", "R"]
+            }
         };
 
         this.onChange = this.onChange.bind(this);
@@ -49,7 +57,7 @@ export class AddCatalog extends React.Component<any, any> {
     }
 
     addCatalog = async () => {
-        const { catalogName, catalogType, catalogDescription } = this.state;
+        const { catalogName, catalogType,selectedSubType, catalogDescription } = this.state;
         if (!catalogName) {
             this.setState({
                 severity: config.SEVERITY_ERROR,
@@ -73,12 +81,12 @@ export class AddCatalog extends React.Component<any, any> {
         cd.append("type", catalogType);
         cd.append("description", catalogDescription);
         console.log("Data is adding :: ", cd);
-        await fetch(config.ADD_CATALOG + "?name=" + catalogName + "&type=" + catalogType + "&description=" + catalogDescription, {
+        await fetch(config.ADD_CATALOG + "?name=" + catalogName + "&type=" + catalogType +"&subType=" + selectedSubType + "&description=" + catalogDescription, {
             method: 'post',
         }).then(response => response.json())
             .then(response => {
                 console.log('response: ', response);
-                let refreshCatalog=this.props.refreshCatalog;
+                let refreshCatalog = this.props.refreshCatalog;
                 refreshCatalog();
                 if (response != null) {
                     console.log("ok");
@@ -96,16 +104,16 @@ export class AddCatalog extends React.Component<any, any> {
                         isAlertOpen: true,
                     });
                 }
-                setTimeout(()=>{
+                setTimeout(() => {
                     this.setState({
-                        isAlertOpen:false,
+                        isAlertOpen: false,
                         modal: !this.state.modal,
                     });
                 },
                     3000
-                  );
+                );
             });
-            
+
     }
     handleCloseAlert = (e: any) => {
         this.setState({
@@ -114,8 +122,26 @@ export class AddCatalog extends React.Component<any, any> {
     }
     onChangeSelectBox = (e: any) => {
         this.setState({
-            catalogType: e.target.value
+            catalogType: e.target.value,
+            showSubTypesFlag: !this.state.showSubTypesFlag
         });
+    }
+    onChangeSelectSubTypeBox = (e: any) => {
+        this.setState({
+            selectedSubType: e.target.value,
+        });
+    }
+    showSubTypes = (type:any) => {
+        let catalogSubTypesJson = JSON.parse(JSON.stringify(config.CATALOG_SUB_TYPES_JSON))
+        let types=catalogSubTypesJson[type]
+        var options = [];
+        for (let i in types) {
+            options.push(
+                <option key={types[i]} onChange={this.onChangeSelectSubTypeBox} value={types[i]}>{types[i]}</option>
+            
+            );
+        }
+        return options;
     }
     render() {
         const state = this.state;
@@ -139,6 +165,15 @@ export class AddCatalog extends React.Component<any, any> {
                                 <option key="Synectiks" value="Synectiks">Synectiks</option>
                             </select>
                         </div>
+                        {state.showSubTypesFlag &&
+                            <div className="form-group">
+                                <label htmlFor="CatalogType">Catalog Sub Type</label>
+                                <select className="form-control primary-select-box" name="catalogType" id="catalogType" value={state.selectedSubType} onChange={this.onChangeSelectSubTypeBox}>
+                                    <option value="">select catalog sub type</option>
+                                    {this.showSubTypes(state.catalogType)}
+                                </select>
+                            </div>
+                        }
                         <div className="form-group">
                             <label htmlFor="catalogDescription">Catalog Description:</label>
                             <textarea name="catalogDescription" className="input-group-text" id="catalogDescription" onChange={this.onChange} value={state.catalogDescription}></textarea>

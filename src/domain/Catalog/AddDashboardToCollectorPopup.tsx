@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { config } from '../../config';
 import AlertMessage from '../../components/AlertMessage';
+import { colors } from '@material-ui/core';
 
 export class AddDashboardToCollectorPopup extends React.Component<any, any> {
     constructor(props: any) {
@@ -19,6 +20,7 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
             isAlertOpen: false,
             message: null,
             severity: null,
+            type:null,
         };
 
         this.onChange = this.onChange.bind(this);
@@ -65,11 +67,19 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
         fileReder.readAsText(e.target.files[0]);
     }
     addDashboard= async ()=>{
-            const { catalogId,dashboardName,dashboardJson,dashboardDoc,jsonFile}=this.state;
+            const { catalogId,dashboardName,type,dashboardJson,dashboardDoc,jsonFile}=this.state;
             if (!dashboardName) {
                 this.setState({
                     severity: config.SEVERITY_ERROR,
                     message: "Dashboard  name is mandatory. Please provide some value for dashborad name",
+                    isAlertOpen: true,
+                });
+                return;
+            }
+            if (!type) {
+                this.setState({
+                    severity: config.SEVERITY_ERROR,
+                    message: "Dashboard  type is mandatory. Please provide some value for dashborad type",
                     isAlertOpen: true,
                 });
                 return;
@@ -127,6 +137,7 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                 cd.append("dashboardJson", dashboardJson);
             }
             cd.append("dashboardDoc", dashboardDoc);
+            cd.append("type",type);
             await fetch(config.ADD_DASHBOARD_TO_COLLECTOR, {
                 method: 'post',
                 body: cd,
@@ -148,6 +159,14 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                         isAlertOpen: true,
                     });
                 }
+                setTimeout(() => {
+                    this.setState({
+                        isAlertOpen: false,
+                        modal: !this.state.modal,
+                    });
+                },
+                    3000
+                );
     
             });
         }
@@ -157,6 +176,20 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
         this.setState({
             isAlertOpen: false
         })
+    }
+    showDashboardTypes=()=>{
+        let dashboradTypes=config.DASHBOARD_TYPES;
+        console.log("Dashboard Types ::: ",dashboradTypes);
+        let dashboradOptions=[];
+        for(let i in dashboradTypes){
+            dashboradOptions.push(
+                <>
+                <input type="radio" placeholder="" name="type" id="type" value={dashboradTypes[i]} onChange={this.onChange} className="input-group-radio" /> <span style={{color:'black'}}>&nbsp;&nbsp;&nbsp;{dashboradTypes[i]}&nbsp;&nbsp;&nbsp;</span>
+                </>
+            );
+        }
+        console.log("dashboradOptions::: ",dashboradOptions);
+        return dashboradOptions;
     }
 
     render() {
@@ -170,6 +203,10 @@ export class AddDashboardToCollectorPopup extends React.Component<any, any> {
                         <div className="form-group">
                             <label htmlFor="dashboardName">Dashboard Name:</label>
                             <input type="text" placeholder="" name="dashboardName" id="dashboardName" value={state.dashboardName} onChange={this.onChange} maxLength={255} className="input-group-text" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="dashboardName">Dashboard Type:</label>
+                            {this.showDashboardTypes()}
                         </div>
                         <div className="form-group">
                             <label htmlFor="dashboardJson">Dashboard Json:</label>

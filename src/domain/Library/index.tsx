@@ -13,6 +13,7 @@ import { TopMenu } from "./../Catalog/TopMenu";
 import Rbac from '../../components/Rbac';
 import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
 import { ViewDashboardJsonPopup } from './ViewDashboardJsonPopup'
+
 export class Library extends React.Component<any, any> {
     breadCrumbs: any;
     unimplementedFeatureModalRef: any;
@@ -258,9 +259,9 @@ export class Library extends React.Component<any, any> {
                                         <Rbac parentName={config.PARENT_NAME} childName="allalerts-index-alerttbl-createticketbtn">
                                             <Link className=" " to={`/dashboard/import?id=${dashboard.id}&isFolder=false&type=${dashboard.type}`}>Import Dashborad</Link>
                                         </Rbac>
-                                        {/* <Rbac parentName={config.PARENT_NAME} childName="allalerts-index-alerttbl-silencebtn">
-                                            <Link className=" " to="#">Silence</Link>
-                                        </Rbac> */}
+                                        <Rbac parentName={config.PARENT_NAME} childName="allalerts-index-alerttbl-silencebtn">
+                                            <Link className=" " onClick={()=>this.updateDashbordMonitorFlag(dashboard.id)} to="#">Select For Monitring</Link>
+                                        </Rbac> 
                                     </PopoverBody>
                                 </UncontrolledPopover>
                             </div>
@@ -276,7 +277,38 @@ export class Library extends React.Component<any, any> {
         }
         return retData;
     };
+    updateDashbordMonitorFlag= async (id:any)=>{
+        await fetch(config.UPDATE_DASHBOARD_MONITOR_FLAG_URL + "?id=" + id + "&monitorFlag=yes", {
+            method: 'put',
+        }).then(response => response.json())
+            .then(response => {
+                console.log('response: ', response);
+                if (response != null) {
+                    console.log("ok");
+                    this.setState({
+                        severity: config.SEVERITY_SUCCESS,
+                        message: config.UPDATE_DASHBOARD_MONITOR_FLAG,
+                        isAlertOpen: true,
 
+                    });
+                } else {
+                    console.log("Not ok");
+                    this.setState({
+                        severity: config.SEVERITY_ERROR,
+                        message: config.SERVER_ERROR_MESSAGE,
+                        isAlertOpen: true,
+                    });
+                }
+                setTimeout(() => {
+                    this.setState({
+                        isAlertOpen: false,
+                    });
+                },
+                    3000
+                );
+            });
+
+    }
     openDashboard = (index: any) => {
         let { dashboardList } = this.state;
         dashboardList[index].open = !dashboardList[index].open;
