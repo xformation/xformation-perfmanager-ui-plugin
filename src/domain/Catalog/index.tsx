@@ -231,7 +231,8 @@ export class Catalog extends React.Component<any, any> {
         this.previewdashboardRef.current.toggle();
     };
     onClickCreateCatalog = () => {
-        this.addCatalogRef.current.toggle();
+        //this.addCatalogRef.current.toggle();
+        this.previewdashboardRef.current.toggle();
     };
     onClickFilterByCatalogType = (e: any) => {
         const { catalogs } = this.state;
@@ -277,7 +278,7 @@ export class Catalog extends React.Component<any, any> {
                             <Rbac parentName={config.PARENT_NAME} childName="commancomponent-createbuttoncomponent-createbtn">
                                 <a href="#" style={{ float: 'left' }} onClick={this.onClickCreateCatalog} className="blue-button m-r-0 min-width-inherit width-auto create-btn">
                                     Add Catalogue
-                                    </a>
+                                </a>
                             </Rbac>
                         </div>
                         <div className="text-right">
