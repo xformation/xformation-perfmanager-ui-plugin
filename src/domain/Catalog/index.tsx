@@ -231,8 +231,7 @@ export class Catalog extends React.Component<any, any> {
         this.previewdashboardRef.current.toggle();
     };
     onClickCreateCatalog = () => {
-        //this.addCatalogRef.current.toggle();
-        this.previewdashboardRef.current.toggle();
+        this.addCatalogRef.current.toggle();
     };
     onClickFilterByCatalogType = (e: any) => {
         const { catalogs } = this.state;
