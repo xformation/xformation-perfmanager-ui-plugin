@@ -149,7 +149,7 @@ export class AddCatalog extends React.Component<any, any> {
             <Modal isOpen={state.modal} toggle={this.closeModel} className="modal-container perfmanager-modal-container">
                 <AlertMessage handleCloseAlert={this.handleCloseAlert} open={state.isAlertOpen} severity={state.severity} msg={state.message}></AlertMessage>
                 {/* <ModalHeader toggle={this.closeModel}>{this.state.catalogName} </ModalHeader> */}
-                <ModalBody style={{ height: 'calc(48vh - 0px)', overflowY: 'auto', overflowX: "hidden" }}>
+                <ModalBody style={{ height: 'calc(55vh - 0px)', overflowY: 'auto', overflowX: "hidden" }}>
                     <div className="catalog-form-group">
                         <div className="form-group">
                             <label htmlFor="catalogName">Catalog Name:</label>
