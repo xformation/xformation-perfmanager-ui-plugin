@@ -13,6 +13,7 @@ import { TopMenu } from './../Catalog/TopMenu';
 import Rbac from '../../components/Rbac';
 import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
 import { ViewDashboardJsonPopup } from './ViewDashboardJsonPopup';
+import { PLUGIN_BASE_URL } from '../../constants';
 
 export class Library extends React.Component<any, any> {
   breadCrumbs: any;
@@ -41,7 +42,7 @@ export class Library extends React.Component<any, any> {
       },
       {
         label: 'Manage Dashboard',
-        route: `${config.basePath}/managedashboard`,
+        route: `${PLUGIN_BASE_URL}/managedashboard`,
       },
       {
         label: 'Library',

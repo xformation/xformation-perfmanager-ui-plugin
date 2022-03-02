@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Breadcrumbs } from '../Breadcrumbs';
-import { config } from '../../config';
 import awsLogo from '../../img/aws.png';
 import microsoftAzureLogo from '../../img/microsoftazure.png';
 import gcpLogo from '../../img/google-cloud.png';
@@ -12,6 +11,7 @@ import tagIcon from '../../img/tag.png';
 import openFolderIcon from '../../img/open-folder.png';
 import { Collapse } from 'reactstrap';
 import { TopMenu } from '../Catalog/TopMenu';
+import { PLUGIN_BASE_URL } from '../../constants';
 
 export class Collection extends React.Component<any, any> {
   breadCrumbs: any;
@@ -217,7 +217,7 @@ export class Collection extends React.Component<any, any> {
       },
       {
         label: 'Dashboard',
-        route: `${config.basePath}/managedashboard`,
+        route: `${PLUGIN_BASE_URL}/managedashboard`,
       },
       {
         label: 'Collection',

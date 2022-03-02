@@ -12,6 +12,7 @@ import { RestService } from '../_service/RestService';
 import Rbac from './../../components/Rbac';
 import { TopMenu } from './TopMenu';
 import { AddCatalog } from './AddCatalog';
+import { PLUGIN_BASE_URL } from '../../constants';
 
 export class Catalog extends React.Component<any, any> {
   breadCrumbs: any;
@@ -42,7 +43,7 @@ export class Catalog extends React.Component<any, any> {
       },
       {
         label: 'Dashboard',
-        route: `${config.basePath}/managedashboard`,
+        route: `${PLUGIN_BASE_URL}/managedashboard`,
       },
       {
         label: 'Catalog',

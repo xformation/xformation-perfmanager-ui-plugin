@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { config } from '../../config';
+import { PLUGIN_BASE_URL } from '../../constants';
 import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
 
 export class TopMenu extends React.Component<any, any> {
@@ -20,7 +20,7 @@ export class TopMenu extends React.Component<any, any> {
       <div className="row">
         <div className="col-lg-12 col-md-12 col-sm-12">
           <div className="float-right common-right-btn">
-            <Link to={`${config.basePath}/managedashboard`} className="white-button m-r-0">
+            <Link to={`${PLUGIN_BASE_URL}/managedashboard`} className="white-button m-r-0">
               <i className="fa fa-arrow-circle-left"></i>&nbsp;&nbsp; Back
             </Link>
           </div>

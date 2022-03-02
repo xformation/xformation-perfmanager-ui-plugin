@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs';
-import { config } from '../../config';
+import { PLUGIN_BASE_URL } from '../../constants';
 
 export class Rules extends React.Component<any, any> {
     alertsRulesData: any;
@@ -18,7 +18,7 @@ export class Rules extends React.Component<any, any> {
             },
             {
                 label: "Perfmanager",
-                route: `${config.basePath}/dashboard`
+                route: `${PLUGIN_BASE_URL}/dashboard`
             },
             {
                 label: "Rules",

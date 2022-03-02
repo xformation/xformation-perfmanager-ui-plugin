@@ -5,6 +5,8 @@ import { Collapse } from 'reactstrap';
 import { TopMenu } from '../Catalog/TopMenu';
 import Rbac from '../../components/Rbac';
 import { UnimplementedFeaturePopup } from '../../components/UnimplementedFeaturePopup';
+import { PLUGIN_BASE_URL } from '../../constants';
+
 export class CollectionView extends React.Component<any, any> {
   breadCrumbs: any;
   unimplementedFeatureModalRef: any;
@@ -61,7 +63,7 @@ export class CollectionView extends React.Component<any, any> {
       },
       {
         label: 'Manage Dashboard',
-        route: `${config.basePath}/managedashboard`,
+        route: `${PLUGIN_BASE_URL}/managedashboard`,
       },
       {
         label: 'Collection View',
