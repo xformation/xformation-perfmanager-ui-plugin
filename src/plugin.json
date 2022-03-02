@@ -1,20 +1,20 @@
 {
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "type": "app",
   "name": "Performance Manager",
   "id": "xformation-perfmanager-ui-plugin",
   "info": {
     "description": "Performance Manager",
     "author": {
-      "name": "Synectiks",
-      "url": "https://xformation.com"
+      "name": "Synectiks"
     },
-    "keywords": ["cms", "panel"],
-    "version": "1.0",
-    "updated": "2018-10-12",
     "logos": {
-      "small": "img/alert_logo.svg",
-      "large": "img/alert_logo.svg"
-    }
+      "small": "img/asset_logo.svg",
+      "large": "img/asset_logo.svg"
+    },
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
   },
   "includes": [
     {
@@ -22,39 +22,44 @@
       "name": "Dashboard",
       "addToNav": false,
       "defaultNav": false,
-      "component": "Dashboard"
+      "role": "Admin",
+      "path": "/a/%PLUGIN_ID%"
     },
     {
       "type": "page",
       "name": "Catalog",
       "addToNav": false,
       "defaultNav": false,
-      "component": "Catalog"
+      "role": "Admin",
+      "path": "/a/%PLUGIN_ID%?path=catalog"
     },
     {
       "type": "page",
       "name": "Collection",
       "addToNav": false,
       "defaultNav": false,
-      "component": "Collection"
+      "role": "Admin",
+      "path": "/a/%PLUGIN_ID%?path=collection"
     },
     {
       "type": "page",
       "name": "Library",
       "addToNav": false,
       "defaultNav": false,
-      "component": "Library"
+      "role": "Admin",
+      "path": "/a/%PLUGIN_ID%?path=library"
     },
     {
       "type": "page",
       "name": "CollectionView",
       "addToNav": false,
       "defaultNav": false,
-      "component": "CollectionView"
+      "role": "Admin",
+      "path": "/a/%PLUGIN_ID%?path=collectionview"
     }
   ],
   "dependencies": {
-    "grafanaVersion": "3.x 4.x 5.x",
+    "grafanaDependency": ">=8.0.0",
     "plugins": []
   }
 }
